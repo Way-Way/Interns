@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Omb Labs Photo Categorization Interface Client Side</title>
+<!-- BETA VERSION, please wait until 22 GMT 20-5-13 -->
+<style type="text/css">
+body {background-color:yellow;}
+p {color:blue;}
+</style>
+<script>
+var nbImage = 0;
+var sizeArray = 0; // is uneecessary, we can get this info dynamically
+var bottomhreshold = 30;
+var thresholdTagSent = 20;
+
+var nbPhotos = 50;
+//var offsetPhotos = sizeArray - thresholdTagSent;
+//var offsetPhotos = 175;
+//var city = "Manhattan";
+var city = "New York";
+
+var stateWaitingForRequest = 0;
+
+//var queryUrl = "http://www.reutenauer.eu/~victor/wayway/alpha.api/tag.php";
+//var dirRootScript = "http://www.reutenauer.eu/~victor/wayway/alpha.api/";
+
+var dirRootScript = "http://ec2-54-228-90-171.eu-west-1.compute.amazonaws.com/alpha.api/";
+
+var queryUrl = "tag.php";
+var whoami = "";
+var debuggerEmail = "inscription@moilerat.com";
+
+var listIdToTag = new Array();
+var listIdsTagged = new Array();
+var nbPhotoTagged = 0;
+var nbPhotoToTag = 0;
+var sessionStartTime = 0;
+
+// used for quality check
+var reloadPhoto = false;
+
+var listIdTaggedToSent = new Array();
+var listTagToSend = new Array();
+
+var listIdSent = new Array();
+var listTagSent = new Array();
+
+var offlineMode = 0;
+
+
+
+var stateWaitingForRequestSendTag = 0;
+var listIdTaggedToSentBackup = new Array();
+var listTagToSendBackup = new Array();
+
+
+function insert(id, url)
+{
+    nbPhotoToTag++;
+    listIdToTag.push(id);
+
+    var x = document.getElementById('photoTable').insertRow(sizeArray);
+    var c = x.insertCell(0);
+    c.innerHTML="<img src='images/feel.png' alt='people height='300' width='300' onClick=tagPhotoFeel(" + id + ") onmouseover=\"this.style.cursor='pointer'\"  />";
+// hand instead of pointer
+    x.id = id;
+    c = x.insertCell(0);
+    c.innerHTML="<img src='images/food.png' alt='people height='300' width='300' onClick=tagPhotoFood(" + id + ") onmouseover=\"this.style.cursor='pointer'\"  />";
+    c = x.insertCell(0);
+    c.innerHTML="<img src='images/people.png' alt='people height='300' width='300' onClick=tagPhotoPeople(" + id + ")  onmouseover=\"this.style.cursor='pointer'\"   />";
+//c.innerHTML="<img src='images/people.png' alt='people height='300' width='300' onClick='alert(click)'  />";
+    c = x.insertCell(0);
+    c.innerHTML="<img src='" + url + "' alt='Photo Instagram Photo Id : " + id + " ' height='300' width='300' onerror=tagPhotoToDelete(" + id + ") />";
+    c = x.insertCell(0);
+    c.innerHTML=id;
+    sizeArray++;
+}
+
+function getXMLHttpRequest()
+{
+    var xhr = null;
+
+    if (window.XMLHttpRequest || window.ActiveXObject) {
+        if (window.ActiveXObject) {
+            try {
+                xhr = new ActiveXObject("Msxml2.XMLHTTP");
+            } catch(e) {
+                xhr = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+        } else {
+            xhr = new XMLHttpRequest();
+        }
+    }
+    else
+    {
+        alert("Votre navigateur ne supporte pas l'objet XMLHTTPRequest...");
+        return null;
+    }
+
+    return xhr;
+}
+
+function addPhotosFromServer(oData)
+{
+    if (!offlineMode)
+        addPhotos(oData);
+}
+
+function addPhotos(oData)
+{
+logError = "";
+try
+{
+logError += "1., ";
+    var photos = oData[0];
+logError += "2., ";
+    photos = oData.firstChild;
+logError += "3., ";
+    //response.getElementsByTagName(”ProductDetails”)[0];
+
+    var photoIterator = photos.firstChild;
+logError += "3.1, ";
+
+
+    var size = photos.childElementCount;
+logError += "3.2, ";
+   var listChildren = photos.children;
+
+//alert("Adding Photos 3");
+    for (var i = 0; i < size; i++)
+    {
+
+        // this line is crashing on iphone...
+        var photo = listChildren[i];
+logError += "Adding Photos 3.4";
+//var photoChildrens = photo.children;
+logError += "Adding Photos 3.45";
+//        var id = photo.children[0].firstChild.data;
+var id  = photo.firstElementChild.firstChild.data;
+
+//alert("Adding Photos 3.5");
+
+//        var url = photo.children[1].firstChild.data;
+var url = photo.lastElementChild.firstChild.data;
+//alert("Adding Photos 4");
+
+        if (listIdToTag.indexOf(id) == -1)
+        {
+            insert(id, url);
+        }
+    }
+
+    stateWaitingForRequest = 0;
+}
+catch (e)
+{
+    alert(e);
+    alert (" listChildren.length : " + listChildren.length);
+    alert(" size : " + size);
+    alert(" photos.children.pop() : " + photos.children.pop());
+
+
+    alert("Bug in adding Photos : " + logError);
+}
+
+}
+
+function getPhotos(callback, specificQuery)
+{
+    var xhr = getXMLHttpRequest();
+
+    xhr.onreadystatechange = function()
+    {
+        if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0))
+        {
+            callback(xhr.responseXML);
+        }
+    };
+
+    var offsetPhotos = sizeArray > thresholdTagSent ?  sizeArray - thresholdTagSent : 0;
+
+    var completeUrl = queryUrl + "?xml&whoami=" + whoami + "&getPhotos&nbPhotos=" + nbPhotos + "&offsetPhotos=" + offsetPhotos + "&city=" + city;
+
+//    if (whoami == debuggerEmail)
+//        alert(completeUrl);
+
+    //completeUrl = "listPhotos.xml";
+    if (specificQuery != "")
+        completeUrl += "&" + specificQuery;
+
+    xhr.open("GET", completeUrl, true);
+    xhr.send(null);
+}
+
+
+
+function getPhotosOnStart()
+{
+    var url = window.location.search;
+    var found = url.indexOf("?");
+    var specificQuery = found == 0 ? url.substr(1) : "";
+    if (found == 0)
+        reloadPhoto = false;
+
+    getPhotos(addPhotosFromServer, specificQuery);
+}
+
+function setEmailUser(oData)
+{
+    //response.getElementsByTagName(”ProductDetails”)[0];    
+
+    var textBox = document.getElementById("whoami_textbox");
+
+    //var email = oData.getElementsByTagName("email");
+    var email = oData.firstChild;
+
+//    alert(email.firstChild.data);
+
+    textBox.value = email.firstChild.data;
+}
+
+function getEmailUser()
+{
+    var xhr = getXMLHttpRequest();
+
+    xhr.onreadystatechange = function()
+    {
+        if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0))
+        {
+            setEmailUser(xhr.responseXML);
+        }
+    };
+
+    var completeUrl = queryUrl + "?xml&whoami=";
+
+    xhr.open("GET", completeUrl, true);
+    xhr.send(null);
+}
+
+function updateEmailUser()
+{
+//    var textBox = document.getElementById(textBoxId);
+    var textBox = document.getElementById("whoami_textbox");
+    whoami = textBox.value;
+
+    var xhr = getXMLHttpRequest();
+    var completeUrl = queryUrl + "?xml&whoami=" + whoami;
+
+    xhr.open("GET", completeUrl, true);
+    xhr.send(null);
+}
+
+function tagPhotoPeople(id)
+{
+    if (whoami == '')
+    {
+        alert("Please set your username if you want you're work to be recorded smoothly !");
+    }
+
+    nbPhotoToTag--;
+    nbPhotoTagged++;
+    tagPhoto(id, 0, true);
+}
+
+function tagPhotoFood(id)
+{
+    if (whoami == '')
+    {
+        alert("Please set your username if you want you're work to be recorded smoothly !");
+    }
+
+    nbPhotoToTag--;
+    nbPhotoTagged++;
+    tagPhoto(id, 1, true);
+}
+
+function tagPhotoFeel(id)
+{
+    if (whoami == '')
+    {
+        alert("Please set your username if you want you're work to be recorded smoothly !");
+    }
+
+    nbPhotoToTag--;
+    nbPhotoTagged++;
+    tagPhoto(id, 2, true);
+}
+
+function tagPhotoToDelete(id)
+{
+    nbPhotoToTag--;
+    tagPhoto(id, 3, false);
+}
+
+function buildCSVFromArray(list)
+{
+	var csvString = "";
+	for (var i = 0; i < list.length; i++)
+    {
+    	if (i > 0)
+    	{
+    		csvString += ",";
+    	}
+    	csvString += list[i];
+    }
+    return csvString;
+}
+
+function buildRequestToCheckTagWasDone()
+{
+	var completeUrl = "?xml&whoami=" + whoami;
+
+    completeUrl += "&ids=" + buildCSVFromArray(listIdSent) + "&tags=" + buildCSVFromArray(listTagSent);
+
+    listIdSent = [];
+    listTagSent = [];
+
+    var retVal = dirRootScript + queryUrl + completeUrl;
+
+//    if (whoami == debuggerEmail)
+//        alert(retVal);
+
+    document.getElementById('list').innerHTML = '<ul>' + retVal + '</ul>';
+
+    return retVal;
+}
+
+function sendTags()
+{
+	var xhr = getXMLHttpRequest();
+    var completeUrl = queryUrl + "?xml&whoami=" + whoami;
+    var ids = "";
+    var tags = "";
+    for (var i = 0; i < listIdTaggedToSent.length; i++)
+    {
+    	listIdSent.push(listIdTaggedToSent[i]);
+        listTagSent.push(listTagToSend[i]);
+    }
+
+    //completeUrl += "&id=" + id + "&tag=" + tag;
+    completeUrl += "&ids=" + buildCSVFromArray(listIdTaggedToSent) + "&tags=" + buildCSVFromArray(listTagToSend);
+
+//    if (whoami == debuggerEmail)
+//        alert(completeUrl);
+
+    //alert(dirRootScript + completeUrl);
+
+    // on pourrait recuperer l'erreur ! VR TODO 20-5-13
+    listIdTaggedToSent = [];
+    listTagToSend = [];
+
+    xhr.open("GET", completeUrl, true);
+    xhr.send(null);
+}
+
+function tagPhoto(id, tag, startSession)
+{
+	listIdTaggedToSent.push(id);
+	listTagToSend.push(tag);
+
+    var table = document.getElementById('photoTable');
+    var rowCount = table.rows.length;
+
+    for (var i = 0; i < rowCount; i++)
+    {
+    	var row = table.rows[i];
+    	if (row.id == id)
+    	{
+    		table.deleteRow(i);
+    		rowCount--;
+    		i--;
+    		sizeArray--;
+    		break;
+        }
+    }
+    listIdsTagged.push(id);
+    if (sizeArray < bottomhreshold && stateWaitingForRequest != 1 && reloadPhoto && !offlineMode)
+    {
+    	//alert("Getting Photos !");
+    	stateWaitingForRequest = 1;
+    	getPhotos(addPhotosFromServer, "");
+    }
+
+    if (listIdTaggedToSent.length > thresholdTagSent)
+    {
+    	sendTags();
+    }
+
+    if (startSession) // just for tag 4
+        updateCounter();
+}
+
+function formatTime(date)
+{
+    return date.getHours() + "h " + date.getMinutes() + "mn " + date.getSeconds() + "s ";
+}
+
+function formatMilliSecondToTime(duration)
+{
+    var hours = Math.floor(duration / (3600 * 1000));
+    duration = duration - hours * 3600 * 1000 ;
+    var minutes = Math.floor(duration / (60 * 1000));
+    duration = duration - minutes * 60 * 1000 ; 
+    var second =  Math.floor(duration / 1000);
+    return hours + "h " + minutes + "mn " + second + "s" ;
+}
+
+function gotEmailConfirmation(oData)
+{
+    var email = oData.getElementsByTagName("email");
+    email = oData.firstChild;
+    var body = email.getElementsByTagName("body");
+    body = email.lastChild;
+    alert(body.firstChild.data);
+}
+
+function stopSession()
+{
+	sendTags();
+    if (sessionStartTime != 0)
+    {
+        alert ("Session will stop !");
+        startStopSession();
+    }
+}
+
+function startStopSession()
+{
+    var buttonStartStopSession = document.getElementById("start_stop_session");
+    var session_start = document.getElementById("session_start");
+
+    if (sessionStartTime == 0)
+    {
+        // start session
+       buttonStartStopSession.value = "Stop Session And Get Report By Mail";
+       var now = new Date();
+       sessionStartTime = now.valueOf();
+
+       session_start.value = formatTime(now);
+
+       updateCounter();
+    }
+    else
+    {
+    	sendTags();
+
+        var now = new Date();
+        var sessionStopTime = now.valueOf();
+        // end session and send email
+        var xhr = getXMLHttpRequest();
+
+        var completeUrl = queryUrl + "?xml&whoami=" + whoami + "&session_start=" + sessionStartTime + "&session_end=" + sessionStopTime +"&nbPhotoTagged=" + nbPhotoTagged ;
+        xhr.onreadystatechange = function()
+        {
+            if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0))
+            {
+                gotEmailConfirmation(xhr.responseXML);
+            }
+        };
+
+        xhr.open("GET", completeUrl, true);
+        xhr.send(null);
+
+        nbPhotoTagged = 0;
+        sessionStartTime = 0;
+        var buttonStartStopSession = document.getElementById("start_stop_session");
+        buttonStartStopSession.value = "Start Session";   
+
+        var request = buildRequestToCheckTagWasDone();
+        var htmlLinkToTag = document.getElementById("linkToTag");
+        htmlLinkToTag.value = request;
+
+        session_start.value = "";      
+    }
+}
+
+function updateCounter()
+{
+    if (sessionStartTime == 0)
+    {
+        startStopSession();
+    }
+
+    // nbImageTagged will be tagged outside
+    var photo_counter = document.getElementById("photo_counter");
+    photo_counter.value = nbPhotoTagged;
+
+    var now = new Date();
+
+    var time_counter = document.getElementById("time_counter");
+    time_counter.value = formatMilliSecondToTime(now.valueOf() - sessionStartTime); 
+
+    var photo_to_tag_counter = document.getElementById("numberPhotoToTagCell");
+    photo_to_tag_counter.value = nbPhotoToTag;
+
+}
+
+function checkOffLineMode()
+{
+    var url = window.location.search;
+    var found = url.indexOf("offline");
+    if (found != -1)
+    {
+        setOffLineMode();
+    }
+}
+
+function setOffLineMode()
+{
+	if (!offlineMode)
+	{
+		offlineMode = 1;
+		document.getElementById('list').innerHTML += '<ul>Offline Mode</ul>';
+		// clear table
+        var table = document.getElementById('photoTable');
+        while (table.rows.length > 0)
+        {
+            table.deleteRow(0);
+        }
+        sizeArray = 0;
+        nbPhotoToTag = 0;
+    }
+}
+
+
+</script>
+<script>
+  function handleFileSelect(evt)
+  {
+    var files = evt.target.files; // FileList object
+
+    // files is a FileList of File objects. List some properties.
+    var output = [];
+    for (var i = 0, f; f = files[i]; i++)
+    {
+      output.push('<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
+                  f.size, ' bytes, last modified: ',
+                  f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
+                  '</li>');
+    var reader = new FileReader();
+
+    reader.onloadend = function(evt)
+    {
+      if (evt.target.readyState == FileReader.DONE)
+      { // DONE == 2
+//          alert(evt.target.result);
+          var parser = new DOMParser();
+          var dom = parser.parseFromString (evt.target.result, "text/xml");
+          //var dom = new DOMDocument();
+          //dom.loadXML(evt.target.result);
+          setOffLineMode();
+          addPhotos(dom);
+      }
+    };
+
+//    reader.readAsDataURL(f);
+
+//    reader.readAsBinaryString(blob);
+
+      // Read in the image file as a data URL.
+      reader.readAsText(f);
+
+
+    }
+    document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
+
+  }
+
+</script>
+<script>
+// For drop zone (unused on 28-5-13, VR)
+  function handleFileSelectDropZone(evt) {
+    evt.stopPropagation();
+    evt.preventDefault();
+
+    var files = evt.dataTransfer.files; // FileList object.
+
+    // files is a FileList of File objects. List some properties.
+    var output = [];
+    for (var i = 0, f; f = files[i]; i++) {
+      output.push('<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
+                  f.size, ' bytes, last modified: ',
+                  f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
+                  '</li>');
+    }
+    document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
+  }
+
+  function handleDragOver(evt) {
+    evt.stopPropagation();
+    evt.preventDefault();
+    evt.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
+  }
+
+</script>
+</head>
+
+<body onunload=stopSession() >
+<a id="linkToTag" ></a>
+
+
+<input type="file" id="files" name="files[]" multiple />
+<!-- <output id="list"></output> -->
+
+<!-- <div id="drop_zone">Drop files here</div> -->
+
+<output id="list"></output>
+
+
+<table STYLE="position:absolute; TOP:35px; RIGHT:50px; WIDTH:50px; HEIGHT:50px" id="adminTable" >
+<tr>
+<td>
+Who are you :
+</td>
+</tr>
+<tr>
+<td>
+<!-- <input type="text" name="whoami_textbox" id="whoami_textbox" onchange="updateEmailUser()"  > -->
+
+
+<select  name="whoami_textbox" id="whoami_textbox" onchange="updateEmailUser()" >
+<option value='mr.sheikhsajjad@live.com' selected >mr.sheikhsajjad@live.com</option>
+<option value='thomas@omblabs.co' >thomas@omblabs.co</option>
+<option value='wajedkamal@gmail.com'   >wajedkamal@gmail.com</option>
+<option value='mdshahulnayeem@gmail.com'   >mdshahulnayeem@gmail.com</option>
+<option value='shadabrahman20@gmail.com'   >shadabrahman20@gmail.com</option>
+<option value='inscription@moilerat.com'   >inscription@moilerat.com</option>
+</select>
+
+</td>
+</tr>
+<tr>
+<td>
+Session Started at : <output id="session_start"   >
+</td>
+</tr>
+<tr>
+<td>
+Photo Counter : <output id="photo_counter"></output>
+<!--<input type="text" name="image_counter" id="photo_counter"   > -->
+</td>
+</tr>
+<tr>
+<td>
+Time Counter : <output id="time_counter"   >
+</td>
+</tr>
+<tr>
+<td>
+<input type="button" name="start_stop_session" id="start_stop_session" onclick=startStopSession() value="Start Session"  >
+</td>
+</tr>
+<tr>
+<td>
+Photo still in the page to be tagged : 
+<output id="numberPhotoToTagCell"></output>
+<!-- <input type="text" id="numberPhotoToTagCell"   > -->
+</td>
+</tr>
+</table>
+
+<a href='tag.php?nbFiles=10&nbPhotos=200' id='download' >Download photos for offline work</a>
+<a href='listPhotos/' id='folder'  >Folder Where Photo will be copied</a>
+
+<table id="photoTable" border="1">
+</table>
+<br>
+
+loading ... please use firefox
+
+</body>
+
+<script>
+
+checkOffLineMode();
+updateEmailUser();
+getPhotosOnStart();
+getEmailUser();
+
+var t=Math.round(new Date().getTime()/1000);
+document.getElementById('download').href += "&ts=" + t ;
+document.getElementById('folder').href += whoami + "_" + t ;
+
+
+document.getElementById('files').addEventListener('change', handleFileSelect, false);
+
+
+
+  // Setup the dnd listeners.
+//  var dropZone = document.getElementById('drop_zone');
+//  dropZone.addEventListener('dragover', handleDragOver, false);
+//  dropZone.addEventListener('drop', handleFileSelectDropZone, false);
+
+</script>
+</html>

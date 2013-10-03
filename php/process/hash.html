@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<title>Way Way : Hash a Place</title>
+	<link href="http://www.wayway.us/favicon.ico" rel="shortcut icon" type="image/x-icon">
+	<meta name="viewport" content="width=device-width">
+    <link href="site.css" rel="stylesheet" type="text/css">
+<script style="" src="index_files/commonutilmarker.js" charset="UTF-8" type="text/javascript"></script><script src="index_files/stats.js" charset="UTF-8" type="text/javascript"></script></head>
+    <body>
+        <div id="wrapper">
+
+    <header style="height: 160px">  
+    </header>
+
+Search Places
+<input type="search" id="search" name="search" multiple />
+        
+   <table id="places" border="1">
+   </table>
+
+    <!--
+    <div id="main">   
+        <div class="carouselContainer">  
+            <div class="carouselItem">
+                <div class="carouselImageContainer">
+                    <div class="carouselImage">
+                        <img src="index_files/half_map.gif" alt="classic map">
+                    </div>
+                    <div class="carouselImage dn">
+                        <img src="index_files/Trending_small_list.gif" alt="trending list">
+                        <img src="index_files/classic_small_list.gif" alt="classic list" class="dn">
+                    </div>
+                    <div class="carouselImage dn">
+                        <img src="index_files/Orlin_Food.gif" alt="food">
+                        <img src="index_files/Orlin_People.gif" alt="people" class="dn">
+                        <img src="index_files/Orlin_Atmosphere.gif" alt="atmosphere" class="dn">
+                    </div>
+                    <div class="carouselImage dn">                    
+                        <img src="index_files/detail_Ippudo.gif" alt="detail Ippudo">
+                    </div>
+                </div>
+                <div class="fl tac carouselMessagesContainer">
+                    <div class="fl" style="width:100%">
+                        <div class="fl tac">
+                            <img src="index_files/WayWay_Icon_iOS6.gif" alt="logo" style="width: 40px;">
+                        </div>
+                        <div class="fr" style="width: 380px">
+                            <img src="index_files/W-W.png" alt="logo" style="height: 50px; width: 373px;" class="fr">
+                        </div>
+                    </div>
+                    <div class="cb" style="height: 55px">&nbsp;</div>
+                    <div class="carouselMessages">
+                        <div>Every day, thousands of people share the places they love on social media, and Way Way gets it.</div>
+                        <div class="dn">Popularity and trending scores help you make a fast and solid decision about where to go next.</div>
+                        <div class="dn">Get an immediate feel of where you're headed by browsing through the venue's Instagram shots of food, people and atmosphere</div>
+                        <div class="dn">Look-up detailed information like <b>menu, address and phone numbers</b></div>
+                    </div>
+                    <div class="tac">
+                        <a class="lnkAppStore" target="_blank" href="https://itunes.apple.com/us/app/way-way-discover-places-everybody/id694189318?mt=8"><img src="index_files/app_store.gif" alt="app store"></a>
+                        <br>				
+                        <a target="_blank" href="https://www.facebook.com/pages/Way-Way/517697904961345"><img src="index_files/facebook.gif" alt="facebook" style="height: 40px; width: 40px;"></a>
+                        <a target="_blank" href="https://twitter.com/WayWayApp" style="margin-left: 20px;"><img src="index_files/twitter.gif" alt="twitter" style="height: 40px; width: 40px;"></a>
+                    </div>
+                </div>        
+            </div>
+        </div>
+        <div class="cb" style="height: 10px">&nbsp;</div>
+        <div class="carouselImagesState">
+            <a href="#"><img src="index_files/carousel_selected.gif"></a>
+            <a href="#"><img src="index_files/carousel_unselected.gif"></a>
+            <a href="#"><img src="index_files/carousel_unselected.gif"></a>
+            <a href="#"><img src="index_files/carousel_unselected.gif"></a> 
+        </div>
+    </div>
+-->
+
+            <div class="cb">&nbsp;</div>
+<footer class="tac">
+    <div>
+        <a href="http://www.wayway.us/Home/About">About</a>
+        <a href="http://www.wayway.us/Home/Privacy" style="margin-left: 20px;">Privacy</a>
+        <a href="http://www.wayway.us/Home/Terms" style="margin-left: 20px;">Terms</a>
+        <a href="http://www.wayway.us/Home/Jobs" style="margin-left: 20px;">Jobs</a>
+    </div>
+</footer>
+        </div>
+        <script type="text/javascript" src="index_files/jquery-1.js"></script>
+<script type="text/javascript" src="index_files/jquery-ui-1.js"></script>
+<script type="text/javascript" src="index_files/Common.js"></script>
+<script type="text/javascript" src="index_files/jquery.js"></script>
+<script type="text/javascript" src="index_files/js.js"></script><script src="index_files/main.js" type="text/javascript"></script>
+<script type="text/javascript" src="index_files/markerwithlabel_packed.js"></script>
+        
+<style type="text/css">
+    .carouselContainer, .carouselItem, .carouselImage img{height:505px;}
+    .carouselItem{ z-index: 1000;}
+    .carouselContainer {overflow: hidden;margin-left: 23%;}
+    .carouselImagesState{ clear: both;text-align: center}
+    .carouselMessages{height: 304px;display: table-cell; vertical-align: middle;font-size: 1.3em;}
+    .lnkAppStore { }
+    .carouselImageContainer, .carouselImage, .carouselItem img{ width: 242px;}
+    .carouselImageContainer{float: left}
+    .carouselItem{ width: 100%;}
+    .carouselMessages, .carouselMessagesContainer{ width: 420px;}
+    .carouselMessagesContainer{ margin-left: 70px;}
+    .carouselMessagesContainer .lnkAppStore img{width: 148px;height: 50px;}
+    #main {margin-top: -105px;padding-bottom: 15px;}
+</style>
+
+    <script type="text/javascript">
+// http://api-staging.omblabs.org/api/v1/search/autocomplete?query=Balthazar
+// http://api-staging.omblabs.org/api/v1/places/94757
+
+var sizeArray = 0;
+
+function getXMLHttpRequest()
+{
+    var xhr = null;
+
+    if (window.XMLHttpRequest || window.ActiveXObject) {
+        if (window.ActiveXObject) {
+            try {
+                xhr = new ActiveXObject("Msxml2.XMLHTTP");
+            } catch(e) {
+                xhr = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+        } else {
+            xhr = new XMLHttpRequest();
+        }
+    }
+    else
+    {
+        alert("Votre navigateur ne supporte pas l'objet XMLHTTPRequest...");
+        return null;
+    }
+
+    return xhr;
+}
+
+function getListPlaces(callback, url)
+{
+    var xhr = getXMLHttpRequest();
+
+    xhr.onreadystatechange = function()
+    {
+        if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0))
+        {
+            callback(xhr.responseText);
+        }
+    };
+
+    xhr.open("GET", url, true);
+    xhr.send(null);
+}
+
+    function appendPlace(oneJsonPlace)
+    {
+        var table = document.getElementById('places');
+        var id = oneJsonPlace.id;
+        var url = "http://api-staging.omblabs.org/api/v1/places/" + id;
+        var x = table.insertRow(sizeArray);        
+        x.id = id;
+        x.style="height: 50px;"
+        c = x.insertCell(0);
+        c.innerHTML="plop";
+
+        var c = x.insertCell(0);
+        c.innerHTML=oneJsonPlace.name;
+
+        sizeArray++;
+
+        getInfoHash(appendInfoHashTag, url, id);
+    }
+
+    function getInfoHash(callback, url, id)
+    {
+        var xhr = getXMLHttpRequest();
+
+        xhr.onreadystatechange = function()
+        {
+            if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0))
+            {
+                callback(xhr.responseText, id);
+            }
+        };
+
+        xhr.open("GET", url, true);
+        xhr.send(null);
+    }
+
+    function appendInfoHashTag(oneJsonInfoString, id)
+    {
+         var myInfo = eval('(' + oneJsonInfoString + ')');
+         var myHash = myInfo.hash_tags;
+         var table = document.getElementById('places');
+         var rowCount = table.rows.length;
+         for (var i = 0; i < rowCount; i++)
+         {
+             var row = table.rows[i];
+             if (row.id == id)
+             {
+                row.cells[1].innerHTML = JSON.stringify(myHash);
+                break;
+            }
+         }
+    }
+
+    function displayPlaces(jsonText)
+    {
+        var table = document.getElementById('places');
+        var rowCount = table.rows.length;
+
+        for (var i = 0; i < rowCount; i++)
+        {
+            table.deleteRow(0);
+        }
+        sizeArray = 0;
+
+         var myPlaces = eval('(' + jsonText + ')');
+        // var myPlaces = JSON.parse(jsonText, null);
+
+        for (var i = 0; i < myPlaces.length; i++)
+        {
+            if (myPlaces[i].type == "place")
+                appendPlace(myPlaces[i]);
+        }
+    }
+
+    
+
+    function autocomplete()
+    {
+        var str = document.getElementById('search').value;
+        var endPointSearch = "http://api-staging.omblabs.org/api/v1/search/autocomplete?query=" + str;
+        getListPlaces(displayPlaces, endPointSearch);
+    }
+
+    document.getElementById('search').addEventListener('change', autocomplete, false);
+    document.getElementById('search').addEventListener('click', autocomplete, false);
+
+
+//    alert(" args : " + window.location.search);
+//    alert(" page " + window.location.pathname);
+    </script>
+
+
+<div style="display: none;" id="overlay"></div><div style="display: none;" id="modal"><div id="content"></div><a id="close" href="#">close</a></div></body></html>

@@ -1,0 +1,6618 @@
+Array
+(
+    [whoami] => mr.sheikhsajjad@live.com
+    [nbPhotos] => 500
+    [nbFiles] => 20
+    [TBT] => 1
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+<a href='listPhotos/mr.sheikhsajjad@live.com_1370745774' >Please find the files here</a>SELECT ph.`photo_id`, ph.`url`  FROM `photos` ph, `user_photo_categorizations` upc  WHERE upc.`photo_id` = ph.`photo_id`  AND upc.`user_unique_id`='1277'  AND upc.`photo_tag_id`='5' SELECT ph.`photo_id`, ph.`url`  FROM `photos` ph, `user_photo_categorizations` upc  WHERE upc.`photo_id` = ph.`photo_id`  AND upc.`user_unique_id`='1277'  AND upc.`photo_tag_id`='5' SELECT ph.`photo_id`, ph.`url`  FROM `photos` ph, `user_photo_categorizations` upc  WHERE upc.`photo_id` = ph.`photo_id`  AND upc.`user_unique_id`='1277'  AND upc.`photo_tag_id`='5' SELECT ph.`photo_id`, ph.`url`  FROM `photos` ph, `user_photo_categorizations` upc  WHERE upc.`photo_id` = ph.`photo_id`  AND upc.`user_unique_id`='1277'  AND upc.`photo_tag_id`='5' SELECT ph.`photo_id`, ph.`url`  FROM `photos` ph, `user_photo_categorizations` upc  WHERE upc.`photo_id` = ph.`photo_id`  AND upc.`user_unique_id`='1277'  AND upc.`photo_tag_id`='5' SELECT ph.`photo_id`, ph.`url`  FROM `photos` ph, `user_photo_categorizations` upc  WHERE upc.`photo_id` = ph.`photo_id`  AND upc.`user_unique_id`='1277'  AND upc.`photo_tag_id`='5' SELECT ph.`photo_id`, ph.`url`  FROM `photos` ph, `user_photo_categorizations` upc  WHERE upc.`photo_id` = ph.`photo_id`  AND upc.`user_unique_id`='1277'  AND upc.`photo_tag_id`='5' SELECT ph.`photo_id`, ph.`url`  FROM `photos` ph, `user_photo_categorizations` upc  WHERE upc.`photo_id` = ph.`photo_id`  AND upc.`user_unique_id`='1277'  AND upc.`photo_tag_id`='5' SELECT ph.`photo_id`, ph.`url`  FROM `photos` ph, `user_photo_categorizations` upc  WHERE upc.`photo_id` = ph.`photo_id`  AND upc.`user_unique_id`='1277'  AND upc.`photo_tag_id`='5' SELECT ph.`photo_id`, ph.`url`  FROM `photos` ph, `user_photo_categorizations` upc  WHERE upc.`photo_id` = ph.`photo_id`  AND upc.`user_unique_id`='1277'  AND upc.`photo_tag_id`='5' SELECT ph.`photo_id`, ph.`url`  FROM `photos` ph, `user_photo_categorizations` upc  WHERE upc.`photo_id` = ph.`photo_id`  AND upc.`user_unique_id`='1277'  AND upc.`photo_tag_id`='5' SELECT ph.`photo_id`, ph.`url`  FROM `photos` ph, `user_photo_categorizations` upc  WHERE upc.`photo_id` = ph.`photo_id`  AND upc.`user_unique_id`='1277'  AND upc.`photo_tag_id`='5' SELECT ph.`photo_id`, ph.`url`  FROM `photos` ph, `user_photo_categorizations` upc  WHERE upc.`photo_id` = ph.`photo_id`  AND upc.`user_unique_id`='1277'  AND upc.`photo_tag_id`='5' SELECT ph.`photo_id`, ph.`url`  FROM `photos` ph, `user_photo_categorizations` upc  WHERE upc.`photo_id` = ph.`photo_id`  AND upc.`user_unique_id`='1277'  AND upc.`photo_tag_id`='5' SELECT ph.`photo_id`, ph.`url`  FROM `photos` ph, `user_photo_categorizations` upc  WHERE upc.`photo_id` = ph.`photo_id`  AND upc.`user_unique_id`='1277'  AND upc.`photo_tag_id`='5' SELECT ph.`photo_id`, ph.`url`  FROM `photos` ph, `user_photo_categorizations` upc  WHERE upc.`photo_id` = ph.`photo_id`  AND upc.`user_unique_id`='1277'  AND upc.`photo_tag_id`='5' SELECT ph.`photo_id`, ph.`url`  FROM `photos` ph, `user_photo_categorizations` upc  WHERE upc.`photo_id` = ph.`photo_id`  AND upc.`user_unique_id`='1277'  AND upc.`photo_tag_id`='5' SELECT ph.`photo_id`, ph.`url`  FROM `photos` ph, `user_photo_categorizations` upc  WHERE upc.`photo_id` = ph.`photo_id`  AND upc.`user_unique_id`='1277'  AND upc.`photo_tag_id`='5' SELECT ph.`photo_id`, ph.`url`  FROM `photos` ph, `user_photo_categorizations` upc  WHERE upc.`photo_id` = ph.`photo_id`  AND upc.`user_unique_id`='1277'  AND upc.`photo_tag_id`='5' SELECT ph.`photo_id`, ph.`url`  FROM `photos` ph, `user_photo_categorizations` upc  WHERE upc.`photo_id` = ph.`photo_id`  AND upc.`user_unique_id`='1277'  AND upc.`photo_tag_id`='5' </body>
+</html>
+Array
+(
+    [whoami] => mr.sheikhsajjad@live.com
+    [nbPhotos] => 500
+    [nbFiles] => 20
+    [TBT] => 1
+    [xml] => 1
+)
+PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/victor/public_html/wayway/alpha.api/tag.php:5) in /home/victor/public_html/wayway/alpha.api/tag.php on line 85
+<?xml version="1.0" encoding="UTF-8"?>
+<email>mr.sheikhsajjad@live.com</email>Array
+(
+    [whoami] => mr.sheikhsajjad@live.com
+    [nbPhotos] => 500
+    [nbFiles] => 20
+    [TBT] => 1
+    [xml] => 1
+)
+PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/victor/public_html/wayway/alpha.api/tag.php:5) in /home/victor/public_html/wayway/alpha.api/tag.php on line 85
+<?xml version="1.0" encoding="UTF-8"?>
+<email>mr.sheikhsajjad@live.com</email>Array
+(
+    [whoami] => mr.sheikhsajjad@live.com
+    [nbPhotos] => 500
+    [nbFiles] => 20
+    [TBT] => 1
+    [xml] => 1
+)
+PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/victor/public_html/wayway/alpha.api/tag.php:5) in /home/victor/public_html/wayway/alpha.api/tag.php on line 85
+<?xml version="1.0" encoding="UTF-8"?>
+<email>mr.sheikhsajjad@live.com</email>Array
+(
+    [whoami] => mr.sheikhsajjad@live.com
+    [nbPhotos] => 500
+    [nbFiles] => 20
+    [TBT] => 1
+    [xml] => 1
+)
+PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/victor/public_html/wayway/alpha.api/tag.php:5) in /home/victor/public_html/wayway/alpha.api/tag.php on line 85
+<?xml version="1.0" encoding="UTF-8"?>
+<email>mr.sheikhsajjad@live.com</email>Array
+(
+    [whoami] => mr.sheikhsajjad@live.com
+    [nbPhotos] => 500
+    [nbFiles] => 20
+    [TBT] => 1
+    [xml] => 1
+)
+PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/victor/public_html/wayway/alpha.api/tag.php:5) in /home/victor/public_html/wayway/alpha.api/tag.php on line 85
+<?xml version="1.0" encoding="UTF-8"?>
+<email>mr.sheikhsajjad@live.com</email>Array
+(
+    [whoami] => mr.sheikhsajjad@live.com
+    [nbPhotos] => 500
+    [nbFiles] => 20
+    [TBT] => 1
+    [xml] => 1
+)
+PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/victor/public_html/wayway/alpha.api/tag.php:5) in /home/victor/public_html/wayway/alpha.api/tag.php on line 85
+<?xml version="1.0" encoding="UTF-8"?>
+<email>mr.sheikhsajjad@live.com</email>Array
+(
+    [whoami] => mr.sheikhsajjad@live.com
+    [nbPhotos] => 500
+    [nbFiles] => 20
+    [TBT] => 1
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+<a href='listPhotos/mr.sheikhsajjad@live.com_1370817779' >Please find the files here</a>SELECT ph.`photo_id`, ph.`url`  FROM `photos` ph, `user_photo_categorizations` upc  WHERE upc.`photo_id` = ph.`photo_id`  AND upc.`user_unique_id`='1277'  AND upc.`photo_tag_id`='5' SELECT ph.`photo_id`, ph.`url`  FROM `photos` ph, `user_photo_categorizations` upc  WHERE upc.`photo_id` = ph.`photo_id`  AND upc.`user_unique_id`='1277'  AND upc.`photo_tag_id`='5' SELECT ph.`photo_id`, ph.`url`  FROM `photos` ph, `user_photo_categorizations` upc  WHERE upc.`photo_id` = ph.`photo_id`  AND upc.`user_unique_id`='1277'  AND upc.`photo_tag_id`='5' SELECT ph.`photo_id`, ph.`url`  FROM `photos` ph, `user_photo_categorizations` upc  WHERE upc.`photo_id` = ph.`photo_id`  AND upc.`user_unique_id`='1277'  AND upc.`photo_tag_id`='5' SELECT ph.`photo_id`, ph.`url`  FROM `photos` ph, `user_photo_categorizations` upc  WHERE upc.`photo_id` = ph.`photo_id`  AND upc.`user_unique_id`='1277'  AND upc.`photo_tag_id`='5' SELECT ph.`photo_id`, ph.`url`  FROM `photos` ph, `user_photo_categorizations` upc  WHERE upc.`photo_id` = ph.`photo_id`  AND upc.`user_unique_id`='1277'  AND upc.`photo_tag_id`='5' SELECT ph.`photo_id`, ph.`url`  FROM `photos` ph, `user_photo_categorizations` upc  WHERE upc.`photo_id` = ph.`photo_id`  AND upc.`user_unique_id`='1277'  AND upc.`photo_tag_id`='5' SELECT ph.`photo_id`, ph.`url`  FROM `photos` ph, `user_photo_categorizations` upc  WHERE upc.`photo_id` = ph.`photo_id`  AND upc.`user_unique_id`='1277'  AND upc.`photo_tag_id`='5' SELECT ph.`photo_id`, ph.`url`  FROM `photos` ph, `user_photo_categorizations` upc  WHERE upc.`photo_id` = ph.`photo_id`  AND upc.`user_unique_id`='1277'  AND upc.`photo_tag_id`='5' SELECT ph.`photo_id`, ph.`url`  FROM `photos` ph, `user_photo_categorizations` upc  WHERE upc.`photo_id` = ph.`photo_id`  AND upc.`user_unique_id`='1277'  AND upc.`photo_tag_id`='5' SELECT ph.`photo_id`, ph.`url`  FROM `photos` ph, `user_photo_categorizations` upc  WHERE upc.`photo_id` = ph.`photo_id`  AND upc.`user_unique_id`='1277'  AND upc.`photo_tag_id`='5' Échec de la requête : You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ON DUPLICATE KEY UPDATE `photo_tag_id`=VALUES(`photo_tag_id`), `timestamp`=VALUE' at line 1 insertWaitingForTag :  INSERT IGNORE INTO `user_photo_categorizations` (`photo_id`, `photo_tag_id` , `timestamp` , `user_id`, `user_unique_id`) VALUES   ON DUPLICATE KEY UPDATE `photo_tag_id`=VALUES(`photo_tag_id`), `timestamp`=VALUES(`timestamp`) ;Array
+(
+    [whoami] => mr.sheikhsajjad@live.com
+    [nbPhotos] => 500
+    [nbFiles] => 10
+    [TBT] => 1
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+<a href='listPhotos/mr.sheikhsajjad@live.com_1370818042' >Please find the files here</a>SELECT ph.`photo_id`, ph.`url`  FROM `photos` ph, `user_photo_categorizations` upc  WHERE upc.`photo_id` = ph.`photo_id`  AND upc.`user_unique_id`='1277'  AND upc.`photo_tag_id`='5' SELECT ph.`photo_id`, ph.`url`  FROM `photos` ph, `user_photo_categorizations` upc  WHERE upc.`photo_id` = ph.`photo_id`  AND upc.`user_unique_id`='1277'  AND upc.`photo_tag_id`='5' SELECT ph.`photo_id`, ph.`url`  FROM `photos` ph, `user_photo_categorizations` upc  WHERE upc.`photo_id` = ph.`photo_id`  AND upc.`user_unique_id`='1277'  AND upc.`photo_tag_id`='5' SELECT ph.`photo_id`, ph.`url`  FROM `photos` ph, `user_photo_categorizations` upc  WHERE upc.`photo_id` = ph.`photo_id`  AND upc.`user_unique_id`='1277'  AND upc.`photo_tag_id`='5' SELECT ph.`photo_id`, ph.`url`  FROM `photos` ph, `user_photo_categorizations` upc  WHERE upc.`photo_id` = ph.`photo_id`  AND upc.`user_unique_id`='1277'  AND upc.`photo_tag_id`='5' SELECT ph.`photo_id`, ph.`url`  FROM `photos` ph, `user_photo_categorizations` upc  WHERE upc.`photo_id` = ph.`photo_id`  AND upc.`user_unique_id`='1277'  AND upc.`photo_tag_id`='5' SELECT ph.`photo_id`, ph.`url`  FROM `photos` ph, `user_photo_categorizations` upc  WHERE upc.`photo_id` = ph.`photo_id`  AND upc.`user_unique_id`='1277'  AND upc.`photo_tag_id`='5' SELECT ph.`photo_id`, ph.`url`  FROM `photos` ph, `user_photo_categorizations` upc  WHERE upc.`photo_id` = ph.`photo_id`  AND upc.`user_unique_id`='1277'  AND upc.`photo_tag_id`='5' SELECT ph.`photo_id`, ph.`url`  FROM `photos` ph, `user_photo_categorizations` upc  WHERE upc.`photo_id` = ph.`photo_id`  AND upc.`user_unique_id`='1277'  AND upc.`photo_tag_id`='5' SELECT ph.`photo_id`, ph.`url`  FROM `photos` ph, `user_photo_categorizations` upc  WHERE upc.`photo_id` = ph.`photo_id`  AND upc.`user_unique_id`='1277'  AND upc.`photo_tag_id`='5' </body>
+</html>
+Array
+(
+    [whoami] => mr.sheikhsajjad@live.com
+    [nbPhotos] => 500
+    [nbFiles] => 30
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+<a href='listPhotos/mr.sheikhsajjad@live.com_1371057364' >Please find the files here</a> SELECT ph.`photo_id`, ph.`url`  FROM photos ph, places pl  WHERE `photo_id` NOT IN  (SELECT pd.photo_id FROM `user_photo_categorizations` pd  WHERE `user_unique_id`='1277'  )   AND url <> ''  AND pl.source_id = ph.foursquare_id  AND pl.city='New York'  SELECT ph.`photo_id`, ph.`url`  FROM photos ph, places pl  WHERE `photo_id` NOT IN  (SELECT pd.photo_id FROM `user_photo_categorizations` pd  WHERE `user_unique_id`='1277'  )   AND url <> ''  AND pl.source_id = ph.foursquare_id  AND pl.city='New York'  SELECT ph.`photo_id`, ph.`url`  FROM photos ph, places pl  WHERE `photo_id` NOT IN  (SELECT pd.photo_id FROM `user_photo_categorizations` pd  WHERE `user_unique_id`='1277'  )   AND url <> ''  AND pl.source_id = ph.foursquare_id  AND pl.city='New York'  SELECT ph.`photo_id`, ph.`url`  FROM photos ph, places pl  WHERE `photo_id` NOT IN  (SELECT pd.photo_id FROM `user_photo_categorizations` pd  WHERE `user_unique_id`='1277'  )   AND url <> ''  AND pl.source_id = ph.foursquare_id  AND pl.city='New York'  SELECT ph.`photo_id`, ph.`url`  FROM photos ph, places pl  WHERE `photo_id` NOT IN  (SELECT pd.photo_id FROM `user_photo_categorizations` pd  WHERE `user_unique_id`='1277'  )   AND url <> ''  AND pl.source_id = ph.foursquare_id  AND pl.city='New York'  SELECT ph.`photo_id`, ph.`url`  FROM photos ph, places pl  WHERE `photo_id` NOT IN  (SELECT pd.photo_id FROM `user_photo_categorizations` pd  WHERE `user_unique_id`='1277'  )   AND url <> ''  AND pl.source_id = ph.foursquare_id  AND pl.city='New York'  SELECT ph.`photo_id`, ph.`url`  FROM photos ph, places pl  WHERE `photo_id` NOT IN  (SELECT pd.photo_id FROM `user_photo_categorizations` pd  WHERE `user_unique_id`='1277'  )   AND url <> ''  AND pl.source_id = ph.foursquare_id  AND pl.city='New York'  SELECT ph.`photo_id`, ph.`url`  FROM photos ph, places pl  WHERE `photo_id` NOT IN  (SELECT pd.photo_id FROM `user_photo_categorizations` pd  WHERE `user_unique_id`='1277'  )   AND url <> ''  AND pl.source_id = ph.foursquare_id  AND pl.city='New York'  SELECT ph.`photo_id`, ph.`url`  FROM photos ph, places pl  WHERE `photo_id` NOT IN  (SELECT pd.photo_id FROM `user_photo_categorizations` pd  WHERE `user_unique_id`='1277'  )   AND url <> ''  AND pl.source_id = ph.foursquare_id  AND pl.city='New York'  SELECT ph.`photo_id`, ph.`url`  FROM photos ph, places pl  WHERE `photo_id` NOT IN  (SELECT pd.photo_id FROM `user_photo_categorizations` pd  WHERE `user_unique_id`='1277'  )   AND url <> ''  AND pl.source_id = ph.foursquare_id  AND pl.city='New York'  SELECT ph.`photo_id`, ph.`url`  FROM photos ph, places pl  WHERE `photo_id` NOT IN  (SELECT pd.photo_id FROM `user_photo_categorizations` pd  WHERE `user_unique_id`='1277'  )   AND url <> ''  AND pl.source_id = ph.foursquare_id  AND pl.city='New York'  SELECT ph.`photo_id`, ph.`url`  FROM photos ph, places pl  WHERE `photo_id` NOT IN  (SELECT pd.photo_id FROM `user_photo_categorizations` pd  WHERE `user_unique_id`='1277'  )   AND url <> ''  AND pl.source_id = ph.foursquare_id  AND pl.city='New York'  SELECT ph.`photo_id`, ph.`url`  FROM photos ph, places pl  WHERE `photo_id` NOT IN  (SELECT pd.photo_id FROM `user_photo_categorizations` pd  WHERE `user_unique_id`='1277'  )   AND url <> ''  AND pl.source_id = ph.foursquare_id  AND pl.city='New York'  SELECT ph.`photo_id`, ph.`url`  FROM photos ph, places pl  WHERE `photo_id` NOT IN  (SELECT pd.photo_id FROM `user_photo_categorizations` pd  WHERE `user_unique_id`='1277'  )   AND url <> ''  AND pl.source_id = ph.foursquare_id  AND pl.city='New York'  SELECT ph.`photo_id`, ph.`url`  FROM photos ph, places pl  WHERE `photo_id` NOT IN  (SELECT pd.photo_id FROM `user_photo_categorizations` pd  WHERE `user_unique_id`='1277'  )   AND url <> ''  AND pl.source_id = ph.foursquare_id  AND pl.city='New York'  SELECT ph.`photo_id`, ph.`url`  FROM photos ph, places pl  WHERE `photo_id` NOT IN  (SELECT pd.photo_id FROM `user_photo_categorizations` pd  WHERE `user_unique_id`='1277'  )   AND url <> ''  AND pl.source_id = ph.foursquare_id  AND pl.city='New York'  SELECT ph.`photo_id`, ph.`url`  FROM photos ph, places pl  WHERE `photo_id` NOT IN  (SELECT pd.photo_id FROM `user_photo_categorizations` pd  WHERE `user_unique_id`='1277'  )   AND url <> ''  AND pl.source_id = ph.foursquare_id  AND pl.city='New York'  SELECT ph.`photo_id`, ph.`url`  FROM photos ph, places pl  WHERE `photo_id` NOT IN  (SELECT pd.photo_id FROM `user_photo_categorizations` pd  WHERE `user_unique_id`='1277'  )   AND url <> ''  AND pl.source_id = ph.foursquare_id  AND pl.city='New York'  SELECT ph.`photo_id`, ph.`url`  FROM photos ph, places pl  WHERE `photo_id` NOT IN  (SELECT pd.photo_id FROM `user_photo_categorizations` pd  WHERE `user_unique_id`='1277'  )   AND url <> ''  AND pl.source_id = ph.foursquare_id  AND pl.city='New York'  SELECT ph.`photo_id`, ph.`url`  FROM photos ph, places pl  WHERE `photo_id` NOT IN  (SELECT pd.photo_id FROM `user_photo_categorizations` pd  WHERE `user_unique_id`='1277'  )   AND url <> ''  AND pl.source_id = ph.foursquare_id  AND pl.city='New York'  SELECT ph.`photo_id`, ph.`url`  FROM photos ph, places pl  WHERE `photo_id` NOT IN  (SELECT pd.photo_id FROM `user_photo_categorizations` pd  WHERE `user_unique_id`='1277'  )   AND url <> ''  AND pl.source_id = ph.foursquare_id  AND pl.city='New York'  SELECT ph.`photo_id`, ph.`url`  FROM photos ph, places pl  WHERE `photo_id` NOT IN  (SELECT pd.photo_id FROM `user_photo_categorizations` pd  WHERE `user_unique_id`='1277'  )   AND url <> ''  AND pl.source_id = ph.foursquare_id  AND pl.city='New York'  SELECT ph.`photo_id`, ph.`url`  FROM photos ph, places pl  WHERE `photo_id` NOT IN  (SELECT pd.photo_id FROM `user_photo_categorizations` pd  WHERE `user_unique_id`='1277'  )   AND url <> ''  AND pl.source_id = ph.foursquare_id  AND pl.city='New York'  SELECT ph.`photo_id`, ph.`url`  FROM photos ph, places pl  WHERE `photo_id` NOT IN  (SELECT pd.photo_id FROM `user_photo_categorizations` pd  WHERE `user_unique_id`='1277'  )   AND url <> ''  AND pl.source_id = ph.foursquare_id  AND pl.city='New York'  SELECT ph.`photo_id`, ph.`url`  FROM photos ph, places pl  WHERE `photo_id` NOT IN  (SELECT pd.photo_id FROM `user_photo_categorizations` pd  WHERE `user_unique_id`='1277'  )   AND url <> ''  AND pl.source_id = ph.foursquare_id  AND pl.city='New York'  SELECT ph.`photo_id`, ph.`url`  FROM photos ph, places pl  WHERE `photo_id` NOT IN  (SELECT pd.photo_id FROM `user_photo_categorizations` pd  WHERE `user_unique_id`='1277'  )   AND url <> ''  AND pl.source_id = ph.foursquare_id  AND pl.city='New York'  SELECT ph.`photo_id`, ph.`url`  FROM photos ph, places pl  WHERE `photo_id` NOT IN  (SELECT pd.photo_id FROM `user_photo_categorizations` pd  WHERE `user_unique_id`='1277'  )   AND url <> ''  AND pl.source_id = ph.foursquare_id  AND pl.city='New York'  SELECT ph.`photo_id`, ph.`url`  FROM photos ph, places pl  WHERE `photo_id` NOT IN  (SELECT pd.photo_id FROM `user_photo_categorizations` pd  WHERE `user_unique_id`='1277'  )   AND url <> ''  AND pl.source_id = ph.foursquare_id  AND pl.city='New York'  SELECT ph.`photo_id`, ph.`url`  FROM photos ph, places pl  WHERE `photo_id` NOT IN  (SELECT pd.photo_id FROM `user_photo_categorizations` pd  WHERE `user_unique_id`='1277'  )   AND url <> ''  AND pl.source_id = ph.foursquare_id  AND pl.city='New York'  SELECT ph.`photo_id`, ph.`url`  FROM photos ph, places pl  WHERE `photo_id` NOT IN  (SELECT pd.photo_id FROM `user_photo_categorizations` pd  WHERE `user_unique_id`='1277'  )   AND url <> ''  AND pl.source_id = ph.foursquare_id  AND pl.city='New York' </body>
+</html>
+Not null
+Not null
+Contains hour
+java -jar /home/ubuntu/omb/omb.jar -Job=clean -request=prepPhoto -city=SanFrancisco -maxNb=3 -tagNbPhotos=5000   > /home/ubuntu/omb/log/job/2013/July/17072013/hours/log-clean-prepPhoto-SanFrancisco--maxNb=3--tagNbPhotos=5000-21:19.txt  2>&1 
+Not null
+Not null
+Contains hour
+java -jar /home/ubuntu/omb/omb.jar -Job=clean -request=prepPhoto -city=NewYork -maxNb=3 -tagNbPhotos=5000   > /home/ubuntu/omb/log/job/2013/July/17072013/hours/log-clean-prepPhoto-NewYork--maxNb=3--tagNbPhotos=5000-21:22.txt  2>&1 
+Not null
+Not null
+Contains hour
+java -jar /home/ubuntu/omb/omb.jar -Job=clean -request=prepPhoto -city=London -maxNb=128 -tagNbPhotos=5000   > /home/ubuntu/omb/log/job/2013/July/17072013/hours/log-clean-prepPhoto-London--maxNb=128--tagNbPhotos=5000-21:22.txt  2>&1 
+Array
+(
+    [whoami] => mr.sheikhsajjad@live.com
+    [nbPhotos] => 500
+    [nbFiles] => 30
+    [ts] => 17072013_21
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+<a href='listPhotos/mr.sheikhsajjad@live.com_17072013_21' >Please find the files here</a>SELECT ph.`photo_id`, ph.`url`, upc.user_photo_categorization_id  FROM `photos` ph, `user_photo_categorizations` upc  WHERE upc.`photo_id` = ph.`photo_id`  AND upc.`user_unique_id`='0'  AND upc.`photo_tag_id`='5' SELECT ph.`photo_id`, ph.`url`, upc.user_photo_categorization_id  FROM `photos` ph, `user_photo_categorizations` upc  WHERE upc.`photo_id` = ph.`photo_id`  AND upc.`user_unique_id`='0'  AND upc.`photo_tag_id`='5' SELECT ph.`photo_id`, ph.`url`, upc.user_photo_categorization_id  FROM `photos` ph, `user_photo_categorizations` upc  WHERE upc.`photo_id` = ph.`photo_id`  AND upc.`user_unique_id`='0'  AND upc.`photo_tag_id`='5' SELECT ph.`photo_id`, ph.`url`, upc.user_photo_categorization_id  FROM `photos` ph, `user_photo_categorizations` upc  WHERE upc.`photo_id` = ph.`photo_id`  AND upc.`user_unique_id`='0'  AND upc.`photo_tag_id`='5' SELECT ph.`photo_id`, ph.`url`, upc.user_photo_categorization_id  FROM `photos` ph, `user_photo_categorizations` upc  WHERE upc.`photo_id` = ph.`photo_id`  AND upc.`user_unique_id`='0'  AND upc.`photo_tag_id`='5' SELECT ph.`photo_id`, ph.`url`, upc.user_photo_categorization_id  FROM `photos` ph, `user_photo_categorizations` upc  WHERE upc.`photo_id` = ph.`photo_id`  AND upc.`user_unique_id`='0'  AND upc.`photo_tag_id`='5' SELECT ph.`photo_id`, ph.`url`, upc.user_photo_categorization_id  FROM `photos` ph, `user_photo_categorizations` upc  WHERE upc.`photo_id` = ph.`photo_id`  AND upc.`user_unique_id`='0'  AND upc.`photo_tag_id`='5' SELECT ph.`photo_id`, ph.`url`, upc.user_photo_categorization_id  FROM `photos` ph, `user_photo_categorizations` upc  WHERE upc.`photo_id` = ph.`photo_id`  AND upc.`user_unique_id`='0'  AND upc.`photo_tag_id`='5' SELECT ph.`photo_id`, ph.`url`, upc.user_photo_categorization_id  FROM `photos` ph, `user_photo_categorizations` upc  WHERE upc.`photo_id` = ph.`photo_id`  AND upc.`user_unique_id`='0'  AND upc.`photo_tag_id`='5' SELECT ph.`photo_id`, ph.`url`, upc.user_photo_categorization_id  FROM `photos` ph, `user_photo_categorizations` upc  WHERE upc.`photo_id` = ph.`photo_id`  AND upc.`user_unique_id`='0'  AND upc.`photo_tag_id`='5' SELECT ph.`photo_id`, ph.`url`, upc.user_photo_categorization_id  FROM `photos` ph, `user_photo_categorizations` upc  WHERE upc.`photo_id` = ph.`photo_id`  AND upc.`user_unique_id`='0'  AND upc.`photo_tag_id`='5' WE stop to be tagged ! <br>
+ SELECT ph.`photo_id`, ph.`url`  FROM photos ph, places pl  WHERE `photo_id` NOT IN  (SELECT pd.photo_id FROM `user_photo_categorizations` pd  WHERE `user_unique_id`='1277'  )   AND url <> ''  AND pl.source_id = ph.foursquare_id  AND pl.city='New York'  SELECT ph.`photo_id`, ph.`url`  FROM photos ph, places pl  WHERE `photo_id` NOT IN  (SELECT pd.photo_id FROM `user_photo_categorizations` pd  WHERE `user_unique_id`='1277'  )   AND url <> ''  AND pl.source_id = ph.foursquare_id  AND pl.city='New York'  SELECT ph.`photo_id`, ph.`url`  FROM photos ph, places pl  WHERE `photo_id` NOT IN  (SELECT pd.photo_id FROM `user_photo_categorizations` pd  WHERE `user_unique_id`='1277'  )   AND url <> ''  AND pl.source_id = ph.foursquare_id  AND pl.city='New York'  SELECT ph.`photo_id`, ph.`url`  FROM photos ph, places pl  WHERE `photo_id` NOT IN  (SELECT pd.photo_id FROM `user_photo_categorizations` pd  WHERE `user_unique_id`='1277'  )   AND url <> ''  AND pl.source_id = ph.foursquare_id  AND pl.city='New York'  SELECT ph.`photo_id`, ph.`url`  FROM photos ph, places pl  WHERE `photo_id` NOT IN  (SELECT pd.photo_id FROM `user_photo_categorizations` pd  WHERE `user_unique_id`='1277'  )   AND url <> ''  AND pl.source_id = ph.foursquare_id  AND pl.city='New York'  SELECT ph.`photo_id`, ph.`url`  FROM photos ph, places pl  WHERE `photo_id` NOT IN  (SELECT pd.photo_id FROM `user_photo_categorizations` pd  WHERE `user_unique_id`='1277'  )   AND url <> ''  AND pl.source_id = ph.foursquare_id  AND pl.city='New York'  SELECT ph.`photo_id`, ph.`url`  FROM photos ph, places pl  WHERE `photo_id` NOT IN  (SELECT pd.photo_id FROM `user_photo_categorizations` pd  WHERE `user_unique_id`='1277'  )   AND url <> ''  AND pl.source_id = ph.foursquare_id  AND pl.city='New York'  SELECT ph.`photo_id`, ph.`url`  FROM photos ph, places pl  WHERE `photo_id` NOT IN  (SELECT pd.photo_id FROM `user_photo_categorizations` pd  WHERE `user_unique_id`='1277'  )   AND url <> ''  AND pl.source_id = ph.foursquare_id  AND pl.city='New York'  SELECT ph.`photo_id`, ph.`url`  FROM photos ph, places pl  WHERE `photo_id` NOT IN  (SELECT pd.photo_id FROM `user_photo_categorizations` pd  WHERE `user_unique_id`='1277'  )   AND url <> ''  AND pl.source_id = ph.foursquare_id  AND pl.city='New York'  SELECT ph.`photo_id`, ph.`url`  FROM photos ph, places pl  WHERE `photo_id` NOT IN  (SELECT pd.photo_id FROM `user_photo_categorizations` pd  WHERE `user_unique_id`='1277'  )   AND url <> ''  AND pl.source_id = ph.foursquare_id  AND pl.city='New York'  SELECT ph.`photo_id`, ph.`url`  FROM photos ph, places pl  WHERE `photo_id` NOT IN  (SELECT pd.photo_id FROM `user_photo_categorizations` pd  WHERE `user_unique_id`='1277'  )   AND url <> ''  AND pl.source_id = ph.foursquare_id  AND pl.city='New York'  SELECT ph.`photo_id`, ph.`url`  FROM photos ph, places pl  WHERE `photo_id` NOT IN  (SELECT pd.photo_id FROM `user_photo_categorizations` pd  WHERE `user_unique_id`='1277'  )   AND url <> ''  AND pl.source_id = ph.foursquare_id  AND pl.city='New York'  SELECT ph.`photo_id`, ph.`url`  FROM photos ph, places pl  WHERE `photo_id` NOT IN  (SELECT pd.photo_id FROM `user_photo_categorizations` pd  WHERE `user_unique_id`='1277'  )   AND url <> ''  AND pl.source_id = ph.foursquare_id  AND pl.city='New York'  SELECT ph.`photo_id`, ph.`url`  FROM photos ph, places pl  WHERE `photo_id` NOT IN  (SELECT pd.photo_id FROM `user_photo_categorizations` pd  WHERE `user_unique_id`='1277'  )   AND url <> ''  AND pl.source_id = ph.foursquare_id  AND pl.city='New York'  SELECT ph.`photo_id`, ph.`url`  FROM photos ph, places pl  WHERE `photo_id` NOT IN  (SELECT pd.photo_id FROM `user_photo_categorizations` pd  WHERE `user_unique_id`='1277'  )   AND url <> ''  AND pl.source_id = ph.foursquare_id  AND pl.city='New York'  SELECT ph.`photo_id`, ph.`url`  FROM photos ph, places pl  WHERE `photo_id` NOT IN  (SELECT pd.photo_id FROM `user_photo_categorizations` pd  WHERE `user_unique_id`='1277'  )   AND url <> ''  AND pl.source_id = ph.foursquare_id  AND pl.city='New York'  SELECT ph.`photo_id`, ph.`url`  FROM photos ph, places pl  WHERE `photo_id` NOT IN  (SELECT pd.photo_id FROM `user_photo_categorizations` pd  WHERE `user_unique_id`='1277'  )   AND url <> ''  AND pl.source_id = ph.foursquare_id  AND pl.city='New York'  SELECT ph.`photo_id`, ph.`url`  FROM photos ph, places pl  WHERE `photo_id` NOT IN  (SELECT pd.photo_id FROM `user_photo_categorizations` pd  WHERE `user_unique_id`='1277'  )   AND url <> ''  AND pl.source_id = ph.foursquare_id  AND pl.city='New York'  SELECT ph.`photo_id`, ph.`url`  FROM photos ph, places pl  WHERE `photo_id` NOT IN  (SELECT pd.photo_id FROM `user_photo_categorizations` pd  WHERE `user_unique_id`='1277'  )   AND url <> ''  AND pl.source_id = ph.foursquare_id  AND pl.city='New York'  SELECT ph.`photo_id`, ph.`url`  FROM photos ph, places pl  WHERE `photo_id` NOT IN  (SELECT pd.photo_id FROM `user_photo_categorizations` pd  WHERE `user_unique_id`='1277'  )   AND url <> ''  AND pl.source_id = ph.foursquare_id  AND pl.city='New York' </body>
+</html>
+  adding: mr.sheikhsajjad@live.com_17072013_21/ (stored 0%)
+  adding: mr.sheikhsajjad@live.com_17072013_21/listPhotos6.xml (deflated 73%)
+  adding: mr.sheikhsajjad@live.com_17072013_21/listPhotos27.xml (deflated 73%)
+  adding: mr.sheikhsajjad@live.com_17072013_21/listPhotos14.xml (deflated 73%)
+  adding: mr.sheikhsajjad@live.com_17072013_21/listPhotos9.xml (deflated 73%)
+  adding: mr.sheikhsajjad@live.com_17072013_21/listPhotos25.xml (deflated 73%)
+  adding: mr.sheikhsajjad@live.com_17072013_21/listPhotos20.xml (deflated 73%)
+  adding: mr.sheikhsajjad@live.com_17072013_21/listPhotos13.xml (deflated 74%)
+  adding: mr.sheikhsajjad@live.com_17072013_21/listPhotos5.xml (deflated 73%)
+  adding: mr.sheikhsajjad@live.com_17072013_21/listPhotos3.xml (deflated 73%)
+  adding: mr.sheikhsajjad@live.com_17072013_21/listPhotos26.xml (deflated 73%)
+  adding: mr.sheikhsajjad@live.com_17072013_21/listPhotos11.xml (deflated 74%)
+  adding: mr.sheikhsajjad@live.com_17072013_21/listPhotos24.xml (deflated 73%)
+  adding: mr.sheikhsajjad@live.com_17072013_21/listPhotos29.xml (deflated 73%)
+  adding: mr.sheikhsajjad@live.com_17072013_21/listPhotos10.xml (deflated 74%)
+  adding: mr.sheikhsajjad@live.com_17072013_21/listPhotos8.xml (deflated 73%)
+  adding: mr.sheikhsajjad@live.com_17072013_21/listPhotos28.xml (deflated 73%)
+  adding: mr.sheikhsajjad@live.com_17072013_21/listPhotos0.xml (deflated 73%)
+  adding: mr.sheikhsajjad@live.com_17072013_21/listPhotos19.xml (deflated 74%)
+  adding: mr.sheikhsajjad@live.com_17072013_21/listPhotos1.xml (deflated 73%)
+  adding: mr.sheikhsajjad@live.com_17072013_21/listPhotos4.xml (deflated 73%)
+  adding: mr.sheikhsajjad@live.com_17072013_21/listPhotos21.xml (deflated 73%)
+  adding: mr.sheikhsajjad@live.com_17072013_21/listPhotos2.xml (deflated 73%)
+  adding: mr.sheikhsajjad@live.com_17072013_21/listPhotos7.xml (deflated 73%)
+  adding: mr.sheikhsajjad@live.com_17072013_21/listPhotos16.xml (deflated 73%)
+  adding: mr.sheikhsajjad@live.com_17072013_21/listPhotos17.xml (deflated 73%)
+  adding: mr.sheikhsajjad@live.com_17072013_21/listPhotos22.xml (deflated 73%)
+  adding: mr.sheikhsajjad@live.com_17072013_21/listPhotos15.xml (deflated 73%)
+  adding: mr.sheikhsajjad@live.com_17072013_21/listPhotos23.xml (deflated 74%)
+  adding: mr.sheikhsajjad@live.com_17072013_21/listPhotos12.xml (deflated 74%)
+  adding: mr.sheikhsajjad@live.com_17072013_21/listPhotos18.xml (deflated 73%)
+Not null
+Not null
+Contains hour
+java -jar /home/ubuntu/omb/omb.jar -Job=clean -request=prepPhoto -city=NewYork -maxNb=24 -tagNbPhotos=50000000 -minNb=20   > /home/ubuntu/omb/log/job/2013/July/19072013/hours/log-clean-prepPhoto-NewYork--maxNb=24--tagNbPhotos=50000000-16:03.txt  2>&1 
+Not null
+Not null
+Contains hour
+java -jar /home/ubuntu/omb/omb.jar -Job=clean -request=prepPhoto -city=NewYork -maxNb=24 -tagNbPhotos=50000000 -minNb=20   > /home/ubuntu/omb/log/job/2013/July/19072013/hours/log-clean-prepPhoto-NewYork--maxNb=24--tagNbPhotos=50000000-16:13.txt  2>&1 
+/home/ubuntu/omb/script_for_cron.sh: line 17: [: x%4:hour=%: unary operator expected
+java -jar /home/ubuntu/omb/omb.jar -Job=initialize -request=fb -city=London   > /home/ubuntu/omb/log/job/2013/July/20072013/log-initialize-fb-London.txt  2>&1 
+Not null
+Not null
+Contains hour
+java -jar /home/ubuntu/omb/omb.jar -Job=clean -request=prepPhoto -city=NewYork -maxNb=24 -tagNbPhotos=50000000 -minNb=20   > /home/ubuntu/omb/log/job/2013/July/21072013/hours/log-clean-prepPhoto-NewYork--maxNb=24--tagNbPhotos=50000000-00:10.txt  2>&1 
+/home/ubuntu/omb/script_for_cron.sh: line 17: [: x%4:hour=%: unary operator expected
+java -jar /home/ubuntu/omb/omb.jar -Job=matching -request=fillOmb -city=NewYork   > /home/ubuntu/omb/log/job/2013/July/21072013/log-matching-fillOmb-NewYork.txt  2>&1 
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+  <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+   [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [username :  + dan@omblabs.co
+ nbFiles :  + 5
+whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+[nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+PHP Warning:  mysql_connect(): Too many connections in /var/www/alpha.api/include/open_db.php on line 10
+erreur connection   Too many connections <br>PHP Warning:  mysql_connect(): Too many connections in /var/www/alpha.api/include/open_db.php on line 10
+erreur connection   Too many connections <br> <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+PHP Warning:  mysql_connect(): Too many connections in /var/www/alpha.api/include/open_db.php on line 10
+erreur connection   Too many connections <br>PHP Warning:  mysql_connect(): Too many connections in /var/www/alpha.api/include/open_db.php on line 10
+erreur connection   Too many connections <br>PHP Warning:  mysql_connect(): Too many connections in /var/www/alpha.api/include/open_db.php on line 10
+erreur connection   Too many connections <br>PHP Warning:  mysql_connect(): Too many connections in /var/www/alpha.api/include/open_db.php on line 10
+erreur connection   Too many connections <br>PHP Warning:  mysql_connect(): Too many connections in /var/www/alpha.api/include/open_db.php on line 10
+erreur connection   Too many connections <br>PHP Warning:  mysql_connect(): Too many connections in /var/www/alpha.api/include/open_db.php on line 10
+erreur connection   Too many connections <br>PHP Warning:  mysql_connect(): Too many connections in /var/www/alpha.api/include/open_db.php on line 10
+erreur connection   Too many connections <br>PHP Warning:  mysql_connect(): Too many connections in /var/www/alpha.api/include/open_db.php on line 10
+erreur connection   Too many connections <br>PHP Warning:  mysql_connect(): Too many connections in /var/www/alpha.api/include/open_db.php on line 10
+erreur connection   Too many connections <br>PHP Warning:  mysql_connect(): Too many connections in /var/www/alpha.api/include/open_db.php on line 10
+erreur connection   Too many connections <br>PHP Warning:  mysql_connect(): Too many connections in /var/www/alpha.api/include/open_db.php on line 10
+erreur connection   Too many connections <br>PHP Warning:  mysql_connect(): Too many connections in /var/www/alpha.api/include/open_db.php on line 10
+erreur connection   Too many connections <br> <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+PHP Warning:  mysql_connect(): Too many connections in /var/www/alpha.api/include/open_db.php on line 10
+erreur connection   Too many connections <br>PHP Warning:  mysql_connect(): Too many connections in /var/www/alpha.api/include/open_db.php on line 10
+erreur connection   Too many connections <br>PHP Warning:  mysql_connect(): Too many connections in /var/www/alpha.api/include/open_db.php on line 10
+erreur connection   Too many connections <br> <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+	zip warning: name not matched: 25072013_00
+
+zip error: Nothing to do! (try: zip -r 25072013_00.zip . -i 25072013_00)
+	zip warning: name not matched: 25072013_00
+
+zip error: Nothing to do! (try: zip -r 25072013_00.zip . -i 25072013_00)
+	zip warning: name not matched: 25072013_00
+
+zip error: Nothing to do! (try: zip -r 25072013_00.zip . -i 25072013_00)
+	zip warning: name not matched: 25072013_00
+
+zip error: Nothing to do! (try: zip -r 25072013_00.zip . -i 25072013_00)
+	zip warning: name not matched: 25072013_00
+
+zip error: Nothing to do! (try: zip -r 25072013_00.zip . -i 25072013_00)
+	zip warning: name not matched: 25072013_00
+
+zip error: Nothing to do! (try: zip -r 25072013_00.zip . -i 25072013_00)
+	zip warning: name not matched: 25072013_00
+
+zip error: Nothing to do! (try: zip -r 25072013_00.zip . -i 25072013_00)
+	zip warning: name not matched: 25072013_00
+
+zip error: Nothing to do! (try: zip -r 25072013_00.zip . -i 25072013_00)
+	zip warning: name not matched: 25072013_00
+
+zip error: Nothing to do! (try: zip -r 25072013_00.zip . -i 25072013_00)
+	zip warning: name not matched: 25072013_00
+
+zip error: Nothing to do! (try: zip -r 25072013_00.zip . -i 25072013_00)
+	zip warning: name not matched: 25072013_00
+
+zip error: Nothing to do! (try: zip -r 25072013_00.zip . -i 25072013_00)
+	zip warning: name not matched: 25072013_00
+
+zip error: Nothing to do! (try: zip -r 25072013_00.zip . -i 25072013_00)
+	zip warning: name not matched: 25072013_00
+
+zip error: Nothing to do! (try: zip -r 25072013_00.zip . -i 25072013_00)
+	zip warning: name not matched: 25072013_00
+
+zip error: Nothing to do! (try: zip -r 25072013_00.zip . -i 25072013_00)
+	zip warning: name not matched: 25072013_00
+
+zip error: Nothing to do! (try: zip -r 25072013_00.zip . -i 25072013_00)
+	zip warning: name not matched: 25072013_00
+
+zip error: Nothing to do! (try: zip -r 25072013_00.zip . -i 25072013_00)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+PHP Warning:  mysql_connect(): Too many connections in /var/www/alpha.api/include/open_db.php on line 10
+erreur connection   Too many connections <br> <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+	zip warning: name not matched: 25072013_00
+
+zip error: Nothing to do! (try: zip -r 25072013_00.zip . -i 25072013_00)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+PHP Warning:  mysql_connect(): Too many connections in /var/www/alpha.api/include/open_db.php on line 10
+erreur connection   Too many connections <br>username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+	zip warning: name not matched: 25072013_00
+
+zip error: Nothing to do! (try: zip -r 25072013_00.zip . -i 25072013_00)
+PHP Warning:  mysql_connect(): Too many connections in /var/www/alpha.api/include/open_db.php on line 10
+erreur connection   Too many connections <br>	zip warning: name not matched: 25072013_00
+
+zip error: Nothing to do! (try: zip -r 25072013_00.zip . -i 25072013_00)
+	zip warning: name not matched: 25072013_00
+
+zip error: Nothing to do! (try: zip -r 25072013_00.zip . -i 25072013_00)
+PHP Warning:  mysql_connect(): Too many connections in /var/www/alpha.api/include/open_db.php on line 10
+erreur connection   Too many connections <br>username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+	zip warning: name not matched: 25072013_00
+
+zip error: Nothing to do! (try: zip -r 25072013_00.zip . -i 25072013_00)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+PHP Warning:  mysql_connect(): Too many connections in /var/www/alpha.api/include/open_db.php on line 10
+erreur connection   Too many connections <br>PHP Warning:  mysql_connect(): Too many connections in /var/www/alpha.api/include/open_db.php on line 10
+erreur connection   Too many connections <br>PHP Warning:  mysql_connect(): Too many connections in /var/www/alpha.api/include/open_db.php on line 10
+erreur connection   Too many connections <br>PHP Warning:  mysql_connect(): Too many connections in /var/www/alpha.api/include/open_db.php on line 10
+erreur connection   Too many connections <br>	zip warning: name not matched: 25072013_00
+
+zip error: Nothing to do! (try: zip -r 25072013_00.zip . -i 25072013_00)
+	zip warning: name not matched: 25072013_00
+
+zip error: Nothing to do! (try: zip -r 25072013_00.zip . -i 25072013_00)
+	zip warning: name not matched: 25072013_00
+
+zip error: Nothing to do! (try: zip -r 25072013_00.zip . -i 25072013_00)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+	zip warning: name not matched: 25072013_00
+
+zip error: Nothing to do! (try: zip -r 25072013_00.zip . -i 25072013_00)
+PHP Warning:  mysql_connect(): Too many connections in /var/www/alpha.api/include/open_db.php on line 10
+erreur connection   Too many connections <br>username :  + dan@omblabs.co
+ nbFiles :  + 5
+	zip warning: name not matched: 25072013_00
+
+zip error: Nothing to do! (try: zip -r 25072013_00.zip . -i 25072013_00)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ <meta http-equiv="content-type" content = "text/html ; charset =utf-8" />
+<html>
+<head>
+  <title>Omb Labs Photo Categorization Interface Server Side</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+PHP Warning:  mysql_connect(): Too many connections in /var/www/alpha.api/include/open_db.php on line 10
+erreur connection   Too many connections <br>username :  + dan@omblabs.co
+ nbFiles :  + 5
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+PHP Warning:  mysql_connect(): Too many connections in /var/www/alpha.api/include/open_db.php on line 10
+erreur connection   Too many connections <br>Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+PHP Warning:  mysql_connect(): Too many connections in /var/www/alpha.api/include/open_db.php on line 10
+erreur connection   Too many connections <br>username :  + dan@omblabs.co
+ nbFiles :  + 5
+	zip warning: name not matched: 25072013_00
+
+zip error: Nothing to do! (try: zip -r 25072013_00.zip . -i 25072013_00)
+	zip warning: name not matched: 25072013_00
+
+zip error: Nothing to do! (try: zip -r 25072013_00.zip . -i 25072013_00)
+	zip warning: name not matched: 25072013_00
+
+zip error: Nothing to do! (try: zip -r 25072013_00.zip . -i 25072013_00)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+PHP Warning:  mysql_connect(): Too many connections in /var/www/alpha.api/include/open_db.php on line 10
+erreur connection   Too many connections <br>username :  + dan@omblabs.co
+ nbFiles :  + 5
+PHP Warning:  mysql_connect(): Too many connections in /var/www/alpha.api/include/open_db.php on line 10
+erreur connection   Too many connections <br>	zip warning: name not matched: 25072013_00
+
+zip error: Nothing to do! (try: zip -r 25072013_00.zip . -i 25072013_00)
+	zip warning: name not matched: 25072013_00
+
+zip error: Nothing to do! (try: zip -r 25072013_00.zip . -i 25072013_00)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+PHP Warning:  mysql_connect(): Too many connections in /var/www/alpha.api/include/open_db.php on line 10
+erreur connection   Too many connections <br>	zip warning: name not matched: 25072013_00
+
+zip error: Nothing to do! (try: zip -r 25072013_00.zip . -i 25072013_00)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+username :  + dan@omblabs.co
+Array
+(
+    [whoami] => dan@omblabs.co
+    [nbPhotos] => 500
+    [nbFiles] => 5
+    [ts] => 25072013_00
+    [TBT] => plop
+)
+ nbFiles :  + 5
+PHP Warning:  mysql_connect(): Too many connections in /var/www/alpha.api/include/open_db.php on line 10
+erreur connection   Too many connections <br>	zip warning: name not matched: 25072013_00
+
+zip error: Nothing to do! (try: zip -r 25072013_00.zip . -i 25072013_00)
+PHP Warning:  mysql_connect(): Too many connections in /var/www/alpha.api/include/open_db.php on line 10
+erreur connection   Too many connections <br>PHP Warning:  mysql_connect(): Too many connections in /var/www/alpha.api/include/open_db.php on line 10
+erreur connection   Too many connections <br>	zip warning: name not matched: 25072013_00
+
+zip error: Nothing to do! (try: zip -r 25072013_00.zip . -i 25072013_00)
+username :  + dan@omblabs.co
+ nbFiles :  + 5
+username :  + dan@omblabs.co
+ nbFiles :  + 5

@@ -1,0 +1,10 @@
+set timefmt "%Y-%m-%d_%H:%M:%S" 
+set xdata time 
+set xrange ['2013-06-12_16:22:02': '2013-06-12_16:33:10']
+set xtics format " %H h %M mn" 
+set xtics "2013-06-12_16:22:02", 600, "2013-06-12_16:33:10" 
+set term gif 
+set output 'data/sample.gif' 
+set title 'How did mr.sheikhsajjad@live.com worked between \n  and ' 
+set grid 
+plot 'data/graph.data' u 1:2 w l

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+      html, body, #map-canvas {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+      }
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+    <script>
+
+//var rootDirectory = "http://www.reutenauer.eu/~victor/wayway/alpha.api/";
+
+var rootDirectory = "http://ec2-54-228-90-171.eu-west-1.compute.amazonaws.com/alpha.api/";
+var urlMetrics = "metrics.php";
+
+var map;
+function initialize() {
+  var mapOptions = {
+    zoom: 8,
+    center: new google.maps.LatLng(40.644, -74),
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+  map = new google.maps.Map(document.getElementById('map-canvas'),
+      mapOptions);
+
+//  google.maps.event.addListener(map, 'click', function(e) {
+//    refreshMarkers(e.latLng, map);
+//  });
+google.maps.event.addListener(map, 'center_changed', function() {
+    // 3 seconds after the center of the map has changed, pan back to the
+    // marker.
+//    window.setTimeout(function() {
+//      map.panTo(marker.getPosition());
+//    }, 3000);
+ refreshMarkers(map.getBounds());
+  });
+
+}
+
+
+var waitingForReq = 0;
+var omb = 0;
+
+function refreshMarkers(bounds)
+{
+   var args = "a=" + bounds.$.b + "&b=" +  bounds.$.d + "&c=" + bounds.fa.b + "&d=" + bounds.fa.d;
+if (waitingForReq != 1)
+{
+    waitingForReq = 1;
+    getPlacesFromAPI(args);
+}
+//alert (map.getBounds());
+//    alert(position);
+ // var marker = new google.maps.Marker({
+ //   position: position,
+ //   map: map
+//  });
+//  map.panTo(position);
+}
+
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+var longitudes = new Array();
+var latitudes = new Array();
+var names = new Array();
+var scores = new Array();
+var ids = new Array();
+
+
+
+//var queryUrl = "http://dev.omblabs.org/alpha.api/
+//var queryUrl = "map.php";
+var queryUrl = "http://dev.omblabs.org/alpha.api/map.php";
+
+
+function getXMLHttpRequest()
+{
+    var xhr = null;
+
+    if (window.XMLHttpRequest || window.ActiveXObject) {
+        if (window.ActiveXObject) {
+            try {
+                xhr = new ActiveXObject("Msxml2.XMLHTTP");
+            } catch(e) {
+                xhr = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+        } else {
+            xhr = new XMLHttpRequest();
+        }
+    }
+    else
+    {
+        alert("Votre navigateur ne supporte pas l'objet XMLHTTPRequest...");
+        return null;
+    }
+
+    return xhr;
+}
+
+function setOnePlaceOnTheMap(latitude, longitude, name, score, id)
+{
+     var myLatLng = new google.maps.LatLng(latitude, longitude);
+
+     var  marker = new google.maps.Marker({
+           map: map,
+           position: myLatLng
+        });
+
+  var infowindow = new google.maps.InfoWindow();
+  var link = rootDirectory + urlMetrics + "?id=" + id;
+  if (omb)
+  {
+      link += "&omb";
+  }
+  infowindow.setContent("WayWay Tip : " + name + " score : " + score + " : <a href='" + link + "' >Study</a>" );
+  google.maps.event.addListener(marker, 'click', function() {
+      infowindow.open(map, marker);
+  });
+}
+
+
+function setPlaceOnMap()
+{
+var marker = new Array();
+    for (var i = 0; i < longitudes.length; i++)
+    {
+      setOnePlaceOnTheMap(latitudes[i], longitudes[i], names[i], scores[i], ids[i]);
+
+
+//        var myLatLng = new google.maps.LatLng(latitudes[i], longitudes[i]);
+
+//        marker = new google.maps.Marker({
+//           map: map,
+//           position: myLatLng,
+//           labelContent: names[i]
+//        });
+
+//  var infowindow = new google.maps.InfoWindow();
+//  infowindow.setContent("WayWay Tip : " + names[i]);
+//  google.maps.event.addListener(marker, 'click', function() {
+//      infowindow.open(map, marker);
+//  });
+
+    }
+}
+
+function addPlacesToMap(oData)
+{
+    waitingForReq = 0;
+    logError = "";
+    try
+    {
+        logError += "1., ";
+        var places = oData.firstChild;
+        logError += "3., ";
+
+        var size = places.childElementCount;
+        logError += "3.2, ";
+
+        for (var i = 0; i < size; i++)
+        {
+            // this line is crashing on iphone...
+            var place = places.children[i];
+            logError += "Adding Photos 3.4";
+            //var photoChildrens = photo.children;
+            logError += "Adding Photos 3.45";
+    
+//            var name  = place.firstElementChild.firstChild.data;
+            var name = place.childNodes[0].textContent;
+var longitude = place.childNodes[1].textContent;
+var latitude = place.childNodes[2].textContent;
+ //  var longitude = place.getElementsByTagName("longitude" + i);
+//            var longitude  = place.firstElementChild.firstChild.nextChild.data;
+//            var latitude  = place.firstElementChild.firstChild.nextChild.nextChild.data;
+
+            var score = 0;
+                   if (omb)
+{
+//    score = place.firstElementChild.firstChild.nextChild.nextChild.nextChild.data; 
+ score = place.childNodes[3].textContent;
+}
+ var id = place.childNodes[4].textContent;
+            if (names.indexOf(name) == -1)
+            {
+                names.push(name);
+                longitudes.push(longitude);
+                latitudes.push(latitude);
+                scores.push(score);
+                ids.push(id);
+            }
+        }
+    }
+    catch (e)
+    {
+        alert(e);
+        alert("Bug in adding Places : " + logError);
+    }
+
+   setPlaceOnMap();
+
+}
+
+function getPlacesFromAPI(args)
+{
+    var url = window.location.search;
+    var found = url.indexOf("?");
+    var specificQuery = found == 0 ? url.substr(1) : "";
+    omb = specificQuery.indexOf("omb") != -1;
+
+    var xhr = getXMLHttpRequest();
+
+    xhr.onreadystatechange = function()
+    {
+        if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0))
+        {
+            addPlacesToMap(xhr.responseXML);
+        }
+    };
+
+    var completeUrl = queryUrl + "?xml&" + args + "&" + specificQuery;
+
+    xhr.open("GET", completeUrl, true);
+    xhr.send(null);
+}
+
+
+getPlacesFromAPI();
+
+    </script>
+  </head>
+  <body>
+    <div id="map-canvas"></div>
+  </body>
+</html>
+
+

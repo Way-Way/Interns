@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta charset="utf-8"/>
+    <title>Way Way : Pick a Place</title>
+    <link href="Images/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width"/>
+    <link href="Styles/site.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+
+    <input type=button onclick='getMapPosition(null)' value=Useless /><br>
+    <output id=position name=position ></output> <br>
+    <input type=text id=search name=search onchange=autoComplete() value=empty /><br>
+   <table id="places" border="1">
+   </table>
+
+    <div id="wrapper">
+        <header class="fl" style="width: 100%">
+            <div class="fl" style="width: 100%; margin: 10px 0px">
+                <div class="fl" style="padding-top: 10px;padding-left: 3%;">
+                    <a href="index.html"><img src="Images/W-W.png" alt="logo" style="height: 40px" /></a>
+                    <div style="font-size:1em">Feel the trends. View the pics. Pick a place.</div>                    
+                </div>
+                <div class="fr" style="padding-top: 10px;padding-right: 20px">
+                    <div class="tac">
+                        <a class="lnkAppStore" target="_blank" href="#"><img src="Images/app_store.gif" alt="app store" style="height: 60px"/></a>
+                    </div>
+                </div>
+                <div class="fr tac randomLink" style="padding-top: 10px;padding-right: 20px">
+                    <a target="_blank" href="place.html?random=1">Show me a<br/> random place</a>                    
+                </div>
+            </div>
+        </header>
+        
+        <!--Start main content-->
+        <div id="main" class="cb dn fl" style="padding-bottom: 20px;width:100%">
+            <!--Start place detail-->
+            <div style="margin-top:20px;margin-bottom:20px;width:100%" class="fl">
+		        <div class="fl" style="margin-left:20px">
+			        <div style="font-size:1.2em">
+				        <div class="fl fwb" id="placeName"></div>
+				        <div class="classicRank fl tac" style="width:44px;margin-left:10px">
+					        <div id="placeClassicRank"></div>
+				        </div>
+				        <div class="fl tac" id="placeTrendingRank" style="width:44px;margin-left:10px">&nbsp;</div>
+			        </div>
+			        <div class="cb" id="placeAddress"></div>
+			        <div id="placeCategories"></div>
+			        <div id="placeOpenHours"></div>
+                    <div id="placePhoneNumber"></div>
+		        </div>
+		        <div id="map-canvas" style="height:250px;width:250px; margin-right:20px" class="fr"></div>
+	        </div>
+            <!--End place detail-->
+            
+            <!--Start photo selector-->
+	        <div class="cb tac">
+                <table style="width: 100%">
+                    <tr>
+                        <td class="photoTypeSelector selected">ALL</td>
+                        <td class="photoTypeSelector">PEOPLE</td>
+                        <td class="photoTypeSelector">FOOD</td>
+                        <td class="photoTypeSelector">ATMOSPHERE</td>
+                    </tr>
+                </table>
+            </div>
+            <!--End photo selector-->
+            
+            <!--Start photo container-->
+            <div style="margin-top: 10px" class="photoContainer cb">
+                <div id="allPhotos"></div>
+                <div id="peoplePhotos" class="dn"></div>
+                <div id="foodPhotos" class="dn"></div>
+                <div id="atmospherePhotos" class="dn"></div>
+            </div>	
+            <!--End photo container-->
+        </div>
+        <!--End main content-->
+        
+        <div class="cb">&nbsp;</div>
+        <footer class="tac">
+            <div>
+                <a href="about.html">About</a>
+        				<a href="press.html" class="ml20">Press</a>
+                <a href="privacy.html" class="ml20">Privacy</a>
+                <a href="terms.html" class="ml20">Terms</a>
+                <a href="jobs.html" class="ml20">Jobs</a>
+            </div>
+        </footer>
+    </div>
+    <script type="text/javascript" src="Scripts/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="Scripts/jquery-ui-1.9.2.min.js"></script>
+    <script type="text/javascript" src="Scripts/Common.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script type="text/javascript" src="Scripts/markerwithlabel_packed.js"></script>
+    <script type="text/javascript">
+        var photoCategories = new Array();
+        var photoContainers = $('.photoContainer > div');
+        var currentDate = new Date();
+        var apiURL = 'http://api-staging.omblabs.org/api/v1/places/';
+        var placeId = 0;
+        var minLat = 0., maxLat = 0., minLon = 0., maxLon = 0.;
+       // var map = null;
+var apiMain = "http://api-staging.omblabs.org/api/v1/";
+var wwwMain = "http://wayway-us.omblabs.org/";
+
+        $(document).ready(function ()
+        {
+        	var table = document.getElementById('places');
+            var rowCount = table.rows.length;
+            if (rowCount > 0)
+                return;
+
+            var queryString = location.search.split('?')[1];
+            if (isNaN(queryString)) {
+                var isRandom = getParameterByName('random');
+                if (isRandom == '1') {
+                    getRandomPlace();
+                }
+                else {
+                    getPlaceDetailByName(queryString);
+                }
+            }
+            else {
+                placeId = queryString;
+                getPlaceDetailById(placeId);
+                setPhotoCategoriesAndGetPlacePhotos();
+            }
+
+            registerPhotoSelectorClick();
+        });
+
+        function photo(categoryIndex, pageIndex) {
+            var category;
+            if (categoryIndex == 0) {
+                category = 'all';
+            }
+            else if (categoryIndex == 1) {
+                category = 'people';
+            }
+            else if (categoryIndex == 2) {
+                category = 'food';
+            }
+            else if (categoryIndex == 3) {
+                category = 'venue';
+            }
+            this.category = category;
+            this.pageIndex = pageIndex;
+            this.isPreviousEventComplete = false;
+        }
+
+        function getPlacePhotos(placeId, photoCategory, photoContainer, currentDate) {
+            if (photoCategory.pageIndex != -1) {
+                photoCategory.pageIndex += 1;
+                var placePhotosURL = $.string.Format('{0}{1}/photos/page/{2}', apiURL, placeId, photoCategory.pageIndex);
+                if (photoCategory.category != 'all') {
+                    placePhotosURL += '?category=' + photoCategory.category;
+                }
+                $.get(placePhotosURL,
+				   function (photos) {
+				       if (photos.constructor === String) {
+				           photos = $.parseJSON(photos);
+				       };
+				       if (photos != null && photos.length > 0) {
+				           var html = '';
+				           for (var i = 0; i < photos.length; i++) {
+				               var photo = photos[i];
+				               var photoUrl = photo.url_medium;
+				               if (photoUrl == '') {
+				                   photoUrl = photo.url_small;
+				               }
+				               if (photoUrl == '') {
+				                   photoUrl = photo.url;
+				               }
+				               var timeStamp = photo.timeStamp;
+				               var photoDate = '';
+				               if (timeStamp != null && timeStamp.length > 10) {
+				                   var timeTaken = new Date(timeStamp.substring(0, 10));
+				                   var timeSpan = currentDate - timeTaken;
+				                   var days = Math.floor(timeSpan / (1000 * 60 * 60 * 24));
+				                   if (days > 56) {
+				                       photoDate = ((currentDate.getYear() - timeTaken.getYear()) * 12) + currentDate.getMonth() - timeTaken.getMonth() + " months ago";
+				                   }
+				                   else if (days > 14) {
+				                       photoDate = Math.ceil(days / 14) + " weeks ago";
+				                   }
+				                   else {
+				                       photoDate = days > 1
+														 ? days + " days ago"
+														 : days + " day ago";
+				                   }
+				               }
+				               html += $.string.Format('<div class="img-wrap"><img src="{0}" url="{1}" width="100%"/><div class="img-info">{2}</div></div>',
+								photoUrl, photo.url, photoDate);
+				           }
+				           photoContainer.append(html);
+				           registerZoomImages(photoContainer);
+				           photoCategory.isPreviousEventComplete = true;
+				       }
+				       else {
+				           photoCategory.pageIndex = -1;
+				       }
+				   });
+            }
+        }
+
+        function jsonSafariFFCompatible(placeDetail)
+        {
+            if (placeDetail.constructor === String)
+            {
+                return $.parseJSON(placeDetail);
+            }
+            else
+            {
+                return placeDetail;
+            }
+        }
+
+        function getPlaceDetailById(placeId)
+        {
+            $.get(apiURL + placeId,
+               function (placeDetail)
+               {
+                   settingPlaceInformation(placeDetail);
+               });
+        }
+
+        function getPlaceDetailByName(placeName)
+        {
+            $.get(apiURL + '0?short_name=' + placeName,
+               function (placeDetail)
+               {
+               	   placeDetail = jsonSafariFFCompatible(placeDetail);
+                   placeId = placeDetail.id;
+                   settingPlaceInformation(placeDetail);
+                   setPhotoCategoriesAndGetPlacePhotos();
+               });
+        }
+
+        function getRandomPlace()
+        {
+            $.get(apiURL + 'random',
+               function (placeDetail)
+               {
+               	   placeDetail = jsonSafariFFCompatible(placeDetail);
+                   placeId = placeDetail.id;
+                   settingPlaceInformation(placeDetail);
+                   setPhotoCategoriesAndGetPlacePhotos();
+               });
+        }
+
+        function setPhotoCategoriesAndGetPlacePhotos()
+        {
+            for (var i = 0; i < 4; i++)
+            {
+                photoCategories.push(new photo(i, 0));
+                getPlacePhotos(placeId, photoCategories[i], $(photoContainers[i]), currentDate);
+            }
+        }
+
+        function settingPlaceInformation(placeDetail)
+        {
+        	placeDetail = jsonSafariFFCompatible(placeDetail);
+            $('title').html(placeDetail.name + ' - Way Way');
+            $('#placeName').html(placeDetail.name);
+            $('#placeClassicRank').html(placeDetail.classic_rank);
+
+            //set place's trending Rank
+            var trendingRank = placeDetail.trending_rank;
+            var placeTrendingRank = $('#placeTrendingRank');
+            var placeTrendingRankClass;
+            if (trendingRank == 1) {
+                placeTrendingRankClass = 'trendingRank1';
+            }
+            else if (trendingRank == 2) {
+                placeTrendingRankClass = 'trendingRank2';
+            }
+            else if (trendingRank > 2) {
+                placeTrendingRankClass = 'trendingRank3';
+            }
+            placeTrendingRank.addClass(placeTrendingRankClass);
+
+            //Set place's Address
+            var placeAddressContent = '';
+            if (placeDetail.address != 'null' && placeDetail.address != '') {
+                placeAddressContent = placeDetail.address;
+            }
+            if (placeAddressContent != '' && placeDetail.area != null && placeDetail.area != 'null' && placeDetail.area != '') {
+                placeAddressContent += ', ';
+            }
+            if (placeDetail.area != null && placeDetail.area != 'null' && placeDetail.area != '') {
+                placeAddressContent += placeDetail.area;
+            }
+            $('#placeAddress').html(placeAddressContent);
+
+            //Set place's Categories
+            var categories = placeDetail.omb_categories;
+            if (categories != null) {
+                var placeCategories = $('#placeCategories');
+                var placeCategoriesContent = categories.length > 0 ? categories[0].value : "";
+                for (var i = 1; i < categories.Count; i++) {
+                    placeCategoriesContent += ', ' + categories[i].value;
+                }
+                placeCategories.html(placeCategoriesContent);
+            }
+
+            //Set place's open hours
+            var hours = placeDetail.hours;
+            if (hours != null && hours.timeframes != null) {
+                var placeOpenHoursContent = '';
+                var timeframes = hours.timeframes;
+                for (var i = 0; i < timeframes.Count; i++) {
+                    var open = timeframes[i].open;
+                    for (var j = 0; j < open.Count; j++) {
+                        placeOpenHoursContent += $.string.Format('<div>{0}: {1}</div>', timeframes[i].days, open[j].renderedTime);
+                    }
+                }
+                $('#placeOpenHours').html(placeOpenHoursContent);
+            }
+
+            //Set place's phone number
+            var phoneNumber = placeDetail.phone;
+            if (phoneNumber != null && phoneNumber.length == 10) {
+                $('#placePhoneNumber').html($.string.Format('{0}-{1}-{2}', phoneNumber.substring(0, 3), phoneNumber.substring(3, 6), phoneNumber.substring(6)));
+            }
+
+            initializeGoogleMap(placeDetail.name, placeDetail.classic_rank, placeDetail.latitude, placeDetail.longitude);
+            $('#main').show();
+        }
+
+        $(window).scroll(function () {
+            if ($(document).height() - 100 <= $(window).scrollTop() + $(window).height()) {
+                $('.photoTypeSelector').each(function (i) {
+                    if ($(this).hasClass('selected') && photoCategories[i].isPreviousEventComplete) {
+                        photoCategories[i].isPreviousEventComplete = false;
+
+                        getPlacePhotos(placeId, photoCategories[i], $(photoContainers[i]), currentDate);
+                        return false;
+                    }
+                });
+            }
+        });
+
+
+		function registerZoomImages(photoContainer) {
+		    photoContainer.find('img').click(function () {
+                modal.open({ content: "<img src='" + $(this).attr('url') + "' width='500' height='500'></img>" });
+            });
+        }
+
+        function registerPhotoSelectorClick() {
+            var photoContainer = $('.photoContainer > div');
+            $('.photoTypeSelector').each(function (index) {
+                var item = $(this);
+                item.click(function () {
+                    item.siblings().removeClass('selected');
+                    item.addClass('selected');
+                    photoContainer.hide();
+                    $(photoContainer[index]).show();
+                });
+            });
+        }
+
+        function initializeGoogleMap(placeName, classicRank, latitude, longitude) {
+            var myLatlng = new google.maps.LatLng(latitude, longitude);
+
+            var mapOptions = {
+                center: myLatlng,
+                zoom: 16,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+
+            var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+            var mapIcon = new google.maps.MarkerImage("Images/googleMapMarker.gif", null, null, null, new google.maps.Size(48, 64));
+
+            var marker = new MarkerWithLabel({
+                position: myLatlng,
+                draggable: true,
+                map: map,
+                icon: mapIcon,
+                title: placeName,
+                labelContent: classicRank == null ? '' : classicRank.toString(),
+                labelAnchor: new google.maps.Point(30, 59),
+                labelClass: "labels", // the CSS class for the label
+                labelStyle: { opacity: 1 },
+                labelInBackground: false
+            });
+
+            google.maps.event.addListener(map, 'bounds_changed', function()
+            {
+               //alert("center_changed");
+               getMapPosition(map.getBounds());
+             });
+             var center = map.getCenter();
+             minLat = center.lb - 0.1;
+             minLon = center.mb - 0.1;
+             maxLat = center.lb + 0.1;
+             maxLon = center.mb + 0.1;
+             //getMapPosition(map.getBounds());
+             displayPosition();
+        }
+
+       function displayPosition()
+       {
+           var args = "min_latitude=" + parseFloat(minLat).toFixed(4)
+           + "&max_latitude=" +  parseFloat(maxLat).toFixed(4) + "&min_longitude=" + parseFloat(minLon).toFixed(4) + "&max_longitude=" + parseFloat(maxLon).toFixed(4);
+           var display = document.getElementById('position');
+           display.value = args;
+       }
+
+       function getMapPosition(bounds)
+       {       
+       	   if (bounds != null)
+       	   {
+       	   	   minLon = bounds.getSouthWest().lon();
+       	       maxLat = bounds.getNorthEast().lat();
+       	       minLat = bounds.getSouthWest().lat();
+       	       maxLon = bounds.getNorthEast().lon();
+       	   }
+           displayPosition();
+       }
+
+
+function getXMLHttpRequest()
+{
+    var xhr = null;
+
+    if (window.XMLHttpRequest || window.ActiveXObject) {
+        if (window.ActiveXObject) {
+            try {
+                xhr = new ActiveXObject("Msxml2.XMLHTTP");
+            } catch(e) {
+                xhr = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+        } else {
+            xhr = new XMLHttpRequest();
+        }
+    }
+    else
+    {
+        alert("Votre navigateur ne supporte pas l'objet XMLHTTPRequest...");
+        return null;
+    }
+
+    return xhr;
+}
+
+function getListPlaces(callback, url)
+{
+    var xhr = getXMLHttpRequest();
+
+    xhr.onreadystatechange = function()
+    {
+        if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0))
+        {
+        	//alert(xhr.responseText);
+            callback(xhr.responseText);
+        }
+    };
+
+    xhr.open("GET", url, true);
+    xhr.send(null);
+}
+
+    function appendPlace(oneJsonPlace)
+    {
+        var table = document.getElementById('places');
+        var id = oneJsonPlace.id;
+        var url = apiMain + "places/" + id;
+
+        var x = table.insertRow(sizeArray);        
+        x.id = id;
+
+       // c = x.insertCell(0);
+       // c.innerHTML="plop";
+
+        c = x.insertCell(0);
+        var links = "<a href='" + wwwMain + "place.html?"+id+"' >Look at " + oneJsonPlace.name + "</a>";
+        c.innerHTML = links;
+
+        var c = x.insertCell(0);
+        c.innerHTML=oneJsonPlace.name;
+
+        sizeArray++;
+
+        //getInfoHash(appendInfoHashTag, url, id);
+    }
+
+    function appendCategory(oneCategory)
+    {
+        var table = document.getElementById('places');
+        var id = oneCategory.id;
+        var url = apiMain + "places/" + id;
+
+        var x = table.insertRow(sizeArray);        
+        x.id = id;
+
+        // c = x.insertCell(0);
+        // c.innerHTML="plop";
+
+        c = x.insertCell(0);
+        var links = "API Link fpr : " + oneCategory.name + " and the current location : "
+        + "<a href='" +  apiMain + "/places?" + document.getElementById('position').value + "&category="+id+"' >API access</a>";
+        //   + "<a href='" +  apiMain + "/places?" + document.getElementById('position').value + "&category="+id+"' >API access</a>";
+        c.innerHTML = links;
+
+        var c = x.insertCell(0);
+        c.innerHTML="<a href='' onclick='searchCategory(" + id + ")' >JS SEARCH for " + oneCategory.name + "</a> ";
+        //   c.innerHTML="Please click !";
+        //    c.onclick="searchCategory(" + id + ")";
+
+        sizeArray++;
+
+        //getInfoHash(appendInfoHashTag, url, id);
+    }
+
+    function displayPlaces(jsonText)
+    {
+        var table = document.getElementById('places');
+        var rowCount = table.rows.length;
+
+        for (var i = 0; i < rowCount; i++)
+        {
+            table.deleteRow(0);
+        }
+        sizeArray = 0;
+
+        var myPlaces  = jsonSafariFFCompatible(jsonText);
+        if (myPlaces == null)
+            return;
+
+        for (var i = 0; i < myPlaces.length; i++)
+        {
+            if (myPlaces[i].type == "cat")
+            {
+                appendCategory(myPlaces[i]);
+            }
+            else // ce sont des places // myPlaces[i].type == "place"
+            {
+            	appendPlace(myPlaces[i]);
+            }
+        }
+    }
+
+    function autoComplete()
+    {
+        var str = document.getElementById('search').value;
+        var endPointSearch = apiMain + "search/autocomplete?query=" + str + "&" + document.getElementById('position').value;
+        getListPlaces(displayPlaces, endPointSearch);
+    }
+
+    function searchCategory(category)
+    {
+        var endPointSearch = apiMain + "places/page/1?category=" + category + "&" + document.getElementById('position').value;
+        getListPlaces(displayPlaces, endPointSearch);
+    }
+
+    </script>
+
+</body>
+</html>
