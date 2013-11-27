@@ -64,7 +64,7 @@
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
-- (IBAction)tweet:(id)sender {
+- (IBAction)twitterShare:(id)sender {
     if (self.photoIndex == 2) {
         if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
             SLComposeViewController *tweetSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
@@ -91,6 +91,11 @@
         [alertView show];
     }
 }
+
+- (IBAction)facebookShare:(id)sender {
+  
+}
+
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     [self dismissViewControllerAnimated:YES completion:NULL];

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		395045331846715100FC8DD4 /* twitterLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 395045321846715100FC8DD4 /* twitterLogo.png */; };
 		396C9908183E7171006011DC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 396C9907183E7171006011DC /* Foundation.framework */; };
 		396C990A183E7171006011DC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 396C9909183E7171006011DC /* CoreGraphics.framework */; };
 		396C990C183E7171006011DC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 396C990B183E7171006011DC /* UIKit.framework */; };
@@ -21,10 +22,10 @@
 		396C9929183E7171006011DC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 396C990B183E7171006011DC /* UIKit.framework */; };
 		396C9931183E7171006011DC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 396C992F183E7171006011DC /* InfoPlist.strings */; };
 		396C9933183E7171006011DC /* Camera_AppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 396C9932183E7171006011DC /* Camera_AppTests.m */; };
-		396C993D183E85CA006011DC /* steveJobs.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 396C993C183E85CA006011DC /* steveJobs.jpg */; };
-		396C993F183E85D0006011DC /* bart.gif in Resources */ = {isa = PBXBuildFile; fileRef = 396C993E183E85D0006011DC /* bart.gif */; };
-		39B65DF5184661A9000F3859 /* twitterLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 39B65DF4184661A8000F3859 /* twitterLogo.png */; };
 		39B65DF7184661ED000F3859 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39B65DF6184661ED000F3859 /* Social.framework */; };
+		39DB2CBB184673890027B686 /* bart.gif in Resources */ = {isa = PBXBuildFile; fileRef = 39DB2CBA184673890027B686 /* bart.gif */; };
+		39DB2CBD184673920027B686 /* steveJobs.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 39DB2CBC184673920027B686 /* steveJobs.jpg */; };
+		39DB2CC4184674FE0027B686 /* fbLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 39DB2CC3184674FE0027B686 /* fbLogo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		395045321846715100FC8DD4 /* twitterLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitterLogo.png; sourceTree = "<group>"; };
 		396C9904183E7171006011DC /* Camera App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Camera App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		396C9907183E7171006011DC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		396C9909183E7171006011DC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -57,10 +59,10 @@
 		396C992E183E7171006011DC /* Camera AppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Camera AppTests-Info.plist"; sourceTree = "<group>"; };
 		396C9930183E7171006011DC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		396C9932183E7171006011DC /* Camera_AppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Camera_AppTests.m; sourceTree = "<group>"; };
-		396C993C183E85CA006011DC /* steveJobs.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = steveJobs.jpg; path = ../../../../Downloads/steveJobs.jpg; sourceTree = "<group>"; };
-		396C993E183E85D0006011DC /* bart.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = bart.gif; path = ../../../../Downloads/bart.gif; sourceTree = "<group>"; };
-		39B65DF4184661A8000F3859 /* twitterLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = twitterLogo.png; path = ../../../../Downloads/twitterLogo.png; sourceTree = "<group>"; };
 		39B65DF6184661ED000F3859 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		39DB2CBA184673890027B686 /* bart.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = bart.gif; sourceTree = "<group>"; };
+		39DB2CBC184673920027B686 /* steveJobs.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = steveJobs.jpg; sourceTree = "<group>"; };
+		39DB2CC3184674FE0027B686 /* fbLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fbLogo.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,9 +124,7 @@
 		396C990D183E7171006011DC /* Camera App */ = {
 			isa = PBXGroup;
 			children = (
-				39B65DF4184661A8000F3859 /* twitterLogo.png */,
-				396C993E183E85D0006011DC /* bart.gif */,
-				396C993C183E85CA006011DC /* steveJobs.jpg */,
+				39DB2CBE1846745A0027B686 /* images */,
 				396C9916183E7171006011DC /* CameraAppAppDelegate.h */,
 				396C9917183E7171006011DC /* CameraAppAppDelegate.m */,
 				396C9919183E7171006011DC /* Main.storyboard */,
@@ -163,6 +163,17 @@
 				396C992F183E7171006011DC /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		39DB2CBE1846745A0027B686 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				395045321846715100FC8DD4 /* twitterLogo.png */,
+				39DB2CC3184674FE0027B686 /* fbLogo.png */,
+				39DB2CBA184673890027B686 /* bart.gif */,
+				39DB2CBC184673920027B686 /* steveJobs.jpg */,
+			);
+			name = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -243,11 +254,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				396C9920183E7171006011DC /* Images.xcassets in Resources */,
-				396C993F183E85D0006011DC /* bart.gif in Resources */,
-				39B65DF5184661A9000F3859 /* twitterLogo.png in Resources */,
-				396C993D183E85CA006011DC /* steveJobs.jpg in Resources */,
+				39DB2CC4184674FE0027B686 /* fbLogo.png in Resources */,
+				395045331846715100FC8DD4 /* twitterLogo.png in Resources */,
+				39DB2CBB184673890027B686 /* bart.gif in Resources */,
 				396C9912183E7171006011DC /* InfoPlist.strings in Resources */,
 				396C991B183E7171006011DC /* Main.storyboard in Resources */,
+				39DB2CBD184673920027B686 /* steveJobs.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
