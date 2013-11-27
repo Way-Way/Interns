@@ -1,0 +1,31 @@
+    NSString* placeLink = [NSString stringWithFormat:@"http://www.wayway.us/place.html?%@", self.place.identifier];
+    if (![[NSString stringWithFormat:@""] isEqualToString:self.place.shortName] && self.place.shortName != NULL)
+    {
+        placeLink = [NSString stringWithFormat:@"http://www.wayway.us/place.html?%@", self.place.shortName];
+    }
+    
+    FBShareDialogParams *params = [[FBShareDialogParams alloc] init];
+    params.link = [NSURL URLWithString:placeLink];
+    params.picture = [NSURL URLWithString:((WWPhoto*)self.place.photos[0]).largeImageUrl];//self.place.bannerUrl;
+    
+    params.name = [[self.place.name stringByAppendingString:@" - "] stringByAppendingString:self.place.formattedAddressAndCity];
+    params.caption = @"Params caption";
+
+    params.description = [@"Rank stat : " stringByAppendingString: @""];
+    //params.place = @"120320377983852";
+    
+    [FBDialogs presentShareDialogWithParams:params
+                                clientState:Nil
+                                    handler:
+     ^(FBAppCall *call, NSDictionary *results, NSError *error) {
+         if (error) {
+             NSLog(@"Error: %@", error.description);
+         } else {
+             if (results[@"completionGesture"] &&
+                 [results[@"completionGesture"] isEqualToString:@"cancel"]) {
+                 NSLog(@"User canceled story publishing");
+             } else {
+                 NSLog(@"Error: %@", results);
+             }
+         }
+     }];
