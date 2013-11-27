@@ -29,14 +29,32 @@
     [self presentViewController:picker2 animated:YES completion:NULL];
 }
 
-
 - (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    
+    CGRect screenBound = [[UIScreen mainScreen] bounds];
+    CGSize screenSize = screenBound.size;
+    CGFloat screenWidth = screenSize.width;
+    CGFloat screenHeight = screenSize.height;
+    
+    
+    NSLog(@"X: %f   Y: %f", screenWidth, screenHeight);
     image = [info objectForKey:UIImagePickerControllerOriginalImage];
   
     UIImage *bart = [UIImage imageNamed:@"bart.gif"];
     UIImage *steveJobs = [UIImage imageNamed:@"steveJobs.jpg"];
     
-    [imageView setImage:image];
+    UIGraphicsBeginImageContext(CGSizeMake(screenHeight, screenWidth));
+    
+    CGContextRef            context = UIGraphicsGetCurrentContext();
+    
+    [bart drawInRect:CGRectMake(0, screenWidth/4, screenHeight/2, screenWidth/2)];
+    [steveJobs drawInRect: CGRectMake(screenHeight/2, screenWidth/4, screenHeight/2, screenWidth/2)];
+    
+    UIImage        *smallImage = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    [imageView setImage:smallImage];
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
@@ -48,7 +66,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-
+    self.photoindex = 0;
 }
 
 

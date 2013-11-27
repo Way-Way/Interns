@@ -12,8 +12,11 @@
     UIImagePickerController *picker;
     UIImagePickerController *picker2;
     UIImage *image;
+    UIImage *image2;
     IBOutlet UIImageView *imageView;
 }
+
+@property (nonatomic) NSUInteger photoIndex;
 
 - (IBAction)takePhoto;
 - (IBAction)chooseExisting;
