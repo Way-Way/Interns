@@ -22,6 +22,7 @@
 		390D761218461023004E0132 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 390D761018461023004E0132 /* InfoPlist.strings */; };
 		390D761418461023004E0132 /* TweetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 390D761318461023004E0132 /* TweetTests.m */; };
 		390D761E1846106D004E0132 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 390D761D1846106D004E0132 /* Social.framework */; };
+		3937A4DC18461E1700C71246 /* steveJobs.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3937A4DB18461E1700C71246 /* steveJobs.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		390D761118461023004E0132 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		390D761318461023004E0132 /* TweetTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TweetTests.m; sourceTree = "<group>"; };
 		390D761D1846106D004E0132 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		3937A4DB18461E1700C71246 /* steveJobs.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = steveJobs.jpg; path = ../../../../Downloads/steveJobs.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 		390D75EE18461023004E0132 /* Tweet */ = {
 			isa = PBXGroup;
 			children = (
+				3937A4DB18461E1700C71246 /* steveJobs.jpg */,
 				390D75F718461023004E0132 /* TweetAppDelegate.h */,
 				390D75F818461023004E0132 /* TweetAppDelegate.m */,
 				390D75FA18461023004E0132 /* Main.storyboard */,
@@ -234,6 +237,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				390D760118461023004E0132 /* Images.xcassets in Resources */,
+				3937A4DC18461E1700C71246 /* steveJobs.jpg in Resources */,
 				390D75F318461023004E0132 /* InfoPlist.strings in Resources */,
 				390D75FC18461023004E0132 /* Main.storyboard in Resources */,
 			);
@@ -465,6 +469,7 @@
 				390D761918461023004E0132 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		390D761A18461023004E0132 /* Build configuration list for PBXNativeTarget "TweetTests" */ = {
 			isa = XCConfigurationList;
@@ -473,6 +478,7 @@
 				390D761C18461023004E0132 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

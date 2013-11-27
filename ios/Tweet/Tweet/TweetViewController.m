@@ -34,6 +34,12 @@
     if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
         SLComposeViewController *tweetSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
         [tweetSheet setInitialText:@"@waywayapp This is a default tweet!"];
+        if (![tweetSheet addImage:[UIImage imageNamed:@"steveJobs.jpg"]]) {
+            NSLog(@"Unable to add the image!");
+        }
+        if (![tweetSheet addURL:[NSURL URLWithString:@"http://wayway.us/"]]){
+            NSLog(@"Unable to add the URL!");
+        }
         [self presentViewController:tweetSheet animated:YES completion:nil];
     } else {
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Sorry" message:@"Make sure you have a Twitter account and you are connected." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
