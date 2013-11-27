@@ -23,6 +23,8 @@
 		396C9933183E7171006011DC /* Camera_AppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 396C9932183E7171006011DC /* Camera_AppTests.m */; };
 		396C993D183E85CA006011DC /* steveJobs.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 396C993C183E85CA006011DC /* steveJobs.jpg */; };
 		396C993F183E85D0006011DC /* bart.gif in Resources */ = {isa = PBXBuildFile; fileRef = 396C993E183E85D0006011DC /* bart.gif */; };
+		39B65DF5184661A9000F3859 /* twitterLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 39B65DF4184661A8000F3859 /* twitterLogo.png */; };
+		39B65DF7184661ED000F3859 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39B65DF6184661ED000F3859 /* Social.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,8 @@
 		396C9932183E7171006011DC /* Camera_AppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Camera_AppTests.m; sourceTree = "<group>"; };
 		396C993C183E85CA006011DC /* steveJobs.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = steveJobs.jpg; path = ../../../../Downloads/steveJobs.jpg; sourceTree = "<group>"; };
 		396C993E183E85D0006011DC /* bart.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = bart.gif; path = ../../../../Downloads/bart.gif; sourceTree = "<group>"; };
+		39B65DF4184661A8000F3859 /* twitterLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = twitterLogo.png; path = ../../../../Downloads/twitterLogo.png; sourceTree = "<group>"; };
+		39B65DF6184661ED000F3859 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39B65DF7184661ED000F3859 /* Social.framework in Frameworks */,
 				396C990A183E7171006011DC /* CoreGraphics.framework in Frameworks */,
 				396C990C183E7171006011DC /* UIKit.framework in Frameworks */,
 				396C9908183E7171006011DC /* Foundation.framework in Frameworks */,
@@ -105,6 +110,7 @@
 		396C9906183E7171006011DC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				39B65DF6184661ED000F3859 /* Social.framework */,
 				396C9907183E7171006011DC /* Foundation.framework */,
 				396C9909183E7171006011DC /* CoreGraphics.framework */,
 				396C990B183E7171006011DC /* UIKit.framework */,
@@ -116,6 +122,7 @@
 		396C990D183E7171006011DC /* Camera App */ = {
 			isa = PBXGroup;
 			children = (
+				39B65DF4184661A8000F3859 /* twitterLogo.png */,
 				396C993E183E85D0006011DC /* bart.gif */,
 				396C993C183E85CA006011DC /* steveJobs.jpg */,
 				396C9916183E7171006011DC /* CameraAppAppDelegate.h */,
@@ -237,6 +244,7 @@
 			files = (
 				396C9920183E7171006011DC /* Images.xcassets in Resources */,
 				396C993F183E85D0006011DC /* bart.gif in Resources */,
+				39B65DF5184661A9000F3859 /* twitterLogo.png in Resources */,
 				396C993D183E85CA006011DC /* steveJobs.jpg in Resources */,
 				396C9912183E7171006011DC /* InfoPlist.strings in Resources */,
 				396C991B183E7171006011DC /* Main.storyboard in Resources */,
@@ -469,6 +477,7 @@
 				396C9938183E7171006011DC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		396C9939183E7171006011DC /* Build configuration list for PBXNativeTarget "Camera AppTests" */ = {
 			isa = XCConfigurationList;
@@ -477,6 +486,7 @@
 				396C993B183E7171006011DC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
