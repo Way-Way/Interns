@@ -13,12 +13,17 @@
     UIImagePickerController *picker2;
     UIImage *image;
     UIImage *image2;
+    IBOutlet UIImageView *singleImageView;
     IBOutlet UIImageView *imageView;
+    IBOutlet UIImageView *imageView2;
 }
 
 @property (nonatomic) NSUInteger photoIndex;
+@property (nonatomic) BOOL shareEnabled;
+@property (strong, nonatomic) UIButton *camera2;
+@property (strong, nonatomic) UIButton *photo2;
 
-- (IBAction)takePhoto;
-- (IBAction)chooseExisting;
+- (IBAction)takePhoto:(id)sender;
+- (IBAction)chooseExisting:(id)sender;
 
 @end

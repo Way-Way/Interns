@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		395045331846715100FC8DD4 /* twitterLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 395045321846715100FC8DD4 /* twitterLogo.png */; };
+		3959E862184795B500FD2C59 /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 3959E861184795B500FD2C59 /* camera.png */; };
+		3959E864184795BB00FD2C59 /* gallery.png in Resources */ = {isa = PBXBuildFile; fileRef = 3959E863184795BB00FD2C59 /* gallery.png */; };
+		3959E86E1847B81C00FD2C59 /* mask.png in Resources */ = {isa = PBXBuildFile; fileRef = 3959E86D1847B81C00FD2C59 /* mask.png */; };
 		396C9908183E7171006011DC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 396C9907183E7171006011DC /* Foundation.framework */; };
 		396C990A183E7171006011DC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 396C9909183E7171006011DC /* CoreGraphics.framework */; };
 		396C990C183E7171006011DC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 396C990B183E7171006011DC /* UIKit.framework */; };
@@ -26,6 +29,7 @@
 		39DB2CBB184673890027B686 /* bart.gif in Resources */ = {isa = PBXBuildFile; fileRef = 39DB2CBA184673890027B686 /* bart.gif */; };
 		39DB2CBD184673920027B686 /* steveJobs.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 39DB2CBC184673920027B686 /* steveJobs.jpg */; };
 		39DB2CC4184674FE0027B686 /* fbLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 39DB2CC3184674FE0027B686 /* fbLogo.png */; };
+		39F8CD5718474FB8006672BE /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39F8CD5618474FB8006672BE /* FacebookSDK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +44,9 @@
 
 /* Begin PBXFileReference section */
 		395045321846715100FC8DD4 /* twitterLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitterLogo.png; sourceTree = "<group>"; };
+		3959E861184795B500FD2C59 /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera.png; sourceTree = "<group>"; };
+		3959E863184795BB00FD2C59 /* gallery.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gallery.png; sourceTree = "<group>"; };
+		3959E86D1847B81C00FD2C59 /* mask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mask.png; sourceTree = "<group>"; };
 		396C9904183E7171006011DC /* Camera App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Camera App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		396C9907183E7171006011DC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		396C9909183E7171006011DC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -63,6 +70,7 @@
 		39DB2CBA184673890027B686 /* bart.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = bart.gif; sourceTree = "<group>"; };
 		39DB2CBC184673920027B686 /* steveJobs.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = steveJobs.jpg; sourceTree = "<group>"; };
 		39DB2CC3184674FE0027B686 /* fbLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fbLogo.png; sourceTree = "<group>"; };
+		39F8CD5618474FB8006672BE /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +79,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				39B65DF7184661ED000F3859 /* Social.framework in Frameworks */,
+				39F8CD5718474FB8006672BE /* FacebookSDK.framework in Frameworks */,
 				396C990A183E7171006011DC /* CoreGraphics.framework in Frameworks */,
 				396C990C183E7171006011DC /* UIKit.framework in Frameworks */,
 				396C9908183E7171006011DC /* Foundation.framework in Frameworks */,
@@ -112,6 +121,7 @@
 		396C9906183E7171006011DC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				39F8CD5618474FB8006672BE /* FacebookSDK.framework */,
 				39B65DF6184661ED000F3859 /* Social.framework */,
 				396C9907183E7171006011DC /* Foundation.framework */,
 				396C9909183E7171006011DC /* CoreGraphics.framework */,
@@ -172,6 +182,9 @@
 				39DB2CC3184674FE0027B686 /* fbLogo.png */,
 				39DB2CBA184673890027B686 /* bart.gif */,
 				39DB2CBC184673920027B686 /* steveJobs.jpg */,
+				3959E86D1847B81C00FD2C59 /* mask.png */,
+				3959E863184795BB00FD2C59 /* gallery.png */,
+				3959E861184795B500FD2C59 /* camera.png */,
 			);
 			name = images;
 			sourceTree = "<group>";
@@ -254,8 +267,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				396C9920183E7171006011DC /* Images.xcassets in Resources */,
+				3959E864184795BB00FD2C59 /* gallery.png in Resources */,
 				39DB2CC4184674FE0027B686 /* fbLogo.png in Resources */,
 				395045331846715100FC8DD4 /* twitterLogo.png in Resources */,
+				3959E86E1847B81C00FD2C59 /* mask.png in Resources */,
+				3959E862184795B500FD2C59 /* camera.png in Resources */,
 				39DB2CBB184673890027B686 /* bart.gif in Resources */,
 				396C9912183E7171006011DC /* InfoPlist.strings in Resources */,
 				396C991B183E7171006011DC /* Main.storyboard in Resources */,
@@ -407,6 +423,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/mo_r/Desktop/Dev/Camera\\ App",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Camera App/Camera App-Prefix.pch";
 				INFOPLIST_FILE = "Camera App/Camera App-Info.plist";
@@ -420,6 +440,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/mo_r/Desktop/Dev/Camera\\ App",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Camera App/Camera App-Prefix.pch";
 				INFOPLIST_FILE = "Camera App/Camera App-Info.plist";
