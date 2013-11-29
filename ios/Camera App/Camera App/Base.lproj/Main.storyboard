@@ -131,6 +131,7 @@
                     <connections>
                         <outlet property="imageView" destination="Dpi-nL-E7R" id="3Ui-Q9-pO7"/>
                         <outlet property="imageView2" destination="sxy-t8-WQI" id="5HL-mr-8hH"/>
+                        <outlet property="imageView3" destination="1I3-tw-DK1" id="qtu-6K-bgo"/>
                         <outlet property="singleImageView" destination="q1d-kx-jcu" id="W1P-7H-bhA"/>
                     </connections>
                 </viewController>
@@ -140,7 +141,11 @@
     </scenes>
     <resources>
         <image name="camera.png" width="256" height="256"/>
+        <image name="camera.png" width="256" height="256"/>
+        <image name="camera.png" width="256" height="256"/>
         <image name="fbLogo.png" width="100" height="100"/>
+        <image name="gallery.png" width="256" height="256"/>
+        <image name="gallery.png" width="256" height="256"/>
         <image name="gallery.png" width="256" height="256"/>
         <image name="twitterLogo.png" width="100" height="100"/>
     </resources>

@@ -13,9 +13,11 @@
     UIImagePickerController *picker2;
     UIImage *image;
     UIImage *image2;
+    UIImage *image3;
     IBOutlet UIImageView *singleImageView;
     IBOutlet UIImageView *imageView;
     IBOutlet UIImageView *imageView2;
+    IBOutlet UIImageView *imageView3;
 }
 
 @property (nonatomic) NSUInteger photoIndex;

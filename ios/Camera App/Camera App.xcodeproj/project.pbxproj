@@ -29,6 +29,7 @@
 		39DB2CBB184673890027B686 /* bart.gif in Resources */ = {isa = PBXBuildFile; fileRef = 39DB2CBA184673890027B686 /* bart.gif */; };
 		39DB2CBD184673920027B686 /* steveJobs.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 39DB2CBC184673920027B686 /* steveJobs.jpg */; };
 		39DB2CC4184674FE0027B686 /* fbLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 39DB2CC3184674FE0027B686 /* fbLogo.png */; };
+		39DE0F241848B751007328DA /* UIImageExtras.m in Sources */ = {isa = PBXBuildFile; fileRef = 39DE0F231848B751007328DA /* UIImageExtras.m */; };
 		39F8CD5718474FB8006672BE /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39F8CD5618474FB8006672BE /* FacebookSDK.framework */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +71,8 @@
 		39DB2CBA184673890027B686 /* bart.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = bart.gif; sourceTree = "<group>"; };
 		39DB2CBC184673920027B686 /* steveJobs.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = steveJobs.jpg; sourceTree = "<group>"; };
 		39DB2CC3184674FE0027B686 /* fbLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fbLogo.png; sourceTree = "<group>"; };
+		39DE0F221848B751007328DA /* UIImageExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageExtras.h; sourceTree = "<group>"; };
+		39DE0F231848B751007328DA /* UIImageExtras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageExtras.m; sourceTree = "<group>"; };
 		39F8CD5618474FB8006672BE /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -138,6 +141,8 @@
 				396C9916183E7171006011DC /* CameraAppAppDelegate.h */,
 				396C9917183E7171006011DC /* CameraAppAppDelegate.m */,
 				396C9919183E7171006011DC /* Main.storyboard */,
+				39DE0F221848B751007328DA /* UIImageExtras.h */,
+				39DE0F231848B751007328DA /* UIImageExtras.m */,
 				396C991C183E7171006011DC /* CameraAppViewController.h */,
 				396C991D183E7171006011DC /* CameraAppViewController.m */,
 				396C991F183E7171006011DC /* Images.xcassets */,
@@ -296,6 +301,7 @@
 			files = (
 				396C991E183E7171006011DC /* CameraAppViewController.m in Sources */,
 				396C9914183E7171006011DC /* main.m in Sources */,
+				39DE0F241848B751007328DA /* UIImageExtras.m in Sources */,
 				396C9918183E7171006011DC /* CameraAppAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

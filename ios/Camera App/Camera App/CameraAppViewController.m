@@ -6,9 +6,11 @@
 //  Copyright (c) 2013 mo_r. All rights reserved.
 //
 
-#import "CameraAppViewController.h"
 #import <Social/Social.h>
 #import <FacebookSDK/FacebookSDK.h>
+
+#import "CameraAppViewController.h"
+#import "UIImageExtras.h"
 
 @interface CameraAppViewController ()
 
@@ -18,8 +20,12 @@
 
 
 - (IBAction)takePhoto:(id)sender {
-    NSLog(@"clicked on %@ %ld", [sender currentTitle], (long)[sender tag]);
-    [sender tag] == 0 ? (self.photoIndex = 0) : (self.photoIndex = 1);
+    if ([sender tag] == 0)
+        self.photoIndex = 0;
+    else if ([sender tag] == 1)
+        self.photoIndex = 1;
+    else
+        self.photoIndex = 2;
     picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
     [picker setSourceType:UIImagePickerControllerSourceTypeCamera];
@@ -38,8 +44,12 @@
 }
 
 - (IBAction)chooseExisting:(id)sender {
-    NSLog(@"clicked on %@ %ld", [sender currentTitle], (long)[sender tag]);
-    [sender tag] == 0 ? (self.photoIndex = 0) : (self.photoIndex = 1);
+    if ([sender tag] == 0)
+        self.photoIndex = 0;
+    else if ([sender tag] == 1)
+        self.photoIndex = 1;
+    else
+        self.photoIndex = 2;
     picker2 = [[UIImagePickerController alloc] init];
     picker2.delegate = self;
     [picker2 setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
@@ -48,6 +58,7 @@
 
 #define MASK_UNIT 33.5
 
+
 - (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
 
     CGRect screenBound = [[UIScreen mainScreen] bounds];
@@ -55,16 +66,22 @@
     CGFloat screenWidth = screenSize.width;
     CGFloat screenHeight = screenSize.height;
     self.shareEnabled = YES;
-    self.photoIndex == 0 ?  (image = [info objectForKey:UIImagePickerControllerOriginalImage]) :
-                            (image2 = [info objectForKey:UIImagePickerControllerOriginalImage]);
-    
 
     if (self.photoIndex == 0) {
+        image = [info objectForKey:UIImagePickerControllerOriginalImage];
+        image = [image imageByScalingAndCroppingForSize:CGSizeMake(screenWidth * 4 - (MASK_UNIT * 8), screenHeight * 4)];
         [imageView setImage:image];
     }
-    else {
+    else if (self.photoIndex == 1){
+        image2 = [info objectForKey:UIImagePickerControllerOriginalImage];
+        image2 = [image2 imageByScalingAndCroppingForSize:CGSizeMake(screenWidth * 4 - (MASK_UNIT * 8), screenHeight * 4)];
         [imageView2 setImage:image2];
      }
+    else {
+        image3 = [info objectForKey:UIImagePickerControllerOriginalImage];
+        image3 = [image3 imageByScalingAndCroppingForSize:CGSizeMake(screenWidth * 4 - (MASK_UNIT * 8), screenHeight * 4)];
+        [imageView3 setImage:image3];
+    }
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
@@ -79,6 +96,7 @@
         CGContextRef            context = UIGraphicsGetCurrentContext();
         [image drawInRect:CGRectMake(0, 0, screenHeight * 4 /3, screenWidth * 4)];
         [image2 drawInRect: CGRectMake(screenHeight * 4 / 3, 0, screenHeight * 4 / 3, screenWidth * 4)];
+        [image3 drawInRect:CGRectMake(2 * (screenHeight * 4 / 3), 0, screenHeight * 4 / 3, screenWidth * 4)];
         NSString  *jpgPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/combinedImg.jpg"];
         UIImage        *smallImage = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
@@ -105,7 +123,7 @@
             [alertView show];
         }
     } else {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Sorry" message:@"You have to take two photos." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Sorry" message:@"There is 0 photo." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alertView show];
     }
 }
@@ -138,7 +156,7 @@
             [alertView show];
         }
     } else {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Sorry" message:@"You have to take two photos." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Sorry" message:@"There is 0 photo." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alertView show];
 
     }
