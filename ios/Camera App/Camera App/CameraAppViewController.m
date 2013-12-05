@@ -32,11 +32,11 @@
     
     UIView *mask = [[UIView alloc] init];
 
-    UIImageView *imageview = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"mask.png"]];
-    imageview.frame = CGRectMake(0, 40, 320, 367);    //40px top, 73px bot
+    UIImageView *maskView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"mask.png"]];
+    maskView.frame = CGRectMake(0, 40, 320, 367);    //40px top, 73px bot
                                                       //33.5
-    [mask addSubview:imageview];
-    [mask bringSubviewToFront:imageview];
+    [mask addSubview:maskView];
+    [mask bringSubviewToFront:maskView];
     
     
     picker.cameraOverlayView = mask;
@@ -57,7 +57,7 @@
 }
 
 #define MASK_UNIT 33.5
-
+#define PIXEL_UNIT 3
 
 - (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
 
@@ -85,23 +85,30 @@
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
+
 - (IBAction)twitterShare:(id)sender {
     if (self.shareEnabled == YES) {
         CGRect screenBound = [[UIScreen mainScreen] bounds];
         CGSize screenSize = screenBound.size;
         CGFloat screenWidth = screenSize.width;
         CGFloat screenHeight = screenSize.height;
-        UIGraphicsBeginImageContext(CGSizeMake(screenHeight * 4, screenWidth * 4));
+        NSLog(@"%f , %f", screenWidth, screenHeight);
+        UIGraphicsBeginImageContext(CGSizeMake(screenHeight * PIXEL_UNIT, screenWidth * PIXEL_UNIT));
         
         CGContextRef            context = UIGraphicsGetCurrentContext();
-        [image drawInRect:CGRectMake(0, 0, screenHeight * 4 /3, screenWidth * 4)];
-        [image2 drawInRect: CGRectMake(screenHeight * 4 / 3, 0, screenHeight * 4 / 3, screenWidth * 4)];
-        [image3 drawInRect:CGRectMake(2 * (screenHeight * 4 / 3), 0, screenHeight * 4 / 3, screenWidth * 4)];
+
+        UIImage *frame = [[UIImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"photoFrame" ofType:@"png"]];
+        if (frame == nil)
+            NSLog(@"photoFrame.png not found");
+        [image drawInRect:CGRectMake(0, 0, screenHeight * PIXEL_UNIT / 3, screenWidth * PIXEL_UNIT)];
+        [image2 drawInRect: CGRectMake(screenHeight * PIXEL_UNIT / 3, 0, screenHeight * PIXEL_UNIT / 3, screenWidth * PIXEL_UNIT)];
+        [image3 drawInRect:CGRectMake(2 * (screenHeight * PIXEL_UNIT / 3), 0, screenHeight * PIXEL_UNIT / 3, screenWidth * PIXEL_UNIT)];
+        [frame drawInRect:CGRectMake(0, 0, (screenHeight * PIXEL_UNIT) , screenWidth * PIXEL_UNIT)];
         NSString  *jpgPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/combinedImg.jpg"];
         UIImage        *smallImage = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
         [UIImageJPEGRepresentation(smallImage, 0) writeToFile:jpgPath atomically:YES];
-        NSLog(@"%@", jpgPath);
+
         if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
             SLComposeViewController *tweetSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
             [tweetSheet setInitialText:@"@waywayapp Check out this app!"];
@@ -109,6 +116,7 @@
             NSArray *sysPaths = NSSearchPathForDirectoriesInDomains( NSDocumentDirectory, NSUserDomainMask, YES );
             NSString *docDirectory = [sysPaths objectAtIndex:0];
             NSString *filePath = [NSString stringWithFormat:@"%@/combinedImg.jpg", docDirectory];
+            NSLog(@"%@", filePath);
             UIImage * savedImg = [[UIImage alloc] initWithContentsOfFile:filePath];
             
             if (![tweetSheet addImage:savedImg]) {

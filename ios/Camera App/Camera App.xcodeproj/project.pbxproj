@@ -30,6 +30,7 @@
 		39DB2CBD184673920027B686 /* steveJobs.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 39DB2CBC184673920027B686 /* steveJobs.jpg */; };
 		39DB2CC4184674FE0027B686 /* fbLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 39DB2CC3184674FE0027B686 /* fbLogo.png */; };
 		39DE0F241848B751007328DA /* UIImageExtras.m in Sources */ = {isa = PBXBuildFile; fileRef = 39DE0F231848B751007328DA /* UIImageExtras.m */; };
+		39EAD85D1848F2AF007D0504 /* photoFrame.png in Resources */ = {isa = PBXBuildFile; fileRef = 39EAD85C1848F2AF007D0504 /* photoFrame.png */; };
 		39F8CD5718474FB8006672BE /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39F8CD5618474FB8006672BE /* FacebookSDK.framework */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +74,7 @@
 		39DB2CC3184674FE0027B686 /* fbLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fbLogo.png; sourceTree = "<group>"; };
 		39DE0F221848B751007328DA /* UIImageExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageExtras.h; sourceTree = "<group>"; };
 		39DE0F231848B751007328DA /* UIImageExtras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageExtras.m; sourceTree = "<group>"; };
+		39EAD85C1848F2AF007D0504 /* photoFrame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photoFrame.png; sourceTree = "<group>"; };
 		39F8CD5618474FB8006672BE /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -190,6 +192,7 @@
 				3959E86D1847B81C00FD2C59 /* mask.png */,
 				3959E863184795BB00FD2C59 /* gallery.png */,
 				3959E861184795B500FD2C59 /* camera.png */,
+				39EAD85C1848F2AF007D0504 /* photoFrame.png */,
 			);
 			name = images;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 				39DB2CC4184674FE0027B686 /* fbLogo.png in Resources */,
 				395045331846715100FC8DD4 /* twitterLogo.png in Resources */,
 				3959E86E1847B81C00FD2C59 /* mask.png in Resources */,
+				39EAD85D1848F2AF007D0504 /* photoFrame.png in Resources */,
 				3959E862184795B500FD2C59 /* camera.png in Resources */,
 				39DB2CBB184673890027B686 /* bart.gif in Resources */,
 				396C9912183E7171006011DC /* InfoPlist.strings in Resources */,
