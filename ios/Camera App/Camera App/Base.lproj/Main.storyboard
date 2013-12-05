@@ -39,8 +39,8 @@
                                 <rect key="frame" x="0.0" y="130" width="320" height="220"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" alpha="0.39999999999999997" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aqv-kO-zmm" userLabel="camera">
-                                <rect key="frame" x="7" y="325" width="25" height="25"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aqv-kO-zmm" userLabel="camera">
+                                <rect key="frame" x="143" y="425" width="35" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Camera" image="camera.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -49,27 +49,7 @@
                                     <action selector="takePhoto:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="8Sn-be-Sao"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" alpha="0.40000000000000002" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XSg-GX-AZg" userLabel="camera">
-                                <rect key="frame" x="114" y="325" width="25" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Camera" image="camera.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="takePhoto:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="QnC-p2-KFQ"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" alpha="0.40000000596046448" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WFo-P8-Usd" userLabel="camera">
-                                <rect key="frame" x="221" y="325" width="25" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Camera" image="camera.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="takePhoto:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="f1q-f1-iII"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" alpha="0.39999999999999963" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dst-kZ-Zi8" userLabel="photos">
+                            <button hidden="YES" opaque="NO" alpha="0.39999999999999963" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dst-kZ-Zi8" userLabel="photos">
                                 <rect key="frame" x="71" y="323" width="28" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="gallery.png">
@@ -79,7 +59,7 @@
                                     <action selector="chooseExisting:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="gJY-Kf-wQN"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" alpha="0.40000000596046448" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zcb-f0-qO1" userLabel="photos">
+                            <button hidden="YES" opaque="NO" alpha="0.40000000596046448" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zcb-f0-qO1" userLabel="photos">
                                 <rect key="frame" x="178" y="322" width="28" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="gallery.png">
@@ -89,7 +69,7 @@
                                     <action selector="chooseExisting:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="38m-BC-2hF"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" alpha="0.40000000596046448" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7MT-wZ-97i" userLabel="photos">
+                            <button hidden="YES" opaque="NO" alpha="0.40000000596046448" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7MT-wZ-97i" userLabel="photos">
                                 <rect key="frame" x="286" y="322" width="28" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="gallery.png">
@@ -100,7 +80,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h8s-sL-8nq">
-                                <rect key="frame" x="178" y="425" width="35" height="35"/>
+                                <rect key="frame" x="250" y="425" width="35" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" image="twitterLogo.png">
@@ -111,7 +91,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dep-Gs-pKY">
-                                <rect key="frame" x="107" y="425" width="35" height="35"/>
+                                <rect key="frame" x="36" y="425" width="35" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="fbLogo.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -137,6 +117,8 @@
     <resources>
         <image name="camera.png" width="256" height="256"/>
         <image name="fbLogo.png" width="100" height="100"/>
+        <image name="gallery.png" width="256" height="256"/>
+        <image name="gallery.png" width="256" height="256"/>
         <image name="gallery.png" width="256" height="256"/>
         <image name="photoFrame.png" width="320" height="270"/>
         <image name="twitterLogo.png" width="100" height="100"/>

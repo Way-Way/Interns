@@ -20,26 +20,21 @@
 
 
 - (IBAction)takePhoto:(id)sender {
-    if ([sender tag] == 0)
-        self.photoIndex = 0;
-    else if ([sender tag] == 1)
-        self.photoIndex = 1;
-    else
-        self.photoIndex = 2;
+    [self dismissViewControllerAnimated:YES completion:NULL];
     picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
-    [picker setSourceType:UIImagePickerControllerSourceTypeCamera];
-    
-    UIView *mask = [[UIView alloc] init];
 
+    [picker setSourceType:UIImagePickerControllerSourceTypeCamera];
+
+    UIView *mask = [[UIView alloc] init];
     UIImageView *maskView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"mask.png"]];
     maskView.frame = CGRectMake(0, 40, 320, 367);    //40px top, 73px bot
-                                                      //33.5
+                                                      //33.5px sides
     [mask addSubview:maskView];
     [mask bringSubviewToFront:maskView];
     
-    
     picker.cameraOverlayView = mask;
+
     [self presentViewController:picker animated:YES completion:NULL];
 }
 
@@ -60,7 +55,6 @@
 #define PIXEL_UNIT 3
 
 - (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-
     CGRect screenBound = [[UIScreen mainScreen] bounds];
     CGSize screenSize = screenBound.size;
     CGFloat screenWidth = screenSize.width;
@@ -82,33 +76,45 @@
         image3 = [image3 imageByScalingAndCroppingForSize:CGSizeMake(screenWidth * 4 - (MASK_UNIT * 8), screenHeight * 4)];
         [imageView3 setImage:image3];
     }
+    if (self.photoIndex < 2) {
+        NSLog(@"after dismiss");
+        NSLog(@"after recall take photo");
+        ++self.photoIndex;
+    } else {
+        self.photoIndex = 0;
+    }
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (void)combineImages {
+    CGRect screenBound = [[UIScreen mainScreen] bounds];
+    CGSize screenSize = screenBound.size;
+    CGFloat screenWidth = screenSize.width;
+    CGFloat screenHeight = screenSize.height;
+    UIGraphicsBeginImageContext(CGSizeMake(screenHeight * PIXEL_UNIT, screenWidth * PIXEL_UNIT));
+    
+    CGContextRef            context = UIGraphicsGetCurrentContext();
+    
+    UIImage *frame = [[UIImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"photoFrame" ofType:@"png"]];
+    if (frame == nil)
+        NSLog(@"photoFrame.png not found");
+    [image drawInRect:CGRectMake(0, 0, screenHeight * PIXEL_UNIT / 3, screenWidth * PIXEL_UNIT)];
+    [image2 drawInRect: CGRectMake(screenHeight * PIXEL_UNIT / 3, 0, screenHeight * PIXEL_UNIT / 3, screenWidth * PIXEL_UNIT)];
+    [image3 drawInRect:CGRectMake(2 * (screenHeight * PIXEL_UNIT / 3), 0, screenHeight * PIXEL_UNIT / 3, screenWidth * PIXEL_UNIT)];
+    [frame drawInRect:CGRectMake(0, 0, (screenHeight * PIXEL_UNIT) , screenWidth * PIXEL_UNIT)];
+    NSString  *jpgPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/combinedImg.jpg"];
+    UIImage        *smallImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    [UIImageJPEGRepresentation(smallImage, 0) writeToFile:jpgPath atomically:YES];
+}
 
 - (IBAction)twitterShare:(id)sender {
     if (self.shareEnabled == YES) {
-        CGRect screenBound = [[UIScreen mainScreen] bounds];
-        CGSize screenSize = screenBound.size;
-        CGFloat screenWidth = screenSize.width;
-        CGFloat screenHeight = screenSize.height;
-        NSLog(@"%f , %f", screenWidth, screenHeight);
-        UIGraphicsBeginImageContext(CGSizeMake(screenHeight * PIXEL_UNIT, screenWidth * PIXEL_UNIT));
-        
-        CGContextRef            context = UIGraphicsGetCurrentContext();
-
-        UIImage *frame = [[UIImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"photoFrame" ofType:@"png"]];
-        if (frame == nil)
-            NSLog(@"photoFrame.png not found");
-        [image drawInRect:CGRectMake(0, 0, screenHeight * PIXEL_UNIT / 3, screenWidth * PIXEL_UNIT)];
-        [image2 drawInRect: CGRectMake(screenHeight * PIXEL_UNIT / 3, 0, screenHeight * PIXEL_UNIT / 3, screenWidth * PIXEL_UNIT)];
-        [image3 drawInRect:CGRectMake(2 * (screenHeight * PIXEL_UNIT / 3), 0, screenHeight * PIXEL_UNIT / 3, screenWidth * PIXEL_UNIT)];
-        [frame drawInRect:CGRectMake(0, 0, (screenHeight * PIXEL_UNIT) , screenWidth * PIXEL_UNIT)];
-        NSString  *jpgPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/combinedImg.jpg"];
-        UIImage        *smallImage = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
-        [UIImageJPEGRepresentation(smallImage, 0) writeToFile:jpgPath atomically:YES];
-
+        [self combineImages];
         if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
             SLComposeViewController *tweetSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
             [tweetSheet setInitialText:@"@waywayapp Check out this app!"];
@@ -138,11 +144,11 @@
 
 - (IBAction)facebookShare:(id)sender {
     if (self.shareEnabled == YES) {
-        NSArray *sysPaths = NSSearchPathForDirectoriesInDomains( NSDocumentDirectory, NSUserDomainMask, YES );
-        NSString *docDirectory = [sysPaths objectAtIndex:0];
-        NSString *filePath = [NSString stringWithFormat:@"%@/combinedImg.jpg", docDirectory];
-        UIImage * savedImg = [[UIImage alloc] initWithContentsOfFile:filePath];
-        
+//        NSArray *sysPaths = NSSearchPathForDirectoriesInDomains( NSDocumentDirectory, NSUserDomainMask, YES );
+//        NSString *docDirectory = [sysPaths objectAtIndex:0];
+//        NSString *filePath = [NSString stringWithFormat:@"%@/combinedImg.jpg", docDirectory];
+//        UIImage * savedImg = [[UIImage alloc] initWithContentsOfFile:filePath];
+        [self combineImages];
         if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
             SLComposeViewController *fbSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
             [fbSheet setInitialText:@"@waywayapp Check out this app!"];
@@ -168,11 +174,6 @@
         [alertView show];
 
     }
-}
-
-
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-    [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 - (void)viewDidLoad
