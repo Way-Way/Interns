@@ -25,6 +25,7 @@
 @property (strong, nonatomic) UIButton *camera2;
 @property (strong, nonatomic) UIButton *photo2;
 @property (strong, nonatomic) UIButton *captureButton;
+@property (strong, nonatomic) UIButton *cameraRevButton;
 
 - (IBAction)takePicture:(id)sender;     //action of "take picture" button which is set progrmmatically
 - (IBAction)takePhoto:(id)sender;

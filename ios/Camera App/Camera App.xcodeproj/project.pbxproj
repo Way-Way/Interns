@@ -12,6 +12,7 @@
 		3959E864184795BB00FD2C59 /* gallery.png in Resources */ = {isa = PBXBuildFile; fileRef = 3959E863184795BB00FD2C59 /* gallery.png */; };
 		3959E86E1847B81C00FD2C59 /* mask.png in Resources */ = {isa = PBXBuildFile; fileRef = 3959E86D1847B81C00FD2C59 /* mask.png */; };
 		396843561859CDCE00F557F6 /* captureButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 396843551859CDCE00F557F6 /* captureButton.png */; };
+		3968435C185A134900F557F6 /* reverseCamera.png in Resources */ = {isa = PBXBuildFile; fileRef = 3968435B185A134900F557F6 /* reverseCamera.png */; };
 		396C9908183E7171006011DC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 396C9907183E7171006011DC /* Foundation.framework */; };
 		396C990A183E7171006011DC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 396C9909183E7171006011DC /* CoreGraphics.framework */; };
 		396C990C183E7171006011DC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 396C990B183E7171006011DC /* UIKit.framework */; };
@@ -52,6 +53,7 @@
 		3959E863184795BB00FD2C59 /* gallery.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gallery.png; sourceTree = "<group>"; };
 		3959E86D1847B81C00FD2C59 /* mask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mask.png; sourceTree = "<group>"; };
 		396843551859CDCE00F557F6 /* captureButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = captureButton.png; sourceTree = "<group>"; };
+		3968435B185A134900F557F6 /* reverseCamera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reverseCamera.png; sourceTree = "<group>"; };
 		396C9904183E7171006011DC /* Camera App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Camera App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		396C9907183E7171006011DC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		396C9909183E7171006011DC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -192,6 +194,7 @@
 		39DB2CBE1846745A0027B686 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				3968435B185A134900F557F6 /* reverseCamera.png */,
 				396843551859CDCE00F557F6 /* captureButton.png */,
 				395045321846715100FC8DD4 /* twitterLogo.png */,
 				39DB2CC3184674FE0027B686 /* fbLogo.png */,
@@ -282,6 +285,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3968435C185A134900F557F6 /* reverseCamera.png in Resources */,
 				396C9920183E7171006011DC /* Images.xcassets in Resources */,
 				396843561859CDCE00F557F6 /* captureButton.png in Resources */,
 				3959E864184795BB00FD2C59 /* gallery.png in Resources */,

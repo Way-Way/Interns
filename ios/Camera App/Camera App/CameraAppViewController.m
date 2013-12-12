@@ -26,8 +26,13 @@
 
 
 - (IBAction)takePicture:(id)sender {
-    NSLog(@"taken");
     [picker takePicture];
+}
+
+- (IBAction)reverseCamera:(id)sender {
+    picker.cameraDevice == UIImagePickerControllerCameraDeviceFront?
+    (picker.cameraDevice = UIImagePickerControllerCameraDeviceRear):
+    (picker.cameraDevice = UIImagePickerControllerCameraDeviceFront);
 }
 
 - (IBAction)takePhoto:(id)sender {
@@ -41,7 +46,8 @@
     
     OverlayView *overlay = [[OverlayView alloc]
                             initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGTH)];
-
+    
+    [overlay addSubview:self.cameraRevButton];
     [overlay addSubview:self.captureButton];
     
     picker.cameraOverlayView = overlay;
@@ -208,8 +214,12 @@
     [self.captureButton addTarget:self action:@selector(takePicture:) forControlEvents:UIControlEventTouchUpInside];
     self.captureButton.frame = CGRectMake(125, 390, 70, 70);
     self.captureButton.layer.cornerRadius = 35; //half of the with
-}
 
+    self.cameraRevButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.cameraRevButton setImage:[UIImage imageNamed:@"reverseCamera.png"] forState:UIControlStateNormal];
+    [self.cameraRevButton addTarget:self action:@selector(reverseCamera:) forControlEvents:UIControlEventTouchUpInside];
+    self.cameraRevButton.frame = CGRectMake(225, 20, 50, 35);
+}
 
 - (void)didReceiveMemoryWarning
 {
