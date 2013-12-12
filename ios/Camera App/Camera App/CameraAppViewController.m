@@ -11,6 +11,7 @@
 
 #import "CameraAppViewController.h"
 #import "UIImageExtras.h"
+#import "OverlayView.h"
 
 @interface CameraAppViewController ()
 
@@ -18,22 +19,44 @@
 
 @implementation CameraAppViewController
 
+#define MASK_UNIT 33.5
+#define PIXEL_UNIT 3
+#define SCREEN_HEIGTH 480
+#define SCREEN_WIDTH 320
+
+
+- (IBAction)takePicture:(id)sender {
+    NSLog(@"taken");
+    [picker takePicture];
+}
 
 - (IBAction)takePhoto:(id)sender {
     [self dismissViewControllerAnimated:YES completion:NULL];
     picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
-
     [picker setSourceType:UIImagePickerControllerSourceTypeCamera];
-
-    UIView *mask = [[UIView alloc] init];
-    UIImageView *maskView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"mask.png"]];
-    maskView.frame = CGRectMake(0, 40, 320, 367);    //40px top, 73px bot
-                                                      //33.5px sides
-    [mask addSubview:maskView];
-    [mask bringSubviewToFront:maskView];
+    picker.cameraCaptureMode = UIImagePickerControllerCameraCaptureModePhoto;
+    picker.cameraDevice = UIImagePickerControllerCameraDeviceRear;
+    picker.showsCameraControls = NO; //
     
-    picker.cameraOverlayView = mask;
+    OverlayView *overlay = [[OverlayView alloc]
+                            initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGTH)];
+
+    [overlay addSubview:self.captureButton];
+    
+    picker.cameraOverlayView = overlay;
+    
+//    UIView *mask = [[UIView alloc] init];
+//    UIImageView *maskView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"mask.png"]];
+////    maskView.frame = CGRectMake(0, 40, 320, 367);    //40px top, 73px bot
+//                                                        //33.5px sides
+//    maskView.frame = CGRectMake(0, 20, 320, 460);
+//    
+//    
+//    [mask addSubview:maskView];
+//    [mask bringSubviewToFront:maskView];
+//    picker.cameraOverlayView = mask;
+
 
     [self presentViewController:picker animated:YES completion:NULL];
 }
@@ -50,9 +73,6 @@
     [picker2 setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
     [self presentViewController:picker2 animated:YES completion:NULL];
 }
-
-#define MASK_UNIT 33.5
-#define PIXEL_UNIT 3
 
 - (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     CGRect screenBound = [[UIScreen mainScreen] bounds];
@@ -77,8 +97,6 @@
         [imageView3 setImage:image3];
     }
     if (self.photoIndex < 2) {
-        NSLog(@"after dismiss");
-        NSLog(@"after recall take photo");
         ++self.photoIndex;
     } else {
         self.photoIndex = 0;
@@ -182,6 +200,14 @@
 	// Do any additional setup after loading the view, typically from a nib.
     self.photoIndex = 0;
     self.shareEnabled = NO;
+    
+    self.captureButton = [UIButton
+                        buttonWithType:UIButtonTypeCustom];
+//    [self.captureButton setTitle:@"Capture" forState:UIControlStateNormal];
+    [self.captureButton setImage:[UIImage imageNamed:@"captureButton.png"] forState:UIControlStateNormal];
+    [self.captureButton addTarget:self action:@selector(takePicture:) forControlEvents:UIControlEventTouchUpInside];
+    self.captureButton.frame = CGRectMake(125, 390, 70, 70);
+    self.captureButton.layer.cornerRadius = 35; //half of the with
 }
 
 

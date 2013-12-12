@@ -118,8 +118,6 @@
         <image name="camera.png" width="256" height="256"/>
         <image name="fbLogo.png" width="100" height="100"/>
         <image name="gallery.png" width="256" height="256"/>
-        <image name="gallery.png" width="256" height="256"/>
-        <image name="gallery.png" width="256" height="256"/>
         <image name="photoFrame.png" width="320" height="270"/>
         <image name="twitterLogo.png" width="100" height="100"/>
     </resources>

@@ -24,7 +24,9 @@
 @property (nonatomic) BOOL shareEnabled;
 @property (strong, nonatomic) UIButton *camera2;
 @property (strong, nonatomic) UIButton *photo2;
+@property (strong, nonatomic) UIButton *captureButton;
 
+- (IBAction)takePicture:(id)sender;     //action of "take picture" button which is set progrmmatically
 - (IBAction)takePhoto:(id)sender;
 - (IBAction)chooseExisting:(id)sender;
 
