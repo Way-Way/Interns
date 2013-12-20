@@ -9,10 +9,17 @@
 #import <UIKit/UIKit.h>
 #import "OverlayView.h"
 
+@protocol CameraViewControllerDelegate <NSObject>
+@required
+- (void)done:(NSString *)name;
+@end
+
 @interface CameraViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>{
 @public
     UIImagePickerController *picker;
     UIImagePickerController *picker2;
+    IBOutlet UIButton *useButton;
+    id delegate;
 }
 
 
@@ -22,6 +29,9 @@
 @property (weak, nonatomic) UIImage *overViewImage;
 @property (weak, nonatomic) NSMutableArray *photos;
 @property (nonatomic) NSUInteger photoIndex;
+@property (assign, nonatomic) id <CameraViewControllerDelegate> delegate;
 
+- (IBAction)usePressed:(id)sender;
 
 @end
+

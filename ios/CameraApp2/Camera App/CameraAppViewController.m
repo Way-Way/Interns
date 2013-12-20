@@ -19,6 +19,8 @@
 
 @implementation CameraAppViewController
 
+@synthesize test;
+
 #define MASK_UNIT 33.5
 #define PIXEL_UNIT 3
 #define SCREEN_HEIGTH 480
@@ -27,17 +29,24 @@
 
 - (IBAction)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"toHomeView"]) {
+    if ([segue.identifier isEqualToString:@"CameraViewController"]) {
             CameraViewController *vc = [segue destinationViewController];
-            vc.photoIndex = self.photoIndex;
+        vc.delegate = self;        
     }
 }
 
-- (IBAction)takePhoto:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
-    CameraViewController *cameraVc = [[CameraViewController alloc] initWithNibName:nil bundle:nil];
-    [self presentViewController:cameraVc animated:YES completion:nil];
+- (void)done:(NSString *)name {
+//    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popToRootViewControllerAnimated:YES];
+    test = name;
+    NSLog(@"DONE! test = %@", test);
 }
+
+//- (IBAction)takePhoto:(id)sender {
+//    [self dismissViewControllerAnimated:YES completion:nil];
+//    CameraViewController *cameraVc = [[CameraViewController alloc] initWithNibName:nil bundle:nil];
+//    [self presentViewController:cameraVc animated:YES completion:nil];
+//}
 
 //- (IBAction)chooseExisting:(id)sender {
 //    if ([sender tag] == 0)
@@ -156,7 +165,7 @@
     self.photoIndex = 0;
     self.shareEnabled = NO;
     
-    NSLog(@"%@", self.test);
+    NSLog(@"%@", test);
 }
 
 - (void)didReceiveMemoryWarning

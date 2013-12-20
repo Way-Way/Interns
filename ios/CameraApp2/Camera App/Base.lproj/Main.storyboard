@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Fgu-gp-NMd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Fgu-gp-NMd">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
@@ -46,7 +46,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="FYD-gm-fPW" kind="push" id="n13-Ph-4Fs"/>
+                                    <segue destination="FYD-gm-fPW" kind="push" identifier="CameraViewController" id="n13-Ph-4Fs"/>
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" alpha="0.39999999999999963" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dst-kZ-Zi8" userLabel="photos">
@@ -163,7 +163,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="vXZ-lx-hvc" kind="push" identifier="toHomeView" id="sYp-IE-DoV"/>
+                                    <action selector="usePressed:" destination="FYD-gm-fPW" eventType="touchUpInside" id="UL5-ej-E3e"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i3v-AH-7Xl">
@@ -179,6 +179,7 @@
                     <navigationItem key="navigationItem" id="dJq-4n-eVm"/>
                     <connections>
                         <outlet property="picture" destination="2zE-zm-jjR" id="oXA-Ow-iiC"/>
+                        <outlet property="useButton" destination="NT5-qV-rhm" id="n6B-Xj-QR9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ldk-NH-esQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -218,7 +219,4 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="sYp-IE-DoV"/>
-    </inferredMetricsTieBreakers>
 </document>

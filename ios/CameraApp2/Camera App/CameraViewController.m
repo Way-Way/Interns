@@ -18,6 +18,7 @@
 @implementation CameraViewController
 
 @synthesize picture, overViewImage, photoIndex;
+@synthesize delegate = _delegate;
 
 #define MASK_UNIT 33.5
 #define PIXEL_UNIT 3
@@ -25,28 +26,34 @@
 #define SCREEN_WIDTH 320
 
 
-- (IBAction)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([segue.identifier isEqualToString:@"toHomeView"]) {
-        CameraAppViewController *vc = [segue destinationViewController];
-        
-        vc.test = @"this is a test";
-        vc.photoIndex = photoIndex;
-        if (vc.photoIndex == 2)
-            vc.photoIndex = 0;
-        [picker dismissViewControllerAnimated:NO completion:nil];
-    }
+
+//- (IBAction)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+//{
+////    if ([segue.identifier isEqualToString:@"toHomeView"]) {
+////        CameraAppViewController *vc = [segue destinationViewController];
+//    
+////        vc.photoIndex = photoIndex;
+////        if (vc.photoIndex == 2)
+////            vc.photoIndex = 0;
+////    }
+//
+////    [self.navigationController popViewControllerAnimated:YES];
+//    [self.delegate done:@"This is a test"];
+//}
+
+- (IBAction)usePressed:(id)sender {
+    [self.delegate done:@"This is a test"];
 }
 
-- (void)toHomeView:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"toHomeView"]) {
-        CameraAppViewController *vc = [segue destinationViewController];
-
-        NSLog(@"%@", vc);
-                vc.test = @"this is a test";
-        NSLog(@"in if");
-    }
-}
+//- (void)toHomeView:(UIStoryboardSegue *)segue sender:(id)sender {
+//    if ([segue.identifier isEqualToString:@"toHomeView"]) {
+//        CameraAppViewController *vc = [segue destinationViewController];
+//
+//        NSLog(@"%@", vc);
+//                vc.test = @"this is a test";
+//        NSLog(@"in if");
+//    }
+//}
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];

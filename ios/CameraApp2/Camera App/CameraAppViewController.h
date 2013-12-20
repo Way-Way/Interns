@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CameraViewController.h"
 
-@interface CameraAppViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>{
+
+@interface CameraAppViewController : UIViewController<CameraViewControllerDelegate> {
 
     @protected
     UIImage *image;
@@ -33,8 +35,8 @@
 
 @property (strong, nonatomic) NSString *test;
 
-- (IBAction)takePicture:(id)sender;     //action of "take picture" button which is set progrmmatically
-- (IBAction)takePhoto:(id)sender;
-- (IBAction)chooseExisting:(id)sender;
+//- (IBAction)takePicture:(id)sender;     //action of "take picture" button which is set progrmmatically
+//- (IBAction)takePhoto:(id)sender;
+//- (IBAction)chooseExisting:(id)sender;
 
 @end
