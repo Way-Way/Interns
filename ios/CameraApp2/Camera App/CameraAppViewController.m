@@ -31,35 +31,24 @@
 {
     if ([segue.identifier isEqualToString:@"CameraViewController"]) {
             CameraViewController *vc = [segue destinationViewController];
-        vc.delegate = self;        
+        vc.delegate = self;
     }
 }
 
-- (void)done:(NSString *)name {
-//    [self dismissViewControllerAnimated:YES completion:nil];
+- (void)done:(UIImage *)image with:(int)indexPhoto {
     [self.navigationController popToRootViewControllerAnimated:YES];
-    test = name;
-    NSLog(@"DONE! test = %@", test);
+    if (indexPhoto == 0)
+        image1 = image;
+    else if (indexPhoto == 1)
+        image2 = image;
+    else
+        image3 = image;
+    self.shareEnabled = YES;
+    [imageView setImage:image1];
+    [imageView2 setImage:image2];
+    [imageView3 setImage:image3];
 }
 
-//- (IBAction)takePhoto:(id)sender {
-//    [self dismissViewControllerAnimated:YES completion:nil];
-//    CameraViewController *cameraVc = [[CameraViewController alloc] initWithNibName:nil bundle:nil];
-//    [self presentViewController:cameraVc animated:YES completion:nil];
-//}
-
-//- (IBAction)chooseExisting:(id)sender {
-//    if ([sender tag] == 0)
-//        self.photoIndex = 0;
-//    else if ([sender tag] == 1)
-//        self.photoIndex = 1;
-//    else
-//        self.photoIndex = 2;
-//    picker2 = [[UIImagePickerController alloc] init];
-//    picker2.delegate = self;
-//    [picker2 setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
-//    [self presentViewController:picker2 animated:YES completion:NULL];
-//}
 
 - (void)previewPhoto
 {
@@ -84,7 +73,7 @@
     UIImage *frame = [[UIImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"photoFrame" ofType:@"png"]];
     if (frame == nil)
         NSLog(@"photoFrame.png not found");
-    [image drawInRect:CGRectMake(0, 0, screenHeight * PIXEL_UNIT / 3, screenWidth * PIXEL_UNIT)];
+    [image1 drawInRect:CGRectMake(0, 0, screenHeight * PIXEL_UNIT / 3, screenWidth * PIXEL_UNIT)];
     [image2 drawInRect: CGRectMake(screenHeight * PIXEL_UNIT / 3, 0, screenHeight * PIXEL_UNIT / 3, screenWidth * PIXEL_UNIT)];
     [image3 drawInRect:CGRectMake(2 * (screenHeight * PIXEL_UNIT / 3), 0, screenHeight * PIXEL_UNIT / 3, screenWidth * PIXEL_UNIT)];
     [frame drawInRect:CGRectMake(0, 0, (screenHeight * PIXEL_UNIT) , screenWidth * PIXEL_UNIT)];
@@ -104,7 +93,6 @@
             NSArray *sysPaths = NSSearchPathForDirectoriesInDomains( NSDocumentDirectory, NSUserDomainMask, YES );
             NSString *docDirectory = [sysPaths objectAtIndex:0];
             NSString *filePath = [NSString stringWithFormat:@"%@/combinedImg.jpg", docDirectory];
-            NSLog(@"%@", filePath);
             UIImage * savedImg = [[UIImage alloc] initWithContentsOfFile:filePath];
             
             if (![tweetSheet addImage:savedImg]) {

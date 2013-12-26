@@ -15,9 +15,11 @@
 
 @end
 
+static int indexPhoto = 0;
+
 @implementation CameraViewController
 
-@synthesize picture, overViewImage, photoIndex;
+@synthesize picture, overViewImage;
 @synthesize delegate = _delegate;
 
 #define MASK_UNIT 33.5
@@ -42,18 +44,23 @@
 //}
 
 - (IBAction)usePressed:(id)sender {
-    [self.delegate done:@"This is a test"];
+    if (indexPhoto > 2)
+        indexPhoto = 0;
+    CGRect screenBound = [[UIScreen mainScreen] bounds];
+    CGSize screenSize = screenBound.size;
+    CGFloat screenWidth = screenSize.width;
+    CGFloat screenHeight = screenSize.height;
+    
+    //        [image addObject:overViewImage];
+    //        self.photos[photoIndex] = [self.photos[photoIndex] imageByScalingAndCroppingForSize:CGSizeMake(screenWidth * 4 - (MASK_UNIT * 8), screenHeight * 4)];
+    //        [self takePhoto:nil];
+    
+    image = [overViewImage imageByScalingAndCroppingForSize:CGSizeMake(screenWidth * 4 - (MASK_UNIT * 8), screenHeight * 4)];
+    [self.delegate done:image with:indexPhoto];
+    indexPhoto++;
+
 }
 
-//- (void)toHomeView:(UIStoryboardSegue *)segue sender:(id)sender {
-//    if ([segue.identifier isEqualToString:@"toHomeView"]) {
-//        CameraAppViewController *vc = [segue destinationViewController];
-//
-//        NSLog(@"%@", vc);
-//                vc.test = @"this is a test";
-//        NSLog(@"in if");
-//    }
-//}
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -95,29 +102,19 @@
     [self presentViewController:picker animated:NO completion:NULL];
 }
 
-- (IBAction)usePhoto:(id)sender {
-    if (photoIndex < 1) {
-        CGRect screenBound = [[UIScreen mainScreen] bounds];
-        CGSize screenSize = screenBound.size;
-        CGFloat screenWidth = screenSize.width;
-        CGFloat screenHeight = screenSize.height;
-        
-        [self.photos addObject:overViewImage];
-        self.photos[photoIndex] = [self.photos[photoIndex] imageByScalingAndCroppingForSize:CGSizeMake(screenWidth * 4 - (MASK_UNIT * 8), screenHeight * 4)];
-        [self takePhoto:nil];
-        
-        photoIndex++;
-    }
-//    else {
-////        [self.navigationController popToRootViewControllerAnimated:YES];
-//        
-//        UIViewController *dest = [[CameraAppViewController alloc] init];
-//        UIViewController *src = self;
-//        UIStoryboardSegue *storyBoard = [[UIStoryboardSegue alloc] initWithIdentifier:@"toHomeView" source:src destination:dest];
+//- (IBAction)usePhoto:(id)sender {
+//    if (indexPhoto < 2) {
+//        CGRect screenBound = [[UIScreen mainScreen] bounds];
+//        CGSize screenSize = screenBound.size;
+//        CGFloat screenWidth = screenSize.width;
+//        CGFloat screenHeight = screenSize.height;
 //
-//        [self toHomeView:storyBoard sender:nil];
+//        image = [overViewImage imageByScalingAndCroppingForSize:CGSizeMake(screenWidth * 4 - (MASK_UNIT * 8), screenHeight * 4)];
+//        indexPhoto++;
 //    }
-}
+//    else
+//        indexPhoto = 0;
+//}
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
@@ -127,30 +124,8 @@
     CGFloat screenHeight = screenSize.height;
 
     overViewImage = [info objectForKey:UIImagePickerControllerOriginalImage];
-//    overViewImage = [overViewImage imageByScalingAndCroppingForSize:CGSizeMake(screenWidth * 4 - (MASK_UNIT * 8), screenHeight * 4)];
     [picture setImage:overViewImage];
-//    self.shareEnabled = YES;
-//    
-//    if (self.photoIndex == 0) {
-//        image = [info objectForKey:UIImagePickerControllerOriginalImage];
-//        image = [image imageByScalingAndCroppingForSize:CGSizeMake(screenWidth * 4 - (MASK_UNIT * 8), screenHeight * 4)];
-//        [imageView setImage:image];
-//    }
-//    else if (self.photoIndex == 1){
-//        image2 = [info objectForKey:UIImagePickerControllerOriginalImage];
-//        image2 = [image2 imageByScalingAndCroppingForSize:CGSizeMake(screenWidth * 4 - (MASK_UNIT * 8), screenHeight * 4)];
-//        [imageView2 setImage:image2];
-//    }
-//    else {
-//        image3 = [info objectForKey:UIImagePickerControllerOriginalImage];
-//        image3 = [image3 imageByScalingAndCroppingForSize:CGSizeMake(screenWidth * 4 - (MASK_UNIT * 8), screenHeight * 4)];
-//        [imageView3 setImage:image3];
-//    }
-//    if (self.photoIndex < 2) {
-//        ++self.photoIndex;
-//    } else {
-//        self.photoIndex = 0;
-//    }
+
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 - (IBAction)toRootView:(id)sender {
@@ -163,7 +138,7 @@
     // Do any additional setup after loading the view from its nib.
     [self takePhoto:nil];
 
-    NSLog(@"%d", photoIndex);
+    NSLog(@"%d", indexPhoto);
 }
 
 - (void)didReceiveMemoryWarning

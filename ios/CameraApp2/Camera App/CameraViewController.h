@@ -11,13 +11,14 @@
 
 @protocol CameraViewControllerDelegate <NSObject>
 @required
-- (void)done:(NSString *)name;
+- (void)done:(UIImage *)image with:(int)indexPhoto;
 @end
 
 @interface CameraViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>{
 @public
     UIImagePickerController *picker;
     UIImagePickerController *picker2;
+    UIImage *image;
     IBOutlet UIButton *useButton;
     id delegate;
 }
@@ -27,7 +28,7 @@
 @property (weak, nonatomic) UIButton *cameraRevButton;
 @property (weak, nonatomic) IBOutlet UIImageView *picture;
 @property (weak, nonatomic) UIImage *overViewImage;
-@property (weak, nonatomic) NSMutableArray *photos;
+//@property (weak, nonatomic) NSMutableArray *photos;
 @property (nonatomic) NSUInteger photoIndex;
 @property (assign, nonatomic) id <CameraViewControllerDelegate> delegate;
 

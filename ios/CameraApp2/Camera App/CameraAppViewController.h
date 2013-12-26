@@ -13,7 +13,7 @@
 @interface CameraAppViewController : UIViewController<CameraViewControllerDelegate> {
 
     @protected
-    UIImage *image;
+    UIImage *image1;
     UIImage *image2;
     UIImage *image3;
     IBOutlet UIImageView *singleImageView;
