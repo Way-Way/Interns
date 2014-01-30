@@ -37,16 +37,15 @@
         [container addSubview:toViewController.view];
     }
     
-    [UIView animateKeyframesWithDuration:0.7f delay:0 options:0 animations:^{
+    [UIView animateKeyframesWithDuration:1.5f delay:0 options:0 animations:^{
         if (self.reverse) {
             
             fromViewController.view.transform = CGAffineTransformMakeScale(0.33f, 0.33f);
             fromViewController.view.center = self.startPoint;
             fromViewController.view.alpha = 0.0;
             
-            toViewController.view.transform = CGAffineTransformMakeScale(1.0f, 1.0f);
+            toViewController.view.transform = CGAffineTransformIdentity;
             toViewController.view.alpha = 1.0;
-
         } else {
             toViewController.view.transform = CGAffineTransformIdentity;
             toViewController.view.center = CGPointMake([UIScreen mainScreen].bounds.size.width/2,[UIScreen mainScreen].bounds.size.height/2);
@@ -55,19 +54,16 @@
             CGPoint point;
             
             CGRect screenRect = [UIScreen mainScreen].bounds;
-            if (self.startPoint.x == 53.5)
-            {
+            if (self.startPoint.x == 53.5) {
                 point.x = (screenRect.size.width * 3) / 2;
             }
-            else if (self.startPoint.x == 160.5)
-            {
+            else if (self.startPoint.x == 160.5) {
                 point.x = screenRect.size.width - (screenRect.size.width / 2);
             }
-            else
-            {
+            else {
                 point.x = - screenRect.size.width + (screenRect.size.width / 2);
             }
-            point.y = (161 * 3) + (self.startPoint.y * 2);
+            point.y = (610 - (photoCenterPos.y - 107) * 3);  //iphone 5 700 instead of 610
 
             fromViewController.view.transform = CGAffineTransformMakeScale(3.0f, 3.0f);
             fromViewController.view.center = point;

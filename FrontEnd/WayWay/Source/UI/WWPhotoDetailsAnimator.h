@@ -12,5 +12,6 @@
 
 @property(nonatomic) BOOL reverse;
 @property(nonatomic) CGPoint startPoint;
+extern CGPoint photoCenterPos;
 
 @end

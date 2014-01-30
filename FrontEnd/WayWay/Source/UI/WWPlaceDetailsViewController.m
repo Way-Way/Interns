@@ -8,6 +8,8 @@
 
 #import "WWInclude.h"
 
+CGPoint photoCenterPos;
+
 @interface WWPlaceDetailsViewController () <UIGestureRecognizerDelegate>
 {
     CGFloat _dragStart;
@@ -394,7 +396,7 @@
     if (self.photos && self.photos.count > 0)
     {
         id rowData = self.photos[indexPath.row];
-        
+
         if ([rowData isKindOfClass:[WWPhoto class]])
         {
             if (self.currentFilter == WWPhotoFilterTags)
@@ -422,6 +424,7 @@
             [d setValue:[NSValue valueWithCGPoint:center] forKey:@"viewCenter"];
             
             [[NSNotificationCenter defaultCenter] postNotificationName:WW_VIEW_PHOTO_NOTIFICATION object:d];
+            photoCenterPos = center;
         }
         else if ([rowData isKindOfClass:[WWHashtag class]])
         {
