@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WWIntroViewController">
+            <connections>
+                <outlet property="dotsView" destination="da4-EP-HCe" id="3Rb-fW-S54"/>
+                <outlet property="exitSearchButtonFive" destination="98m-r9-Ay0" id="Mv2-eW-26g"/>
+                <outlet property="exitSearchButtonFour" destination="wZC-Gd-QxI" id="ars-uz-xxx"/>
+                <outlet property="exitSearchButtonOne" destination="bfD-5Z-0xa" id="3gy-y2-oz4"/>
+                <outlet property="exitSearchButtonThree" destination="TQU-v5-uz9" id="czn-ru-S99"/>
+                <outlet property="exitSearchButtonTwo" destination="sgL-hQ-eMm" id="2ae-Yy-oyc"/>
+                <outlet property="scrollContent" destination="7J5-6M-poe" id="7aF-lc-xQ3"/>
+                <outlet property="scrollView" destination="RB1-7s-bpx" id="i1c-KD-b6p"/>
+                <outlet property="skipIntroButton" destination="bfL-sK-O7g" id="ki4-r5-xQI"/>
+                <outlet property="view" destination="1" id="3"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="1">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="intro_bg_ip4.png" translatesAutoresizingMaskIntoConstraints="NO" id="cwc-XK-yAc">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RB1-7s-bpx">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="iD6-rf-x5n"/>
+                    </connections>
+                </scrollView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="da4-EP-HCe">
+                    <rect key="frame" x="142" y="454" width="36" height="6"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="36" id="JnD-6V-leO"/>
+                        <constraint firstAttribute="height" constant="6" id="nQS-Wh-1Jr"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfL-sK-O7g" userLabel="Skip Intro Button">
+                    <rect key="frame" x="180" y="442" width="120" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Button">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="onExitIntro:" destination="-1" eventType="touchUpInside" id="ao3-eJ-mdW"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="RB1-7s-bpx" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="1PZ-IF-pMg"/>
+                <constraint firstItem="RB1-7s-bpx" firstAttribute="top" secondItem="1" secondAttribute="top" id="ErI-N3-RB1"/>
+                <constraint firstAttribute="bottom" secondItem="RB1-7s-bpx" secondAttribute="bottom" id="Hd2-U9-kGz"/>
+                <constraint firstAttribute="bottom" secondItem="da4-EP-HCe" secondAttribute="bottom" constant="20" symbolic="YES" id="bmz-nJ-wdy"/>
+                <constraint firstAttribute="trailing" secondItem="RB1-7s-bpx" secondAttribute="trailing" id="eas-pL-ARg"/>
+                <constraint firstItem="da4-EP-HCe" firstAttribute="centerX" secondItem="RB1-7s-bpx" secondAttribute="centerX" id="fzo-N0-Diq"/>
+            </constraints>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+        </view>
+        <view contentMode="scaleToFill" id="7J5-6M-poe" userLabel="Scroll Content">
+            <rect key="frame" x="0.0" y="0.0" width="1280" height="480"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="intro_slide_1_ip4.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ksr-fU-bIQ" userLabel="Slide 1">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="intro_slide_2_ip4.png" translatesAutoresizingMaskIntoConstraints="NO" id="r2o-7E-5Ar" userLabel="Slide 2">
+                    <rect key="frame" x="320" y="0.0" width="320" height="480"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="intro_slide_3_ip4.png" translatesAutoresizingMaskIntoConstraints="NO" id="HhE-HI-Hgc" userLabel="Slide 3">
+                    <rect key="frame" x="640" y="0.0" width="320" height="480"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="intro_slide_4_ip4.png" translatesAutoresizingMaskIntoConstraints="NO" id="ejn-4p-Bam" userLabel="Slide 4">
+                    <rect key="frame" x="960" y="0.0" width="320" height="480"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                </imageView>
+                <button opaque="NO" alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfD-5Z-0xa" userLabel="Exit Search Button 1">
+                    <rect key="frame" x="979" y="159" width="282" height="44"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="onExitSearchButtonOne:" destination="-1" eventType="touchUpInside" id="3US-D2-14v"/>
+                    </connections>
+                </button>
+                <button opaque="NO" alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sgL-hQ-eMm" userLabel="Exit Search Button 2">
+                    <rect key="frame" x="979" y="215" width="282" height="44"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="onExitSearchButtonTwo:" destination="-1" eventType="touchUpInside" id="kyH-IO-an7"/>
+                    </connections>
+                </button>
+                <button opaque="NO" alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TQU-v5-uz9" userLabel="Exit Search Button 3">
+                    <rect key="frame" x="979" y="271" width="282" height="44"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="onExitSearchButtonThree:" destination="-1" eventType="touchUpInside" id="ON3-is-NbW"/>
+                    </connections>
+                </button>
+                <button opaque="NO" alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wZC-Gd-QxI" userLabel="Exit Search Button 4">
+                    <rect key="frame" x="979" y="327" width="282" height="44"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="onExitSearchButtonFour:" destination="-1" eventType="touchUpInside" id="n51-q0-HWn"/>
+                    </connections>
+                </button>
+                <button opaque="NO" alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="98m-r9-Ay0" userLabel="Exit Search Button 5">
+                    <rect key="frame" x="979" y="383" width="282" height="44"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="onExitSearchButtonFive:" destination="-1" eventType="touchUpInside" id="LQ7-gQ-6VQ"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="intro_bg_ip4.png" width="640" height="960"/>
+        <image name="intro_slide_1_ip4.png" width="640" height="960"/>
+        <image name="intro_slide_2_ip4.png" width="640" height="960"/>
+        <image name="intro_slide_3_ip4.png" width="640" height="960"/>
+        <image name="intro_slide_4_ip4.png" width="640" height="960"/>
+    </resources>
+</document>

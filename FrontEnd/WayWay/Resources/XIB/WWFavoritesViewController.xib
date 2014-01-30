@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment defaultVersion="1792" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WWFavoritesViewController">
+            <connections>
+                <outlet property="noResultsInfo" destination="2JH-oP-8gd" id="Ubs-fL-8QN"/>
+                <outlet property="noResultsMessage" destination="afk-NI-jkz" id="vPe-L3-hmP"/>
+                <outlet property="noResultsPanel" destination="OH6-vv-XOT" id="Itn-mU-Zlf"/>
+                <outlet property="tableView" destination="0Gh-7O-P8V" id="Qsz-3v-kis"/>
+                <outlet property="view" destination="ddw-J2-gF4" id="CvR-2R-LVR"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="ddw-J2-gF4">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="132" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="0Gh-7O-P8V">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" red="0.9529411793" green="0.94901961089999998" blue="0.94117647410000005" alpha="1" colorSpace="calibratedRGB"/>
+                    <inset key="insetFor6xAndEarlier" minX="0.0" minY="64" maxX="0.0" maxY="-128"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="XUc-xn-Asa"/>
+                        <outlet property="delegate" destination="-1" id="CR9-u8-elC"/>
+                    </connections>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OH6-vv-XOT">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_favorites" translatesAutoresizingMaskIntoConstraints="NO" id="ony-Fh-6s5">
+                            <rect key="frame" x="45" y="253" width="229" height="315"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Looks like you don't have any favorites yet." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="176" translatesAutoresizingMaskIntoConstraints="NO" id="afk-NI-jkz">
+                            <rect key="frame" x="72" y="98" width="176" height="55"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="55" id="SH9-bu-3mm"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can favorite a place by tapping the star in the place's details." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="229" translatesAutoresizingMaskIntoConstraints="NO" id="2JH-oP-8gd">
+                            <rect key="frame" x="45" y="166" width="229" height="71"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="71" id="1ig-gD-Zau"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="afk-NI-jkz" firstAttribute="top" secondItem="OH6-vv-XOT" secondAttribute="top" constant="98" id="0QD-sl-hlW"/>
+                        <constraint firstItem="ony-Fh-6s5" firstAttribute="top" secondItem="2JH-oP-8gd" secondAttribute="bottom" constant="16" id="GtE-yk-viy"/>
+                        <constraint firstItem="2JH-oP-8gd" firstAttribute="leading" secondItem="ony-Fh-6s5" secondAttribute="leading" id="Ril-ma-BXm"/>
+                        <constraint firstItem="afk-NI-jkz" firstAttribute="centerX" secondItem="OH6-vv-XOT" secondAttribute="centerX" id="cZt-Kl-xsb"/>
+                        <constraint firstItem="2JH-oP-8gd" firstAttribute="top" secondItem="afk-NI-jkz" secondAttribute="bottom" constant="13" id="e0a-A8-pJ5"/>
+                        <constraint firstItem="2JH-oP-8gd" firstAttribute="leading" secondItem="OH6-vv-XOT" secondAttribute="leading" constant="45" id="mQM-ii-aUH"/>
+                        <constraint firstItem="afk-NI-jkz" firstAttribute="leading" secondItem="OH6-vv-XOT" secondAttribute="leading" constant="72" id="sBM-zc-Skl"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.9529411793" green="0.94901961089999998" blue="0.94117647410000005" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="0Gh-7O-P8V" firstAttribute="top" secondItem="ddw-J2-gF4" secondAttribute="top" id="0Zg-h2-T2N"/>
+                <constraint firstItem="OH6-vv-XOT" firstAttribute="bottom" secondItem="0Gh-7O-P8V" secondAttribute="bottom" id="3A7-ME-ueB"/>
+                <constraint firstAttribute="bottom" secondItem="0Gh-7O-P8V" secondAttribute="bottom" id="Hdz-Zs-O7P"/>
+                <constraint firstItem="OH6-vv-XOT" firstAttribute="trailing" secondItem="0Gh-7O-P8V" secondAttribute="trailing" id="MwE-62-p0j"/>
+                <constraint firstItem="OH6-vv-XOT" firstAttribute="leading" secondItem="0Gh-7O-P8V" secondAttribute="leading" id="QoF-EC-DLc"/>
+                <constraint firstItem="OH6-vv-XOT" firstAttribute="top" secondItem="0Gh-7O-P8V" secondAttribute="top" id="gkM-KP-vXX"/>
+                <constraint firstAttribute="trailing" secondItem="0Gh-7O-P8V" secondAttribute="trailing" id="mG3-6F-hai"/>
+                <constraint firstItem="0Gh-7O-P8V" firstAttribute="leading" secondItem="ddw-J2-gF4" secondAttribute="leading" id="uWG-gQ-ACO"/>
+            </constraints>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="no_favorites" width="229" height="315"/>
+    </resources>
+</document>

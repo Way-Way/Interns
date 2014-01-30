@@ -1,0 +1,6 @@
+[submodule "toolbox"]
+	path = toolbox
+	url = https://github.com/cheesemaker/toolbox.git
+[submodule "MMDrawerController"]
+	path = MMDrawerController
+	url = https://github.com/mutualmobile/MMDrawerController.git

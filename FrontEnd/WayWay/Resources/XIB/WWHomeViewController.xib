@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+    <dependencies>
+        <deployment defaultVersion="1792" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WWHomeViewController">
+            <connections>
+                <outlet property="behindStatusBarView" destination="dDW-o0-9Qm" id="yXf-V8-kco"/>
+                <outlet property="filterButton" destination="o7k-RP-5I5" id="Mim-pt-hNf"/>
+                <outlet property="infoCollectionView" destination="lg9-Ae-EvJ" id="0K8-Xm-cHM"/>
+                <outlet property="locateMeButton" destination="BoN-H2-Q5f" id="XwG-Sg-zjG"/>
+                <outlet property="longPressGesture" destination="cNd-X1-czZ" id="FtC-nL-T1g"/>
+                <outlet property="mapView" destination="fFh-C7-bD6" id="DnV-Qb-CDd"/>
+                <outlet property="noResultsPanel" destination="sOG-Ee-32Z" id="CvD-iZ-Gfo"/>
+                <outlet property="progressAnimation" destination="2Kl-2t-JGD" id="ino-OL-3Rk"/>
+                <outlet property="progressCacheView" destination="LyZ-kv-S0g" id="N2n-UE-9mQ"/>
+                <outlet property="progressView" destination="41" id="59"/>
+                <outlet property="refreshButton" destination="hnM-jO-lk0" id="zMx-uA-Laf"/>
+                <outlet property="shadowView" destination="G4a-Lc-N05" id="0OG-aV-aia"/>
+                <outlet property="view" destination="1" id="3"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="1">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" rotateEnabled="NO" pitchEnabled="NO" showsUserLocation="YES" id="fFh-C7-bD6">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="bsX-gX-Xqe"/>
+                    </connections>
+                </mapView>
+                <view contentMode="scaleToFill" id="dDW-o0-9Qm" userLabel="FakeBehindStatusBar">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="20"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="o7k-RP-5I5" userLabel="Filter Button">
+                    <rect key="frame" x="7" y="71" width="50" height="34"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
+                    <inset key="contentEdgeInsets" minX="0.0" minY="2" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="Filter" backgroundImage="filter_button">
+                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="highlighted" backgroundImage="filter_button_pressed"/>
+                    <connections>
+                        <action selector="onFilterButtonClicked:" destination="-1" eventType="touchUpInside" id="2da-BP-nRc"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="hnM-jO-lk0" userLabel="Refresh Button">
+                    <rect key="frame" x="0.0" y="504" width="64" height="64"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <state key="normal" image="redosearch">
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="highlighted" image="redosearch_pressed">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="onRefreshButtonTapped:" destination="-1" eventType="touchUpInside" id="2PD-0r-M2t"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="BoN-H2-Q5f" userLabel="Center Button">
+                    <rect key="frame" x="256" y="504" width="64" height="64"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <fontDescription key="fontDescription" type="boldSystem" size="button"/>
+                    <state key="normal" image="location">
+                        <color key="titleColor" red="0.1960784314" green="0.30980392159999998" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="highlighted" image="location_pressed">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="onLocateMeClicked:" destination="-1" eventType="touchUpInside" id="pwk-L5-ABi"/>
+                    </connections>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shadow" id="G4a-Lc-N05">
+                    <rect key="frame" x="0.0" y="280" width="320" height="8"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="none" id="lg9-Ae-EvJ">
+                    <rect key="frame" x="0.0" y="416" width="320" height="152"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <gestureRecognizers/>
+                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="MkB-6X-UXM">
+                        <size key="itemSize" width="320" height="152"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                    <cells/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="zBw-Rb-S4K"/>
+                        <outlet property="delegate" destination="-1" id="VwM-ZY-hds"/>
+                        <outletCollection property="gestureRecognizers" destination="cNd-X1-czZ" appends="YES" id="54P-A8-8m8"/>
+                    </connections>
+                </collectionView>
+                <view contentMode="scaleToFill" id="sOG-Ee-32Z">
+                    <rect key="frame" x="10" y="159" width="300" height="46"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="place_not_found" id="04L-2L-M5m">
+                            <rect key="frame" x="75" y="4" width="148" height="38"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
+                <view alpha="0.20000000000000001" contentMode="scaleToFill" id="LyZ-kv-S0g" userLabel="Progress Cache">
+                    <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                </view>
+                <view contentMode="scaleToFill" id="41" userLabel="Progress View">
+                    <rect key="frame" x="129" y="162" width="63" height="41"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="2Kl-2t-JGD">
+                            <rect key="frame" x="0.0" y="0.0" width="63" height="41"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+        </view>
+        <pongPressGestureRecognizer enabled="NO" allowableMovement="10" minimumPressDuration="0.20000000000000001" id="cNd-X1-czZ">
+            <connections>
+                <action selector="onLongPress:" destination="-1" id="W7g-b2-JwI"/>
+                <outlet property="delegate" destination="-1" id="XVm-Y6-dWi"/>
+            </connections>
+        </pongPressGestureRecognizer>
+    </objects>
+    <resources>
+        <image name="filter_button" width="52" height="34"/>
+        <image name="filter_button_pressed" width="52" height="34"/>
+        <image name="location" width="40" height="40"/>
+        <image name="location_pressed" width="40" height="40"/>
+        <image name="place_not_found" width="149" height="39"/>
+        <image name="redosearch" width="40" height="40"/>
+        <image name="redosearch_pressed" width="40" height="40"/>
+        <image name="shadow" width="2" height="8"/>
+    </resources>
+</document>

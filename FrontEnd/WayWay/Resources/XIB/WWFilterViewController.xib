@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+    <dependencies>
+        <deployment defaultVersion="1792" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WWFilterViewController">
+            <connections>
+                <outlet property="categoryBarButton" destination="bqB-jB-obq" id="ycs-v8-WXO"/>
+                <outlet property="categoryButtonContainer" destination="eFo-Ha-NAV" id="zwq-8I-M0Q"/>
+                <outlet property="categoryCoffeeButton" destination="jpH-b1-1IE" id="Qfd-bm-cAc"/>
+                <outlet property="categoryRestaurantButton" destination="BYz-dE-I9s" id="B5T-BR-O6v"/>
+                <outlet property="categorySnackButton" destination="nFl-qS-eoF" id="qOA-ki-XjY"/>
+                <outlet property="chooseLocationChevronButton" destination="KFA-rC-rQ2" id="sHX-mD-JhU"/>
+                <outlet property="clearFiltersButton" destination="FGj-j5-kLp" id="yzN-FI-9ea"/>
+                <outlet property="clearLocationButton" destination="QT2-0l-RDi" id="3ty-Lb-1n6"/>
+                <outlet property="locationFilterButton" destination="1ck-wR-CIl" id="dRG-vQ-I7J"/>
+                <outlet property="openNowButton" destination="n8N-nK-jyg" id="GJY-1F-Wwl"/>
+                <outlet property="priceButtonContainer" destination="cXw-sM-PQj" id="MpV-mS-BpT"/>
+                <outlet property="priceFourButton" destination="vDe-26-2Bo" id="vGc-66-4BX"/>
+                <outlet property="priceOneButton" destination="LUG-Dg-5xs" id="odh-Zm-eav"/>
+                <outlet property="priceThreeButton" destination="Y7C-5q-Fp0" id="QSy-Mw-vzl"/>
+                <outlet property="priceTwoButton" destination="Zcq-Io-v8c" id="tXi-hS-yrE"/>
+                <outlet property="trendingOnlyButton" destination="r4I-J6-G81" id="vbj-Te-7Sq"/>
+                <outlet property="view" destination="2tb-sw-Bhb" id="YWU-Hr-lw2"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tapGestureRecognizer id="8">
+            <connections>
+                <action selector="onDismissKeyboard:" destination="-1" id="Ke7-xy-5cu"/>
+            </connections>
+        </tapGestureRecognizer>
+        <view contentMode="scaleToFill" id="2tb-sw-Bhb">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" id="1">
+                    <rect key="frame" x="0.0" y="64" width="320" height="568"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" id="1ck-wR-CIl" customClass="WWFlatButton">
+                            <rect key="frame" x="20" y="269" width="280" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="0.0014360634559999999" green="0.6943359375" blue="0.0022280805990000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <state key="normal" title="Current Location">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="onLocationFilterClicked:" destination="-1" eventType="touchUpInside" id="Qjd-ac-geK"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="KFA-rC-rQ2" userLabel="Button - choose loc chevron">
+                            <rect key="frame" x="260" y="269" width="40" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" image="chevron">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="onLocationFilterClicked:" destination="-1" eventType="touchUpInside" id="nNb-AT-fuG"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="QT2-0l-RDi" userLabel="Button - clear location">
+                            <rect key="frame" x="260" y="269" width="40" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" image="clear_search_white">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="onClearLocationFilterClicked:" destination="-1" eventType="touchUpInside" id="iA5-Q2-kCq"/>
+                            </connections>
+                        </button>
+                        <view clipsSubviews="YES" contentMode="scaleToFill" id="cXw-sM-PQj" userLabel="PriceOuterButtonContainer">
+                            <rect key="frame" x="20" y="86" width="280" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" id="LUG-Dg-5xs">
+                                    <rect key="frame" x="0.0" y="0.0" width="70" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <state key="normal" title="$">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="onPriceOneClicked:" destination="-1" eventType="touchUpInside" id="e3M-yi-Jw8"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" id="Zcq-Io-v8c">
+                                    <rect key="frame" x="70" y="0.0" width="70" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <state key="normal" title="$$">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="onPriceTwoClicked:" destination="-1" eventType="touchUpInside" id="E3W-eK-E41"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" id="Y7C-5q-Fp0">
+                                    <rect key="frame" x="140" y="0.0" width="70" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <state key="normal" title="$$$">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="onPriceThreeClicked:" destination="-1" eventType="touchUpInside" id="4UX-39-Aqx"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" id="vDe-26-2Bo">
+                                    <rect key="frame" x="210" y="0.0" width="70" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <state key="normal" title="$$$$">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="onPriceFourClicked:" destination="-1" eventType="touchUpInside" id="uxA-BW-MDg"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" red="0.0014360634559999999" green="0.6943359375" blue="0.0022280805990000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </view>
+                        <view clipsSubviews="YES" contentMode="scaleToFill" id="eFo-Ha-NAV" userLabel="CategoryOuterButtonContainer">
+                            <rect key="frame" x="20" y="25" width="280" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="jpH-b1-1IE" userLabel="Button - Coffee">
+                                    <rect key="frame" x="0.0" y="0.0" width="70" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <state key="normal" image="coffee_grey">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <state key="selected" image="coffee_white"/>
+                                    <connections>
+                                        <action selector="onCategoryCoffeeClicked:" destination="-1" eventType="touchUpInside" id="h3a-3m-jrX"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bqB-jB-obq" userLabel="Button - Bar">
+                                    <rect key="frame" x="70" y="0.0" width="70" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <state key="normal" image="bar_grey">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <state key="selected" image="bar_white"/>
+                                    <connections>
+                                        <action selector="onCategoryBarClicked:" destination="-1" eventType="touchUpInside" id="NhC-kb-f0f"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="BYz-dE-I9s" userLabel="Button - Restaurant">
+                                    <rect key="frame" x="140" y="0.0" width="70" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <state key="normal" image="restaurant_grey">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <state key="selected" image="restaurant_white"/>
+                                    <connections>
+                                        <action selector="onCategoryRestaurantClicked:" destination="-1" eventType="touchUpInside" id="HtE-gt-juI"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="nFl-qS-eoF" userLabel="Button - Snack">
+                                    <rect key="frame" x="210" y="0.0" width="70" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <state key="normal" image="snack_grey">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <state key="selected" image="snack_white"/>
+                                    <connections>
+                                        <action selector="onCategorySnackClicked:" destination="-1" eventType="touchUpInside" id="r1D-iU-pxd"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" red="0.0014360634559999999" green="0.6943359375" blue="0.0022280805990000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="n8N-nK-jyg" customClass="WWFlatButton">
+                            <rect key="frame" x="20" y="147" width="280" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="0.0014360634559999999" green="0.6943359375" blue="0.0022280805990000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <state key="normal" title="  Open Now" image="filter_opennow_grey">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="selected" image="filter_opennow_white"/>
+                            <connections>
+                                <action selector="onOpenNowClicked:" destination="-1" eventType="touchUpInside" id="BUL-Fh-YfG"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="r4I-J6-G81" customClass="WWFlatButton">
+                            <rect key="frame" x="20" y="208" width="280" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="0.0014360634559999999" green="0.6943359375" blue="0.0022280805990000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <state key="normal" title="Show Trending Only" image="trending_grey">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="selected" image="trending_white"/>
+                            <connections>
+                                <action selector="onTrendingOnlyClicked:" destination="-1" eventType="touchUpInside" id="X91-cK-dNw"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="FGj-j5-kLp">
+                            <rect key="frame" x="0.0" y="340" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <state key="normal" title="Clear Filters">
+                                <color key="titleColor" red="0.8361367985" green="0.0" blue="0.0090729256989999993" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="onClearFilters:" destination="-1" eventType="touchUpInside" id="4GK-2a-Nym"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <inset key="insetFor6xAndEarlier" minX="0.0" minY="64" maxX="0.0" maxY="-64"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <connections>
+                <outletCollection property="gestureRecognizers" destination="8" appends="YES" id="bPD-eS-Kru"/>
+            </connections>
+        </view>
+    </objects>
+    <resources>
+        <image name="bar_grey" width="18" height="18"/>
+        <image name="bar_white" width="18" height="18"/>
+        <image name="chevron" width="24" height="24"/>
+        <image name="clear_search_white" width="12" height="12"/>
+        <image name="coffee_grey" width="18" height="18"/>
+        <image name="coffee_white" width="18" height="18"/>
+        <image name="filter_opennow_grey" width="24" height="24"/>
+        <image name="filter_opennow_white" width="24" height="24"/>
+        <image name="restaurant_grey" width="18" height="18"/>
+        <image name="restaurant_white" width="18" height="18"/>
+        <image name="snack_grey" width="18" height="18"/>
+        <image name="snack_white" width="18" height="18"/>
+        <image name="trending_grey" width="24" height="24"/>
+        <image name="trending_white" width="24" height="24"/>
+    </resources>
+</document>
