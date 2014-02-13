@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>AAFB05D5-1BC1-4657-80A9-3C1316F5D218</string>
+	<key>IDESourceControlProjectName</key>
+	<string>WayWay</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>253A733A-5FBF-4E1C-9B73-78C15918C072</key>
+		<string>https://github.com/Way-Way/Interns.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>FrontEnd/WayWay.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>253A733A-5FBF-4E1C-9B73-78C15918C072</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Way-Way/Interns.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>253A733A-5FBF-4E1C-9B73-78C15918C072</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>253A733A-5FBF-4E1C-9B73-78C15918C072</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Interns</string>
+		</dict>
+	</array>
+</dict>
+</plist>
