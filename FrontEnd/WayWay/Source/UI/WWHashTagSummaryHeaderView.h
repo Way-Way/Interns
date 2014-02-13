@@ -11,7 +11,7 @@
 @interface WWHashTagSummaryHeaderView : UICollectionViewCell
 @property (strong, nonatomic) IBOutlet UILabel *hashTagLabel;
 @property (strong, nonatomic) IBOutlet UILabel *countLabel;
-@property (strong, nonatomic) IBOutlet UIButton *arrowButton;
+@property (strong, nonatomic) IBOutlet UIImageView *photoIcon;
 
 - (void) update:(WWHashtag*)hashTag prev:(id)prev next:(id)next;
 

@@ -50,6 +50,9 @@
 + (WWRateItPref) rateItPref; // 1=ignore this time, 2=ignore forever
 + (void) updateRateItPref:(WWRateItPref)pref;
 
++ (NSString*) getDeviceToken;
++ (void) cacheDeviceToken:(NSString*)deviceToken;
+
 + (NSDate*) lastRateItPopupTime;
 + (void) setLastRateItPopupTime:(NSDate*)date;
 

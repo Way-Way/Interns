@@ -131,13 +131,16 @@
         [d setValue:self.place forKey:@"place"];
         [d setValue:photo forKey:@"photo"];
         [d setValue:self.photos forKey:@"photos"];
-        [d setValue:self.hashTag forKey:@"hashTag"];
+        [d setValue:self.hashTag.name forKey:@"hashtag"];
+        [d setValue:[NSNumber numberWithInteger:(WWPhotoFilterTags)] forKey:@"currentFilter"];
 
+        //This is for animated transition - Jon Evans
         UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
         CGRect frame = [collectionView convertRect:cell.frame toView:self.view];
         CGPoint center = CGPointMake(frame.origin.x+frame.size.width/2, frame.origin.y+frame.size.height/2);
         [d setValue:[NSValue valueWithCGPoint:center] forKey:@"viewCenter"];
-
+        //
+        
         [[NSNotificationCenter defaultCenter] postNotificationName:WW_VIEW_PHOTO_NOTIFICATION object:d];
     }
 }

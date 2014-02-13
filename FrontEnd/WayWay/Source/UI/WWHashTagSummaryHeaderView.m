@@ -21,7 +21,8 @@
 - (void) awakeFromNib
 {
     [self.hashTagLabel wwStyleWithFontOfSize:22];
-    [self.countLabel wwStyleWithFontOfSize:12];
+    [self.countLabel wwStyleWithFontOfSize:15];
+    [self.countLabel setTextColor:WW_LIGHT_GRAY_FONT_COLOR];
     
     CALayer* layer = [CALayer layer];
     layer.borderColor = [[UIColor uuColorFromHex:@"D9D9D9"] CGColor];
@@ -48,7 +49,7 @@
 - (void) update:(WWHashtag*)hashTag prev:(id)prev next:(id)next
 {
     self.hashTagLabel.text = [NSString stringWithFormat:@"#%@", hashTag.name];
-    self.countLabel.text = [NSString stringWithFormat:@"%@ photos", hashTag.count];
+    self.countLabel.text = [NSString stringWithFormat:@"%@", hashTag.count];
     
     self.topBorder.hidden = YES;
     self.bottomBlackBorder.hidden = YES;

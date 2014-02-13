@@ -87,9 +87,9 @@
     UIBarButtonItem* button = [self userInfoForKey:WW_UI_NAV_BAR_LIST_NAV_ITEM];
     if (!button)
     {
-        UIButton* btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 2, 40, 40)];
+        UIButton* btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 2, 50, 40)];
         
-        [btn setTitle:@"List" forState:UIControlStateNormal];
+        [btn setTitle:NSLocalizedString(WW_LIST, nil) forState:UIControlStateNormal];
         btn.titleLabel.font = [UIFont fontWithName:WW_DEFAULT_FONT_NAME size:16];
         [btn setTitleColor:WW_ORANGE_FONT_COLOR forState:UIControlStateNormal];
         
@@ -214,7 +214,7 @@
         searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 220, 44)];
         searchBar.backgroundColor = [UIColor clearColor];
         searchBar.backgroundImage = [UIImage new];
-        searchBar.placeholder = @"Search";
+        searchBar.placeholder = NSLocalizedString(WW_SEARCH, nil);
         searchBar.showsCancelButton = NO;
 
         for (UIView* v in searchBar.subviews)
@@ -298,11 +298,13 @@
     if([self isKindOfClass:[WWHomeViewController class]])
         [Flurry logEvent:WW_FLURRY_EVENT_TAP_BACK_HASHTAG_NAVIGATION_ARROW];
 
-    self.navigationController.delegate = [self transitionAnimator];
+    //Jon Evans
+    //self.navigationController.delegate = [self transitionAnimator];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (WWPhotoDetailsAnimator*) transitionAnimator {
+// Jon Evans
+/*- (WWPhotoDetailsAnimator*) transitionAnimator {
     WWPhotoDetailsAnimator *animator = nil;
     if ([self isKindOfClass:WWPhotoDetailsViewController.class]) {
         WWAppDelegate *ad = (WWAppDelegate*) [UIApplication sharedApplication].delegate;
@@ -310,7 +312,7 @@
         animator.reverse = YES;
     }
     return animator;
-}
+}*/
 
 
 - (void) wwOnCloseModalTapped

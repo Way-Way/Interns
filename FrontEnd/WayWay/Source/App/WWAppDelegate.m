@@ -8,6 +8,13 @@
 
 #import "WWInclude.h"
 
+#define CRASHLYTICS_TOKEN @"563f72dff50e854f1884bec2c900146541f80cdd"
+#define FLURRY_TOKEN @"CZ29GNW4CQP6FN75VVRC"
+#define GOOGLE_ID @"968915130"
+#define GOOGLE_LABEL @"ZX_nCJb-zwcQuvGBzgM"
+#define MIXPANEL_TOKEN @"075641a192c4d017d9b26a86f2b041f7"
+#define FACEBOOK_TOKEN @"243355059144499"
+
 @interface WWAppDelegate () <WWListResultsDelegate, UINavigationControllerDelegate, MFMailComposeViewControllerDelegate, UIAlertViewDelegate>
 
 // Main Drawer Controller
@@ -35,9 +42,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [Crashlytics startWithAPIKey:@"563f72dff50e854f1884bec2c900146541f80cdd"];
-    [Flurry startSession:@"CZ29GNW4CQP6FN75VVRC"];
-    [GoogleConversionPing pingWithConversionId:@"968915130" label:@"ZX_nCJb-zwcQuvGBzgM" value:@"0" isRepeatable:NO];
+    [Crashlytics startWithAPIKey:CRASHLYTICS_TOKEN];
+    [Flurry startSession:FLURRY_TOKEN];
+    [GoogleConversionPing pingWithConversionId:GOOGLE_ID label:GOOGLE_LABEL value:@"0" isRepeatable:NO];
+    [Mixpanel sharedInstanceWithToken:MIXPANEL_TOKEN];
     
     [UULocationManager startTracking];
     
@@ -134,7 +142,7 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-    [FBSettings setDefaultAppID:@"243355059144499"];
+    [FBSettings setDefaultAppID:FACEBOOK_TOKEN];
     [FBAppEvents activateApp];
 }
 
@@ -271,20 +279,22 @@
         c.photos = d[@"photos"];
         c.highlightedHashTag = d[@"hashtag"];
         c.currentFilter = [(NSNumber*)d[@"currentFilter"] intValue];
-        WWPhotoDetailsAnimator *animator = [self transitionAnimator];
+        // Jon Evans
+        /*WWPhotoDetailsAnimator *animator = [self transitionAnimator];
         animator.reverse = NO;
         NSValue *nsv = d[@"viewCenter"];
         animator.startPoint = nsv.CGPointValue;
-        self.homeNavController.delegate = animator;
+        self.homeNavController.delegate = animator;*/
         [self.homeNavController pushViewController:c animated:YES];
     }
 }
 
-- (WWPhotoDetailsAnimator*)transitionAnimator {
+// Jon Evans
+/*- (WWPhotoDetailsAnimator*)transitionAnimator {
     if (!transitionAnimator)
         transitionAnimator = [WWPhotoDetailsAnimator new];
     return transitionAnimator;
-}
+}*/
 
 - (void) handleViewPhotosByHashTagNotification:(NSNotification*)notification
 {
@@ -351,13 +361,8 @@
     args.autoCompleteArg = [NSString stringWithFormat:@"%@", place.identifier];
     args.lastAutoCompleteInput = place.name;
     args.autoCompleteType = @"place_id";
-    args.locationName = nil;
-    args.trendingOnly = nil;
-    args.openRightNow = nil;
-    args.priceOne = nil;
-    args.priceTwo = nil;
-    args.priceThree = nil;
-    args.priceFour = nil;
+    
+    [args clearFilterArgs];
     
     [WWSettings saveCachedSearchArgs:args];
     
@@ -405,9 +410,11 @@
     WWDebugLog(@"PushNotification Device Token: %@", [deviceToken wwToHexString]);
     
     WWUser* user = [WWSettings currentUser];
+    NSString* hexToken = [deviceToken wwToHexString];
+    [WWSettings cacheDeviceToken:hexToken];
+    
     if (user != nil)
     {
-        NSString* hexToken = [deviceToken wwToHexString];
         [[WWServer sharedInstance] uploadPushToken:user token:hexToken completion:nil];
     }
 }
@@ -437,7 +444,7 @@
     [WWSettings incrementAppLaunchCount];
     
     // Don't prompt after 2nd app launch
-    if (appLaunchCount <= 1)
+    if (appLaunchCount <= 4)
     {
         return;
     }

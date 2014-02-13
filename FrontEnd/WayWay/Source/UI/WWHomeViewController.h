@@ -21,6 +21,8 @@
 
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic) IBOutlet UICollectionView *infoCollectionView;
+@property (strong, nonatomic) IBOutlet UIView *behindStatusBarView;
+@property (strong, nonatomic) IBOutlet UIImageView *shadowView;
 
 @property (strong, nonatomic) IBOutlet UIView *progressCacheView;
 @property (strong, nonatomic) IBOutlet UIView *progressView;
@@ -28,19 +30,25 @@
 
 
 @property (strong, nonatomic) IBOutlet UIView* noResultsPanel;
-@property (strong, nonatomic) IBOutlet UIView *behindStatusBarView;
+
+
 @property (strong, nonatomic) IBOutlet UIGestureRecognizer* longPressGesture;
 
 
-//@property (strong, nonatomic) IBOutlet UIButton *listButton;
 @property (strong, nonatomic) IBOutlet UIButton *refreshButton;
 @property (strong, nonatomic) IBOutlet UIButton *locateMeButton;
 @property (strong, nonatomic) IBOutlet UIButton *filterButton;
 
-@property (strong, nonatomic) IBOutlet UILabel *noPlacesFoundLabel;
+@property (nonatomic, strong) UIButton* searchButton;
+@property (nonatomic, strong) UIButton* listButton;
+@property (nonatomic, strong) UIButton* clearSearchButton;
+@property (nonatomic, strong) UISearchBar* searchBar;
+
+
+//To review
 @property (assign) BOOL forceLeftMenuAlways;
 @property (assign) BOOL hasSetupMap;
-@property (strong, nonatomic) IBOutlet UIImageView *shadowView;
+
 
 // If set these are to be used over the cached args
 @property (nonatomic, strong) WWSearchArgs* fixedSearchArgs;

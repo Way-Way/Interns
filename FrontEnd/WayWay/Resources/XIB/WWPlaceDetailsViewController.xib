@@ -15,6 +15,7 @@
                 <outlet property="centeredHeaderLabel" destination="crb-Dr-s1t" id="X8a-7K-JQK"/>
                 <outlet property="collectionGestureOverlay" destination="Xfd-M7-CmL" id="rDd-eN-6Ro"/>
                 <outlet property="collectionView" destination="zlu-Ip-PdG" id="3I0-sK-6aQ"/>
+                <outlet property="fakeExtendedDetails" destination="FJ1-qN-NgD" id="ucJ-9t-mwW"/>
                 <outlet property="foodButton" destination="IZa-75-Mjk" id="JXB-cB-h5D"/>
                 <outlet property="headerContainerView" destination="eNc-bL-fEQ" id="fiY-W8-cim"/>
                 <outlet property="headerLabel" destination="dCt-6T-Umh" id="b6t-58-esP"/>

@@ -54,7 +54,7 @@ typedef enum
     
     if (!user)
     {
-        [sharingItems addObject:@{@"id":@(-1),   @"name":@"Login to enable sharing" }];
+        [sharingItems addObject:@{@"id":@(-1),   @"name":NSLocalizedString(WW_SETTINGS_LOGIN_TO_ENABLE_SHARING, nil) }];
     }
     else
     {
@@ -68,9 +68,9 @@ typedef enum
     
     NSArray* infoItems =
     @[
-      @{@"id":@(WWSettingsActionAbout),             @"name":@"About" },
-      @{@"id":@(WWSettingsActionTermsOfService),    @"name":@"Terms of Service" },
-      @{@"id":@(WWSettingsActionPrivacyPolicy),     @"name":@"Privacy Policy" },
+      @{@"id":@(WWSettingsActionAbout),             @"name":NSLocalizedString(WW_SETTINGS_ABOUT, nil) },
+      @{@"id":@(WWSettingsActionTermsOfService),    @"name":NSLocalizedString(WW_SETTINGS_TERMS_OF_SERVICE, nil) },
+      @{@"id":@(WWSettingsActionPrivacyPolicy),     @"name":NSLocalizedString(WW_SETTINGS_PRIVACY_POLICY, nil) },
       ];
     
     NSString* versionLabel = [NSString stringWithFormat:@"%@ build %@",
@@ -79,11 +79,11 @@ typedef enum
     
     NSArray* logoutItems =
     @[
-        @{@"id":@(WWSettingsActionLogout),             @"name":@"Sign out" },
+        @{@"id":@(WWSettingsActionLogout),             @"name":NSLocalizedString(WW_SETTINGS_SIGN_OUT, nil)},
       ];
     
     self.tableData = [NSMutableArray array];
-    [self.tableData addObject:@{@"id":@(WWSettingsGroupSharing), @"name":@"SHARING", @"items" : sharingItems, @"footerName" : @"" }];
+    [self.tableData addObject:@{@"id":@(WWSettingsGroupSharing), @"name":NSLocalizedString(WW_SETTINGS_SHARING, nil), @"items" : sharingItems, @"footerName" : @"" }];
     
     if ([WWSettings currentUser])
     {

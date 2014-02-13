@@ -22,19 +22,22 @@
     [super awakeFromNib];
     
     [self.nameLabel wwStyleWithBoldFontOfSize:20];
+    [self.distanceLabel wwStyleWithFontOfSize:WW_SUB_LABEL_FONT_SIZE];
     
     [self.categoryLabel wwStyleWithFontOfSize:WW_SUB_LABEL_FONT_SIZE];
-    [self.distanceLabel wwStyleWithFontOfSize:WW_SUB_LABEL_FONT_SIZE];
-    [self.priceLabel wwStyleWithFontOfSize:WW_SUB_LABEL_FONT_SIZE];
+    [self.categoryLabel wwRepositionSizeHeight];
     
-    UIFont* baseFont = [UIFont fontWithName:WW_DEFAULT_BOLD_FONT_NAME size:WW_SUB_LABEL_FONT_SIZE];
-    [self.hashtagmentions wwStyleWithFontOfSize:WW_SUB_LABEL_FONT_SIZE];
-    self.hashtagmentions.font = baseFont;
+    [self.priceLabel wwStyleWithFontOfSize:WW_SUB_LABEL_FONT_SIZE];
+    [self.priceLabel wwRepositionSizeHeight];
+    
+    self.listLabel = [[WWListLabel alloc] init];
+    [self addSubview:self.listLabel];
+    
     
     [self wwStyleWithTopAndBottomBorder:[UIColor blackColor] width:1];
 }
 
-- (void) update:(WWPlace*)place hashtag:(NSString*)hashtag
+- (void) update:(WWPlace*)place hashtag:(NSString*)hashtag displayLabel:(BOOL)displayLabel
 {
     self.place = place;
     
@@ -43,18 +46,42 @@
     self.priceLabel.text = place.price;
     self.distanceLabel.text = [place formattedDistance];
     
+    NSString* text;
+    
+    UIFont* baseFont = [UIFont fontWithName:WW_DEFAULT_FONT_NAME size:15];
+    UIFont* percentFont = [UIFont fontWithName:WW_DEFAULT_FONT_NAME size:10];
+
+    NSDictionary* baseAttrs = @{NSFontAttributeName : baseFont, NSForegroundColorAttributeName : WW_BLACK_FONT_COLOR };
+    NSDictionary* percentAttrs = @{NSFontAttributeName : percentFont, NSForegroundColorAttributeName : WW_LIGHT_GRAY_FONT_COLOR};
+    
+    NSMutableAttributedString* attirbutedtext;
+    
     if(hashtag)
     {
         //display number of occurences in list
-        NSString* text = [NSString stringWithFormat:@"#%@ - %d mentions", hashtag, place.hashtagMentions.intValue];
-        self.hashtagmentions.text = text;
+        text = [NSString stringWithFormat:@"%@", [place.hashtagMentions.stringValue wwFormatAsMentionsSummary]];
+        attirbutedtext = [[NSMutableAttributedString alloc ] initWithString:text];
+        [attirbutedtext setAttributes:baseAttrs range:NSMakeRange(0, text.length)];
+        
+        UIImage* icon = [UIImage imageNamed:@"photo_counter"];
+        
+        [self.listLabel setAttributedText:attirbutedtext andImage:icon];
     }
     else
     {
-        self.hashtagmentions.text = nil;
+        text = [NSString stringWithFormat:@"%d%%", place.classicRank.intValue];
+        attirbutedtext = [[NSMutableAttributedString alloc ] initWithString:text];
+        [attirbutedtext setAttributes:baseAttrs range:NSMakeRange(0, text.length - 1)];
+        [attirbutedtext setAttributes:percentAttrs range:NSMakeRange(text.length - 1, 1)];
+    
+        
+        [self.listLabel setAttributedText:attirbutedtext andImage:nil];
     }
     
-    [self refreshScoreLabel];
+    self.listLabel.frame = CGRectMake(self.frame.size.width - self.listLabel.frame.size.width - 15, 10, self.listLabel.frame.size.width, self.listLabel.frame.size.height);
+    self.listLabel.hidden = !displayLabel;
+    
+    //[self refreshScoreLabel];
     [self refreshPriceLabel];
     
     NSURL* bannerUrl = [NSURL URLWithString:self.place.bannerUrl];
@@ -100,7 +127,7 @@
         self.bannerView.alpha = 1;
     }
     
-    self.trendingIcon.hidden = !self.place.isTrending.boolValue;
+    //self.trendingIcon.hidden = !self.place.isTrending.boolValue;
 }
 
 - (void) layoutSubviews
@@ -113,11 +140,11 @@
     f.origin.y = self.categoryLabel.frame.origin.y - f.size.height;
     self.nameLabel.frame = f;
     
-    [self.scoreLabel wwResizeWidth];
+    //[self.scoreLabel wwResizeWidth];
     
-    f = self.trendingIcon.frame;
-    f.origin.x = self.scoreLabel.frame.origin.x + f.size.width - 4;
-    self.trendingIcon.frame = f;
+    //f = self.trendingIcon.frame;
+    //f.origin.x = self.scoreLabel.frame.origin.x + f.size.width - 4;
+    //self.trendingIcon.frame = f;
 }
 
 - (void) refreshPriceLabel
@@ -140,7 +167,7 @@
     self.priceLabel.attributedText = as;
 }
 
-- (void) refreshScoreLabel
+/*- (void) refreshScoreLabel
 {
     UIFont* baseFont = [UIFont fontWithName:WW_DEFAULT_FONT_NAME size:WW_HEADING_FONT_SIZE];
     UIFont* percentFont = [UIFont fontWithName:WW_DEFAULT_FONT_NAME size:WW_SUB_LABEL_FONT_SIZE];
@@ -159,6 +186,6 @@
     [as setAttributes:percentAttrs range:[sb rangeOfString:@"%"]];
     
     self.scoreLabel.attributedText = as;
-}
+}*/
 
 @end

@@ -38,17 +38,23 @@
     [self.categorySnackButton wwStyleLightGrayAndOrangeButton];
     self.categoryButtonContainer.backgroundColor = [UIColor clearColor];
     
+    [self.openNowButton setTitle:[NSString stringWithFormat:@" %@",NSLocalizedString(WW_OPEN_NOW, nil)]
+                        forState:UIControlStateNormal];
     [self.openNowButton wwStyleLightGrayButtonBorder];
     [self.openNowButton wwStyleLightGrayAndOrangeButton];
     
+    [self.trendingOnlyButton setTitle:[NSString stringWithFormat:@" %@",NSLocalizedString(WW_TRENDING, nil)]
+                             forState:UIControlStateNormal];
     [self.trendingOnlyButton wwStyleLightGrayButtonBorder];
     [self.trendingOnlyButton wwStyleLightGrayAndOrangeButton];
 
     self.clearFiltersButton.backgroundColor = [UIColor clearColor];
+    [self.clearFiltersButton setTitle:NSLocalizedString(WW_CLEAR_FILTER, nil) forState:UIControlStateNormal];
     
     [self.clearFiltersButton setBackgroundImage:[UIImage wwSolidColorImage:[UIColor clearColor]] forState:UIControlStateNormal];
     [self.clearFiltersButton setBackgroundImage:[UIImage wwSolidColorImage:[UIColor clearColor]] forState:UIControlStateDisabled];
     [self.clearFiltersButton setBackgroundImage:[UIImage wwSolidColorImage:WW_GRAY_BACKGROUND] forState:UIControlStateHighlighted];
+    
     
     [self.clearFiltersButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
     [self.clearFiltersButton setTitleColor:WW_LIGHT_GRAY_BUTTON_COLOR forState:UIControlStateDisabled];
@@ -83,8 +89,8 @@
     self.locationFilterNavController = [[UINavigationController alloc] initWithRootViewController:self.locationFilterController];
     
     self.navigationItem.leftBarButtonItem = [self wwCloseNavItem:@selector(closeFromNavBar)];
-    self.navigationItem.titleView = [self wwCenterNavItem:@"Filter"];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Apply" style:UIBarButtonItemStylePlain target:self action:@selector(onExecuteSearchClicked:)];
+    self.navigationItem.titleView = [self wwCenterNavItem:NSLocalizedString(WW_FILTER, nil)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(WW_APPLY_FILTER, nil) style:UIBarButtonItemStylePlain target:self action:@selector(onExecuteSearchClicked:)];
 }
 
 - (void) onExecuteSearchClicked:(id)sender
@@ -116,7 +122,7 @@
     }
     else
     {
-        [self.locationFilterButton setTitle:WW_CURRENT_LOCATION forState:UIControlStateNormal];
+        [self.locationFilterButton setTitle:NSLocalizedString(WW_CURRENT_LOCATION, nil) forState:UIControlStateNormal];
         self.locationFilterButton.selected = NO;
         self.chooseLocationChevronButton.hidden = NO;
         self.clearLocationButton.hidden = YES;
@@ -356,17 +362,7 @@
 {
     [Flurry logEvent:WW_FLURRY_EVENT_FILTER_CLEAR_FILTER];
     
-    self.currentSearchArgs.locationName = nil;
-    self.currentSearchArgs.trendingOnly = nil;
-    self.currentSearchArgs.openRightNow = nil;
-    self.currentSearchArgs.priceOne = nil;
-    self.currentSearchArgs.priceTwo = nil;
-    self.currentSearchArgs.priceThree = nil;
-    self.currentSearchArgs.priceFour = nil;
-    self.currentSearchArgs.categoryCoffee = nil;
-    self.currentSearchArgs.categoryBar = nil;
-    self.currentSearchArgs.categoryRestaurant = nil;
-    self.currentSearchArgs.categorySnack = nil;
+    [self.currentSearchArgs clearFilterArgs];
     
     WWSearchArgs* cached = [WWSettings cachedSearchArgs];
     self.currentSearchArgs.minlongitude = cached.minlongitude;

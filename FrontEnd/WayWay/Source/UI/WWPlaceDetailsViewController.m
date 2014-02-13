@@ -7,8 +7,7 @@
 //
 
 #import "WWInclude.h"
-
-CGPoint photoCenterPos;
+#define BORDER_LAYER_TAG  1
 
 @interface WWPlaceDetailsViewController () <UIGestureRecognizerDelegate>
 {
@@ -17,8 +16,8 @@ CGPoint photoCenterPos;
 
 @property (nonatomic, strong) NSArray* photos;
 @property (nonatomic, strong) WWPagedSearchResults* searchResults;
-@property (nonatomic, strong) CALayer* fakeNavBottomBorder;
 @property (assign) WWPhotoFilter currentFilter;
+@property (nonatomic, strong) CALayer* fakeNavBottomBorder;
 
 @end
 
@@ -47,26 +46,40 @@ CGPoint photoCenterPos;
     self.infoView.backgroundColor = [UIColor clearColor];
     self.headerContainerView.backgroundColor = [UIColor clearColor];
     
+    
+    //Layer under place title
     CALayer* layer = [CALayer layer];
     layer.borderColor = [[UIColor uuColorFromHex:@"ADADAD"] CGColor];
     layer.borderWidth = 0.5f;
     [self.headerView.layer addSublayer:layer];
     self.fakeNavBottomBorder = layer;
     self.fakeNavBottomBorder.hidden = YES;
+    
+    //layer over screen collection view
+    /*CGRect screen = [[UIScreen mainScreen] bounds];
+    CGFloat borderWidth = screen.size.width;
+    UIColor *borderColor = [UIColor uuColorFromHex:@"ADADAD"];
+    UIView *topBorder = [[UIView alloc] initWithFrame:CGRectMake(0, 0, borderWidth, 0.5f)];
+    
+    topBorder.opaque = YES;
+    topBorder.backgroundColor = borderColor;
+    topBorder.tag = BORDER_LAYER_TAG;
+    [self.collectionView addSubview:topBorder];*/
 }
 
 - (void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     
+    CGFloat borderWidth = self.fakeNavBottomBorder.borderWidth;
+    self.fakeNavBottomBorder.frame = CGRectMake(0, self.headerView.bounds.size.height - borderWidth, self.view.bounds.size.width, borderWidth);
+    self.fakeNavBottomBorder.hidden = YES;
+    
     if (!self.place)
     {
         NSLog(@" ***** ERROR!! How did we get a nil place here! ***** ");
         return;
     }
-    
-    CGFloat borderWidth = self.fakeNavBottomBorder.borderWidth;
-    self.fakeNavBottomBorder.frame = CGRectMake(0, self.headerView.bounds.size.height - borderWidth, self.view.bounds.size.width, borderWidth);
     
     if (self.currentFilter == WWPhotoFilterNone)
     {
@@ -100,7 +113,9 @@ CGPoint photoCenterPos;
 
 - (void) refreshInfoView
 {
+#warning : This is just for test
     self.categoriesLabel.text = [self.place combinedCategories];
+    //self.categoriesLabel.text = [self.place relevantHashtags];
     self.trendingIcon.hidden = !self.place.isTrending.boolValue;
     
     [self refreshInfoLabel];
@@ -306,6 +321,7 @@ CGPoint photoCenterPos;
         else if ([rowData isKindOfClass:[WWHashtag class]])
         {
             WWHashTagSummaryHeaderView* cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"WWHashTagSummaryHeaderViewId" forIndexPath:indexPath];
+            cell.photoIcon.hidden = NO;
             WWHashtag* hashTag = (WWHashtag*)rowData;
             
             id prev = nil;
@@ -396,7 +412,7 @@ CGPoint photoCenterPos;
     if (self.photos && self.photos.count > 0)
     {
         id rowData = self.photos[indexPath.row];
-
+        
         if ([rowData isKindOfClass:[WWPhoto class]])
         {
             if (self.currentFilter == WWPhotoFilterTags)
@@ -418,13 +434,14 @@ CGPoint photoCenterPos;
             NSArray* photoList = [self findPhotosInCurrentSection:indexPath];
             [d setValue:photoList forKey:@"photos"];
             
+            //This is for photo animated transition - Jon Evans
             UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
             CGRect frame = [collectionView convertRect:cell.frame toView:self.view];
             CGPoint center = CGPointMake(frame.origin.x+frame.size.width/2, frame.origin.y+frame.size.height/2);
             [d setValue:[NSValue valueWithCGPoint:center] forKey:@"viewCenter"];
+            //
             
             [[NSNotificationCenter defaultCenter] postNotificationName:WW_VIEW_PHOTO_NOTIFICATION object:d];
-            photoCenterPos = center;
         }
         else if ([rowData isKindOfClass:[WWHashtag class]])
         {
@@ -755,7 +772,7 @@ CGPoint photoCenterPos;
     self.collectionView.scrollEnabled = fullScreen.boolValue;
     self.collectionGestureOverlay.hidden = fullScreen.boolValue;
     
-    [UIView animateWithDuration:animated ? 0.15f : 0.0f animations:
+    [UIView animateWithDuration:animated ? 0.2f : 0.0f animations:
      ^{
          [self toggleInfoView:!fullScreen.boolValue];
          [self.collectionView setContentOffset:CGPointZero animated:NO];
@@ -765,8 +782,12 @@ CGPoint photoCenterPos;
          
          self.navBackButton.alpha = fullScreen.boolValue ? 1 : 0;
          self.scoreLabel.alpha = fullScreen.boolValue ? 0 : 1;
-         self.fakeNavBottomBorder.hidden = !fullScreen.boolValue;
+        
      }];
+    
+
+    self.fakeNavBottomBorder.hidden = !fullScreen.boolValue;
+    //[self.collectionView viewWithTag:BORDER_LAYER_TAG].hidden = fullScreen.boolValue;
 }
 
 - (void) toggleInfoView:(BOOL)showInfoView
@@ -785,6 +806,13 @@ CGPoint photoCenterPos;
     newCollectionViewFrame.size.height = self.view.bounds.size.height - newCollectionViewFrame.origin.y;
     self.collectionView.frame = newCollectionViewFrame;
     
+    /*[UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:1.0];
+    if (showInfoView)
+        self.fakeExtendedDetails.alpha = 1.0;
+    else
+        self.fakeExtendedDetails.alpha = 0.0;
+    [UIView commitAnimations];*/
     self.infoView.hidden = !showInfoView;
 }
 

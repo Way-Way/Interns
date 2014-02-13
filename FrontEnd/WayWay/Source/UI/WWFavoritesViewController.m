@@ -29,13 +29,15 @@
     self.navigationItem.leftBarButtonItem = [self wwMenuNavItem];
     self.navigationItem.titleView = [self wwCenterNavItem:@"My Favorites"];
     self.searchedHashtag = nil;
+    self.displayLabel = NO;
 }
 
 - (void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    self.navigationItem.titleView = [self wwCenterNavItem:@"My Favorites"];
+    
     [self refreshDataFromServer];
-    self.searchedHashtag = nil;
 }
 
 - (void) showProgress:(NSString*)message

@@ -12,5 +12,6 @@
 
 - (void) wwStyleWithFontOfSize:(CGFloat)size;
 - (void) wwStyleWithBoldFontOfSize:(CGFloat)size;
+- (void) wwRepositionSizeHeight;
 
 @end

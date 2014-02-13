@@ -130,14 +130,26 @@
         static NSString* cellId;
         UITableViewCellStyle cellStyle;
         
+        
+        //TODO : Move all this logic away to a class!!!!
         if([@"place_id" isEqualToString:obj.type])
         {
             cellId = @"SearchFilterPlaceCellId";
             cellStyle = UITableViewCellStyleSubtitle;
         }
+        else if([@"category" isEqualToString:obj.type])
+        {
+            cellId = @"SearchFilterCategoryCellId";
+            cellStyle = UITableViewCellStyleValue1;
+        }
+        else if([@"hashtag" isEqualToString:obj.type])
+        {
+            cellId = @"SearchFilterHashtagCellId";
+            cellStyle = UITableViewCellStyleValue1;
+        }
         else
         {
-            cellId = @"SearchFilterCellId";
+            cellId = @"SearchFilterDefaultCellId";
             cellStyle = UITableViewCellStyleValue1;
         }
         
@@ -153,10 +165,35 @@
             cell.textLabel.textColor = [UIColor blackColor];
             cell.textLabel.highlightedTextColor = [UIColor whiteColor];
             
+            cell.detailTextLabel.font = [UIFont fontWithName:WW_DEFAULT_FONT_NAME size:13.0f];
+            cell.detailTextLabel.textColor = WW_LIGHT_GRAY_FONT_COLOR;
+            
             UIView* v = [UIView new];
             v.backgroundColor = [UIColor clearColor];
             cell.backgroundView = v;
             cell.backgroundColor = [UIColor clearColor];
+            
+            if([cellId isEqualToString:@"SearchFilterHashtagCellId"])
+            {
+                CGRect screenRect = [[UIScreen mainScreen] bounds];
+                CGFloat screenWidth = screenRect.size.width;
+                
+                UIImageView* icon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"photo_counter"]];
+                icon.frame = CGRectMake(0, (cell.frame.size.height - icon.frame.size.height)/2.0, icon.frame.size.width, icon.frame.size.height);
+                
+                UIView* view = [[UIView alloc] initWithFrame:CGRectMake(screenWidth - 15 - icon.frame.size.width, 0, icon.frame.size.width, cell.frame.size.height)];
+                view.backgroundColor = [UIColor clearColor];
+                
+                [view addSubview:icon];
+                [cell addSubview:view];
+                
+                UILabel* counter = [[UILabel alloc] initWithFrame:CGRectMake(screenWidth - 200 - 15 - icon.frame.size.width - 4, 0, 200, cell.frame.size.height)];
+                counter.textAlignment = NSTextAlignmentRight;
+                counter.tag = 1;
+                [counter setTextColor:WW_LIGHT_GRAY_FONT_COLOR];
+                [counter setFont:[UIFont fontWithName:WW_DEFAULT_FONT_NAME size:15.0f]];
+                [cell addSubview:counter];
+            }
         }
         
         cell.detailTextLabel.text = nil;
@@ -165,25 +202,17 @@
         if([obj.type isEqualToString:@"place_id"])
         {
             cell.textLabel.text = obj.name;
-            
             cell.detailTextLabel.text =  obj.extraSpecs;
-            cell.detailTextLabel.font = [UIFont fontWithName:WW_DEFAULT_FONT_NAME size:13.0f];
-            cell.detailTextLabel.textColor = WW_LIGHT_GRAY_FONT_COLOR;
         }
         else if ([@"hashtag" isEqualToString:obj.type])
         {
             cell.textLabel.text = [@"#" stringByAppendingString:obj.name];
+            
+            UILabel* counter = (UILabel*)[cell viewWithTag:1];
+            counter.text = nil;
             if(obj.extraSpecs)
             {
-                cell.detailTextLabel.text = [obj.extraSpecs wwFormatAsMentionsSummary];
-                
-                UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 34, 20)];
-                view.backgroundColor = [UIColor clearColor];
-
-                UIImageView* icon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"photo_counter"]];
-                icon.frame = CGRectMake(4, 0, 30, 20);
-                [view addSubview:icon];
-                cell.accessoryView = view;
+                counter.text = [obj.extraSpecs wwFormatAsMentionsSummary];
             }
         }
         else
@@ -196,8 +225,9 @@
     }
     else
     {
-        static NSString* cellId = @"NoDataCellId";
         
+        //TODO : Move all this to a different class !!!
+        static NSString* cellId = @"NoDataCellId";
         UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellId];
         if (cell == nil)
         {
@@ -212,6 +242,7 @@
             cell.backgroundView = v;
             cell.backgroundColor = [UIColor clearColor];
         }
+        //End move
         
         if (indexPath.row == 1)
         {
@@ -255,13 +286,7 @@
         }
         
         // Clear Filters
-        args.locationName = nil;
-        args.trendingOnly = nil;
-        args.openRightNow = nil;
-        args.priceOne = nil;
-        args.priceTwo = nil;
-        args.priceThree = nil;
-        args.priceFour = nil;
+        [args clearFilterArgs];
         
         args.lastAutoCompleteInput = obj.name;
         [WWSettings saveCachedSearchArgs:args];

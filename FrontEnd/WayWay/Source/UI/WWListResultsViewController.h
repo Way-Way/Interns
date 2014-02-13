@@ -17,6 +17,8 @@
 @interface WWListResultsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) NSString* searchedHashtag;
+@property (nonatomic) BOOL displayLabel;
+
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UIView* noResultsPanel;
 @property (strong, nonatomic) NSObject<WWListResultsDelegate>* delegate;

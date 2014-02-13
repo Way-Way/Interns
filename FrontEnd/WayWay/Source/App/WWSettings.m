@@ -8,6 +8,7 @@
 
 #import "WWInclude.h"
 
+#define WW_DEVICE_TOKEN @"WWDeviceToken"
 #define WW_CURRENT_USER_KEY @"WWCurrentUserKey"
 #define WW_CACHED_SEARCH_ARGS_KEY @"WWCachedSearchArgsKey"
 #define WW_CURRENT_MAP_LOCATION_KEY @"WWCurrentMapLocationKey"
@@ -295,6 +296,19 @@
     [[NSUserDefaults standardUserDefaults] setInteger:pref forKey:WW_RATE_IT_PREF_KEY];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
+
+
++ (NSString*) getDeviceToken
+{
+    return [[NSUserDefaults standardUserDefaults] objectForKey:WW_DEVICE_TOKEN];
+}
+
++ (void) cacheDeviceToken:(NSString*)deviceToken
+{
+    [[NSUserDefaults standardUserDefaults] setObject:deviceToken forKey:WW_DEVICE_TOKEN];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
 
 + (NSDate*) lastRateItPopupTime
 {

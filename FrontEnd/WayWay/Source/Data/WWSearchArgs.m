@@ -161,6 +161,30 @@
     }
 }
 
+-(void)clearFilterArgs
+{
+    //location name
+    self.locationName = nil;
+    
+    //Category
+    self.categoryCoffee = nil;
+    self.categorySnack = nil;
+    self.categoryBar = nil;
+    self.categoryRestaurant = nil;
+    
+    //Open
+    self.openRightNow = nil;
+    
+    //Price
+    self.priceFour = nil;
+    self.priceThree = nil;
+    self.priceTwo = nil;
+    self.priceOne = nil;
+    
+    //Trending
+    self.trendingOnly = nil;
+}
+
 - (NSString*) selectedPrices
 {
     NSMutableArray* a = [NSMutableArray array];
@@ -236,6 +260,25 @@
     {
         return nil;
     }
+}
+
+-(NSString*) selectedTime
+{
+    if(!self.openRightNow)
+        return nil;
+    
+    
+    NSDate *currDate = [NSDate date];
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *components = [calendar components:(NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:currDate];
+    
+    NSNumber *hour = [NSNumber numberWithInteger:[components hour]];
+    NSNumber *minute = [NSNumber numberWithInteger:[components minute]];
+    NSNumber *weekday = [NSNumber numberWithInteger:[components weekday] % 7];
+    
+    NSNumber *hoursOfWeek = [NSNumber numberWithDouble:([weekday doubleValue]* 24.0 + [hour doubleValue] + [minute doubleValue]/60.0)];
+
+    return [hoursOfWeek stringValue];
 }
 
 @end

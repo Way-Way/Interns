@@ -103,6 +103,9 @@ extern NSString * const WWServerErrorDomain;
 //Categories
 - (UUHttpClient*) getStaticCategories:(void(^)(NSError* error, NSArray* results))completion;
 
+//Featured hashtags
+- (UUHttpClient*) featuredHashtagsWithLocation:(CLLocation*)location completion:(void(^)(NSError* error, NSArray* results))completion;
+
 // Bad Photos
 - (UUHttpClient*) reportBadPhoto:(NSNumber*)photoId completion:(void (^)(NSError* error))completion;
 

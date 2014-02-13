@@ -332,8 +332,10 @@ static WWServer* theWWServer = nil;
         [args setValue:categoryString forKey:@"category"];
     }
     
+    
     [args setValue:searchArgs.trendingOnly forKey:@"trending"];
     [args setValue:[searchArgs selectedPrices] forKey:@"price"];
+    [args setValue:[searchArgs selectedTime] forKey:@"time"];
     
     [args setValue:searchArgs.minlatitude forKey:@"min_latitude"];
     [args setValue:searchArgs.maxlatitude forKey:@"max_latitude"];
@@ -342,14 +344,6 @@ static WWServer* theWWServer = nil;
     
     NSArray* parts = @[endPoint, @"page", @"1"];
     NSString* resourcePath = [self buildRequestPath:parts];
-    
-    /*
-    if ([@"places" isEqualToString:endPoint])
-    {
-        NSString* url = [self.rootServerUrl stringByAppendingString:resourcePath];
-        NSDictionary* logParams = @{@"args":args,@"url":url};
-        [Flurry logEvent:WW_FLURRY_EVENT_SEARCH_PLACES withParameters:logParams];
-    }*/
     
     return [self getPagedList:resourcePath queryStringArgs:args responseClass:responseClass completionHandler:completionHandler];
 }
@@ -588,6 +582,43 @@ static WWServer* theWWServer = nil;
      }];
 }
 
+#pragma mark - Intro slides - suggested hashtags
+- (UUHttpClient*) featuredHashtagsWithLocation:(CLLocation*)location completion:(void(^)(NSError* error, NSArray* results))completion
+{
+    NSArray* parts = @[@"hashtags"];
+    
+    NSMutableDictionary* d = [NSMutableDictionary dictionary];
+    [d setValue:@"true" forKey:@"featured"];
+    [d setValue:[NSNumber numberWithDouble:location.coordinate.latitude] forKey:@"latitude"];
+    [d setValue:[NSNumber numberWithDouble:location.coordinate.longitude] forKey:@"longitude"];
+    
+    
+    NSString* resourcePath = [self buildRequestPath:parts];
+    
+    NSString* url = [self.rootServerUrl stringByAppendingString:resourcePath];
+    
+    return [self get:url queryArguments:d completionHandler:^(UUHttpClientResponse *response)
+            {
+                NSMutableArray* parsedResults = nil;
+                
+                if (!response.httpError && response.parsedResponse)
+                {
+                    NSError* error = response.httpError;
+                    parsedResults = [NSMutableArray array];
+                    
+                    for (id node in response.parsedResponse)
+                    {
+                        WWFeaturedHashtag* obj = [WWFeaturedHashtag fromDictionary:node];
+                        if (obj)
+                        {
+                            [parsedResults addObject:obj];
+                        }
+                    }
+                    completion(error, parsedResults);
+                }
+            }];
+}
+
 #pragma mark - Bad Photos
 
 - (UUHttpClient*) reportBadPhoto:(NSNumber*)photoId completion:(void (^)(NSError* error))completion
@@ -692,6 +723,18 @@ static WWServer* theWWServer = nil;
         
         results = [NSMutableArray array];
         
+#warning : TODO - API does not send information right
+        //If response was not correctly parsed then no results
+        /*BOOL test = [serverResponse.parsedResponse isKindOfClass:[NSArray class]];
+        if(!test)
+        {
+            if (completionHandler)
+            {
+                completionHandler(serverResponse.httpError, pagedResults);
+            }
+            return;
+        }*/
+        //We can put a try catch in here too
         for (id node in serverResponse.parsedResponse)
         {
             id obj = [clazz fromDictionary:node];
@@ -700,13 +743,6 @@ static WWServer* theWWServer = nil;
                 [results addObject:obj];
             }
         }
-        
-        /*
-        if ([clazz instancesRespondToSelector:@selector(setRankType:)])
-        {
-            WWSearchArgs* args = [WWSettings cachedSearchArgs];
-            [results setValue:@(args.rankType) forKeyPath:@"rankType"];
-        }*/
     }
     
     NSDictionary* pagingHeaders = [self parsePaginationHeaders:[serverResponse.httpResponse allHeaderFields]];
@@ -715,6 +751,7 @@ static WWServer* theWWServer = nil;
     pagedResults.nextPageUrl = [pagingHeaders valueForKey:@"next"];
     pagedResults.prevPageUrl = [pagingHeaders valueForKey:@"prev"];
     pagedResults.data = results;
+    pagedResults.error = [pagingHeaders valueForKey:@"error"];
     
     //WWDebugLog(@"\nPaged Results:\n\nFirst: %@\n Last: %@\n Next: %@\n Prev: %@\n\n",
     //           pagedResults.firstPageUrl, pagedResults.lastPageUrl, pagedResults.nextPageUrl, pagedResults.prevPageUrl);
@@ -778,6 +815,13 @@ static WWServer* theWWServer = nil;
                 }
             }
         }
+        
+        linkNode = [d valueForKey:@"Error"];
+        if (linkNode && [linkNode isKindOfClass:[NSString class]])
+        {
+            NSString* error = linkNode;
+            [parsed setValue:error forKey:@"error"];
+        }
     }
     
     return [NSDictionary dictionaryWithDictionary:parsed];
@@ -820,6 +864,13 @@ static WWServer* theWWServer = nil;
     
     NSString* deviceId = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
     [md setValue:deviceId forKey:@"device_id"];
+    
+    NSString* deviceToken = [WWSettings getDeviceToken];
+    if(deviceToken)
+    {
+        [md setValue:deviceToken forKey:@"device_token"];
+    }
+    
     return [NSDictionary dictionaryWithDictionary:md];
 }
 

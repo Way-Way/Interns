@@ -110,7 +110,7 @@
             color = @"#F96020";
         }
         
-        NSString* fragment = [NSString stringWithFormat:@"<a href=\"wayway://internal?gotohashtag=%@\" style=\"text-decoration:none;\"><span style=\"font-family:Bariol-%@;color:%@;font-size:16px;\">#%@ </span></a>", s, font, color, s];
+        NSString* fragment = [NSString stringWithFormat:@"<a href=\"wayway://internal?gotohashtag=%@\" style=\"text-decoration:none;\"><span style=\"font-family:Bariol-%@;color:%@;font-size:16px;display:inline-block;border:1px solid lightgray; padding:2px 4px; margin:2px;border-radius: 2px;\">#%@ </span></a>", s, font, color, s];
         [sb appendString:fragment];
     }
     

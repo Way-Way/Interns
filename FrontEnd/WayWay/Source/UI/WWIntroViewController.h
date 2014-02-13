@@ -11,6 +11,22 @@
 @interface WWIntroViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) IBOutlet UIView *scrollContent;
+
+
+
+
+@property (strong, nonatomic) IBOutlet UILabel *analyzesLabel;
+
+@property (strong, nonatomic) IBOutlet UILabel *popularLabel;
+@property (strong, nonatomic) IBOutlet UILabel *trendingLabel;
+@property (strong, nonatomic) IBOutlet UILabel *underradarLabel;
+@property (strong, nonatomic) IBOutlet UILabel *swipeLabel;
+
+@property (strong, nonatomic) IBOutlet UILabel *feelLabel;
+@property (strong, nonatomic) IBOutlet UILabel *picturesLabel;
+@property (strong, nonatomic) IBOutlet UILabel *discoverLabel;
+@property (strong, nonatomic) IBOutlet UILabel *tapHashtagLabel;
+
 @property (strong, nonatomic) IBOutlet UIButton *exitSearchButtonOne;
 @property (strong, nonatomic) IBOutlet UIButton *exitSearchButtonTwo;
 @property (strong, nonatomic) IBOutlet UIButton *exitSearchButtonThree;

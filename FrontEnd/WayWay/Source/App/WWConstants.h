@@ -66,15 +66,22 @@
 #define WW_SLIDE_TRANSITION_DURATION 0.5f
 #define WW_SEARCH_DELAY 0.5f
 #define WW_DEFAULT_SEARCH_ICON_DIM 12.5
-#define WW_WAY_WAY_SEARCH_ICON_DIM 18
+#define WW_WAY_WAY_SEARCH_ICON_DIM 12.5
 #define WW_APP_STORE_URL @"https://itunes.apple.com/app/wayway-discover-places-everybody/id694189318?mt=8"
+#define WW_UNSUPPORTED_CITY @"Unsupported City"
 
 //Multi-language words
-#define WW_CURRENT_LOCATION @"Choose Location"
-#define WW_FILTER @"Filter"
-#define WW_COUNT_FILTERS @"filters"
 #define WW_LIST @"List"
 #define WW_SEARCH @"Search"
+#define WW_FILTER @"Filter"
+
+#define WW_COUNT_FILTERS @"filters"
+#define WW_APPLY_FILTER @"Apply"
+#define WW_OPEN_NOW @"Open Now"
+#define WW_TRENDING @"Show Trending Only"
+#define WW_CURRENT_LOCATION @"Choose Location"
+#define WW_CLEAR_FILTER @"Clear Filters"
+
 #define WW_FIND_PLACES @"Find Places"
 #define WW_FAVORITES @"Favorites"
 #define WW_SETTINGS @"Settings"
@@ -83,6 +90,14 @@
 #define WW_SIGN_IN @"Sign In"
 #define WW_INVITE_FRIENDS @"Invite Friends"
 #define WW_SIGN_IN_MESSAGE @"Signing in lets you save places and easily share them with your friends."
+
+#define WW_SETTINGS_SHARING @"SHARING"
+#define WW_SETTINGS_LOGIN_TO_ENABLE_SHARING @"Login to enable sharing"
+#define WW_SETTINGS_ABOUT @"About"
+#define WW_SETTINGS_TERMS_OF_SERVICE @"Terms of Service"
+#define WW_SETTINGS_PRIVACY_POLICY @"Privacy Policy"
+#define WW_SETTINGS_SIGN_OUT @"Sign out"
+
 
 #define WW_CATEGORY_BARS_NIGHTLIFE @"bars & nightlife"
 #define WW_CATEGORY_COFFEE_TEA @"coffee & tea"

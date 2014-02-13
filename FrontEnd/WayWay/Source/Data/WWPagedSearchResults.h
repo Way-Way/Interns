@@ -16,4 +16,6 @@
 @property (nonatomic, retain) NSString* prevPageUrl;
 @property (nonatomic, retain) NSArray* data;
 
+@property (nonatomic, retain) NSString* error;
+
 @end

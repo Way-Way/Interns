@@ -36,6 +36,8 @@
         self.area = [dictionary wwNonNullValueForKey:@"area" defaultValue:@""];
         self.city = [dictionary wwNonNullValueForKey:@"city"];
         
+        
+        
         self.distance = [dictionary wwNonNullValueForKey:@"distance"];
         if (self.distance == nil)
         {
@@ -57,13 +59,6 @@
         self.isTrending = trendingRank.integerValue > 0 ? @(YES) : @(NO);
         self.hashtagMentions = [dictionary wwNonNullValueForKey:@"nb_occurences"];
         
-        //self.trendingRank = [dictionary wwNonNullValueForKey:@"trending_rank" defaultValue:@(0)];
-        //self.rankType = [dictionary wwNonNullValueForKey:@"rank_type" defaultValue:@(WWRankTypeTrending)];
-        //self.score = [dictionary wwNonNullValueForKey:@"score"];
-
-        //self.needsToLoadDetails = false;
-        //self.isExpanded = false;
-        
         self.isFavorite = [dictionary wwNonNullValueForKey:@"is_favorite"];
         self.phoneNumber = [dictionary wwNonNullValueForKey:@"phone"];
         self.reservationUrl = [dictionary wwNonNullValueForKey:@"reservation_url"];
@@ -78,8 +73,15 @@
             NSArray* values = [categoryListNode valueForKeyPath:@"value"];
             self.combinedCategories = [values componentsJoinedByString:@", "];
         }
+        
         NSString* categoryIconName = [dictionary wwNonNullValueForKey:@"category_icon" defaultValue:@""];
         self.categoryIcon = [self getCategoryIcon:categoryIconName];
+        
+        /*id hashtagListNode = [dictionary wwNonNullValueForKey:@"hashtags"];
+        if (hashtagListNode && [hashtagListNode isKindOfClass:[NSArray class]])
+        {
+            self.relevantHashtags = [hashtagListNode componentsJoinedByString:@", "];
+        }*/
         
         
         self.price = [dictionary wwNonNullValueForKey:@"price"];

@@ -133,7 +133,6 @@
                 }
                 else
                 {
-                    NSLog(@"What the fuck");
                     [self.place fetchNextPageOfPhotosByHashTag:self.highlightedHashTag
                                                     completion:^(NSArray* photos, WWPagedSearchResults* pagedResults)
                      {
@@ -156,7 +155,7 @@
         //This is a hack??
         //first 3 photos
         int lastIndexToKeep = MIN(2, self.photos.count-1);
-        NSArray* firstPhotos = [self.photos objectsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, lastIndexToKeep)]];
+        NSArray* firstPhotos = [self.photos objectsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, lastIndexToKeep + 1)]];
         self.photos = [firstPhotos arrayByAddingObjectsFromArray:[photos copy]];
     }
     int newCount = self.photos.count;

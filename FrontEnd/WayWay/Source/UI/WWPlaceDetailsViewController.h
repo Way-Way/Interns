@@ -30,9 +30,11 @@
     UICollectionViewDelegateFlowLayout,
     UIScrollViewDelegate
 >
-
+    
 @property (nonatomic, strong) WWPlace* place;
+    
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (strong, nonatomic) IBOutlet UIView *fakeExtendedDetails;
 
 @property (strong, nonatomic) IBOutlet UIButton *tagsButton;
 @property (strong, nonatomic) IBOutlet UIButton *foodButton;

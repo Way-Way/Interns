@@ -44,8 +44,10 @@
 //Is trending
 @property (nonatomic, strong) NSNumber* trendingOnly;
 
+
 - (NSString*) selectedPrices;
 - (NSString*) selectedCategories;
+- (NSString*) selectedTime;
 
 - (NSDictionary*) toDictionary;
 + (instancetype) fromDictionary:(NSDictionary*)dictionary;
@@ -55,5 +57,6 @@
 - (void) setGeoboxToCurrentLocation;
 - (void) setGeoboxFromLocation:(CLLocation*)location;
 - (BOOL) hasGeoBox;
+- (void)clearFilterArgs;
 
 @end

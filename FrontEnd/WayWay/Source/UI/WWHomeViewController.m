@@ -21,7 +21,7 @@
 @interface WWHomeViewController () <UIGestureRecognizerDelegate, WWListResultsDelegate>
 
 @property (assign) BOOL isSearching;
-@property (assign) BOOL needsRefreshFromServer;
+@property (assign) BOOL firstSearch;
 @property (assign) BOOL searchOnNextLocationChange;
 
 @property (nonatomic, strong) NSTimer* timer;
@@ -37,18 +37,16 @@
 
 @property (nonatomic, strong) WWListResultsViewController* listResultsController;
 
-@property (nonatomic, strong) UIButton* searchButton;
-@property (nonatomic, strong) UIButton* listButton;
-@property (nonatomic, strong) UIButton* clearSearchButton;
-@property (nonatomic, strong) UISearchBar* searchBar;
+@property (nonatomic, strong) WWPlaceDetailsViewController* currentDetailsViewController;
 
+@property (nonatomic, strong) WWUnsupportedCityController* noCityController;
+
+//Gestures ???
 @property (assign) CGSize fullScreenSize;
 @property (assign) CGPoint touchStart;
 @property (assign) CGPoint originStart;
-@property (assign) BOOL isTrackingTouch;
 @property (assign) CGFloat halfMapViewHeight;
 
-@property (nonatomic, strong) WWPlaceDetailsViewController* currentDetailsViewController;
 
 ////////////////////////////////////////////////
 // Map View
@@ -56,7 +54,6 @@
 @property (assign) int pinLimit;
 @property (nonatomic, strong) WWPlace* selectedPlace;
 @property (nonatomic, strong) WWPlace* lastSelectedPlace;
-@property (assign) BOOL filterDirty;
 @property (assign) BOOL hasNextResults;
 
 @property (assign) BOOL detailsExpanded;
@@ -72,6 +69,7 @@
     self.halfMapViewHeight = 195 + 20; // Spec says 390retina, plus 20 for the fake header   // 114 + 106; // header + one photo row
     
     WWHomeViewController* weakSelf = self;
+    self.noCityController = [WWUnsupportedCityController new];
     
 
     [self.filterButton setTitle:[NSString stringWithFormat:@"  %@  ",NSLocalizedString(WW_FILTER, nil)] forState:UIControlStateNormal];
@@ -105,9 +103,6 @@
     self.listResultsController = [WWListResultsViewController new];
     self.listResultsController.delegate = self;
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleTriggerServerFetchNextPageNotification:) name:WW_TRIGGER_SERVER_FETCH_NEXT_PAGE_NOTIFICATION object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleLocationUpdateNotification:) name:UULocationChangedNotification object:nil];
-    
     UISearchBar* searchBar = [self wwNavSearchBar];
     searchBar.frame = CGRectMake(0, 0, 217, 44);
     self.searchBar = searchBar;
@@ -129,8 +124,6 @@
     CGFloat dim = 30;
     self.clearSearchButton = [[UIButton alloc] initWithFrame:CGRectMake(searchBar.bounds.size.width - dim - 8, 6, dim, dim)];
     [self.clearSearchButton addTarget:self action:@selector(onNavClearSearchClicked:) forControlEvents:UIControlEventTouchUpInside];
-    //self.clearSearchButton.backgroundColor = [UIColor greenColor];
-    //self.clearSearchButton.alpha = 0.5f;
     [centerNavContainer addSubview:self.clearSearchButton];
     
     WWNavView* navBarContainer = [[WWNavView alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
@@ -167,11 +160,11 @@
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:navBarContainer];
     
-    self.needsRefreshFromServer = YES;
     self.searchOnNextLocationChange = (self.fixedSearchArgs == nil);
     
     self.progressView.alpha = 0;
     
+    self.firstSearch = YES;
     self.detailsExpanded = NO;
     
     /////////////////////////////////////////
@@ -180,12 +173,8 @@
     self.pinLimit = WW_DEFAULT_MAP_PIN_COUNT;
     self.selectedPlace = nil;
     self.hasSetupMap = NO;
-    self.filterDirty = NO;
     self.isSearching = NO;
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleLocationUpdateNotification:) name:UULocationChangedNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleLocationErrorNotification:) name:UULocationErrorNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleLocationAuthChangedNotification:) name:UULocationChangedNotification object:nil];
     
     UIPanGestureRecognizer* panRec = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(mapViewTouched:)];
     [panRec setDelegate:self];
@@ -245,8 +234,10 @@
     self.progressAnimation.animationDuration = 1.0f;
     [self.progressAnimation startAnimating];
     
-    [self.noPlacesFoundLabel wwStyleWithFontOfSize:16];
-    self.noPlacesFoundLabel.textColor = WW_LIGHT_GRAY_FONT_COLOR;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleTriggerServerFetchNextPageNotification:) name:WW_TRIGGER_SERVER_FETCH_NEXT_PAGE_NOTIFICATION object:nil];
+    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleLocationUpdateNotification:) name:UULocationChangedNotification object:nil];
+    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleLocationErrorNotification:) name:UULocationErrorNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleLocationAuthChangedNotification:) name:UULocationChangedNotification object:nil];
 }
 
 - (void) viewWillAppear:(BOOL)animated
@@ -276,30 +267,52 @@
     [self.navigationController setNavigationBarHidden:(self.selectedPlace != nil && self.detailsExpanded) animated:NO];
     self.behindStatusBarView.hidden = !self.navigationController.isNavigationBarHidden;
     
-    [self ensureGeoBoxIsSet];
     [self refreshFilterButton];
     
-    if (self.needsRefreshFromServer)
+    if(self.firstSearch &&  [self isLocationAuthorized])
     {
         [self beginPlaceSearch];
     }
 }
 
-- (void) ensureGeoBoxIsSet
+-(BOOL) isLocationAuthorized
 {
-    WWSearchArgs* args = [WWSettings cachedSearchArgs];
-    
-    if (!args.minlatitude || !args.minlongitude ||
-        !args.maxlatitude || !args.maxlongitude)
+    return ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorized);
+}
+
+-(void) setSearchArgsFromCurrentMap
+{
+    //reset search arguments
+    MKCoordinateRegion region = self.mapView.region;
+    WWSearchArgs* args = [self searchArgs];
+    [args setGeoboxFromMapRegion:region];
+    [self saveSearchArgs:args];
+}
+
+- (WWSearchArgs*) searchArgs
+{
+    if (self.fixedSearchArgs)
     {
-        // If we have a valid location then hop to it, otherwise the app will wait until
-        // a location is found
-        CLLocation* loc = [[UULocationManager sharedInstance] currentLocation];
-        if (loc)
-        {
-            [self onLocateMeClicked:nil];
-            [self beginPlaceSearch];
-        }
+        return self.fixedSearchArgs;
+    }
+    else
+    {
+        return [WWSettings cachedSearchArgs];
+    }
+}
+
+- (void) saveSearchArgs:(WWSearchArgs*)args
+{
+    // Only save to NSUserDefault if the fixed self.searchArgs are nil.  This will
+    // only be the case on the root home view.  A pushed on home view (from a tap
+    // on a hash tag will set self.searchArgs and just use them as a temporary search).
+    if (self.fixedSearchArgs)
+    {
+        self.fixedSearchArgs = args;
+    }
+    else
+    {
+        [WWSettings saveCachedSearchArgs:args];
     }
 }
 
@@ -397,7 +410,7 @@
         self.searchButton.hidden = NO;
         self.searchBar.hidden = NO;
         self.searchBar.text = @"";
-        self.searchBar.placeholder = @"Search";
+        self.searchBar.placeholder = NSLocalizedString(WW_SEARCH, nil);
         [self.searchBar setImage:nil forSearchBarIcon:UISearchBarIconSearch state:UIControlStateNormal];
         [self.searchBar wwSetClearButtonMode:UITextFieldViewModeNever];
         [self.searchBar wwSetSearchIconSizeToDefault];
@@ -529,22 +542,25 @@
     }];
 }
 
+-(void) showUnsupportedCity
+{
+    self.noCityController = [WWUnsupportedCityController new];
+    [self.navigationController addChildViewController:self.noCityController];
+    [self.noCityController wwShowWithBackgroundBlurInView:self.navigationController.view];
+}
+
 -(void) listButtonIsActive:(BOOL)isActive
 {
-    //if( [self.defaultRightNavItem.customView isKindOfClass:[UIButton class]])
-    //{
-        UIButton* button = self.listButton;//(UIButton*) self.defaultRightNavItem.customView;
-        button.enabled = isActive;
-        if(isActive)
-        {
-            button.alpha = 1.0;
-        }
-        else
-        {
-            button.alpha = 0.4;
-        }
-        
-    //}
+    UIButton* button = self.listButton;
+    button.enabled = isActive;
+    if(isActive)
+    {
+        button.alpha = 1.0;
+    }
+    else
+    {
+        button.alpha = 0.4;
+    }
 }
 
 - (void) beginPlaceSearch
@@ -558,28 +574,25 @@
     }
     
     WWSearchArgs* args = [self searchArgs];
-    CLLocation *currentlocation = [WWSettings currentMapLocation];
-    if (currentlocation == nil)
-    {
-        currentlocation = [[UULocationManager sharedInstance]  currentLocation];
-    }
-    
-    [self toggleNoResults:NO];
-    [self listButtonIsActive:YES];
-    
-    if (!currentlocation)
-    {
-        [self showProgress:@"Locating"];
-        return;
-    }
     
     if (![args hasGeoBox])
     {
+        
+        CLLocation *currentlocation = [WWSettings currentMapLocation];
+        if (currentlocation == nil)
+        {
+            currentlocation = [[UULocationManager sharedInstance]  currentLocation];
+        }
+        
         [args setGeoboxFromLocation:currentlocation];
         [WWSettings saveCachedSearchArgs:args];
         self.hasSetupMap = NO;
     }
     
+    [self toggleNoResults:NO];
+    [self listButtonIsActive:YES];
+    
+    self.firstSearch = NO;
     self.isSearching = YES;
     [self showProgress:@"Searching"];
     
@@ -593,7 +606,15 @@
          [self hideProgress];
          
          self.isSearching = NO;
-         self.needsRefreshFromServer = NO;
+         
+         if([results.error isEqualToString:WW_UNSUPPORTED_CITY])
+         {
+             WWDebugLog(@"Unsupported City: %@", results.error);
+             [self showUnsupportedCity];
+             
+             return;
+         }
+             
          
          if (error == nil)
          {
@@ -648,6 +669,7 @@
         return;
     }
     
+    self.firstSearch = NO;
     self.isSearching = YES;
     [self showProgress:@"Searching"];
     
@@ -656,7 +678,6 @@
          [self hideProgress];
          
          self.isSearching = NO;
-         self.needsRefreshFromServer = NO;
          
          if (error == nil)
          {
@@ -685,7 +706,7 @@
     [self.filterNavController wwShowWithBackgroundBlurInView:self.navigationController.view];
 }
 
-- (IBAction) onNavSearchButtonClicked:(id)sender
+- (void) onNavSearchButtonClicked:(id)sender
 {
     [Flurry logEvent:WW_FLURRY_EVENT_TAP_ON_SEARCH];
     
@@ -693,7 +714,7 @@
     [self.searchNavController wwShowWithBackgroundBlurInView:self.navigationController.view];
 }
 
-- (IBAction) onNavClearSearchClicked:(id)sender
+- (void) onNavClearSearchClicked:(id)sender
 {
     WWSearchArgs* args = [self searchArgs];
     if (args.autoCompleteArg && args.autoCompleteType)
@@ -721,16 +742,6 @@
     }
 }
 
-
--(void) setSearchArgsFromCurrentMap
-{
-    //reset search arguments
-    MKCoordinateRegion region = self.mapView.region;
-    WWSearchArgs* args = [self searchArgs];
-    [args setGeoboxFromMapRegion:region];
-    [self saveSearchArgs:args];
-}
-
 - (void)refreshResults
 {
     [self setSearchArgsFromCurrentMap];
@@ -739,7 +750,6 @@
 
 - (void) mapViewTouched:(UIGestureRecognizer*)gr
 {
-    
 #warning This is not taking into account that even when the gesture is ended the movement of the map can continue ...
     if (gr.state != UIGestureRecognizerStateEnded)
     {
@@ -751,9 +761,7 @@
         [Flurry logEvent:WW_FLURRY_EVENT_MOVE_MAP];
     }
     
-    self.filterDirty = YES;
     [self toggleRefreshButton:YES];
-    
 }
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
@@ -775,16 +783,14 @@
         }
     }
     
-    self.filterDirty = NO;
     self.isSearching = NO;
-    
-    [self toggleRefreshButton:self.allPlaceResults.count <= 0];
     
     [self.infoCollectionView reloadData];
     [self setupMap:NO];
     
-    
+    //Deactivate/activate buttons
     BOOL noResults = self.allPlaceResults.count <= 0;
+    [self toggleRefreshButton:noResults];
     [self toggleNoResults:noResults];
     [self listButtonIsActive:(!noResults)];
 }
@@ -841,6 +847,7 @@
     if([args.autoCompleteType isEqualToString:@"hashtag"])
         hashtag = args.autoCompleteArg;
     self.listResultsController.searchedHashtag = hashtag;
+    self.listResultsController.displayLabel = YES;
     [self.navigationController pushViewController:self.listResultsController animated:YES];
 }
 
@@ -882,14 +889,13 @@
 
 - (void) refreshLocateMeButton
 {
-    self.locateMeButton.enabled = ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorized);
+    self.locateMeButton.enabled = [self isLocationAuthorized];
 }
 
 #pragma mark - Map View
 
 - (void) updateMapBeforeSearch:(WWSearchArgs*)args
 {
-    self.isSearching = YES;
     self.hasSetupMap = YES;
     
     MKCoordinateRegion region = [args coordinateRegion];
@@ -966,14 +972,6 @@
                 annotationToSelect = annotation;
             }
         }
-        else
-        {
-            /*
-            if (!annotationToSelect)
-            {
-                annotationToSelect = annotation;
-            }*/
-        }
     }
     
     if (annotationToSelect)
@@ -985,23 +983,6 @@
         
         [self.mapView selectAnnotation:annotationToSelect animated:NO];
     }
-    
-    // Only on a city/area search might we need to zoom the map
-    /*WWSearchArgs* args = [WWSettings cachedSearchArgs];
-    if (args.searchType.numberValue.integerValue == WWSearchTypeValCityArea)
-    {
-        for (WWPlace* p in self.allPlaceResults)
-        {
-            // If just one point is outside the current bounds, zoom the map
-            MKMapPoint mp = MKMapPointForCoordinate(CLLocationCoordinate2DMake(p.latitude.doubleValue, p.longitude.doubleValue));
-            if (!MKMapRectContainsPoint(self.mapView.visibleMapRect, mp))
-            {
-                WWDebugLog(@"Found a place outside map bounds, let's auto-zoom-it");
-                self.hasSetupMap = NO;
-                break;
-            }
-        }
-    }*/
     
     if (!self.hasSetupMap)
     {
@@ -1042,13 +1023,6 @@
     }
     
 	return nil;
-}
-
-//! to be deleted, this function is called nowhere
-- (void) reloadContent
-{
-    self.currentOffset = 0;
-    [self setupMap:NO];
 }
 
 - (void) updateSelectedPlace
@@ -1348,14 +1322,12 @@
             }
         }
         
-        self.isTrackingTouch = NO;
         return;
     }
     else if (gesture.state == UIGestureRecognizerStateBegan)
     {
         self.touchStart = location;
         self.originStart = self.infoCollectionView.frame.origin;
-        self.isTrackingTouch = YES;
     }
     
     //self.infoCollectionView.scrollEnabled = NO;
@@ -1400,38 +1372,6 @@
         }
     }
 }
-
-- (WWSearchArgs*) searchArgs
-{
-    if (self.fixedSearchArgs)
-    {
-        return self.fixedSearchArgs;
-    }
-    else
-    {
-        return [WWSettings cachedSearchArgs];
-    }
-}
-
-- (void) saveSearchArgs:(WWSearchArgs*)args
-{
-    // Only save to NSUserDefault if the fixed self.searchArgs are nil.  This will
-    // only be the case on the root home view.  A pushed on home view (from a tap
-    // on a hash tag will set self.searchArgs and just use them as a temporary search).
-    if (self.fixedSearchArgs)
-    {
-        self.fixedSearchArgs = args;
-    }
-    else
-    {
-        [WWSettings saveCachedSearchArgs:args];
-    }
-}
-
-/*- (BOOL) prefersStatusBarHidden
-{
-    return NO;
-}*/
 
 @end
 

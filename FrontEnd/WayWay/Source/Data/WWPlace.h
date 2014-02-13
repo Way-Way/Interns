@@ -26,6 +26,7 @@
 
 @property (nonatomic, copy) NSString* combinedCategories;
 @property (nonatomic, copy) NSString* categoryIcon;
+//@property (nonatomic, copy) NSString* relevantHashtags;
 
 @property (nonatomic, copy) NSString* price;
 @property (nonatomic, copy) NSArray* hoursOfOperation;

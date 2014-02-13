@@ -10,12 +10,14 @@
 
 @interface WWAppDelegate : UIResponder <UIApplicationDelegate>
 {
-    WWPhotoDetailsAnimator *transitionAnimator;
+    // Jon Evans
+    //WWPhotoDetailsAnimator *transitionAnimator;
 }
 
 @property (strong, nonatomic) UIWindow *window;
 
 + (void) registerForPushNotifications;
-- (WWPhotoDetailsAnimator*)transitionAnimator;
+// Jon Evans
+//- (WWPhotoDetailsAnimator*)transitionAnimator;
 
 @end

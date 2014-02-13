@@ -21,4 +21,11 @@
     self.font = [UIFont fontWithName:WW_DEFAULT_BOLD_FONT_NAME size:size];
 }
 
+- (void) wwRepositionSizeHeight
+{
+    CGFloat oldheight = self.frame.size.height;
+    CGFloat newheight = [self.text sizeWithAttributes:@{NSFontAttributeName: self.font}].height;
+    self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y + (oldheight - newheight), self.frame.size.width, newheight);
+}
+
 @end

@@ -36,13 +36,14 @@ typedef enum
     [self setNeedsStatusBarAppearanceUpdate];
     
     [self.feedbackButton wwStyleWhiteBorderedButton];
-    self.feedbackButton.titleLabel.text = NSLocalizedString(WW_SEND_FEEDBACK, nil);
+    [self.feedbackButton setTitle:[NSString stringWithFormat:@" %@", NSLocalizedString(WW_SEND_FEEDBACK, nil)] forState:UIControlStateNormal];
     
     [self.signUpButton wwStyleWhiteBorderedButton];
-    self.signUpButton.titleLabel.text = NSLocalizedString(WW_SIGN_IN, nil);
+    [self.signUpButton setTitle:[NSString stringWithFormat:@" %@", NSLocalizedString(WW_SIGN_IN, nil)] forState:UIControlStateNormal];
+    
     
     [self.inviteFriendsButton wwStyleWhiteBorderedButton];
-    self.inviteFriendsButton.titleLabel.text = NSLocalizedString(WW_INVITE_FRIENDS, nil);
+    [self.inviteFriendsButton setTitle:[NSString stringWithFormat:@" %@", NSLocalizedString(WW_INVITE_FRIENDS, nil)] forState:UIControlStateNormal];
     
     [self.notLoggedInMessage wwStyleWithFontOfSize:14];
     self.notLoggedInMessage.text = NSLocalizedString(WW_SIGN_IN_MESSAGE, nil);

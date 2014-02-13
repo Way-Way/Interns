@@ -6,3 +6,39 @@
   Copyright (c) 2014 OMB Labs. All rights reserved.
 */
 
+/*
+//Main
+"Search" = "Recherche";
+"List" = "Liste";
+"Filter" = "Filtre";
+"filters" = "filtres";
+
+//Translate categories ???
+
+//User Profile
+"Find Places" = "Rechercher Lieux";
+"Favorites" = "Favoris";
+"Settings" = "Paramètres";
+"Tutorial" = "Tutoriel";
+
+"Send Feedback" = "Contactez-nous";
+"Sign In" = "Se Connecter";
+"Invite Friends" = "Inviter des Amis";
+"Signing in lets you save places and easily share them with your friends." = "Créer un compte vous permet de sauvegader vos endroits préférés et de partager avec vos amis.";
+
+
+//Filtre
+"Apply" = "Filtrer";
+"Choose Location" = "Choisir Localisation";
+"Open Now" = "Ouvert";
+"Show Trending Only" = "Uniquement Lieux Trending";
+"Clear Filters" = "Supprimer Filtres";
+
+//Settings
+"SHARING" = "PARTAGE";
+"Login to enable sharing" = "Connectez-vous pour partager";
+"About" = "À Propos";
+"Terms of Service" = "Conditions de Service";
+"Privacy Policy" = "Politique de Confidentialité";
+"Sign out" = "Se deconnecter";
+ */

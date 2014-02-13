@@ -14,13 +14,14 @@
 @property (retain, nonatomic) IBOutlet UILabel *categoryLabel;
 @property (retain, nonatomic) IBOutlet UILabel *priceLabel;
 @property (strong, nonatomic) IBOutlet UILabel *distanceLabel;
-@property (strong, nonatomic) IBOutlet UIImageView *trendingIcon;
-@property (strong, nonatomic) IBOutlet UILabel *scoreLabel;
+//@property (strong, nonatomic) IBOutlet UIImageView *trendingIcon;
+//@property (strong, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *bannerView;
 @property (strong, nonatomic) IBOutlet UIView *dimmerView;
-@property (strong, nonatomic) IBOutlet UILabel *hashtagmentions;
 
-- (void) update:(WWPlace*)place hashtag:(NSString*)hashtag;
+@property (strong, nonatomic) WWListLabel *listLabel;
+
+- (void) update:(WWPlace*)place hashtag:(NSString*)hashtag displayLabel:(BOOL)displayLabel;
 
 @end
 

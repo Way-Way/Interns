@@ -23,11 +23,20 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"WWResultsCell" bundle:nil] forCellReuseIdentifier:@"WWResultsCellId"];
     
     self.navigationItem.leftBarButtonItem = [self wwBackNavItem];
-    self.navigationItem.titleView = [self wwCenterNavItem:@"Popular Places"];
+    self.navigationItem.titleView = [self wwCenterNavItem:@"Most Popular"];
 }
 
 - (void) viewWillAppear:(BOOL)animated
 {
+    if(self.searchedHashtag)
+    {
+        self.navigationItem.titleView = [self wwCenterNavItem:[NSString stringWithFormat:@"#%@", self.searchedHashtag]];
+    }
+    else
+    {
+        self.navigationItem.titleView = [self wwCenterNavItem:@"Most Popular"];
+    }
+    
     [super viewWillAppear:animated];
     [self.tableView reloadData];
     [self toggleNoResults:self.tableData.count <= 0];
@@ -43,7 +52,7 @@
     WWResultsCell* cell = [tableView dequeueReusableCellWithIdentifier:@"WWResultsCellId"];
     WWPlace* obj = [self.tableData objectAtIndex:indexPath.row];
     
-    [cell update:obj hashtag:self.searchedHashtag];
+    [cell update:obj hashtag:self.searchedHashtag displayLabel:self.displayLabel];
     return cell;
 }
 
