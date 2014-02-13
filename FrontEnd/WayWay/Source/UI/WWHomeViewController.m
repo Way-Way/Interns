@@ -526,17 +526,21 @@
 
 - (void) toggleNoResults:(BOOL)visible
 {
-    [UIView animateWithDuration:0.3f animations:^
+    [UIView animateWithDuration:1.0f animations:^
     {
         self.noResultsPanel.alpha = (visible ? 1 : 0);
+        if (visible) {
+            self.noResultsPanel.frame = CGRectMake(self.noResultsPanel.frame.origin.x, 67, self.noResultsPanel.frame.size.width, self.noResultsPanel.frame.size.height);
+        }
     }
     completion:^(BOOL finished)
     {
         if (visible)
         {
-            [UIView animateWithDuration:4.0f animations:^
+            [UIView animateWithDuration:3.0f animations:^
              {
                  self.noResultsPanel.alpha = 0;
+                 self.noResultsPanel.frame = CGRectMake(self.noResultsPanel.frame.origin.x, 20, self.noResultsPanel.frame.size.width, self.noResultsPanel.frame.size.height);
              }];
         }
     }];
