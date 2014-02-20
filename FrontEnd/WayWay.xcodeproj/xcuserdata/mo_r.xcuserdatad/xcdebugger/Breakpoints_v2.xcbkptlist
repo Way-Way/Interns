@@ -31,7 +31,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "557"
             endingLineNumber = "557"
-            landmarkName = "-beginPlaceSearch"
+            landmarkName = "-listButtonIsActive:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -47,8 +47,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "130"
             endingLineNumber = "130"
-            landmarkName = "+isGeolocalizationOn"
-            landmarkType = "5">
+            landmarkName = "@implementation WWSettings"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -63,7 +63,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "135"
             endingLineNumber = "135"
-            landmarkName = "+toggleGeolocalization:"
+            landmarkName = "+isGeolocalizationOn"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -111,7 +111,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "59"
             endingLineNumber = "59"
-            landmarkName = "+saveCachedSearchArgs:"
+            landmarkName = "+cachedSearchArgs"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
