@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WayWay/Source/UI/WWHomeViewController.m"
-            timestampString = "412170473.453132"
+            timestampString = "414608047.591503"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "557"
-            endingLineNumber = "557"
+            startingLineNumber = "578"
+            endingLineNumber = "578"
             landmarkName = "-listButtonIsActive:"
             landmarkType = "5">
          </BreakpointContent>

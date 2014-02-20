@@ -58,6 +58,8 @@
 
 @property (assign) BOOL detailsExpanded;
 
+@property (assign) BOOL internetConnectionStat;
+
 @end
 
 @implementation WWHomeViewController
@@ -175,6 +177,7 @@
     self.hasSetupMap = NO;
     self.isSearching = NO;
     
+    self.internetConnectionStat = YES;
     
     UIPanGestureRecognizer* panRec = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(mapViewTouched:)];
     [panRec setDelegate:self];
@@ -526,24 +529,42 @@
 
 - (void) toggleNoResults:(BOOL)visible
 {
-    [UIView animateWithDuration:1.0f animations:^
-    {
-        self.noResultsPanel.alpha = (visible ? 1 : 0);
-        if (visible) {
-            self.noResultsPanel.frame = CGRectMake(self.noResultsPanel.frame.origin.x, 67, self.noResultsPanel.frame.size.width, self.noResultsPanel.frame.size.height);
-        }
-    }
-    completion:^(BOOL finished)
-    {
-        if (visible)
+    if (self.internetConnectionStat == NO) {
+        [UIView animateWithDuration:1.0f animations:^
         {
-            [UIView animateWithDuration:3.0f animations:^
-             {
-                 self.noResultsPanel.alpha = 0;
-                 self.noResultsPanel.frame = CGRectMake(self.noResultsPanel.frame.origin.x, 20, self.noResultsPanel.frame.size.width, self.noResultsPanel.frame.size.height);
-             }];
+            self.noConnectionPanel.alpha = (visible ? 1 : 0);
+            if (visible) {
+                self.noConnectionPanel.frame = CGRectMake(self.noConnectionPanel.frame.origin.x, 67, self.noConnectionPanel.frame.size.width, self.noConnectionPanel.frame.size.height);
+            }
         }
-    }];
+        completion:^(BOOL finished)
+        {
+            if (visible)
+            {
+                [UIView animateWithDuration:4.0f animations:^
+                 {
+                     self.noConnectionPanel.alpha = 0;
+                     self.noConnectionPanel.frame = CGRectMake(self.noConnectionPanel.frame.origin.x, 20, self.noConnectionPanel.frame.size.width, self.noConnectionPanel.frame.size.height);
+                 }];
+            }
+        }];
+    }
+    else {
+        [UIView animateWithDuration:0.3f animations:^
+         {
+             self.noResultsPanel.alpha = (visible ? 1 : 0);
+         }
+                         completion:^(BOOL finished)
+         {
+             if (visible)
+             {
+                 [UIView animateWithDuration:4.0f animations:^
+                  {
+                      self.noResultsPanel.alpha = 0;
+                  }];
+             }
+         }];
+    }
 }
 
 -(void) showUnsupportedCity
@@ -624,10 +645,12 @@
          {
              WWDebugLog(@"Valid search results:\n%@", results);
              self.lastPlaceSearchResults = results;
+             self.internetConnectionStat = YES;
          }
          else
          {
              WWDebugLog(@"Error with search: %@", error);
+             self.internetConnectionStat = NO;
          }
          
          BOOL hasNext = (results.nextPageUrl != nil);

@@ -13,7 +13,8 @@
                 <outlet property="locateMeButton" destination="BoN-H2-Q5f" id="XwG-Sg-zjG"/>
                 <outlet property="longPressGesture" destination="cNd-X1-czZ" id="FtC-nL-T1g"/>
                 <outlet property="mapView" destination="fFh-C7-bD6" id="DnV-Qb-CDd"/>
-                <outlet property="noResultsPanel" destination="sOG-Ee-32Z" id="CvD-iZ-Gfo"/>
+                <outlet property="noConnectionPanel" destination="sOG-Ee-32Z" id="luf-6H-qIt"/>
+                <outlet property="noResultsPanel" destination="NwW-Yb-u6E" id="j5D-Wg-Nu9"/>
                 <outlet property="progressAnimation" destination="2Kl-2t-JGD" id="ino-OL-3Rk"/>
                 <outlet property="progressCacheView" destination="LyZ-kv-S0g" id="N2n-UE-9mQ"/>
                 <outlet property="progressView" destination="41" id="59"/>
@@ -109,7 +110,7 @@
                     <rect key="frame" x="10" y="20" width="300" height="46"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="place_not_found" id="04L-2L-M5m">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_internet_connection" id="04L-2L-M5m">
                             <rect key="frame" x="75" y="4" width="148" height="38"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
@@ -120,6 +121,17 @@
                     <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                </view>
+                <view contentMode="scaleToFill" id="NwW-Yb-u6E">
+                    <rect key="frame" x="10" y="154" width="300" height="46"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="place_not_found" id="ozU-q0-dyL">
+                            <rect key="frame" x="75" y="4" width="148" height="38"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
                 <view contentMode="scaleToFill" id="41" userLabel="Progress View">
                     <rect key="frame" x="129" y="162" width="63" height="41"/>
@@ -150,6 +162,7 @@
         <image name="filter_button_pressed" width="52" height="34"/>
         <image name="location" width="40" height="40"/>
         <image name="location_pressed" width="40" height="40"/>
+        <image name="no_internet_connection" width="149" height="39"/>
         <image name="place_not_found" width="149" height="39"/>
         <image name="redosearch" width="40" height="40"/>
         <image name="redosearch_pressed" width="40" height="40"/>

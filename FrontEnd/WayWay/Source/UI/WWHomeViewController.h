@@ -31,6 +31,7 @@
 
 @property (strong, nonatomic) IBOutlet UIView* noResultsPanel;
 
+@property (weak, nonatomic) IBOutlet UIView *noConnectionPanel;
 
 @property (strong, nonatomic) IBOutlet UIGestureRecognizer* longPressGesture;
 
