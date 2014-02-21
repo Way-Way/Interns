@@ -150,7 +150,7 @@ typedef enum
         case WWPlaceInfoSectionShare:
         {
             UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(15, 20, 200, 30)];
-            [label wwStyleWithFontOfSize:18];
+            label.font = WW_FONT_H5;
             label.textColor = WW_LIGHT_GRAY_FONT_COLOR;
             label.textAlignment = NSTextAlignmentLeft;
             label.backgroundColor = [UIColor clearColor];
@@ -164,7 +164,7 @@ typedef enum
         case WWPlaceInfoSectionHours:
         {
             UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(15, 20, 200, 30)];
-            [label wwStyleWithFontOfSize:18];
+            label.font = WW_FONT_H5;
             label.textColor = WW_LIGHT_GRAY_FONT_COLOR;
             label.textAlignment = NSTextAlignmentLeft;
             label.backgroundColor = [UIColor clearColor];
@@ -212,7 +212,7 @@ typedef enum
             if (!cell)
             {
                 cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"WWPlaceInfoCellId"];
-                [cell.textLabel wwStyleWithFontOfSize:18];
+                cell.textLabel.font = WW_FONT_H4;
                 
                 UIImageView* img = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"chevron"]];
                 cell.accessoryView = img;
@@ -229,8 +229,8 @@ typedef enum
             if (!cell)
             {
                 cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"WWPlaceInfoFavoriteCellId"];
-                [cell.textLabel wwStyleWithFontOfSize:18];
-                cell.textLabel.textAlignment = NSTextAlignmentCenter;
+                cell.textLabel.font = WW_FONT_H4;
+                cell.textLabel.textAlignment = NSTextAlignmentLeft;
                 
                 UIActivityIndicatorView* spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
                 spinner.hidesWhenStopped = YES;
@@ -260,7 +260,7 @@ typedef enum
             if (!cell)
             {
                 cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"WWPlaceInfoShareCellId"];
-                [cell.textLabel wwStyleWithFontOfSize:18];
+                cell.textLabel.font = WW_FONT_H4;
             }
             
             cell.textLabel.text = d[@"label"];
@@ -274,8 +274,8 @@ typedef enum
             if (!cell)
             {
                 cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"WWPlaceInfoHoursCellId"];
-                [cell.textLabel wwStyleWithFontOfSize:18];
-                [cell.detailTextLabel wwStyleWithFontOfSize:18];
+                cell.textLabel.font = WW_FONT_H4;
+                cell.detailTextLabel.font = WW_FONT_H4;
                 cell.detailTextLabel.numberOfLines = 0;
                 
                 cell.textLabel.textColor = WW_LIGHT_GRAY_FONT_COLOR;
@@ -303,46 +303,46 @@ typedef enum
     {
         case WWPlaceInfoActionMap:
         {
-            [self onDirectionsClicked:nil];
+            [self onDirectionsClicked];
             break;
         }
             
         case WWPlaceInfoActionCall:
         {
-            [self onCallClicked:nil];
+            [self onCallClicked];
             break;
         }
             
         case WWPlaceInfoActionMenu:
         {
-            [self onMenuClicked:nil];
+            [self onMenuClicked];
             break;
         }
             
         case WWPlaceInfoActionAddToFavorites:
         {
-            [self onFavoritesButtonClicked:nil];
+            [self onFavoritesButtonClicked];
             break;
         }
         
         case WWPlaceInfoActionShareFacebook:
         {
             [Flurry logEvent:WW_FLURRY_EVENT_TAP_SHARE_FACEBOOK];
-            [self onFacebookShareClicked:nil];
+            [self onFacebookShareClicked];
             break;
         }
             
         case WWPlaceInfoActionShareTwitter:
         {
             [Flurry logEvent:WW_FLURRY_EVENT_TAP_SHARE_TWITTER];
-            [self onTwitterShareClicked:nil];
+            [self onTwitterShareClicked];
             break;
         }
             
         case WWPlaceInfoActionShareTextMessage:
         {
             [Flurry logEvent:WW_FLURRY_EVENT_TAP_SHARE_TEXT];
-            [self onSMSShareClicked:nil];
+            [self onSMSShareClicked];
             break;
         }
             
@@ -351,7 +351,7 @@ typedef enum
     }
 }
 
-- (IBAction)onCallClicked:(id)sender
+- (void)onCallClicked
 {
     [UIAlertView uuShowOKCancelAlert:@"" message:[NSString stringWithFormat:@"Call %@", [self.place formattedPhoneNumber]]
                    completionHandler:^(NSInteger buttonIndex)
@@ -367,7 +367,7 @@ typedef enum
      }];
 }
 
-- (IBAction)onMenuClicked:(id)sender
+- (void)onMenuClicked
 {
     WWMenuViewController* menuController = [[WWMenuViewController alloc] initWithNibName:@"WWMenuViewController" bundle:nil];
     menuController.place = self.place;
@@ -377,7 +377,7 @@ typedef enum
     //[Flurry logEvent:WW_FLURRY_EVENT_VIEW_MENU withParameters:d];
 }
 
-- (IBAction)onReservationsClicked:(id)sender
+- (void)onReservationsClicked
 {
     WWWebViewController* c = [[WWWebViewController alloc] initWithNibName:@"WWWebViewController" bundle:nil];
     c.navTitle = self.place.name;
@@ -389,7 +389,7 @@ typedef enum
     //[Flurry logEvent:WW_FLURRY_EVENT_VIEW_RESERVATIONS withParameters:d];
 }
 
-- (IBAction)onDirectionsClicked:(id)sender
+- (void)onDirectionsClicked
 {
     NSDictionary* d = @{@"PlaceId":self.place.identifier};
     [Flurry logEvent:WW_FLURRY_EVENT_TAP_DIRECTIONS withParameters:d];
@@ -405,19 +405,15 @@ typedef enum
 
 - (UIView*) buildHeaderLabel
 {
-    UIFont* thinFont = [UIFont fontWithName:WW_DEFAULT_FONT_NAME size:WW_SUB_LABEL_FONT_SIZE];
-    UIFont* lightFont = [UIFont fontWithName:WW_DEFAULT_FONT_NAME size:WW_SUB_LABEL_FONT_SIZE];
-    UIFont* boldFont = [UIFont fontWithName:WW_DEFAULT_FONT_NAME size:WW_HEADING_FONT_SIZE];
-    
     UIColor* baseColor = WW_LIGHT_GRAY_FONT_COLOR;
     UIColor* blackColor = [UIColor blackColor];
     
     NSMutableParagraphStyle* ps = [[NSMutableParagraphStyle alloc] init];
     [ps setLineHeightMultiple:1.5];
     
-    NSDictionary* baseAttrs = @{NSFontAttributeName : thinFont, NSForegroundColorAttributeName : baseColor, NSParagraphStyleAttributeName:ps };
-    NSDictionary* blackAttrs = @{NSFontAttributeName : lightFont, NSForegroundColorAttributeName : blackColor, NSParagraphStyleAttributeName:ps };
-    NSDictionary* boldAttrs = @{NSFontAttributeName : boldFont, NSForegroundColorAttributeName : blackColor, NSParagraphStyleAttributeName:ps };
+    NSDictionary* baseAttrs = @{NSFontAttributeName : WW_FONT_H6, NSForegroundColorAttributeName : baseColor, NSParagraphStyleAttributeName:ps };
+    NSDictionary* blackAttrs = @{NSFontAttributeName : WW_FONT_H6, NSForegroundColorAttributeName : blackColor, NSParagraphStyleAttributeName:ps };
+    NSDictionary* boldAttrs = @{NSFontAttributeName : WW_FONT_H3, NSForegroundColorAttributeName : blackColor, NSParagraphStyleAttributeName:ps };
     
     NSMutableArray* parts = [NSMutableArray array];
     [parts addObject:self.place.name];
@@ -474,7 +470,7 @@ typedef enum
     return msg;
 }
 
-- (IBAction)onEmailShareClicked:(id)sender
+- (void)onEmailShareClicked
 {
     if ([MFMailComposeViewController canSendMail])
     {
@@ -492,7 +488,7 @@ typedef enum
     }
 }
 
-- (IBAction)onSMSShareClicked:(id)sender
+- (void)onSMSShareClicked
 {
     if ([MFMessageComposeViewController canSendText])
     {
@@ -507,34 +503,8 @@ typedef enum
     }
 }
 
-- (IBAction)onTwitterShareClicked:(id)sender
+- (void)onTwitterShareClicked
 {
-    /*WWUser* user = [WWSettings currentUser];
-    if (!user)
-    {
-        [[NSNotificationCenter defaultCenter] postNotificationName:WW_SWITCH_TO_LOGIN_CONTROLLER object:nil];
-    }
-    else if (![user hasTwitterCredentials])
-    {
-        //[[NSNotificationCenter defaultCenter] postNotificationName:WW_SHOW_ACCOUNT_LINKING_DRAWER_NOTIFICATION object:nil];
-    }
-    else
-    {
-        SLComposeViewController* c = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
-        [c setInitialText:[self formatSharingBody]];
-        c.completionHandler = ^(SLComposeViewControllerResult result)
-        {
-            if (result == SLComposeViewControllerResultDone)
-            {
-                NSDictionary* d = @{@"PlaceId":self.place.identifier,@"ShareMedium":@"Twitter"};
-                [Flurry logEvent:WW_FLURRY_EVENT_SHARE_PLACE withParameters:d];
-            }
-            
-            [self dismissViewControllerAnimated:YES completion:nil];
-        };
-        
-        [self presentViewController:c animated:YES completion:nil];
-    }*/
     
     if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
     {
@@ -583,7 +553,7 @@ typedef enum
     }
 }
 
-- (IBAction)onFacebookShareClicked:(id)sender
+- (void)onFacebookShareClicked
 {
     
     NSString* placeLink = [NSString stringWithFormat:@"http://www.wayway.us/place.html?%@", self.place.identifier];
@@ -599,8 +569,8 @@ typedef enum
     params.name = [[self.place.name stringByAppendingString:@" - "] stringByAppendingString:self.place.formattedAddressAndCity];
     
     NSNumber* score = self.place.classicRank;
-    NSString* description = [@"This place has a Way Way score of " stringByAppendingString:[score stringValue]];
-    description = [description stringByAppendingString:@"/100"];
+    NSString* description = [@"This place has a Way Way score of " stringByAppendingString:[NSString stringWithFormat:@"%.2f",score.doubleValue]];
+    description = [description stringByAppendingString:@"/10"];
     params.description = description;
     
     params.caption = @"Download Way Way at http://www.wayway.us";
@@ -632,33 +602,6 @@ typedef enum
              }
          }
      }];
-    
-    /*WWUser* user = [WWSettings currentUser];
-    if (!user)
-    {
-        [[NSNotificationCenter defaultCenter] postNotificationName:WW_SWITCH_TO_LOGIN_CONTROLLER object:nil];
-    }
-    else if (![user hasFacebookCredentials])
-    {
-        //[[NSNotificationCenter defaultCenter] postNotificationName:WW_SHOW_ACCOUNT_LINKING_DRAWER_NOTIFICATION object:nil];
-    }
-    else
-    {
-        SLComposeViewController* c = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
-        [c setInitialText:[self formatSharingBody]];
-        c.completionHandler = ^(SLComposeViewControllerResult result)
-        {
-            if (result == SLComposeViewControllerResultDone)
-            {
-                NSDictionary* d = @{@"PlaceId":self.place.identifier,@"ShareMedium":@"Facebook"};
-                [Flurry logEvent:WW_FLURRY_EVENT_SHARE_PLACE withParameters:d];
-            }
-            
-            [self dismissViewControllerAnimated:YES completion:nil];
-        };
-        
-        [self presentViewController:c animated:YES completion:nil];
-    }*/
 }
 
 #pragma mark - Mail & Message Delegates
@@ -691,7 +634,7 @@ typedef enum
 {
     if (self.isUpdatingFavorite)
     {
-        return @{@"label" : @"Updating Favorites", @"icon" : @"favorites", @"action" : @(-1) };
+        return @{@"label" : NSLocalizedString(WW_INFO_UPDATING_FAVORITES, nil), @"icon" : @"favorite_star_off", @"action" : @(-1) };
     }
     
     WWUser* user = [WWSettings currentUser];
@@ -702,16 +645,16 @@ typedef enum
     {
         if (self.place.isFavorite.boolValue)
         {
-            d = @{@"label" : @"Remove from Favorites", @"icon" : @"favorite_star_on", @"action" : @(WWPlaceInfoActionAddToFavorites) };
+            d = @{@"label" : NSLocalizedString(WW_INFO_REMOVE_FAVORITES, nil), @"icon" : @"favorite_star_on", @"action" : @(WWPlaceInfoActionAddToFavorites) };
         }
         else
         {
-            d = @{@"label" : @"Add to Favorites", @"icon" : @"favorite_star_off", @"action" : @(WWPlaceInfoActionAddToFavorites) };
+            d = @{@"label" : NSLocalizedString(WW_INFO_ADD_FAVORITES, nil), @"icon" : @"favorite_star_off", @"action" : @(WWPlaceInfoActionAddToFavorites) };
         }
     }
     else
     {
-        d = @{@"label" : @"Login to Add Favorites", @"icon" : @"favorite_star_off", @"action" : @(WWPlaceInfoActionAddToFavorites) };
+        d = @{@"label" : NSLocalizedString(WW_INFO_ADD_FAVORITES, nil), @"icon" : @"favorite_star_off", @"action" : @(WWPlaceInfoActionAddToFavorites) };
     }
         
     return d.copy;
@@ -724,7 +667,7 @@ typedef enum
     [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:WWPlaceInfoSectionAddToFavorites]] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
-- (IBAction)onFavoritesButtonClicked:(id)sender
+- (void)onFavoritesButtonClicked
 {
     WWUser* user = [WWSettings currentUser];
     

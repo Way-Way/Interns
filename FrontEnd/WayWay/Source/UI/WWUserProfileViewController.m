@@ -13,13 +13,16 @@ typedef enum
     WWUserProfileActionFindPlaces,
     WWUserProfileActionFavorites,
     WWUserProfileActionSettings,
-    WWUserProfileActionTutorial
-    
+    WWUserProfileActionTutorial,
+    WWUserProfileSignIn,
+    WWUserProfileInviteFriends,
+    WWUserProfileSendFeedback
 } WWUserProfileAction;
 
 @interface WWUserProfileViewController ()
 
-@property (nonatomic, strong) NSArray* tableData;
+@property (nonatomic, strong) NSArray* tableDataFirst;
+@property (nonatomic, strong) NSArray* tableDataSecond;
 
 @end
 
@@ -35,7 +38,7 @@ typedef enum
     [super viewDidLoad];
     [self setNeedsStatusBarAppearanceUpdate];
     
-    [self.feedbackButton wwStyleWhiteBorderedButton];
+    /*[self.feedbackButton wwStyleWhiteBorderedButton];
     [self.feedbackButton setTitle:[NSString stringWithFormat:@" %@", NSLocalizedString(WW_SEND_FEEDBACK, nil)] forState:UIControlStateNormal];
     
     [self.signUpButton wwStyleWhiteBorderedButton];
@@ -43,29 +46,22 @@ typedef enum
     
     
     [self.inviteFriendsButton wwStyleWhiteBorderedButton];
-    [self.inviteFriendsButton setTitle:[NSString stringWithFormat:@" %@", NSLocalizedString(WW_INVITE_FRIENDS, nil)] forState:UIControlStateNormal];
+    [self.inviteFriendsButton setTitle:[NSString stringWithFormat:@" %@", NSLocalizedString(WW_INVITE_FRIENDS, nil)] forState:UIControlStateNormal];*/
     
-    [self.notLoggedInMessage wwStyleWithFontOfSize:14];
-    self.notLoggedInMessage.text = NSLocalizedString(WW_SIGN_IN_MESSAGE, nil);
+    /*self.notLoggedInMessage.font = WW_FONT_H6;
+    self.notLoggedInMessage.textColor = WW_BLACK_FONT_COLOR;
+    self.notLoggedInMessage.text = NSLocalizedString(WW_SIGN_IN_MESSAGE, nil);*/
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleCurrentUserChanged:) name:WW_CURRENT_USER_UPDATED_NOTIFICATION object:nil];
 }
 
 - (void) viewWillAppear:(BOOL)animated
 {
-    [super viewWillAppear:animated];
+    [super viewWillAppear:animated];    
     
-    /*
-    UIFont* font = [UIFont fontWithName:WW_DEFAULT_FONT_NAME size:14];
-    NSDictionary* attrs = @{NSFontAttributeName : font, NSForegroundColorAttributeName : [UIColor whiteColor], (NSString*)kCTUnderlineStyleAttributeName : [NSNumber numberWithInt:kCTUnderlineStyleSingle] };
-    NSMutableAttributedString* as = [[NSMutableAttributedString alloc] initWithString:@"Log out" attributes:nil];
-    [as setAttributes:attrs range:NSMakeRange(0, as.string.length)];
-    self.signOutButton.titleLabel.attributedText = as;
-    */
-    
-    
-    UIImage* img = [WWGradientView buildGradientView:self.view.bounds start:[UIColor blackColor] end:[UIColor uuColorFromHex:@"2C4952"]];
-    self.view.backgroundColor = [UIColor colorWithPatternImage:img];
+    /*UIImage* img = [WWGradientView buildGradientView:self.view.bounds start:[UIColor blackColor] end:[UIColor uuColorFromHex:@"2C4952"]];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:img];*/
+    self.view.backgroundColor = [UIColor whiteColor];
     
     [self refreshUi];
 }
@@ -74,28 +70,54 @@ typedef enum
 
 - (int) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.tableData.count;
+    if(tableView == self.tableViewFirst)
+        return self.tableDataFirst.count;
+    else if(tableView == self.tableViewSecond)
+        return self.tableDataSecond.count;
+    
+    return 0;
 }
 
 - (UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString* cellId = @"SelectionTableCellId";
+    NSString* cellId;
+    UIColor* backgroundColor;
+
+    if(indexPath.row%2 == 1)
+    {
+        cellId = @"SelectionTableCellId";
+        backgroundColor = [UIColor whiteColor];
+    }
+    else
+    {
+        cellId = @"SelectionTableCellIdx2";
+        backgroundColor = WW_HEADER_BACKGROUND_COLOR;
+    }
     
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     if (cell == nil)
     {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
-        cell.textLabel.textColor = [UIColor whiteColor];
+        cell.textLabel.textColor = WW_BLACK_FONT_COLOR;
         cell.selectionStyle = UITableViewCellSelectionStyleBlue;
-        cell.backgroundColor = [UIColor clearColor];
+        cell.backgroundColor = backgroundColor;
         cell.backgroundView = [[UIView alloc] initWithFrame:CGRectZero];
         cell.backgroundView.backgroundColor = [UIColor clearColor];
         cell.selectedBackgroundView = [[UIView alloc] initWithFrame:CGRectZero];
-        cell.selectedBackgroundView.backgroundColor = [UIColor uuColorFromHex:@"1B1B28"];
-        [cell.textLabel wwStyleWithFontOfSize:25];
+        cell.selectedBackgroundView.backgroundColor = WW_GRAY_BACKGROUND;
+        cell.textLabel.font = WW_FONT_H1;
+    }
+    NSDictionary* d = nil;
+    
+    if(tableView == self.tableViewFirst)
+    {
+        d = [self.tableDataFirst objectAtIndex:indexPath.row];
+    }
+    else if(tableView == self.tableViewSecond)
+    {
+        d = [self.tableDataSecond objectAtIndex:indexPath.row];
     }
     
-    NSDictionary* d = [self.tableData objectAtIndex:indexPath.row];
     cell.textLabel.text = d[@"name"];
     cell.imageView.image = [UIImage imageNamed:d[@"icon"]];
     return cell;
@@ -103,80 +125,94 @@ typedef enum
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSDictionary* d = [self.tableData objectAtIndex:indexPath.row];
+    NSDictionary* d = [self.tableDataFirst objectAtIndex:indexPath.row];
     
-    switch ([d[@"id"] integerValue])
+    if(tableView == self.tableViewFirst)
     {
-        case WWUserProfileActionFindPlaces:
+        [self deselectCellsInTableView:self.tableViewSecond];
+        
+        d = [self.tableDataFirst objectAtIndex:indexPath.row];
+        switch ([d[@"id"] integerValue])
         {
-            [Flurry logEvent:WW_FLURRY_EVENT_TAP_FIND_PLACES];
-            [[NSNotificationCenter defaultCenter] postNotificationName:WW_SWITCH_TO_HOME_CONTROLLER object:nil];
-            break;
-        }
+            case WWUserProfileActionFindPlaces:
+            {
+                [Flurry logEvent:WW_FLURRY_EVENT_TAP_FIND_PLACES];
+                [[NSNotificationCenter defaultCenter] postNotificationName:WW_SWITCH_TO_HOME_CONTROLLER object:nil];
+                break;
+            }
             
-        case WWUserProfileActionFavorites:
-        {
-            [[NSNotificationCenter defaultCenter] postNotificationName:WW_SWITCH_TO_FAVORITES_CONTROLLER object:nil];
-            break;
-        }
+            case WWUserProfileActionFavorites:
+            {
+                [[NSNotificationCenter defaultCenter] postNotificationName:WW_SWITCH_TO_FAVORITES_CONTROLLER object:nil];
+                break;
+            }
             
-        case WWUserProfileActionSettings:
-        {
-            [Flurry logEvent:WW_FLURRY_EVENT_TAP_SETTINGS];
-            [[NSNotificationCenter defaultCenter] postNotificationName:WW_SWITCH_TO_SETTINGS_CONTROLLER object:nil];
-            break;
-        }
-        case WWUserProfileActionTutorial:
-        {
-            [Flurry logEvent:WW_FLURRY_EVENT_TAP_TUTORIAL];
-            [[NSNotificationCenter defaultCenter] postNotificationName:WW_VIEW_INTRO_SLIDES_NOTIFICATION object:nil];
-            break;
-        }
+            case WWUserProfileActionSettings:
+            {
+                [Flurry logEvent:WW_FLURRY_EVENT_TAP_SETTINGS];
+                [[NSNotificationCenter defaultCenter] postNotificationName:WW_SWITCH_TO_SETTINGS_CONTROLLER object:nil];
+                break;
+            }
+            case WWUserProfileActionTutorial:
+            {
+                [Flurry logEvent:WW_FLURRY_EVENT_TAP_TUTORIAL];
+                [[NSNotificationCenter defaultCenter] postNotificationName:WW_VIEW_INTRO_SLIDES_NOTIFICATION object:nil];
+                break;
+            }
             
-        default:
-            break;
+            default:
+                break;
+        }
+    }
+    else if(tableView == self.tableViewSecond)
+    {
+        [self deselectCellsInTableView:self.tableViewFirst];
+        
+        d = [self.tableDataSecond objectAtIndex:indexPath.row];
+        switch ([d[@"id"] integerValue])
+        {
+            case WWUserProfileSignIn:
+            {
+                [self onSignUpClicked];
+                break;
+            }
+            case WWUserProfileInviteFriends:
+            {
+                [self onInviteFriends];
+                break;
+            }
+            case WWUserProfileSendFeedback:
+            {
+                [Flurry logEvent:WW_FLURRY_EVENT_TAP_FEEDBACK];
+                [[NSNotificationCenter defaultCenter] postNotificationName:WW_SWITCH_TO_SENDFEEDBACK_CONTROLLER object:nil];
+                break;
+            }
+                
+            default:
+                break;
+        }
     }
 }
 
 #pragma mark - Private helpers
 
+-(void)deselectCellsInTableView:(UITableView*)tableView
+{
+    for (int section = 0; section < [tableView numberOfSections]; section++)
+    {
+        for (int row = 0; row < [tableView numberOfRowsInSection:section]; row++)
+        {
+            NSIndexPath* cellPath = [NSIndexPath indexPathForRow:row inSection:section];
+            [tableView deselectRowAtIndexPath:cellPath animated:NO];
+        }
+    }
+    
+    [tableView reloadData];
+}
+
 - (void) refreshUi
 {
     WWUser* user = [WWSettings currentUser];
-    BOOL isUserSigned = (user != nil);
-    
-    self.signUpButton.hidden = isUserSigned;
-    self.inviteFriendsButton.hidden = !isUserSigned;
-    self.notLoggedInMessage.hidden = isUserSigned;
-    
-    //self.signOutButton.hidden = (user == nil);
-    //self.userIcon.hidden = (user == nil);
-    //self.usernameLabel.hidden = (user == nil);
-    
-    /*
-    if (user)
-    {
-        self.usernameLabel.text = [user fullNameOrEmail];
-        [self.usernameLabel wwResizeWidth];
-        
-        CGFloat w = self.userIcon.bounds.size.width + self.usernameLabel.bounds.size.width + 4 + self.signOutButton.bounds.size.width;
-        CGFloat x = (self.view.frame.size.width - w) / 2;
-        
-        CGRect f = self.userIcon.frame;
-        f.origin.x = x;
-        self.userIcon.frame = f;
-        
-        f = self.usernameLabel.frame;
-        f.origin.x = self.userIcon.frame.origin.x + self.userIcon.frame.size.width + 4;
-        self.usernameLabel.frame = f;
-        
-        f = self.signOutButton.frame;
-        f.origin.x = self.usernameLabel.frame.origin.x + self.usernameLabel.frame.size.width + 4;
-        self.signOutButton.frame = f;
-        
-        self.userIcon.hidden = (self.usernameLabel.text.length <= 0);
-        self.usernameLabel.hidden = (self.usernameLabel.text.length <= 0);
-    }*/
     
     NSMutableArray* a = [NSMutableArray array];
     
@@ -187,31 +223,38 @@ typedef enum
     }
     [a addObject:@{@"id":@(WWUserProfileActionSettings), @"name":NSLocalizedString(WW_SETTINGS, nil), @"icon" : @"settings" }];
     [a addObject:@{@"id":@(WWUserProfileActionTutorial), @"name":NSLocalizedString(WW_TUTORIAL, nil), @"icon" : @"tutorial" }];
-    self.tableData = a;
+    self.tableDataFirst = a;
+    [self.tableViewFirst reloadData];
     
-    [self.tableView reloadData];
+    
+    NSMutableArray* b = [NSMutableArray array];
+    if (user)
+    {
+        [b addObject:@{@"id":@(WWUserProfileInviteFriends), @"name":NSLocalizedString(WW_INVITE_FRIENDS, nil)}];
+    }
+    else
+    {
+        [b addObject:@{@"id":@(WWUserProfileSignIn), @"name":NSLocalizedString(WW_SIGN_IN, nil)}];
+    }
+    [b addObject:@{@"id":@(WWUserProfileSendFeedback), @"name": NSLocalizedString(WW_SEND_FEEDBACK, nil)}];
+    self.tableDataSecond = b;
+    [self.tableViewSecond reloadData];
 }
 
 #pragma mark - UI Event Handlers
-- (IBAction)onSendFeedbackClicked:(id)sender
-{
-    [Flurry logEvent:WW_FLURRY_EVENT_TAP_FEEDBACK];
-    [[NSNotificationCenter defaultCenter] postNotificationName:WW_SWITCH_TO_SENDFEEDBACK_CONTROLLER object:nil];
 
-}
-
-- (IBAction)onSignUpClicked:(id)sender
+- (void)onSignUpClicked
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:WW_SWITCH_TO_LOGIN_CONTROLLER object:nil];
 }
 
-- (IBAction)onSignOutClicked:(id)sender
+- (void)onSignOutClicked:(id)sender
 {
     [WWSettings setCurrentUser:nil];
     [self refreshUi];
 }
 
-- (IBAction)onInviteFriendsClicked:(id)sender
+- (void)onInviteFriends
 {
     [Flurry logEvent:WW_FLURRY_EVENT_INVITE_FRIENDS];
     
@@ -232,11 +275,6 @@ typedef enum
 {
     [self refreshUi];
 }
-
-/*- (BOOL) prefersStatusBarHidden
-{
-    return YES;
-}*/
 
 @end
 

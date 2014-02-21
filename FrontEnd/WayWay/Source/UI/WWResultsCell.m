@@ -21,13 +21,13 @@
 {
     [super awakeFromNib];
     
-    [self.nameLabel wwStyleWithBoldFontOfSize:20];
-    [self.distanceLabel wwStyleWithFontOfSize:WW_SUB_LABEL_FONT_SIZE];
+    self.nameLabel.font = WW_FONT_H2;
+    self.distanceLabel.font = WW_FONT_H5;
     
-    [self.categoryLabel wwStyleWithFontOfSize:WW_SUB_LABEL_FONT_SIZE];
+    self.categoryLabel.font = WW_FONT_H5;
     [self.categoryLabel wwRepositionSizeHeight];
     
-    [self.priceLabel wwStyleWithFontOfSize:WW_SUB_LABEL_FONT_SIZE];
+    self.priceLabel.font = WW_FONT_H5;
     [self.priceLabel wwRepositionSizeHeight];
     
     self.listLabel = [[WWListLabel alloc] init];
@@ -48,11 +48,7 @@
     
     NSString* text;
     
-    UIFont* baseFont = [UIFont fontWithName:WW_DEFAULT_FONT_NAME size:15];
-    UIFont* percentFont = [UIFont fontWithName:WW_DEFAULT_FONT_NAME size:10];
-
-    NSDictionary* baseAttrs = @{NSFontAttributeName : baseFont, NSForegroundColorAttributeName : WW_BLACK_FONT_COLOR };
-    NSDictionary* percentAttrs = @{NSFontAttributeName : percentFont, NSForegroundColorAttributeName : WW_LIGHT_GRAY_FONT_COLOR};
+    NSDictionary* baseAttrs = @{NSFontAttributeName : WW_FONT_H5, NSForegroundColorAttributeName : WW_BLACK_FONT_COLOR };
     
     NSMutableAttributedString* attirbutedtext;
     
@@ -69,16 +65,15 @@
     }
     else
     {
-        text = [NSString stringWithFormat:@"%d%%", place.classicRank.intValue];
+        text = [NSString stringWithFormat:@"%.1f", place.classicRank.doubleValue];
         attirbutedtext = [[NSMutableAttributedString alloc ] initWithString:text];
-        [attirbutedtext setAttributes:baseAttrs range:NSMakeRange(0, text.length - 1)];
-        [attirbutedtext setAttributes:percentAttrs range:NSMakeRange(text.length - 1, 1)];
+        [attirbutedtext setAttributes:baseAttrs range:NSMakeRange(0, text.length)];
     
         
         [self.listLabel setAttributedText:attirbutedtext andImage:nil];
     }
     
-    self.listLabel.frame = CGRectMake(self.frame.size.width - self.listLabel.frame.size.width - 15, 10, self.listLabel.frame.size.width, self.listLabel.frame.size.height);
+    self.listLabel.frame = CGRectMake(15, 10, self.listLabel.frame.size.width, self.listLabel.frame.size.height);
     self.listLabel.hidden = !displayLabel;
     
     //[self refreshScoreLabel];
@@ -149,14 +144,11 @@
 
 - (void) refreshPriceLabel
 {
-    UIFont* thinFont = [UIFont fontWithName:WW_DEFAULT_FONT_NAME size:WW_SUB_LABEL_FONT_SIZE];
-    UIFont* lightFont = [UIFont fontWithName:WW_DEFAULT_FONT_NAME size:WW_SUB_LABEL_FONT_SIZE];
-    
     UIColor* baseColor = [[UIColor whiteColor] colorWithAlphaComponent:.3f];
     UIColor* highlightColor = [UIColor whiteColor];
     
-    NSDictionary* baseAttrs = @{NSFontAttributeName : thinFont, NSForegroundColorAttributeName : baseColor };
-    NSDictionary* highlightAttrs = @{NSFontAttributeName : lightFont, NSForegroundColorAttributeName : highlightColor };
+    NSDictionary* baseAttrs = @{NSFontAttributeName : WW_FONT_H5, NSForegroundColorAttributeName : baseColor };
+    NSDictionary* highlightAttrs = @{NSFontAttributeName : WW_FONT_H5, NSForegroundColorAttributeName : highlightColor };
     
     NSString* text = @"$$$$";
     
@@ -166,26 +158,5 @@
     
     self.priceLabel.attributedText = as;
 }
-
-/*- (void) refreshScoreLabel
-{
-    UIFont* baseFont = [UIFont fontWithName:WW_DEFAULT_FONT_NAME size:WW_HEADING_FONT_SIZE];
-    UIFont* percentFont = [UIFont fontWithName:WW_DEFAULT_FONT_NAME size:WW_SUB_LABEL_FONT_SIZE];
-    
-    NSDictionary* baseAttrs = @{NSFontAttributeName : baseFont, NSForegroundColorAttributeName : [UIColor whiteColor] };
-    NSDictionary* percentAttrs = @{NSFontAttributeName : percentFont, NSForegroundColorAttributeName : [UIColor whiteColor] };
-    
-    NSString* sb = [NSString stringWithFormat:@"%d%%", self.place.classicRank.integerValue];
-    if (self.place.isTrending.boolValue)
-    {
-        sb = [NSString stringWithFormat:@"%d", self.place.classicRank.integerValue];
-    }
-    
-    NSMutableAttributedString* as = [[NSMutableAttributedString alloc] initWithString:sb attributes:nil];
-    [as setAttributes:baseAttrs range:NSMakeRange(0, as.string.length)];
-    [as setAttributes:percentAttrs range:[sb rangeOfString:@"%"]];
-    
-    self.scoreLabel.attributedText = as;
-}*/
 
 @end

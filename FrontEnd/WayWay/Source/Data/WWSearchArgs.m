@@ -148,6 +148,22 @@
     [self setGeoboxFromMapRegion:region];
 }
 
+- (void) setDefaultGeobox
+{
+    self.maxlatitude = [NSNumber numberWithDouble:WW_DEFAULT_MAX_LATITUDE];
+    self.minlatitude = [NSNumber numberWithDouble:WW_DEFAULT_MIN_LATITUDE];
+    self.maxlongitude = [NSNumber numberWithDouble:WW_DEFAULT_MAX_LONGITUDE];
+    self.minlongitude = [NSNumber numberWithDouble:WW_DEFAULT_MIN_LONGITUDE];
+}
+
+- (BOOL) isDefaultGeobox
+{
+    return ([self.maxlatitude doubleValue] == WW_DEFAULT_MAX_LATITUDE &&
+            [self.minlatitude doubleValue]  == WW_DEFAULT_MIN_LATITUDE &&
+            [self.maxlongitude doubleValue] == WW_DEFAULT_MAX_LONGITUDE &&
+            [self.minlongitude doubleValue] == WW_DEFAULT_MIN_LONGITUDE);
+}
+
 - (BOOL) hasGeoBox
 {
     if (!self.minlatitude || !self.minlongitude ||
@@ -155,10 +171,12 @@
     {
         return NO;
     }
-    else
-    {
-        return YES;
-    }
+    
+    if([self isDefaultGeobox])
+        return NO;
+
+    return YES;
+    
 }
 
 -(void)clearFilterArgs

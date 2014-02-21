@@ -37,38 +37,51 @@
 ////////////////////////////////////////////////////////////////////////////////
 // Colors
 #define WW_BLACK_FONT_COLOR         [UIColor uuColorFromHex:@"333333"]
+
 #define WW_LIGHT_GRAY_FONT_COLOR    [UIColor uuColorFromHex:@"999999"]
-#define WW_ORANGE_FONT_COLOR        [UIColor uuColorFromHex:@"F96020"]
-#define WW_LIGHT_BLUE_COLOR         [UIColor uuColorFromHex:@"167EFB"]
-#define WW_GREEN_BUTTON_COLOR       [UIColor uuColorFromHex:@"1CA817"]
 #define WW_GRAY_BORDER              [UIColor uuColorFromHex:@"C2C2C2"]
 #define WW_GRAY_BACKGROUND          [UIColor uuColorFromHex:@"EDEBF3"]
-#define WW_HEADER_BACKGROUND_COLOR  [UIColor uuColorFromHex:@"F9F9F9"]
 #define WW_LIGHT_GRAY_BUTTON_COLOR  [UIColor uuColorFromHex:@"AFB4B4"]
 #define WW_NAV_GRAY_SEPARATOR_COLOR [UIColor uuColorFromHex:@"ABABAB"]
+#define WW_HEADER_BACKGROUND_COLOR  [UIColor uuColorFromHex:@"F9F9F9"]
+
+#define WW_ORANGE_FONT_COLOR        [UIColor uuColorFromHex:@"F04650"]
+#define WW_LIGHT_BLUE_COLOR         [UIColor uuColorFromHex:@"167EFB"]
+#define WW_GREEN_BUTTON_COLOR       [UIColor uuColorFromHex:@"1CA817"]
 #define WW_FACEBOOK_BLUE_COLOR      [UIColor uuColorFromHex:@"385285"]
 
 ////////////////////////////////////////////////////////////////////////////////
 // Fonts
 #define WW_DEFAULT_FONT_NAME            @"Bariol-Regular"
 #define WW_DEFAULT_BOLD_FONT_NAME       @"Bariol-Bold"
+#define WW_DEFAULT_LIGHT_FONT_NAME      @"Bariol-Light"
 
-#define WW_HEADING_FONT_SIZE    20
-#define WW_SUB_LABEL_FONT_SIZE  14
+#define WW_FONT_H1 [UIFont fontWithName:WW_DEFAULT_LIGHT_FONT_NAME size:30.0f]
+#define WW_FONT_H2 [UIFont fontWithName:WW_DEFAULT_BOLD_FONT_NAME size:19.0f]
+#define WW_FONT_H3 [UIFont fontWithName:WW_DEFAULT_FONT_NAME size:19.0f]
+#define WW_FONT_H4 [UIFont fontWithName:WW_DEFAULT_FONT_NAME size:17.0f]
+#define WW_FONT_H5 [UIFont fontWithName:WW_DEFAULT_FONT_NAME size:15.0f]
+#define WW_FONT_H6 [UIFont fontWithName:WW_DEFAULT_FONT_NAME size:14.0f]
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // Constants
 #define WW_DEFAULT_SEARCH_RADIUS 600
-#define WW_DEFAULT_MAP_PIN_COUNT 8
+#define WW_DEFAULT_MAP_PIN_COUNT 10
 #define WW_REGION_LOC_THRESHOLD 30.0f
 #define WW_REGION_DELTA_THRESHOLD 0.001f
 #define WW_KEYBOARD_ADJUST_TRANSITION_DURATION 0.3f
 #define WW_SLIDE_TRANSITION_DURATION 0.5f
-#define WW_SEARCH_DELAY 0.5f
+#define WW_SEARCH_DELAY 0.2f
 #define WW_DEFAULT_SEARCH_ICON_DIM 12.5
 #define WW_WAY_WAY_SEARCH_ICON_DIM 12.5
 #define WW_APP_STORE_URL @"https://itunes.apple.com/app/wayway-discover-places-everybody/id694189318?mt=8"
 #define WW_UNSUPPORTED_CITY @"Unsupported City"
+
+#define WW_DEFAULT_MAX_LATITUDE  40.760618000111314110212345
+#define WW_DEFAULT_MIN_LATITUDE  40.705465000111314110212345
+#define WW_DEFAULT_MAX_LONGITUDE -73.937302000111314110212345
+#define WW_DEFAULT_MIN_LONGITUDE -74.010086000111314110212345
 
 //Multi-language words
 #define WW_LIST @"List"
@@ -97,6 +110,10 @@
 #define WW_SETTINGS_TERMS_OF_SERVICE @"Terms of Service"
 #define WW_SETTINGS_PRIVACY_POLICY @"Privacy Policy"
 #define WW_SETTINGS_SIGN_OUT @"Sign out"
+
+#define WW_INFO_ADD_FAVORITES @"Add to Favorites"
+#define WW_INFO_REMOVE_FAVORITES @"Remove from Favorites"
+#define WW_INFO_UPDATING_FAVORITES @"Updating Favorites"
 
 
 #define WW_CATEGORY_BARS_NIGHTLIFE @"bars & nightlife"
@@ -348,6 +365,15 @@ typedef enum
     WWRateItPrefIgnoreForever = 3,
     
 } WWRateItPref;
+
+typedef enum
+{
+    WWRestaurantCategory = 0,
+    WWBarCategory = 1,
+    WWSnackCategory = 2,
+    WWCoffeeCategory = 3,
+    
+} WWPlaceCategory;
 
 #define kWWSecondsPerHour (60 * 60)
 #define kWWSecondsPerDay  (kWWSecondsPerHour * 24)

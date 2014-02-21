@@ -113,10 +113,10 @@
     UIColor* color;
     WWHashtagButton* hashtag;
     double xPosition = 0;
-    double yPosition = 8;
+    double yPosition = 16;
     
-    double xSpacing = 4;
-    double ySpacing = 4;
+    double xSpacing = 6;
+    double ySpacing = 6;
     
     [[self.hashtagContainer subviews]  makeObjectsPerformSelector:@selector(removeFromSuperview)];
     
@@ -170,7 +170,7 @@
     CGRect screenBounds = [[UIScreen mainScreen] bounds];
     CGFloat maxBound = screenBounds.size.height + finalSpacing;
     
-    CGFloat contentHeight = MAX(frame.size.width + yPosition,
+    CGFloat contentHeight = MAX(frame.size.width + yPosition + 64,
                                 maxBound);
     self.scrollContent.frame = CGRectMake(frame.origin.x,
                                           frame.origin.y,
@@ -207,7 +207,7 @@
     //Add label
     UILabel* instagramUserLabel = [[UILabel alloc] initWithFrame: CGRectMake(0, 0, 0, 0)];
     
-    instagramUserLabel.font =[UIFont fontWithName:WW_DEFAULT_FONT_NAME size:14];
+    instagramUserLabel.font = WW_FONT_H6;
     NSString* text;
     if(self.photo.instagramUserName)
     {

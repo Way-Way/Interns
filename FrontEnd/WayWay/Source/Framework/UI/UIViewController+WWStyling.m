@@ -90,7 +90,7 @@
         UIButton* btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 2, 50, 40)];
         
         [btn setTitle:NSLocalizedString(WW_LIST, nil) forState:UIControlStateNormal];
-        btn.titleLabel.font = [UIFont fontWithName:WW_DEFAULT_FONT_NAME size:16];
+        btn.titleLabel.font = WW_FONT_H4;
         [btn setTitleColor:WW_ORANGE_FONT_COLOR forState:UIControlStateNormal];
         
         [btn setImage:[UIImage imageNamed:@"listnavbar"] forState:UIControlStateNormal];
@@ -168,7 +168,7 @@
     if (!view)
     {
         UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 44)];
-        [label wwStyleWithFontOfSize:WW_HEADING_FONT_SIZE];
+        label.font = WW_FONT_H3;
         label.textColor = [UIColor blackColor];
         label.textAlignment = NSTextAlignmentCenter;
         label.tag = WW_UI_NAV_BAR_PLACE_NAME_LABEL_TAG;
@@ -223,7 +223,7 @@
             {
                 UITextField* tf = (UITextField*)v;
                 tf.clearButtonMode = hideClearButton ? UITextFieldViewModeNever : UITextFieldViewModeWhileEditing;
-                tf.font = [UIFont fontWithName:WW_DEFAULT_FONT_NAME size:16];
+                tf.font = WW_FONT_H4;
                 tf.enablesReturnKeyAutomatically = NO;
             }
             
@@ -234,7 +234,7 @@
                 {
                     UITextField* tf = (UITextField*)vv;
                     tf.clearButtonMode = hideClearButton ? UITextFieldViewModeNever : UITextFieldViewModeWhileEditing;
-                    tf.font = [UIFont fontWithName:WW_DEFAULT_FONT_NAME size:16];
+                    tf.font = WW_FONT_H4;
                     tf.enablesReturnKeyAutomatically = NO;
                 }
             }
@@ -255,18 +255,13 @@
 }
 
 - (void) wwFormatScoreLabel:(UILabel*)label place:(WWPlace*)place
-{
-    UIFont* baseFont = [UIFont fontWithName:WW_DEFAULT_BOLD_FONT_NAME size:18];
-    UIFont* percentFont = [UIFont fontWithName:WW_DEFAULT_FONT_NAME size:14];
+{    
+    NSDictionary* baseAttrs = @{NSFontAttributeName : WW_FONT_H5, NSForegroundColorAttributeName : [UIColor blackColor] };
     
-    NSDictionary* baseAttrs = @{NSFontAttributeName : baseFont, NSForegroundColorAttributeName : [UIColor blackColor] };
-    NSDictionary* percentAttrs = @{NSFontAttributeName : percentFont, NSForegroundColorAttributeName : WW_LIGHT_GRAY_FONT_COLOR };
-    
-    NSString* sb = [NSString stringWithFormat:@"%d%%", place.classicRank.integerValue];
+    NSString* sb = [NSString stringWithFormat:@"%.1f", place.classicRank.doubleValue];
     
     NSMutableAttributedString* as = [[NSMutableAttributedString alloc] initWithString:sb attributes:nil];
     [as setAttributes:baseAttrs range:NSMakeRange(0, as.string.length)];
-    [as setAttributes:percentAttrs range:NSMakeRange(sb.length-1, 1)];
     
     label.attributedText = as;
     //[label wwResizeWidth];

@@ -12,7 +12,7 @@
 
 - (void) awakeFromNib
 {
-    [self.categoriesLabel wwStyleWithFontOfSize:WW_SUB_LABEL_FONT_SIZE];
+    self.categoriesLabel.font = WW_FONT_H6;
     self.categoriesLabel.textColor = WW_LIGHT_GRAY_FONT_COLOR;
     
 }
@@ -36,17 +36,15 @@
 
 - (void) refreshInfoLabel:(WWPlace*)place
 {
-    UIFont* thinFont = [UIFont fontWithName:WW_DEFAULT_FONT_NAME size:WW_SUB_LABEL_FONT_SIZE];
-    UIFont* lightFont = [UIFont fontWithName:WW_DEFAULT_FONT_NAME size:WW_SUB_LABEL_FONT_SIZE];
-    //UIFont* boldFont = [UIFont fontWithName:WW_BOLD_FONT_NAME size:WW_SUB_LABEL_FONT_SIZE];
-    
     UIColor* baseColor = WW_LIGHT_GRAY_FONT_COLOR;
     UIColor* blackColor = [UIColor blackColor];
     UIColor* trendingColor = WW_ORANGE_FONT_COLOR;
     
-    NSDictionary* baseAttrs = @{NSFontAttributeName : thinFont, NSForegroundColorAttributeName : baseColor };
-    NSDictionary* blackAttrs = @{NSFontAttributeName : lightFont, NSForegroundColorAttributeName : blackColor };
-    NSDictionary* trendingAttrs = @{NSFontAttributeName : lightFont, NSForegroundColorAttributeName : trendingColor };
+    NSDictionary* baseAttrs = @{NSFontAttributeName : WW_FONT_H6, NSForegroundColorAttributeName : baseColor };
+    NSDictionary* blackAttrs = @{NSFontAttributeName : WW_FONT_H6, NSForegroundColorAttributeName : blackColor };
+    NSDictionary* trendingAttrs = @{NSFontAttributeName : WW_FONT_H6, NSForegroundColorAttributeName : trendingColor };
+    
+    NSDictionary* pointAttrs = @{NSFontAttributeName : WW_FONT_H6, NSForegroundColorAttributeName : WW_LIGHT_GRAY_BUTTON_COLOR};
     
     NSString* distanceString = [place formattedDistance];
     
@@ -64,6 +62,7 @@
     [as setAttributes:blackAttrs range:NSMakeRange(0, place.price.length)];
     [as setAttributes:blackAttrs range:[sb rangeOfString:distanceString]];
     [as setAttributes:trendingAttrs range:[sb rangeOfString:trendingString]];
+    [as setAttributes:pointAttrs range:[sb rangeOfString:@"•"]];
     
     self.infoLabel.attributedText = as;
 }

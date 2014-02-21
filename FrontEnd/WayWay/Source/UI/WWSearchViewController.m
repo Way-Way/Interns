@@ -16,6 +16,7 @@
 @property (nonatomic, strong) NSTimer* searchTimer;
 @property (nonatomic, strong) UUHttpClient* searchClient;
 @property (nonatomic, strong) UIButton* clearSearchButton;
+@property (assign) BOOL hasResults;
 
 @end
 
@@ -25,6 +26,7 @@
 {
     [super viewDidLoad];
     
+    self.hasResults = YES;
     self.searchBar = [self wwNavSearchBar];
     self.searchBar.frame = CGRectMake(2, 0, 319, 44);
     self.searchBar.showsCancelButton = YES;
@@ -53,8 +55,7 @@
     self.buttonContainer.backgroundColor = [UIColor uuColorFromHex:@"F5F5F5"];
     [self.buttonContainer wwStyleNavBottomSeparatorBorder];
     
-    UIFont *font = [UIFont fontWithName:WW_DEFAULT_FONT_NAME size:15];
-    NSDictionary *attributes = [NSDictionary dictionaryWithObject:font forKey:NSFontAttributeName];
+    NSDictionary *attributes = [NSDictionary dictionaryWithObject:WW_FONT_H5 forKey:NSFontAttributeName];
     [self.searchTypeSelector setTitleTextAttributes:attributes forState:UIControlStateNormal];
 }
 
@@ -65,6 +66,7 @@
     [self refreshPlaceholderText];
     [self refreshTableData];
     [self.searchBar becomeFirstResponder];
+    self.hasResults = YES;
 }
 
 - (void) refreshTableData
@@ -158,14 +160,14 @@
         {
             cell = [[UITableViewCell alloc] initWithStyle:cellStyle reuseIdentifier:cellId];
             
-            [cell.textLabel wwStyleWithFontOfSize:18];
+            cell.textLabel.font = WW_FONT_H4;
             cell.selectionStyle = UITableViewCellSelectionStyleBlue;
             cell.selectedBackgroundView = [[UIView alloc] initWithFrame:CGRectZero];
             cell.selectedBackgroundView.backgroundColor = WW_LIGHT_BLUE_COLOR;
             cell.textLabel.textColor = [UIColor blackColor];
             cell.textLabel.highlightedTextColor = [UIColor whiteColor];
             
-            cell.detailTextLabel.font = [UIFont fontWithName:WW_DEFAULT_FONT_NAME size:13.0f];
+            cell.detailTextLabel.font = WW_FONT_H6;
             cell.detailTextLabel.textColor = WW_LIGHT_GRAY_FONT_COLOR;
             
             UIView* v = [UIView new];
@@ -191,7 +193,7 @@
                 counter.textAlignment = NSTextAlignmentRight;
                 counter.tag = 1;
                 [counter setTextColor:WW_LIGHT_GRAY_FONT_COLOR];
-                [counter setFont:[UIFont fontWithName:WW_DEFAULT_FONT_NAME size:15.0f]];
+                [counter setFont:WW_FONT_H5];
                 [cell addSubview:counter];
             }
         }
@@ -232,7 +234,7 @@
         if (cell == nil)
         {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
-            [cell.textLabel wwStyleWithFontOfSize:18];
+            cell.textLabel.font = WW_FONT_H4;
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             cell.textLabel.textColor = [UIColor blackColor];
             cell.textLabel.textAlignment = NSTextAlignmentCenter;
@@ -244,12 +246,9 @@
         }
         //End move
         
-        if (indexPath.row == 1)
+        if (indexPath.row == 1 && self.searchBar.text.length > 0 && !self.hasResults)
         {
-            if (self.searchBar.text.length > 0)
-            {
-                cell.textLabel.text = @"No results for your search";
-            }
+            cell.textLabel.text = @"No results for your search";
         }
         else
         {
@@ -345,6 +344,9 @@
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
     [self.searchTimer invalidate];
+    self.hasResults = YES;
+    [self refreshTableData];
+    
     self.searchTimer = [NSTimer scheduledTimerWithTimeInterval:WW_SEARCH_DELAY target:self selector:@selector(performSearch) userInfo:nil repeats:NO];
 }
 
@@ -380,7 +382,7 @@
 - (void)performSearch
 {
     WWSearchArgs* args = [WWSettings cachedSearchArgs];
-    
+    self.hasResults = YES;
     if (self.searchBar.text.length > 0)
     {
         NSString* text = self.searchBar.text;
@@ -399,6 +401,9 @@
                                                             completion:^(NSError *error, NSArray *results)
         {
             self.searchResults = results;
+            if(results!=nil && [results count] == 0)
+                self.hasResults = NO;
+            
             [self refreshTableData];
             self.searchClient = nil;
         }];

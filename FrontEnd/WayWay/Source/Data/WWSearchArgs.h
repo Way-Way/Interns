@@ -56,6 +56,7 @@
 - (void) setGeoboxFromMapRegion:(MKCoordinateRegion)region;
 - (void) setGeoboxToCurrentLocation;
 - (void) setGeoboxFromLocation:(CLLocation*)location;
+- (void) setDefaultGeobox;
 - (BOOL) hasGeoBox;
 - (void)clearFilterArgs;
 

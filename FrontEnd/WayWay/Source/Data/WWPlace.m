@@ -53,10 +53,12 @@
             }
         }
         
+        double score = [[dictionary wwNonNullValueForKey:@"classic_rank" defaultValue:@(0)] doubleValue]/10.0;
+        self.classicRank = [NSNumber numberWithDouble:score];
         
-        self.classicRank = [dictionary wwNonNullValueForKey:@"classic_rank" defaultValue:@(0)];
         NSNumber* trendingRank = [dictionary wwNonNullValueForKey:@"trending_rank" defaultValue:@(0)];
         self.isTrending = trendingRank.integerValue > 0 ? @(YES) : @(NO);
+        
         self.hashtagMentions = [dictionary wwNonNullValueForKey:@"nb_occurences"];
         
         self.isFavorite = [dictionary wwNonNullValueForKey:@"is_favorite"];
@@ -75,7 +77,7 @@
         }
         
         NSString* categoryIconName = [dictionary wwNonNullValueForKey:@"category_icon" defaultValue:@""];
-        self.categoryIcon = [self getCategoryIcon:categoryIconName];
+        self.category = [self getCategory:categoryIconName];
         
         /*id hashtagListNode = [dictionary wwNonNullValueForKey:@"hashtags"];
         if (hashtagListNode && [hashtagListNode isKindOfClass:[NSArray class]])
@@ -114,11 +116,32 @@
         self.hoursOfOperation = [self parseHoursOfOperation:dictionary];
 
         
-        //self.hashTags = [self parseHashTags:dictionary];
-        //self.photos = [self parsePhotos:dictionary];
-        
         self.photoDictionary = [NSMutableDictionary dictionary];
         self.pageResultsDictionary = [NSMutableDictionary dictionary];
+        
+        //has photos
+        self.hasFoodPhoto = YES;
+        self.hasAtmospherePhoto = YES;
+        self.hasPeoplePhoto = YES;
+        
+        id hasPhotos = [dictionary wwNonNullValueForKey:@"photo_hash"];
+        NSString* count;
+        if(hasPhotos!=nil && [hasPhotos isKindOfClass:[NSDictionary class]] && [(NSDictionary*)hasPhotos count]>0)
+        {
+            count = [hasPhotos valueForKey:@"FOOD"];
+            if(count)
+                self.hasFoodPhoto = ([count intValue]> 0);
+            
+            count = [hasPhotos valueForKey:@"FEEL"];
+            if(count)
+                self.hasAtmospherePhoto = ([count intValue]> 0);
+            
+            count = [hasPhotos valueForKey:@"PEOPLE"];
+            if(count)
+                self.hasPeoplePhoto = ([count intValue] > 0);
+        }
+        
+        
     }
     
     return self;
@@ -194,25 +217,25 @@
     }
 }
 
-- (NSString*) getCategoryIcon:(NSString*)category
+- (WWPlaceCategory) getCategory:(NSString*)category
 {
     NSString* check = [category lowercaseString];
     
     if ([WW_CATEGORY_RESTAURANTS isEqualToString:check])
     {
-        return @"restaurant_white";
+        return WWRestaurantCategory;
     }
     else if ([WW_CATEGORY_BARS_NIGHTLIFE isEqualToString:check])
     {
-        return @"bar_white";
+        return WWBarCategory;
     }
     else if ([WW_CATEGORY_COFFEE_TEA isEqualToString:check])
     {
-        return @"coffee_white";
+        return WWCoffeeCategory;
     }
     else if ([WW_CATEGORY_SNACKS isEqualToString:check])
     {
-        return @"snack_white";
+        return WWSnackCategory;
     }
     else
     {
@@ -515,6 +538,12 @@
 
 
 //Handle server responses
+-(void)cancelRequests
+{
+    if([self isFetchingPhotos])
+        [self.photoUpdateClient cancel];
+}
+
 - (void) handleServerResponse:(NSError*)error
                       results:(WWPagedSearchResults*)results
                       isFirst:(BOOL)isFirst

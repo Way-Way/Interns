@@ -19,9 +19,7 @@
 
 - (void) awakeFromNib
 {
-    [self.trendingRankLabel wwStyleWithFontOfSize:15];
-    [self.rankLabel wwStyleWithFontOfSize:15];
-    self.trendingRankLabel.textColor = WW_ORANGE_FONT_COLOR;
+    self.rankLabel.font = WW_FONT_H5;
 }
 
 - (void) update:(WWPlace*)place
@@ -30,7 +28,6 @@
     
     [self updateScoreLabel];
     [self updateBackgroundImage];
-    [self updateCategoryIcon];
 }
 
 - (void) updateSelected:(BOOL)selected
@@ -42,59 +39,66 @@
 
 - (void) updateScoreLabel
 {
-    UIFont* scoreFont = [UIFont fontWithName:WW_DEFAULT_FONT_NAME size:15];
-    UIFont* percentFont = [UIFont fontWithName:WW_DEFAULT_FONT_NAME size:12];
+    NSDictionary* scoreAttrs = @{NSFontAttributeName : WW_FONT_H5, NSForegroundColorAttributeName : [UIColor uuColorFromHex:@"333333"] };
     
-    NSDictionary* scoreAttrs = @{NSFontAttributeName : scoreFont, NSForegroundColorAttributeName : [UIColor uuColorFromHex:@"333333"] };
-    NSDictionary* percentAttrs = @{NSFontAttributeName : percentFont, NSForegroundColorAttributeName : [UIColor uuColorFromHex:@"333333"] };
-    
-    NSString* text = [NSString stringWithFormat:@"%d%%", self.place.classicRank.intValue];
+    NSString* text = [NSString stringWithFormat:@"%.1f", self.place.classicRank.doubleValue];
     NSMutableAttributedString* as = [[NSMutableAttributedString alloc] initWithString:text attributes:nil];
     [as setAttributes:scoreAttrs range:NSMakeRange(0, as.string.length)];
     
-    NSRange r = [text rangeOfString:@"%"];
-    [as setAttributes:percentAttrs range:r];
     self.rankLabel.attributedText = as;
-    
-    self.trendingRankLabel.text = [NSString stringWithFormat:@"%d", self.place.classicRank.intValue];
-    //self.rankLabel.text = [NSString stringWithFormat:@"%d%%", self.place.classicRank.intValue];
-    
-    self.rankLabel.hidden = (self.place.isTrending.boolValue);
-    self.trendingRankLabel.hidden = !self.rankLabel.hidden;
 }
 
 - (void) updateBackgroundImage
 {
     NSString* backgroundImage = nil;
     
-    if (self.place.isTrending.boolValue)
+    switch (self.place.category)
     {
-        if (self.selected)
-        {
-            backgroundImage = @"map_pointer_trending_pressed";
-        }
-        else
-        {
-            backgroundImage = @"map_pointer_trending";
-        }
+        case WWBarCategory:
+            if (self.selected)
+            {
+                backgroundImage = @"map_bar_selected";
+            }
+            else
+            {
+                backgroundImage = @"map_bar";
+            }
+            break;
+        case WWRestaurantCategory:
+            if (self.selected)
+            {
+                backgroundImage = @"map_restaurant_selected";
+            }
+            else
+            {
+                backgroundImage = @"map_restaurant";
+            }
+            break;
+        case WWSnackCategory:
+            if (self.selected)
+            {
+                backgroundImage = @"map_snack_selected";
+            }
+            else
+            {
+                backgroundImage = @"map_snack";
+            }
+            break;
+        case WWCoffeeCategory:
+            if (self.selected)
+            {
+                backgroundImage = @"map_coffee_selected";
+            }
+            else
+            {
+                backgroundImage = @"map_coffee";
+            }
+            break;
+        default:
+            break;
     }
-    else
-    {
-        if (self.selected)
-        {
-            backgroundImage = @"map_pointer_pressed";
-        }
-        else
-        {
-            backgroundImage = @"map_pointer";
-        }
-    }
+    
     self.backgroundView.image = [UIImage imageNamed:backgroundImage];
-}
-
-- (void) updateCategoryIcon
-{
-    self.categoryIcon.image = [UIImage imageNamed:self.place.categoryIcon];
 }
 
 @end

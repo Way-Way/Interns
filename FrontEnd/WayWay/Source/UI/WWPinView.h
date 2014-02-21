@@ -12,8 +12,6 @@
 
 @property (strong, nonatomic) IBOutlet UIImageView *backgroundView;
 @property (strong, nonatomic) IBOutlet UILabel *rankLabel;
-@property (strong, nonatomic) IBOutlet UILabel *trendingRankLabel;
-@property (strong, nonatomic) IBOutlet UIImageView *categoryIcon;
 @property (strong, nonatomic) IBOutlet UIView *centerReferenceView;
 
 - (void) update:(WWPlace*)place;

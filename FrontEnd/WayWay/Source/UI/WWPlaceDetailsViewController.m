@@ -34,11 +34,11 @@
     [self.collectionView registerNib:[UINib nibWithNibName:@"WWHashTagSummaryHeaderView" bundle:nil] forCellWithReuseIdentifier:@"WWHashTagSummaryHeaderViewId"];
     [self.collectionView registerClass:[WWSpacerCell class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"WWSpacerCellId"];
     
-    [self.categoriesLabel wwStyleWithFontOfSize:WW_SUB_LABEL_FONT_SIZE];
+    self.categoriesLabel.font = WW_FONT_H5;
     self.categoriesLabel.textColor = WW_LIGHT_GRAY_FONT_COLOR;
     
-    [self.headerLabel wwStyleWithFontOfSize:WW_HEADING_FONT_SIZE];
-    [self.centeredHeaderLabel wwStyleWithFontOfSize:WW_HEADING_FONT_SIZE];
+    self.headerLabel.font = WW_FONT_H3;
+    self.centeredHeaderLabel.font = WW_FONT_H3;
     
     self.behindStatusBarView.backgroundColor = WW_HEADER_BACKGROUND_COLOR;
     self.headerView.backgroundColor = WW_HEADER_BACKGROUND_COLOR;
@@ -86,6 +86,29 @@
         [self onTagsButtonClicked:nil];
     }
     
+    
+    
+    self.tagsButton.hidden = NO;
+    self.foodButton.hidden = NO;
+    self.atmosphereButton.hidden = NO;
+    self.peopleButton.hidden = NO;
+
+    
+    self.foodButton.enabled = self.place.hasFoodPhoto;
+    self.peopleButton.enabled = self.place.hasPeoplePhoto;
+    self.atmosphereButton.enabled = self.place.hasAtmospherePhoto;
+    
+    if(!self.place.hasFoodPhoto
+       && !self.place.hasPeoplePhoto
+       && !self.place.hasAtmospherePhoto)
+    {
+        self.tagsButton.hidden = YES;
+        self.foodButton.hidden = YES;
+        self.atmosphereButton.hidden = YES;
+        self.peopleButton.hidden = YES;
+    }
+       
+    
     [self refreshUi];
 }
 
@@ -130,16 +153,15 @@
 
 - (void) refreshInfoLabel
 {
-    UIFont* thinFont = [UIFont fontWithName:WW_DEFAULT_FONT_NAME size:WW_SUB_LABEL_FONT_SIZE];
-    UIFont* lightFont = [UIFont fontWithName:WW_DEFAULT_FONT_NAME size:WW_SUB_LABEL_FONT_SIZE];
-    
     UIColor* baseColor = WW_LIGHT_GRAY_FONT_COLOR;
     UIColor* blackColor = [UIColor blackColor];
     UIColor* trendingColor = WW_ORANGE_FONT_COLOR;
     
-    NSDictionary* baseAttrs = @{NSFontAttributeName : thinFont, NSForegroundColorAttributeName : baseColor };
-    NSDictionary* blackAttrs = @{NSFontAttributeName : lightFont, NSForegroundColorAttributeName : blackColor };
-    NSDictionary* trendingAttrs = @{NSFontAttributeName : lightFont, NSForegroundColorAttributeName : trendingColor };
+    NSDictionary* baseAttrs = @{NSFontAttributeName : WW_FONT_H6, NSForegroundColorAttributeName : baseColor };
+    NSDictionary* blackAttrs = @{NSFontAttributeName : WW_FONT_H6, NSForegroundColorAttributeName : blackColor };
+    NSDictionary* trendingAttrs = @{NSFontAttributeName : WW_FONT_H6, NSForegroundColorAttributeName : trendingColor };
+    NSDictionary* pointAttrs = @{NSFontAttributeName : WW_FONT_H6, NSForegroundColorAttributeName : WW_LIGHT_GRAY_BUTTON_COLOR};
+    
     
     NSString* distanceString = [self.place formattedDistance];
     
@@ -157,6 +179,7 @@
     [as setAttributes:blackAttrs range:NSMakeRange(0, self.place.price.length)];
     [as setAttributes:blackAttrs range:[sb rangeOfString:distanceString]];
     [as setAttributes:trendingAttrs range:[sb rangeOfString:trendingString]];
+    [as setAttributes:pointAttrs range:[sb rangeOfString:@"•"]];
     
     self.infoLabel.attributedText = as;
 }

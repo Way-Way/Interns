@@ -24,8 +24,8 @@
     
     self.statusLabel.text = @"";
     
-    [self.statusLabel wwStyleWithFontOfSize:14];
-    [self.progressLabel wwStyleWithFontOfSize:14];
+    self.statusLabel.font = WW_FONT_H6;
+    self.progressLabel.font = WW_FONT_H6;
     
     UIEdgeInsets insets = UIEdgeInsetsMake(10, 15, 10, 10);
     
@@ -34,8 +34,8 @@
     
     [self.loginButton wwStyleFlatWhiteButtonWithGreenText];
     
-    self.registerEmailField.font = [UIFont fontWithName:WW_DEFAULT_FONT_NAME size:16];
-    self.registerPasswordOneField.font = [UIFont fontWithName:WW_DEFAULT_FONT_NAME size:16];
+    self.registerEmailField.font = WW_FONT_H4;
+    self.registerPasswordOneField.font = WW_FONT_H4;
     
     self.navigationItem.leftBarButtonItem = [self wwBackNavItem];
     self.navigationItem.titleView = [self wwCenterNavItem:@"Sign In"];

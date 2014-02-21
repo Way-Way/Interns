@@ -23,8 +23,8 @@
     
     self.statusLabel.text = @"";
     
-    [self.statusLabel wwStyleWithFontOfSize:14];
-    [self.progressLabel wwStyleWithFontOfSize:14];
+    self.statusLabel.font = WW_FONT_H6;
+    self.progressLabel.font = WW_FONT_H6;
     
     UIEdgeInsets insets = UIEdgeInsetsMake(10, 15, 10, 10);
     
@@ -32,19 +32,19 @@
     self.registerEmailField.contentInsets = insets;
     self.registerPasswordOneField.contentInsets = insets;
     
-    [self.facebookButton.titleLabel wwStyleWithFontOfSize:18];
+    self.facebookButton.titleLabel.font = WW_FONT_H4;
     [self.facebookButton setTitleColor:WW_FACEBOOK_BLUE_COLOR forState:UIControlStateNormal];
     [self.facebookButton setTitleColor:WW_LIGHT_GRAY_FONT_COLOR forState:UIControlStateHighlighted];
     [self.facebookButton wwStyleLightGreyTopAndBottomBorders];
     
-    [self.messageLabel wwStyleWithFontOfSize:15];
-    [self.signUpMessage wwStyleWithFontOfSize:18];
+    self.messageLabel.font = WW_FONT_H6;
+    self.signUpMessage.font = WW_FONT_H3;
     
     self.messageLabel.textColor = WW_LIGHT_GRAY_FONT_COLOR;
     
-    self.registerFullNameField.font = [UIFont fontWithName:WW_DEFAULT_FONT_NAME size:16];
-    self.registerEmailField.font = [UIFont fontWithName:WW_DEFAULT_FONT_NAME size:16];
-    self.registerPasswordOneField.font = [UIFont fontWithName:WW_DEFAULT_FONT_NAME size:16];
+    self.registerFullNameField.font = WW_FONT_H4;
+    self.registerEmailField.font = WW_FONT_H4;
+    self.registerPasswordOneField.font = WW_FONT_H4;
     
     [self.registerSignUpButton wwStyleFlatWhiteButtonWithGreenText];
     [self.loginFromRegisterButton wwStyleFlatWhiteButtonWithBlackText];

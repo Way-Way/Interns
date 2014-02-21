@@ -61,7 +61,7 @@
     [self.clearFiltersButton setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
     
     
-    [self.clearFiltersButton.titleLabel wwStyleWithFontOfSize:21];
+    self.clearFiltersButton.titleLabel.font = WW_FONT_H4;
     
     //Location autocomplete
     self.locationFilterController = [WWLocationFilterViewController new];

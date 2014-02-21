@@ -25,6 +25,7 @@
 @property (assign) BOOL searchOnNextLocationChange;
 
 @property (nonatomic, strong) NSTimer* timer;
+@property (nonatomic, strong) UIAlertView* locationAlert;
 
 @property (nonatomic, strong) WWPagedSearchResults* lastPlaceSearchResults;
 @property (nonatomic, strong) NSMutableArray* allPlaceResults;
@@ -58,8 +59,6 @@
 
 @property (assign) BOOL detailsExpanded;
 
-@property (assign) BOOL internetConnectionStat;
-
 @end
 
 @implementation WWHomeViewController
@@ -74,8 +73,8 @@
     self.noCityController = [WWUnsupportedCityController new];
     
 
-    [self.filterButton setTitle:[NSString stringWithFormat:@"  %@  ",NSLocalizedString(WW_FILTER, nil)] forState:UIControlStateNormal];
-    self.filterButton.titleLabel.font = [UIFont fontWithName:WW_DEFAULT_FONT_NAME size:16];
+    [self.filterButton setTitle:[NSString stringWithFormat:@"%@",NSLocalizedString(WW_FILTER, nil)] forState:UIControlStateNormal];
+    self.filterButton.titleLabel.font = WW_FONT_H6;
     self.filterButton.titleLabel.textColor = WW_BLACK_FONT_COLOR;
     [self.filterButton setContentVerticalAlignment:UIControlContentVerticalAlignmentFill];
     
@@ -155,7 +154,7 @@
     
     UIView* listButton = [[self wwListNavItem] customView];
     self.listButton = (UIButton*)listButton;
-    listButton.frame = CGRectMake(navBarContainer.bounds.size.width - listButton.bounds.size.width, 0, listButton.bounds.size.width, listButton.bounds.size.height);
+    listButton.frame = CGRectMake(navBarContainer.bounds.size.width - listButton.bounds.size.width - 6, 1, listButton.bounds.size.width, listButton.bounds.size.height);
     [navBarContainer addSubview:listButton];
     
     [navBarContainer addSubview:centerNavContainer];
@@ -169,6 +168,15 @@
     self.firstSearch = YES;
     self.detailsExpanded = NO;
     
+    //////////////////////////////////////////
+    // ALERT VIEW
+    self.locationAlert = [[UIAlertView alloc] initWithTitle:@"WayWay cannot acces your Current Location"
+                                                    message:@"Go to Settings > Privacy > Location Services and enable WayWay."
+                                                   delegate:nil
+                                          cancelButtonTitle:@"Got it"
+                                          otherButtonTitles: nil];
+    //self.locationAlert.delegate = self;
+    
     /////////////////////////////////////////
     // Map View Handling
     
@@ -177,7 +185,6 @@
     self.hasSetupMap = NO;
     self.isSearching = NO;
     
-    self.internetConnectionStat = YES;
     
     UIPanGestureRecognizer* panRec = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(mapViewTouched:)];
     [panRec setDelegate:self];
@@ -196,9 +203,6 @@
     self.mapView.showsUserLocation = YES;
     
     [self.infoCollectionView registerNib:[UINib nibWithNibName:@"WWMapResultsInfoCell" bundle:nil] forCellWithReuseIdentifier:@"WWMapResultsInfoCellId"];
-    
-    [self.refreshButton.titleLabel wwStyleWithFontOfSize:14];
-    [self.refreshButton setTitleColor:WW_LIGHT_GRAY_FONT_COLOR forState:UIControlStateNormal];
     
     self.progressAnimation.animationImages = @[
         [UIImage imageNamed:@"loader_00"],
@@ -272,7 +276,7 @@
     
     [self refreshFilterButton];
     
-    if(self.firstSearch &&  [self isLocationAuthorized])
+    if(self.firstSearch)
     {
         [self beginPlaceSearch];
     }
@@ -319,9 +323,22 @@
     }
 }
 
+#pragma marrk - No location alert
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex == 0)//Cancel button pressed
+    {
+        
+    }
+    else if(buttonIndex == 1)//Go To Settings button pressed.
+    {
+
+    }
+}
+
 #pragma mark - Notifications
 
-- (void) handleLocationUpdateNotification:(NSNotification*)notification
+/*- (void) handleLocationUpdateNotification:(NSNotification*)notification
 {
     //WWDebugLog(@"Location Update: %@", notification);
     if (self.searchOnNextLocationChange)
@@ -344,6 +361,11 @@
 }
 
 - (void) handleLocationErrorNotification:(NSNotification*)notification
+{
+    [self refreshLocateMeButton];
+}*/
+
+- (void) handleLocationAuthChangedNotification:(NSNotification*)notification
 {
     [self refreshLocateMeButton];
 }
@@ -518,7 +540,7 @@
     }
     else
     {
-        [self.filterButton setTitle:[NSString stringWithFormat:@"  %@  ",NSLocalizedString(WW_FILTER, nil) ] forState:UIControlStateNormal];
+        [self.filterButton setTitle:[NSString stringWithFormat:@"%@",NSLocalizedString(WW_FILTER, nil) ] forState:UIControlStateNormal];
         [self.filterButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     }
     
@@ -529,42 +551,20 @@
 
 - (void) toggleNoResults:(BOOL)visible
 {
-    if (self.internetConnectionStat == NO) {
-        [UIView animateWithDuration:1.0f animations:^
-        {
-            self.noConnectionPanel.alpha = (visible ? 1 : 0);
-            if (visible) {
-                self.noConnectionPanel.frame = CGRectMake(self.noConnectionPanel.frame.origin.x, 67, self.noConnectionPanel.frame.size.width, self.noConnectionPanel.frame.size.height);
-            }
-        }
-        completion:^(BOOL finished)
-        {
-            if (visible)
-            {
-                [UIView animateWithDuration:4.0f animations:^
-                 {
-                     self.noConnectionPanel.alpha = 0;
-                     self.noConnectionPanel.frame = CGRectMake(self.noConnectionPanel.frame.origin.x, 20, self.noConnectionPanel.frame.size.width, self.noConnectionPanel.frame.size.height);
-                 }];
-            }
-        }];
+    [UIView animateWithDuration:0.3f animations:^
+    {
+        self.noResultsPanel.alpha = (visible ? 1 : 0);
     }
-    else {
-        [UIView animateWithDuration:0.3f animations:^
-         {
-             self.noResultsPanel.alpha = (visible ? 1 : 0);
-         }
-                         completion:^(BOOL finished)
-         {
-             if (visible)
+    completion:^(BOOL finished)
+    {
+        if (visible)
+        {
+            [UIView animateWithDuration:4.0f animations:^
              {
-                 [UIView animateWithDuration:4.0f animations:^
-                  {
-                      self.noResultsPanel.alpha = 0;
-                  }];
-             }
-         }];
-    }
+                 self.noResultsPanel.alpha = 0;
+             }];
+        }
+    }];
 }
 
 -(void) showUnsupportedCity
@@ -609,7 +609,14 @@
             currentlocation = [[UULocationManager sharedInstance]  currentLocation];
         }
         
-        [args setGeoboxFromLocation:currentlocation];
+        if(currentlocation)
+        {
+            [args setGeoboxFromLocation:currentlocation];
+        }
+        else
+        {
+            [args setDefaultGeobox];
+        }
         [WWSettings saveCachedSearchArgs:args];
         self.hasSetupMap = NO;
     }
@@ -645,12 +652,10 @@
          {
              WWDebugLog(@"Valid search results:\n%@", results);
              self.lastPlaceSearchResults = results;
-             self.internetConnectionStat = YES;
          }
          else
          {
              WWDebugLog(@"Error with search: %@", error);
-             self.internetConnectionStat = NO;
          }
          
          BOOL hasNext = (results.nextPageUrl != nil);
@@ -728,6 +733,8 @@
 {
     [Flurry logEvent:WW_FLURRY_EVENT_TAP_ON_FILTER];
     
+    [self setSearchArgsFromCurrentMap];
+    
     self.filterController.mapRegion = self.mapView.region;
     self.filterController.currentSearchArgs = [self searchArgs];
     [self.filterNavController wwShowWithBackgroundBlurInView:self.navigationController.view];
@@ -743,6 +750,8 @@
 
 - (void) onNavClearSearchClicked:(id)sender
 {
+    [self setSearchArgsFromCurrentMap];
+    
     WWSearchArgs* args = [self searchArgs];
     if (args.autoCompleteArg && args.autoCompleteType)
     {
@@ -846,6 +855,18 @@
 
 - (IBAction)onLocateMeClicked:(id)sender
 {
+    // Using nil argument when manually calling this, don't want to produce incorrect flurry events
+    if (sender)
+    {
+        [Flurry logEvent:WW_FLURRY_EVENT_TAP_ON_RECENTER];
+    }
+    
+    if(![self isLocationAuthorized])
+    {
+        [self popupNoLocationAuthorized];
+        return;
+    }
+    
     CLLocation* loc = [[UULocationManager sharedInstance] currentLocation];
     [WWSettings setCurrentMapLocation:loc];
     
@@ -857,12 +878,11 @@
     WWSearchArgs* args = [self searchArgs];
     [args setGeoboxFromMapRegion:region];
     [self saveSearchArgs:args];
-    
-    // Using nil argument when manually calling this, don't want to produce incorrect flurry events
-    if (sender)
-    {
-        [Flurry logEvent:WW_FLURRY_EVENT_TAP_ON_RECENTER];
-    }
+}
+
+- (void) popupNoLocationAuthorized
+{
+    [self.locationAlert show];
 }
 
 - (void)onListButtonClicked:(id)sender
@@ -909,14 +929,9 @@
     [self updateSelectedPlace];
 }
 
-- (void) handleLocationAuthChangedNotification:(NSNotification*)notification
-{
-    [self refreshLocateMeButton];
-}
-
 - (void) refreshLocateMeButton
 {
-    self.locateMeButton.enabled = [self isLocationAuthorized];
+    //self.locateMeButton.enabled = [self isLocationAuthorized];
 }
 
 #pragma mark - Map View
@@ -1015,6 +1030,11 @@
     {
         self.hasSetupMap = YES;
         [self.mapView uuZoomToAnnotations:YES];
+    }
+    
+    if (centerOnSelected)
+    {
+        [self setSearchArgsFromCurrentMap];
     }
 }
 

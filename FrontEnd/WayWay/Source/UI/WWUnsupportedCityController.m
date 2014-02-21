@@ -28,22 +28,20 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    UIFont* font  = [UIFont fontWithName:WW_DEFAULT_FONT_NAME size:25.0f];
-    
     [self.unsupportedCity setBackgroundColor:[UIColor clearColor]];
     self.unsupportedCity.text = @"You are searching in a city or area not covered by WayWay.";
-    self.unsupportedCity.font = font;
+    self.unsupportedCity.font = WW_FONT_H1;
     
     [self.label2 setBackgroundColor:[UIColor clearColor]];
     self.label2.text =@"We will be adding new cities soon. Stay tuned!";
-    self.label2.font = font;
+    self.label2.font = WW_FONT_H1;
     
     [self.cancelButton setBackgroundColor:[UIColor clearColor]];
     [self.cancelButton.layer setBorderColor:WW_ORANGE_FONT_COLOR.CGColor];
     [self.cancelButton.layer setBorderWidth:1.0];
     [self.cancelButton.layer setCornerRadius:4.0];
     
-    self.cancelButton.titleLabel.font = font;
+    self.cancelButton.titleLabel.font = WW_FONT_H4;
     [self.cancelButton setTitleColor:WW_BLACK_FONT_COLOR forState:UIControlStateNormal];
     [self.cancelButton setTitle:@"Cancel" forState:UIControlStateNormal];
 }

@@ -17,10 +17,10 @@
     {
         // Initialization code
         self.layer.cornerRadius = 2;
-        self.layer.borderWidth = 1;
-        self.layer.borderColor = WW_GRAY_BORDER.CGColor;
+        self.layer.borderWidth = 0.5;
+        self.layer.borderColor = WW_LIGHT_GRAY_BUTTON_COLOR.CGColor;
         
-        self.titleLabel.font = [UIFont fontWithName:WW_DEFAULT_FONT_NAME size:18];
+        self.titleLabel.font = WW_FONT_H3;
         [self.titleLabel setTextColor:[UIColor blackColor]];
         [self.titleLabel setTextAlignment:NSTextAlignmentCenter];
     }

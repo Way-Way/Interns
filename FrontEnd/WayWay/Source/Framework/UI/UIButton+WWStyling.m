@@ -24,7 +24,7 @@
     [self setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
     [self setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
     
-    [self.titleLabel wwStyleWithFontOfSize:16];
+    self.titleLabel.font = WW_FONT_H4;
 }
 
 - (void) wwStyleLightGrayAndOrangeButton
@@ -43,7 +43,7 @@
     [self setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
     [self setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
     
-    [self.titleLabel wwStyleWithFontOfSize:16];
+    self.titleLabel.font = WW_FONT_H4;
     
     if ([self isKindOfClass:[WWFlatButton class]])
     {
@@ -70,7 +70,7 @@
     [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
     
-    [self.titleLabel wwStyleWithFontOfSize:16];
+    self.titleLabel.font = WW_FONT_H4;
     
     if ([self isKindOfClass:[WWFlatButton class]])
     {
@@ -93,7 +93,7 @@
     [self setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
     
-    [self.titleLabel wwStyleWithFontOfSize:16];
+    self.titleLabel.font = WW_FONT_H4;
     
     [self wwStyleLightGreyTopAndBottomBorders];
 }
@@ -109,7 +109,7 @@
     [self setTitleColor:WW_GREEN_BUTTON_COLOR forState:UIControlStateNormal];
     [self setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
     
-    [self.titleLabel wwStyleWithFontOfSize:16];
+    self.titleLabel.font = WW_FONT_H4;
     [self wwStyleLightGreyTopAndBottomBorders];
 }
 
@@ -129,7 +129,7 @@
     [self setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
     [self setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
     
-    [self.titleLabel wwStyleWithFontOfSize:16];
+    self.titleLabel.font = WW_FONT_H4;
 
     [self wwStyleLightGreyTopAndBottomBorders];
 }

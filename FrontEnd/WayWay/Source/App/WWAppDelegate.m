@@ -158,14 +158,13 @@
 
 - (void) styleNavBar
 {
-    NSShadow* shadow = [[NSShadow alloc] init];
+    /*NSShadow* shadow = [[NSShadow alloc] init];
     shadow.shadowColor = [UIColor whiteColor];
-    shadow.shadowOffset = CGSizeMake(0, 1);
+    shadow.shadowOffset = CGSizeMake(0, 1);*/
     
     NSDictionary* attrs =
     @{  NSForegroundColorAttributeName : WW_ORANGE_FONT_COLOR,
-        NSFontAttributeName : [UIFont fontWithName:WW_DEFAULT_FONT_NAME size:17],
-        NSShadowAttributeName : shadow
+        NSFontAttributeName : WW_FONT_H4 //, NSShadowAttributeName : shadow
     };
     
     [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:attrs forState:UIControlStateNormal];
