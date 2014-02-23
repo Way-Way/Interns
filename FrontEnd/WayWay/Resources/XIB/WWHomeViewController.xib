@@ -88,6 +88,17 @@
                     <rect key="frame" x="0.0" y="280" width="320" height="8"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
+                <view contentMode="scaleToFill" id="sOG-Ee-32Z">
+                    <rect key="frame" x="10" y="20" width="300" height="46"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_internet_connection" id="04L-2L-M5m">
+                            <rect key="frame" x="75" y="4" width="148" height="38"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
                 <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="none" id="lg9-Ae-EvJ">
                     <rect key="frame" x="0.0" y="416" width="320" height="152"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
@@ -106,17 +117,6 @@
                         <outletCollection property="gestureRecognizers" destination="cNd-X1-czZ" appends="YES" id="54P-A8-8m8"/>
                     </connections>
                 </collectionView>
-                <view contentMode="scaleToFill" id="sOG-Ee-32Z">
-                    <rect key="frame" x="10" y="20" width="300" height="46"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_internet_connection" id="04L-2L-M5m">
-                            <rect key="frame" x="75" y="4" width="148" height="38"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                    </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                </view>
                 <view alpha="0.20000000000000001" contentMode="scaleToFill" id="LyZ-kv-S0g" userLabel="Progress Cache">
                     <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
