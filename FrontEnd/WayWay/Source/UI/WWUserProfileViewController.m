@@ -258,7 +258,8 @@ typedef enum
 {
     [Flurry logEvent:WW_FLURRY_EVENT_INVITE_FRIENDS];
     
-    NSArray* items = @[ WW_SHARE_SMS_BODY ];
+    UIImage *shareImage = [UIImage imageNamed:@"logo.png"];
+    NSArray* items = @[ WW_SHARE_SMS_BODY, shareImage];
     
     UIActivityViewController* v = [[UIActivityViewController alloc] initWithActivityItems:items applicationActivities:nil];
     v.completionHandler = ^(NSString *activityType, BOOL completed)
