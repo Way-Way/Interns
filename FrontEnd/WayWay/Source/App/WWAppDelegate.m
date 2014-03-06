@@ -8,13 +8,6 @@
 
 #import "WWInclude.h"
 
-#define CRASHLYTICS_TOKEN @"563f72dff50e854f1884bec2c900146541f80cdd"
-#define FLURRY_TOKEN @"CZ29GNW4CQP6FN75VVRC"
-#define GOOGLE_ID @"968915130"
-#define GOOGLE_LABEL @"ZX_nCJb-zwcQuvGBzgM"
-#define MIXPANEL_TOKEN @"075641a192c4d017d9b26a86f2b041f7"
-#define FACEBOOK_TOKEN @"243355059144499"
-
 @interface WWAppDelegate () <WWListResultsDelegate, UINavigationControllerDelegate, MFMailComposeViewControllerDelegate, UIAlertViewDelegate>
 
 // Main Drawer Controller
@@ -46,6 +39,7 @@
     [Flurry startSession:FLURRY_TOKEN];
     [GoogleConversionPing pingWithConversionId:GOOGLE_ID label:GOOGLE_LABEL value:@"0" isRepeatable:NO];
     [Mixpanel sharedInstanceWithToken:MIXPANEL_TOKEN];
+    [Appsee start:APPSEE_TOKEN];
     
     [UULocationManager startTracking];
     
@@ -103,8 +97,6 @@
     self.rootDrawerController.closeDrawerGestureModeMask = MMCloseDrawerGestureModeAll;
 
     self.window.rootViewController = self.rootDrawerController;
-
-    [self checkLastLaunchTime];
     
     [self.window makeKeyAndVisible];
     
@@ -114,7 +106,7 @@
         [WWSettings setHasSeenIntroSlides];
     }
     
-    [[self class] registerForPushNotifications];
+    //[[self class] registerForPushNotifications];
     [self checkRateItPopup];
     
     return YES;
@@ -135,7 +127,7 @@
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-    [self checkLastLaunchTime];
+    //[self checkLastLaunchTime];
     [self cleanupCachedStorage];
     [self checkRateItPopup];
 }
@@ -158,20 +150,19 @@
 
 - (void) styleNavBar
 {
-    NSShadow* shadow = [[NSShadow alloc] init];
+    /*NSShadow* shadow = [[NSShadow alloc] init];
     shadow.shadowColor = [UIColor whiteColor];
-    shadow.shadowOffset = CGSizeMake(0, 1);
+    shadow.shadowOffset = CGSizeMake(0, 1);*/
     
     NSDictionary* attrs =
-    @{  NSForegroundColorAttributeName : WW_ORANGE_FONT_COLOR,
-        NSFontAttributeName : [UIFont fontWithName:WW_DEFAULT_FONT_NAME size:17],
-        NSShadowAttributeName : shadow
+    @{  NSForegroundColorAttributeName : WW_LEAD_COLOR,
+        NSFontAttributeName : WW_FONT_H4 //, NSShadowAttributeName : shadow
     };
     
     [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:attrs forState:UIControlStateNormal];
     [[UIBarButtonItem appearanceWhenContainedIn:[UISearchBar class], nil] setTitleTextAttributes:attrs forState:UIControlStateNormal];
     
-    [[UISegmentedControl appearance] setTintColor:WW_ORANGE_FONT_COLOR];
+    [[UISegmentedControl appearance] setTintColor:WW_LEAD_COLOR];
 }
 
 #pragma mark - Notification Handling
@@ -252,16 +243,19 @@
 
 - (void) handlePushNewHomeViewNotification:(NSNotification*)notification
 {
-    WWHomeViewController* c = [WWHomeViewController new];
-    c.fixedSearchArgs = notification.object;
-    [self.homeNavController pushViewController:c animated:YES];
+    WWSearchArgs* args = notification.object;
+    [WWSettings saveCachedSearchArgs:args];
+    
+    [self.homeNavController popToRootViewControllerAnimated:YES];
+    [self.homeController onToggleDetails];
+    [self.homeController refreshResults];
 }
 
 - (void) handleViewPlaceInfoNotification:(NSNotification*)notification
 {
     WWPlaceInfoViewController* c = [WWPlaceInfoViewController new];
     c.place = notification.object;
-    c.place = [WWPlace cachedPlace:c.place.identifier];
+    //c.place = [WWPlace cachedPlace:c.place.identifier];
     [self.homeNavController pushViewController:c animated:YES];
 }
 
@@ -314,10 +308,10 @@
 
 #pragma mark - Launch Handling
 
-//#define WW_SEARCH_RESET_THRESHOLD (1) // 1 seconds (for dev)
-#define WW_SEARCH_RESET_THRESHOLD (24 * 60 * 60) // 1440 minutes (1 day)
+#define WW_SEARCH_RESET_THRESHOLD (1) // 1 seconds (for dev)
+//#define WW_SEARCH_RESET_THRESHOLD (24 * 60 * 60) // 1440 minutes (1 day)
 
-- (void) checkLastLaunchTime
+/*- (void) checkLastLaunchTime
 {
     NSDate* lastLaunch = [WWSettings lastLaunchTime];
     if (lastLaunch)
@@ -330,13 +324,12 @@
             WWDebugLog(@"App has not been launched in 15 minutes, clearing search args");
             WWSearchArgs* args = [WWSearchArgs new];
             [WWSettings saveCachedSearchArgs:args];
-            [WWSettings setCurrentMapLocation:nil];
             [self.homeController beginPlaceSearch];
         }
     }
     
     [WWSettings updateLastLaunchTime:[NSDate date]];
-}
+}*/
 
 - (void) cleanupCachedStorage
 {

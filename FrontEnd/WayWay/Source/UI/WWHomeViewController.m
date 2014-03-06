@@ -22,9 +22,10 @@
 
 @property (assign) BOOL isSearching;
 @property (assign) BOOL firstSearch;
-@property (assign) BOOL searchOnNextLocationChange;
+//@property (assign) BOOL searchOnNextLocationChange;
 
 @property (nonatomic, strong) NSTimer* timer;
+@property (nonatomic, strong) UIAlertView* locationAlert;
 
 @property (nonatomic, strong) WWPagedSearchResults* lastPlaceSearchResults;
 @property (nonatomic, strong) NSMutableArray* allPlaceResults;
@@ -39,7 +40,8 @@
 
 @property (nonatomic, strong) WWPlaceDetailsViewController* currentDetailsViewController;
 
-@property (nonatomic, strong) WWUnsupportedCityController* noCityController;
+
+@property (nonatomic, strong) NSDictionary* deviceId;
 
 //Gestures ???
 @property (assign) CGSize fullScreenSize;
@@ -58,8 +60,6 @@
 
 @property (assign) BOOL detailsExpanded;
 
-@property (assign) BOOL internetConnectionStat;
-
 @end
 
 @implementation WWHomeViewController
@@ -71,12 +71,11 @@
     self.halfMapViewHeight = 195 + 20; // Spec says 390retina, plus 20 for the fake header   // 114 + 106; // header + one photo row
     
     WWHomeViewController* weakSelf = self;
-    self.noCityController = [WWUnsupportedCityController new];
     
 
-    [self.filterButton setTitle:[NSString stringWithFormat:@"  %@  ",NSLocalizedString(WW_FILTER, nil)] forState:UIControlStateNormal];
-    self.filterButton.titleLabel.font = [UIFont fontWithName:WW_DEFAULT_FONT_NAME size:16];
-    self.filterButton.titleLabel.textColor = WW_BLACK_FONT_COLOR;
+    [self.filterButton setTitle:[NSString stringWithFormat:@"%@",NSLocalizedString(WW_FILTER, nil)] forState:UIControlStateNormal];
+    self.filterButton.titleLabel.font = WW_FONT_H6;
+    self.filterButton.titleLabel.textColor = WW_GRAY_COLOR_11;
     [self.filterButton setContentVerticalAlignment:UIControlContentVerticalAlignmentFill];
     
     self.filterController = [WWFilterViewController new];
@@ -155,19 +154,29 @@
     
     UIView* listButton = [[self wwListNavItem] customView];
     self.listButton = (UIButton*)listButton;
-    listButton.frame = CGRectMake(navBarContainer.bounds.size.width - listButton.bounds.size.width, 0, listButton.bounds.size.width, listButton.bounds.size.height);
+    listButton.frame = CGRectMake(navBarContainer.bounds.size.width - listButton.bounds.size.width - 6, 1, listButton.bounds.size.width, listButton.bounds.size.height);
     [navBarContainer addSubview:listButton];
     
     [navBarContainer addSubview:centerNavContainer];
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:navBarContainer];
     
-    self.searchOnNextLocationChange = (self.fixedSearchArgs == nil);
+    //self.searchOnNextLocationChange = YES;
     
     self.progressView.alpha = 0;
     
     self.firstSearch = YES;
     self.detailsExpanded = NO;
+    
+    //////////////////////////////////////////
+    // ALERT VIEW
+    self.locationAlert = [[UIAlertView alloc] initWithTitle:@"Turn on Location Services"
+                                                    message:@"1. Go to your iPhone Settings \n 2. Tap on Privacy \n 3. Tap on Location Services  \n 4. Turn on WayWay"
+                                                   delegate:nil
+                                          cancelButtonTitle:@"Got it"
+                                          otherButtonTitles: nil];
+    //self.locationAlert.delegate = self;
+    
     
     /////////////////////////////////////////
     // Map View Handling
@@ -177,7 +186,6 @@
     self.hasSetupMap = NO;
     self.isSearching = NO;
     
-    self.internetConnectionStat = YES;
     
     UIPanGestureRecognizer* panRec = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(mapViewTouched:)];
     [panRec setDelegate:self];
@@ -196,9 +204,6 @@
     self.mapView.showsUserLocation = YES;
     
     [self.infoCollectionView registerNib:[UINib nibWithNibName:@"WWMapResultsInfoCell" bundle:nil] forCellWithReuseIdentifier:@"WWMapResultsInfoCellId"];
-    
-    [self.refreshButton.titleLabel wwStyleWithFontOfSize:14];
-    [self.refreshButton setTitleColor:WW_LIGHT_GRAY_FONT_COLOR forState:UIControlStateNormal];
     
     self.progressAnimation.animationImages = @[
         [UIImage imageNamed:@"loader_00"],
@@ -241,6 +246,9 @@
     //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleLocationUpdateNotification:) name:UULocationChangedNotification object:nil];
     //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleLocationErrorNotification:) name:UULocationErrorNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleLocationAuthChangedNotification:) name:UULocationChangedNotification object:nil];
+    
+    NSString* deviceId = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+    self.deviceId = @{ @"device_id"     : deviceId};
 }
 
 - (void) viewWillAppear:(BOOL)animated
@@ -272,7 +280,7 @@
     
     [self refreshFilterButton];
     
-    if(self.firstSearch &&  [self isLocationAuthorized])
+    if(self.firstSearch)
     {
         [self beginPlaceSearch];
     }
@@ -294,14 +302,16 @@
 
 - (WWSearchArgs*) searchArgs
 {
-    if (self.fixedSearchArgs)
+    /*if (self.fixedSearchArgs)
     {
         return self.fixedSearchArgs;
     }
     else
     {
         return [WWSettings cachedSearchArgs];
-    }
+    }*/
+    
+    return [WWSettings cachedSearchArgs];
 }
 
 - (void) saveSearchArgs:(WWSearchArgs*)args
@@ -309,19 +319,34 @@
     // Only save to NSUserDefault if the fixed self.searchArgs are nil.  This will
     // only be the case on the root home view.  A pushed on home view (from a tap
     // on a hash tag will set self.searchArgs and just use them as a temporary search).
-    if (self.fixedSearchArgs)
+    /*if (self.fixedSearchArgs)
     {
         self.fixedSearchArgs = args;
     }
     else
     {
         [WWSettings saveCachedSearchArgs:args];
+    }*/
+    
+    [WWSettings saveCachedSearchArgs:args];
+}
+
+#pragma marrk - No location alert
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex == 0)//Cancel button pressed
+    {
+        
+    }
+    else if(buttonIndex == 1)//Go To Settings button pressed.
+    {
+
     }
 }
 
 #pragma mark - Notifications
 
-- (void) handleLocationUpdateNotification:(NSNotification*)notification
+/*- (void) handleLocationUpdateNotification:(NSNotification*)notification
 {
     //WWDebugLog(@"Location Update: %@", notification);
     if (self.searchOnNextLocationChange)
@@ -344,6 +369,11 @@
 }
 
 - (void) handleLocationErrorNotification:(NSNotification*)notification
+{
+    [self refreshLocateMeButton];
+}*/
+
+- (void) handleLocationAuthChangedNotification:(NSNotification*)notification
 {
     [self refreshLocateMeButton];
 }
@@ -514,11 +544,11 @@
     if(![filterTitle isEqualToString:@""])
     {
         [self.filterButton setTitle:[NSString stringWithFormat:@"  %@  ",filterTitle] forState:UIControlStateNormal];
-        [self.filterButton setTitleColor:WW_ORANGE_FONT_COLOR forState:UIControlStateNormal];
+        [self.filterButton setTitleColor:WW_LEAD_COLOR forState:UIControlStateNormal];
     }
     else
     {
-        [self.filterButton setTitle:[NSString stringWithFormat:@"  %@  ",NSLocalizedString(WW_FILTER, nil) ] forState:UIControlStateNormal];
+        [self.filterButton setTitle:[NSString stringWithFormat:@"%@",NSLocalizedString(WW_FILTER, nil) ] forState:UIControlStateNormal];
         [self.filterButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     }
     
@@ -529,49 +559,69 @@
 
 - (void) toggleNoResults:(BOOL)visible
 {
-    if (self.internetConnectionStat == NO) {
-        [UIView animateWithDuration:1.0f animations:^
-        {
-            self.noConnectionPanel.alpha = (visible ? 1 : 0);
-            if (visible) {
-                self.noConnectionPanel.frame = CGRectMake(self.noConnectionPanel.frame.origin.x, 67, self.noConnectionPanel.frame.size.width, self.noConnectionPanel.frame.size.height);
-            }
-        }
-        completion:^(BOOL finished)
-        {
-            if (visible)
-            {
-                [UIView animateWithDuration:4.0f animations:^
-                 {
-                     self.noConnectionPanel.alpha = 0;
-                     self.noConnectionPanel.frame = CGRectMake(self.noConnectionPanel.frame.origin.x, 20, self.noConnectionPanel.frame.size.width, self.noConnectionPanel.frame.size.height);
-                 }];
-            }
-        }];
+    [UIView animateWithDuration:0.3f animations:^
+    {
+        self.noResultsPanel.alpha = (visible ? 1 : 0);
     }
-    else {
-        [UIView animateWithDuration:0.3f animations:^
-         {
-             self.noResultsPanel.alpha = (visible ? 1 : 0);
-         }
-                         completion:^(BOOL finished)
-         {
-             if (visible)
+    completion:^(BOOL finished)
+    {
+        if (visible)
+        {
+            [UIView animateWithDuration:4.0f animations:^
              {
-                 [UIView animateWithDuration:4.0f animations:^
-                  {
-                      self.noResultsPanel.alpha = 0;
-                  }];
-             }
-         }];
-    }
+                 self.noResultsPanel.alpha = 0;
+             }];
+        }
+    }];
 }
 
 -(void) showUnsupportedCity
 {
-    self.noCityController = [WWUnsupportedCityController new];
-    [self.navigationController addChildViewController:self.noCityController];
-    [self.noCityController wwShowWithBackgroundBlurInView:self.navigationController.view];
+    CLLocationCoordinate2D mapCenter = [self.mapView centerCoordinate];
+    CLLocation*closestLocation = [[CLLocation alloc] initWithLatitude:mapCenter.latitude
+                                                            longitude:mapCenter.longitude];
+    
+    [[WWServer sharedInstance] featuredHashtagsWithLocation:closestLocation
+                                                 completion:^(NSError* error, NSArray* results)
+     {
+         NSString*message;
+         WWCity* city;
+         
+         if(results)
+             city = (WWCity*)results[0];
+         
+         if(closestLocation && city)
+         {
+             //Get the nearest city
+             message =[NSString stringWithFormat:@"We are working hard to cover more cities. The closest one is %@. Do you want to go there?", city.city];
+         }
+         else
+         {
+             message =@"We are working hard to cover more cities. We are currently in New York, Paris and London... Do you want to go to New York?";
+         }
+         
+         UIAlertView* unsupportedCityAlert = [[UIAlertView alloc] initWithTitle:@"This area is uncovered"
+                                                                        message:message
+                                                              completionHandler:^(NSInteger buttonIndex)
+                                                                {
+                                                                    if(buttonIndex == 1)
+                                                                    {
+                                                                        WWSearchArgs* args = [WWSearchArgs new];
+                                                                        if(city)
+                                                                            [args setFromCity:city];
+                                                                        else
+                                                                            [args setDefaultGeobox];
+                                                                        
+                                                                        [self updateMapBeforeSearch:args];
+                                                                        
+                                                                        [self beginPlaceSearch];
+                                                                    }
+                                                                    return;
+                                                                }
+                                                                   buttonTitles:@"Nevermind",@"Yes!", nil];
+         
+         [unsupportedCityAlert show];
+     }];
 }
 
 -(void) listButtonIsActive:(BOOL)isActive
@@ -588,9 +638,23 @@
     }
 }
 
+-(void) refreshButtonsLayout
+{
+    self.filterButton.hidden = NO;
+    [self listButtonIsActive:YES];
+    WWSearchArgs* args = [self searchArgs];
+    if([args.autoCompleteType isEqualToString:@"place_id"])
+    {
+        self.filterButton.hidden = YES;
+        [self listButtonIsActive:NO];
+    }
+}
+
 - (void) beginPlaceSearch
 {
     [self refreshSearchBar];
+    [self refreshFilterButton];
+    [self toggleNoResults:NO];
     
     if (self.isSearching)
     {
@@ -602,20 +666,19 @@
     
     if (![args hasGeoBox])
     {
+        CLLocation *currentlocation = [[UULocationManager sharedInstance]  currentLocation];
         
-        CLLocation *currentlocation = [WWSettings currentMapLocation];
-        if (currentlocation == nil)
+        if(currentlocation)
         {
-            currentlocation = [[UULocationManager sharedInstance]  currentLocation];
+            [args setGeoboxFromLocation:currentlocation];
         }
-        
-        [args setGeoboxFromLocation:currentlocation];
+        else
+        {
+            [args setDefaultGeobox];
+        }
         [WWSettings saveCachedSearchArgs:args];
         self.hasSetupMap = NO;
     }
-    
-    [self toggleNoResults:NO];
-    [self listButtonIsActive:YES];
     
     self.firstSearch = NO;
     self.isSearching = YES;
@@ -645,12 +708,10 @@
          {
              WWDebugLog(@"Valid search results:\n%@", results);
              self.lastPlaceSearchResults = results;
-             self.internetConnectionStat = YES;
          }
          else
          {
              WWDebugLog(@"Error with search: %@", error);
-             self.internetConnectionStat = NO;
          }
          
          BOOL hasNext = (results.nextPageUrl != nil);
@@ -668,6 +729,8 @@
                  [self changeSelectedPlace:self.allPlaceResults[0]];
              }
          }
+         
+         [self refreshButtonsLayout];
      }];
 }
 
@@ -726,7 +789,9 @@
 
 - (IBAction) onFilterButtonClicked:(id)sender
 {
-    [Flurry logEvent:WW_FLURRY_EVENT_TAP_ON_FILTER];
+    [Flurry logEvent:WW_FLURRY_EVENT_TAP_ON_FILTER withParameters:self.deviceId];
+    
+    [self setSearchArgsFromCurrentMap];
     
     self.filterController.mapRegion = self.mapView.region;
     self.filterController.currentSearchArgs = [self searchArgs];
@@ -735,7 +800,7 @@
 
 - (void) onNavSearchButtonClicked:(id)sender
 {
-    [Flurry logEvent:WW_FLURRY_EVENT_TAP_ON_SEARCH];
+    [Flurry logEvent:WW_FLURRY_EVENT_TAP_ON_SEARCH withParameters:self.deviceId];
     
     [self setSearchArgsFromCurrentMap];
     [self.searchNavController wwShowWithBackgroundBlurInView:self.navigationController.view];
@@ -743,6 +808,8 @@
 
 - (void) onNavClearSearchClicked:(id)sender
 {
+    [self setSearchArgsFromCurrentMap];
+    
     WWSearchArgs* args = [self searchArgs];
     if (args.autoCompleteArg && args.autoCompleteType)
     {
@@ -777,7 +844,7 @@
 
 - (void) mapViewTouched:(UIGestureRecognizer*)gr
 {
-#warning This is not taking into account that even when the gesture is ended the movement of the map can continue ...
+    //This is not taking into account that even when the gesture is ended the movement of the map can continue ...
     if (gr.state != UIGestureRecognizerStateEnded)
     {
         return;
@@ -785,7 +852,7 @@
     
     if([gr isKindOfClass:[UIPinchGestureRecognizer class]] || [gr isKindOfClass:[UIPanGestureRecognizer class]])
     {
-        [Flurry logEvent:WW_FLURRY_EVENT_MOVE_MAP];
+        [Flurry logEvent:WW_FLURRY_EVENT_MOVE_MAP withParameters:self.deviceId];
     }
     
     [self toggleRefreshButton:YES];
@@ -836,18 +903,29 @@
     
     if (self.selectedPlace)
     {
-        [Flurry logEvent:WW_FLURRY_EVENT_TAP_REDO_SEARCH_HALF_MAP];
+        [Flurry logEvent:WW_FLURRY_EVENT_TAP_REDO_SEARCH_HALF_MAP withParameters:self.deviceId];
     }
     else
     {
-        [Flurry logEvent:WW_FLURRY_EVENT_TAP_ON_REDO_SEARCH_FULL_MAP];
+        [Flurry logEvent:WW_FLURRY_EVENT_TAP_ON_REDO_SEARCH_FULL_MAP withParameters:self.deviceId];
     }
 }
 
 - (IBAction)onLocateMeClicked:(id)sender
 {
+    // Using nil argument when manually calling this, don't want to produce incorrect flurry events
+    if (sender)
+    {
+        [Flurry logEvent:WW_FLURRY_EVENT_TAP_ON_RECENTER withParameters:self.deviceId];
+    }
+    
+    if(![self isLocationAuthorized])
+    {
+        [self popupNoLocationAuthorized];
+        return;
+    }
+    
     CLLocation* loc = [[UULocationManager sharedInstance] currentLocation];
-    [WWSettings setCurrentMapLocation:loc];
     
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(loc.coordinate, WW_DEFAULT_SEARCH_RADIUS, WW_DEFAULT_SEARCH_RADIUS);
     [self.mapView setRegion:region animated:YES];
@@ -857,17 +935,17 @@
     WWSearchArgs* args = [self searchArgs];
     [args setGeoboxFromMapRegion:region];
     [self saveSearchArgs:args];
-    
-    // Using nil argument when manually calling this, don't want to produce incorrect flurry events
-    if (sender)
-    {
-        [Flurry logEvent:WW_FLURRY_EVENT_TAP_ON_RECENTER];
-    }
+    [self beginPlaceSearch];
+}
+
+- (void) popupNoLocationAuthorized
+{
+    [self.locationAlert show];
 }
 
 - (void)onListButtonClicked:(id)sender
 {
-    [Flurry logEvent:WW_FLURRY_EVENT_VIEW_LIST_RESULTS];
+    [Flurry logEvent:WW_FLURRY_EVENT_VIEW_LIST_RESULTS withParameters:self.deviceId];
     
     WWSearchArgs* args = [self searchArgs];
     NSString* hashtag = nil;
@@ -898,25 +976,20 @@
 {
     if (self.detailsExpanded)
     {
-        [Flurry logEvent:WW_FLURRY_EVENT_CLOSE_PLACE_DETAILS];
+        [Flurry logEvent:WW_FLURRY_EVENT_CLOSE_PLACE_DETAILS withParameters:self.deviceId];
     }
     else
     {
-        [Flurry logEvent:WW_FLURRY_EVENT_TAP_TOP_OF_HALF_MAP_TO_EXPAND];
+        [Flurry logEvent:WW_FLURRY_EVENT_TAP_TOP_OF_HALF_MAP_TO_EXPAND withParameters:self.deviceId];
     }
     
     self.detailsExpanded = !self.detailsExpanded;
     [self updateSelectedPlace];
 }
 
-- (void) handleLocationAuthChangedNotification:(NSNotification*)notification
-{
-    [self refreshLocateMeButton];
-}
-
 - (void) refreshLocateMeButton
 {
-    self.locateMeButton.enabled = [self isLocationAuthorized];
+    //self.locateMeButton.enabled = [self isLocationAuthorized];
 }
 
 #pragma mark - Map View
@@ -1015,6 +1088,11 @@
     {
         self.hasSetupMap = YES;
         [self.mapView uuZoomToAnnotations:YES];
+    }
+    
+    if (centerOnSelected)
+    {
+        [self setSearchArgsFromCurrentMap];
     }
 }
 
@@ -1229,6 +1307,13 @@
         return;
     }
     
+    int pinsLeftToShow = self.allPlaceResults.count - index;
+    if (pinsLeftToShow < 5 && self.hasNextResults)
+    {
+        WWDebugLog(@"Fetching another page of places");
+        [[NSNotificationCenter defaultCenter] postNotificationName:WW_TRIGGER_SERVER_FETCH_NEXT_PAGE_NOTIFICATION object:nil];
+    }
+    
     for (id anno in self.mapView.annotations)
     {
         if ([anno isKindOfClass:[WWPlaceAnnotation class]])
@@ -1241,13 +1326,6 @@
                 return;
             }
         }
-    }
-    
-    int pinsLeftToShow = self.allPlaceResults.count - index;
-    if (pinsLeftToShow < 5 && self.hasNextResults)
-    {
-        WWDebugLog(@"Fetching another page of places");
-        [[NSNotificationCenter defaultCenter] postNotificationName:WW_TRIGGER_SERVER_FETCH_NEXT_PAGE_NOTIFICATION object:nil];
     }
     
     // If we get here it means we didn't find an annotation to select and we need to adjust the currentOffset

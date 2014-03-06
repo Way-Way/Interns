@@ -8,11 +8,12 @@
 
 #import "WWInclude.h"
 
+@class WWCity;
 
 @interface WWSearchArgs : NSObject
 
 //Autocomplete place search
-#warning - RB : Put an enum here !!!
+// RB : Put an enum here !!!
 @property (nonatomic, copy) NSString* autoCompleteType;
 
 @property (nonatomic, copy) NSString* autoCompleteArg;
@@ -52,10 +53,13 @@
 - (NSDictionary*) toDictionary;
 + (instancetype) fromDictionary:(NSDictionary*)dictionary;
 
+- (void) setFromCity:(WWCity*)city;
+
 - (MKCoordinateRegion) coordinateRegion;
 - (void) setGeoboxFromMapRegion:(MKCoordinateRegion)region;
 - (void) setGeoboxToCurrentLocation;
 - (void) setGeoboxFromLocation:(CLLocation*)location;
+- (void) setDefaultGeobox;
 - (BOOL) hasGeoBox;
 - (void)clearFilterArgs;
 

@@ -30,8 +30,6 @@
 - (UISearchBar*) wwNavSearchBar;
 - (void) wwUpdateNavTitle:(NSString*)text;
 
-- (void) wwFormatScoreLabel:(UILabel*)label place:(WWPlace*)place;
-
 
 - (void) wwShowWithBackgroundBlurInView:(UIView*)view;
 - (void) wwShowWithAlphaFadeInView:(UIView*)view;

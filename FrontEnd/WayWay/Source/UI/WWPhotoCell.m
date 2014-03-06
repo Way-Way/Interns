@@ -23,7 +23,14 @@
 {
     [super awakeFromNib];
     self.scrollView.delegate = self;
-    self.instagramUserView  = [[UIView alloc] init];
+    //self.instagramUserView  = [[UIView alloc] init];
+    self.instagramLogo.hidden = YES;
+    
+    //Add tap gesture
+    self.instagramLogo.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onInstagramLogoTapped:)];
+    [tapRecognizer setNumberOfTapsRequired:1];
+    [self.instagramLogo addGestureRecognizer:tapRecognizer];
 }
 
 -(void) layoutSubviews
@@ -33,6 +40,9 @@
 
 - (void) update:(WWPhoto*)photo highlightedHashTag:(NSString*)hashTag
 {
+    self.instagramLogo.hidden = YES;
+    self.lockImage.hidden = YES;
+    
     self.photo = photo;
     self.highlightedHashTag = hashTag;
     self.scrollView.contentOffset = CGPointMake(0,0);
@@ -56,13 +66,13 @@
             thumbImage = [UIImage imageWithData:thumbData];
             if(thumbImage)
             {
+                self.instagramLogo.hidden = NO;
                 self.imageView.image = thumbImage;
             }
 
         }
     }
     
-    self.lockImage.hidden = YES;
     NSURL* fullPhotoUrl = [NSURL URLWithString:[self.photo fullUrl]];
     
     [WWImageDownloader downloadImage:fullPhotoUrl photoId:self.photo.identifier completion:^(BOOL success, UIImage *image)
@@ -74,6 +84,9 @@
          {
              self.imageView.image = image;
          }
+         
+         if(self.instagramLogo.hidden)
+             self.instagramLogo.hidden = !success;
          self.lockImage.hidden = success;
          self.allowForZoom = success;
      }];
@@ -98,8 +111,10 @@
         
         CGAffineTransform zoom = CGAffineTransformMakeScale(scale, scale);
         CGAffineTransform translate = CGAffineTransformMakeTranslation(0, translation);
+        CGAffineTransform translateLogo = CGAffineTransformMakeTranslation(0, translation/2.0);
     
         self.imageView.transform = CGAffineTransformConcat(translate,zoom);
+        self.instagramLogo.transform = translateLogo;
         
         //Why should we even need this???!
         translate = CGAffineTransformMakeTranslation(0, translation/4.0);
@@ -113,10 +128,10 @@
     UIColor* color;
     WWHashtagButton* hashtag;
     double xPosition = 0;
-    double yPosition = 8;
+    double yPosition = 16;
     
-    double xSpacing = 4;
-    double ySpacing = 4;
+    double xSpacing = 6;
+    double ySpacing = 6;
     
     [[self.hashtagContainer subviews]  makeObjectsPerformSelector:@selector(removeFromSuperview)];
     
@@ -124,11 +139,11 @@
     {
         if([s isEqualToString:self.highlightedHashTag])
         {
-            color = WW_ORANGE_FONT_COLOR;
+            color = WW_LEAD_COLOR;
         }
         else
         {
-            color = WW_BLACK_FONT_COLOR;
+            color = WW_GRAY_COLOR_11;
         }
         
         hashtag = [[WWHashtagButton alloc ] initWithFrame:CGRectMake(xPosition, yPosition, 0, 0)];
@@ -151,16 +166,75 @@
         xPosition+= xSpacing;
     }
     
-    double yInstagramSpacing = 40;
-    double instagramHeight = 30;
-    double finalSpacing = 5;
+    double yExtraSpacing = 40;
+    double finalSpacing = 35;
     
+
+    
+    //Time Logo
+    UIImageView * timeLogo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"time"]];
+    timeLogo.frame = CGRectMake(0.0,
+                                yPosition + yExtraSpacing,
+                                timeLogo.frame.size.width,
+                                timeLogo.frame.size.height);
+    
+    [self.hashtagContainer addSubview:timeLogo];
+    
+    //Time label
+    UILabel* timeLabel = [[UILabel alloc] initWithFrame: CGRectMake(0, 0, 0, 0)];
+    
+    
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]; //to comment later for translation
+    
+    [formatter setDateFormat:@"EEEE"];
+    NSString* day = [formatter stringFromDate:self.photo.timestamp];
+    
+    [formatter setDateFormat:@"MMMM"];
+    NSString* month = [formatter stringFromDate:self.photo.timestamp];
+
+    
+    //timezone pb...
+    NSString* timeOfDay = @"";
+    
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *components = [calendar components:(NSHourCalendarUnit) fromDate:self.photo.timestamp];
+    NSInteger hour = [components hour];
+    
+    if(2<hour && hour<=5)
+        timeOfDay = @"late at night";
+    else if(5<hour && hour<=8)
+        timeOfDay = @"early in the morning";
+    else if(8<hour && hour<=11)
+        timeOfDay = @"morning";
+    else if(11<hour && hour<=14)
+        timeOfDay = @"at noon";
+    else if(14<hour && hour<=17)
+        timeOfDay = @"afternoon";
+    else if(17<hour && hour<=21)
+        timeOfDay = @"evening";
+    else
+        timeOfDay = @"night";
+        
+    
+    NSString* text= [NSString stringWithFormat:@"on a %@ %@, in %@", day, timeOfDay, month];
+    [timeLabel setText:text];
+    timeLabel.font = WW_FONT_H5;
+    [timeLabel setTextColor:WW_GRAY_COLOR_4];
+    [timeLabel sizeToFit];
+    timeLabel.frame = CGRectMake(timeLogo.frame.size.width + xSpacing,
+                                 yPosition + yExtraSpacing,
+                                 timeLabel.frame.size.width,
+                                 timeLabel.frame.size.height);
+    
+    [self.hashtagContainer addSubview:timeLabel];
+
+    
+    
+    //Set-up the scroll container
     CGRect frame = self.hashtagContainer.frame;
-    self.instagramUserView.frame = CGRectMake(0, yPosition + yInstagramSpacing, frame.size.width, instagramHeight);
-    [self.hashtagContainer addSubview:self.instagramUserView];
-    [self setInstagramContainer];
-    
-    yPosition += yInstagramSpacing + instagramHeight + finalSpacing;
+    yPosition += yExtraSpacing + finalSpacing;
     self.hashtagContainer.frame = CGRectMake(frame.origin.x,
                                              frame.origin.y,
                                              frame.size.width,
@@ -170,7 +244,7 @@
     CGRect screenBounds = [[UIScreen mainScreen] bounds];
     CGFloat maxBound = screenBounds.size.height + finalSpacing;
     
-    CGFloat contentHeight = MAX(frame.size.width + yPosition,
+    CGFloat contentHeight = MAX(frame.size.width + yPosition + 64,
                                 maxBound);
     self.scrollContent.frame = CGRectMake(frame.origin.x,
                                           frame.origin.y,
@@ -199,55 +273,7 @@
     }
 }
 
-//Set instagram container
--(void) setInstagramContainer
-{
-    [self.instagramUserView.subviews makeObjectsPerformSelector: @selector(removeFromSuperview)];
-    
-    //Add label
-    UILabel* instagramUserLabel = [[UILabel alloc] initWithFrame: CGRectMake(0, 0, 0, 0)];
-    
-    instagramUserLabel.font =[UIFont fontWithName:WW_DEFAULT_FONT_NAME size:14];
-    NSString* text;
-    if(self.photo.instagramUserName)
-    {
-        text = [NSString stringWithFormat:@"%@ on ", self.photo.instagramUserName];
-    }
-    else
-    {
-        text = @"Powered by ";
-    }
-    [instagramUserLabel setText:text];
-    [instagramUserLabel setTextColor:WW_LIGHT_GRAY_FONT_COLOR];
-    [instagramUserLabel sizeToFit];
-
-    //Instagram Logo
-    UIImageView * instagramLogo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"instagram"]];
-    CGRect frame = instagramLogo.frame;
-    
-
-    
-    double xposition = (self.instagramUserView.frame.size.width - (instagramUserLabel.frame.size.width + instagramLogo.frame.size.width))/2.0;
-    instagramUserLabel.frame = CGRectMake(xposition, 4, instagramUserLabel.frame.size.width, instagramUserLabel.frame.size.height);
-    instagramLogo.frame = CGRectMake(instagramUserLabel.frame.origin.x + instagramUserLabel.frame.size.width ,
-                                     instagramUserLabel.frame.origin.y,
-                                     frame.size.width,
-                                     frame.size.height);
-    
-
-    
-    [self.instagramUserView addSubview:instagramUserLabel];
-    [self.instagramUserView addSubview:instagramLogo];
-    
-    //Add tap gesture
-    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onInstagramContainerTapped:)];
-    [tapRecognizer setNumberOfTapsRequired:1];
-    [self.instagramUserView addGestureRecognizer:tapRecognizer];
-    
-    
-}
-
-- (void)onInstagramContainerTapped:(id)sender
+- (void)onInstagramLogoTapped:(id)sender
 {
     if (self.photo.instagramUserName)
     {

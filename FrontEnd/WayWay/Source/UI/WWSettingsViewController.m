@@ -79,7 +79,8 @@ typedef enum
     
     NSArray* logoutItems =
     @[
-        @{@"id":@(WWSettingsActionLogout),             @"name":NSLocalizedString(WW_SETTINGS_SIGN_OUT, nil)},
+        @{@"id":@(WWSettingsActionLogout),
+          @"name":NSLocalizedString(WW_SETTINGS_SIGN_OUT, nil)},
       ];
     
     self.tableData = [NSMutableArray array];
@@ -98,7 +99,7 @@ typedef enum
     self.navigationItem.leftBarButtonItem = [self wwMenuNavItem];
     self.navigationItem.titleView = [self wwCenterNavItem:@"Settings"];
     
-    self.tableView.backgroundColor = WW_GRAY_BACKGROUND;
+    self.tableView.backgroundColor = WW_GRAY_COLOR_2;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -163,8 +164,8 @@ typedef enum
 - (UIView*) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(15, 20, 200, 30)];
-    [label wwStyleWithFontOfSize:18];
-    label.textColor = WW_LIGHT_GRAY_FONT_COLOR;
+    label.font = WW_FONT_H4;
+    label.textColor = WW_GRAY_COLOR_7;
     label.textAlignment = NSTextAlignmentLeft;
     label.backgroundColor = [UIColor clearColor];
     
@@ -180,8 +181,8 @@ typedef enum
 - (UIView*) tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
     UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(15, 5, 200, 30)];
-    [label wwStyleWithFontOfSize:15];
-    label.textColor = WW_LIGHT_GRAY_FONT_COLOR;
+    label.font = WW_FONT_H6;
+    label.textColor = WW_GRAY_COLOR_7;
     label.textAlignment = NSTextAlignmentLeft;
     label.backgroundColor = [UIColor clearColor];
     
@@ -211,12 +212,12 @@ typedef enum
     {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
         cell.textLabel.textColor = [UIColor blackColor];
-        [cell.textLabel wwStyleWithFontOfSize:18];
+        cell.textLabel.font = WW_FONT_H4;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
         if ([d[@"id"] integerValue] == WWSettingsActionLogout)
         {
-            cell.textLabel.textColor = [UIColor uuColorFromHex:@"981810"];
+            cell.textLabel.textColor = WW_LEAD_COLOR;
             cell.textLabel.textAlignment = NSTextAlignmentCenter;
         }
     }

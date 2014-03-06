@@ -45,8 +45,14 @@
     }
     
     //Preload all small resolution images
-    [self loadSmallResImages];
+    [self requirePhotos];
 }
+
+/*-(void) viewWillDisappear:(BOOL)animated
+{
+    [self.place cancelRequests];
+    [super viewWillDisappear:animated];
+}*/
 
 -(void) loadSmallResImages
 {
@@ -55,6 +61,19 @@
         NSURL* photoUrl = [NSURL URLWithString:[photo smallImageUrl]];
         [WWImageDownloader downloadImage:photoUrl photoId:photo.identifier completion:nil];
     }
+}
+
+-(void)requirePhotos
+{
+    if(self.currentFilter == WWPhotoFilterTags && self.photos.count <=3)
+    {
+        [self.place beginPhotoFetchByHashTag:self.highlightedHashTag
+                                  completion:^(NSArray* photos, WWPagedSearchResults* pagedResults)
+        {
+            [self handleNextPageResponse:photos pagedResults:pagedResults];
+        }];
+    }
+    [self loadSmallResImages];
 }
 
 #pragma mark - Collection View
@@ -169,13 +188,26 @@
         [updatedIndexPaths addObject:ip];
     }
     
-    [self.collectionView performBatchUpdates:^
-     {
-         [self.collectionView insertItemsAtIndexPaths:updatedIndexPaths];
+    //Temporary hack
+    //If hashtag did change before we received an answer, the app will crash when trying to update the collection view
+    @try
+    {
+    
+        [self.collectionView performBatchUpdates:^
+         {
+             [self.collectionView insertItemsAtIndexPaths:updatedIndexPaths];
          
-     } completion:^(BOOL finished)
-     {
-     }];
+         } completion:^(BOOL finished)
+         {
+         }];
+    }
+    @catch(NSException * e)
+    {
+        NSLog(@"Exception: %@", e);
+    }
+    @finally {
+        NSLog(@"finally");
+    }
 }
 
 @end

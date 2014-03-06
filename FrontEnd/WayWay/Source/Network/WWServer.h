@@ -9,14 +9,8 @@
 #import "WWInclude.h"
 
 @class WWSearchArgs;
-@class WWCity;
-@class WWNeighborhood;
 @class WWCategory;
-@class WWPrice;
-@class WWDistance;
-@class WWScoreType;
 @class WWPlace;
-@class WWSearchType;
 @class WWPagedSearchResults;
 @class WWUser;
 @class WWPhoto;

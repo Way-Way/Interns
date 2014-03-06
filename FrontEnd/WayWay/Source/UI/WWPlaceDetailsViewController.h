@@ -14,6 +14,7 @@
 #import "WWInclude.h"
 
 
+
 @protocol WWPlaceDetailsViewControllerDelegate <NSObject>
 
 - (void) onSwipeDetailsUp;
@@ -41,17 +42,16 @@
 @property (strong, nonatomic) IBOutlet UIButton *atmosphereButton;
 @property (strong, nonatomic) IBOutlet UIButton *peopleButton;
 
-@property (strong, nonatomic) IBOutlet UILabel *noPhotosLabel;
 @property (strong, nonatomic) IBOutlet UINavigationItem *navItem;
 @property (strong, nonatomic) IBOutlet UIView *buttonContainerView;
 
 
 
-@property (strong, nonatomic) IBOutlet UIImageView *trendingIcon;
+@property (strong, nonatomic) IBOutlet WWScoreView *scoreView;
+
 
 @property (strong, nonatomic) IBOutlet UILabel *infoLabel;
 @property (strong, nonatomic) IBOutlet UILabel *categoriesLabel;
-@property (strong, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (strong, nonatomic) IBOutlet UILabel *headerLabel;
 @property (strong, nonatomic) IBOutlet UIView *headerContainerView;
 @property (strong, nonatomic) IBOutlet UIView *behindStatusBarView;

@@ -22,9 +22,9 @@
 {
     [super viewDidLoad];
     
-    [self.noResultsMessage wwStyleWithBoldFontOfSize:18];
-    [self.noResultsInfo wwStyleWithFontOfSize:16];
-    self.noResultsInfo.textColor = WW_LIGHT_GRAY_FONT_COLOR;
+    self.noResultsMessage.font = WW_FONT_H4;
+    self.noResultsInfo.font = WW_FONT_H6;
+    self.noResultsInfo.textColor = WW_GRAY_COLOR_7;
     
     self.navigationItem.leftBarButtonItem = [self wwMenuNavItem];
     self.navigationItem.titleView = [self wwCenterNavItem:@"My Favorites"];

@@ -53,15 +53,15 @@
     
     [self.clearFiltersButton setBackgroundImage:[UIImage wwSolidColorImage:[UIColor clearColor]] forState:UIControlStateNormal];
     [self.clearFiltersButton setBackgroundImage:[UIImage wwSolidColorImage:[UIColor clearColor]] forState:UIControlStateDisabled];
-    [self.clearFiltersButton setBackgroundImage:[UIImage wwSolidColorImage:WW_GRAY_BACKGROUND] forState:UIControlStateHighlighted];
+    [self.clearFiltersButton setBackgroundImage:[UIImage wwSolidColorImage:WW_GRAY_COLOR_2] forState:UIControlStateHighlighted];
     
     
     [self.clearFiltersButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-    [self.clearFiltersButton setTitleColor:WW_LIGHT_GRAY_BUTTON_COLOR forState:UIControlStateDisabled];
+    [self.clearFiltersButton setTitleColor:WW_GRAY_COLOR_6 forState:UIControlStateDisabled];
     [self.clearFiltersButton setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
     
     
-    [self.clearFiltersButton.titleLabel wwStyleWithFontOfSize:21];
+    self.clearFiltersButton.titleLabel.font = WW_FONT_H4;
     
     //Location autocomplete
     self.locationFilterController = [WWLocationFilterViewController new];

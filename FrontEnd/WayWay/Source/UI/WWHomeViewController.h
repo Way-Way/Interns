@@ -14,6 +14,7 @@
     UICollectionViewDataSource,
     UICollectionViewDelegate,
     UICollectionViewDelegateFlowLayout,
+    UIAlertViewDelegate,
 
     WWPlaceDetailsViewControllerDelegate,
     WWFilterViewControllerDelegate
@@ -31,7 +32,6 @@
 
 @property (strong, nonatomic) IBOutlet UIView* noResultsPanel;
 
-@property (weak, nonatomic) IBOutlet UIView *noConnectionPanel;
 
 @property (strong, nonatomic) IBOutlet UIGestureRecognizer* longPressGesture;
 
@@ -52,7 +52,7 @@
 
 
 // If set these are to be used over the cached args
-@property (nonatomic, strong) WWSearchArgs* fixedSearchArgs;
+//@property (nonatomic, strong) WWSearchArgs* fixedSearchArgs;
 
 - (IBAction)onRefreshButtonTapped:(id)sender;
 - (IBAction)onLocateMeClicked:(id)sender;

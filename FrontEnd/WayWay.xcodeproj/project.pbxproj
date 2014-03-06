@@ -104,8 +104,11 @@
 		88236F6718A1818700FC125E /* WWHashtagButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 88236F6618A1818700FC125E /* WWHashtagButton.m */; };
 		88236F6918A2DB3A00FC125E /* WWPhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88236F6818A2DB3A00FC125E /* WWPhotoCell.xib */; };
 		88383DEE18A05E3A00BF46A0 /* WWListLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 88383DED18A05E3A00BF46A0 /* WWListLabel.m */; };
-		88D1922518AAEF5B00B74A94 /* WWUnsupportedCityController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D1922318AAEF5B00B74A94 /* WWUnsupportedCityController.m */; };
-		88D1922618AAEF5B00B74A94 /* WWUnsupportedCityController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88D1922418AAEF5B00B74A94 /* WWUnsupportedCityController.xib */; };
+		8848E5FF18B5221E0055B081 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8848E5FE18B5221E0055B081 /* AVFoundation.framework */; };
+		8848E60118B522410055B081 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8848E60018B522410055B081 /* CoreMedia.framework */; };
+		8848E60318B5224E0055B081 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8848E60218B5224E0055B081 /* CoreVideo.framework */; };
+		884CB65018C66F4A00BF5F19 /* Appsee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 884CB64F18C66F4A00BF5F19 /* Appsee.framework */; };
+		8874977618BEAC7700C82911 /* WWScoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8874977518BEAC7700C82911 /* WWScoreView.m */; };
 		9413ED9C179EC2F900664B00 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9413ED9B179EC2F900664B00 /* SystemConfiguration.framework */; };
 		94358B771778EFDE00882E98 /* WWListResultsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94358B761778EFDE00882E98 /* WWListResultsViewController.xib */; };
 		943DDD5E1778B33700B6EAEE /* WWPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 943DDD5D1778B33700B6EAEE /* WWPhoto.m */; };
@@ -147,7 +150,7 @@
 		CCA31A981891642B00764BF7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CCA31A9A1891642B00764BF7 /* Localizable.strings */; };
 		CCA3AC3A1833EEF8003DF903 /* WWImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = CCA3AC391833EEF8003DF903 /* WWImageDownloader.m */; };
 		CCD2FFAE189A9D20000A543C /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = CCD2FFAD189A9D20000A543C /* Podfile */; };
-		CCD2FFB1189C0B0D000A543C /* WWFeaturedHashtag.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD2FFB0189C0B0D000A543C /* WWFeaturedHashtag.m */; };
+		CCD2FFB1189C0B0D000A543C /* WWCity.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD2FFB0189C0B0D000A543C /* WWCity.m */; };
 		CCDF060C18857A1D00006716 /* libGoogleConversionTracking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CCDF060B18857A1D00006716 /* libGoogleConversionTracking.a */; };
 		CCDF060E18857A8400006716 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCDF060D18857A8400006716 /* AdSupport.framework */; };
 /* End PBXBuildFile section */
@@ -308,9 +311,12 @@
 		88236F6818A2DB3A00FC125E /* WWPhotoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WWPhotoCell.xib; sourceTree = "<group>"; };
 		88383DEC18A05E3A00BF46A0 /* WWListLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WWListLabel.h; path = WayWay/Source/UI/WWListLabel.h; sourceTree = SOURCE_ROOT; };
 		88383DED18A05E3A00BF46A0 /* WWListLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WWListLabel.m; path = WayWay/Source/UI/WWListLabel.m; sourceTree = SOURCE_ROOT; };
-		88D1922218AAEF5B00B74A94 /* WWUnsupportedCityController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWUnsupportedCityController.h; sourceTree = "<group>"; };
-		88D1922318AAEF5B00B74A94 /* WWUnsupportedCityController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWUnsupportedCityController.m; sourceTree = "<group>"; };
-		88D1922418AAEF5B00B74A94 /* WWUnsupportedCityController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WWUnsupportedCityController.xib; path = ../../Source/UI/WWUnsupportedCityController.xib; sourceTree = "<group>"; };
+		8848E5FE18B5221E0055B081 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		8848E60018B522410055B081 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		8848E60218B5224E0055B081 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		884CB64F18C66F4A00BF5F19 /* Appsee.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Appsee.framework; sourceTree = "<group>"; };
+		8874977418BEAC7700C82911 /* WWScoreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWScoreView.h; sourceTree = "<group>"; };
+		8874977518BEAC7700C82911 /* WWScoreView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWScoreView.m; sourceTree = "<group>"; };
 		9413ED98179EC28F00664B00 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
 		9413ED9B179EC2F900664B00 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		94358B761778EFDE00882E98 /* WWListResultsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WWListResultsViewController.xib; sourceTree = "<group>"; };
@@ -382,8 +388,8 @@
 		CCA3AC381833EEF8003DF903 /* WWImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWImageDownloader.h; sourceTree = "<group>"; };
 		CCA3AC391833EEF8003DF903 /* WWImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWImageDownloader.m; sourceTree = "<group>"; };
 		CCD2FFAD189A9D20000A543C /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		CCD2FFAF189C0B0D000A543C /* WWFeaturedHashtag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWFeaturedHashtag.h; sourceTree = "<group>"; };
-		CCD2FFB0189C0B0D000A543C /* WWFeaturedHashtag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWFeaturedHashtag.m; sourceTree = "<group>"; };
+		CCD2FFAF189C0B0D000A543C /* WWCity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWCity.h; sourceTree = "<group>"; };
+		CCD2FFB0189C0B0D000A543C /* WWCity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWCity.m; sourceTree = "<group>"; };
 		CCDF060A18857A1D00006716 /* GoogleConversionPing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoogleConversionPing.h; path = GoogleConversionTrackingSDK/GoogleConversionPing.h; sourceTree = SOURCE_ROOT; };
 		CCDF060B18857A1D00006716 /* libGoogleConversionTracking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleConversionTracking.a; path = GoogleConversionTrackingSDK/libGoogleConversionTracking.a; sourceTree = SOURCE_ROOT; };
 		CCDF060D18857A8400006716 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
@@ -394,6 +400,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8848E60318B5224E0055B081 /* CoreVideo.framework in Frameworks */,
+				8848E60118B522410055B081 /* CoreMedia.framework in Frameworks */,
+				8848E5FF18B5221E0055B081 /* AVFoundation.framework in Frameworks */,
 				CCDF060E18857A8400006716 /* AdSupport.framework in Frameworks */,
 				945ABE671746D016003A1B7B /* UIKit.framework in Frameworks */,
 				945ABE691746D016003A1B7B /* Foundation.framework in Frameworks */,
@@ -413,6 +422,7 @@
 				081533E0183D5D0D00791A5D /* CoreText.framework in Frameworks */,
 				0800B91A17A8632B004D1F4B /* Social.framework in Frameworks */,
 				08A2BDD017BEAE6700B2ABFA /* libFlurry_4.2.3.a in Frameworks */,
+				884CB65018C66F4A00BF5F19 /* Appsee.framework in Frameworks */,
 				CCDF060C18857A1D00006716 /* libGoogleConversionTracking.a in Frameworks */,
 				081B0D9817AC21FE003C7387 /* AddressBook.framework in Frameworks */,
 				197FDD45A47243ACA8003F2B /* libPods.a in Frameworks */,
@@ -561,8 +571,6 @@
 				0869839217BDB0E200AC72A7 /* WWMapResultsInfoCell.m */,
 				08B725A9186102E700F6CD23 /* WWIntroViewController.h */,
 				08B725AA186102E700F6CD23 /* WWIntroViewController.m */,
-				88D1922218AAEF5B00B74A94 /* WWUnsupportedCityController.h */,
-				88D1922318AAEF5B00B74A94 /* WWUnsupportedCityController.m */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -570,7 +578,6 @@
 		943DDD711778E31A00B6EAEE /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				88D1922418AAEF5B00B74A94 /* WWUnsupportedCityController.xib */,
 				945ABEB61746D82A003A1B7B /* WWHomeViewController.xib */,
 				08B725AE1861030000F6CD23 /* WWIntroViewController.xib */,
 				08E21AAA1863F1DB00D9946F /* WWIntroViewController-35in.xib */,
@@ -621,6 +628,10 @@
 		945ABE651746D016003A1B7B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				884CB64F18C66F4A00BF5F19 /* Appsee.framework */,
+				8848E60218B5224E0055B081 /* CoreVideo.framework */,
+				8848E60018B522410055B081 /* CoreMedia.framework */,
+				8848E5FE18B5221E0055B081 /* AVFoundation.framework */,
 				CCDF060D18857A8400006716 /* AdSupport.framework */,
 				081533DF183D5D0D00791A5D /* CoreText.framework */,
 				081B0D9717AC21FE003C7387 /* AddressBook.framework */,
@@ -741,8 +752,8 @@
 				CC7371E41847801C001F798A /* WWAutoCompleteResult.m */,
 				CC7371E6184782C6001F798A /* WWArea.h */,
 				CC7371E7184782C6001F798A /* WWArea.m */,
-				CCD2FFAF189C0B0D000A543C /* WWFeaturedHashtag.h */,
-				CCD2FFB0189C0B0D000A543C /* WWFeaturedHashtag.m */,
+				CCD2FFAF189C0B0D000A543C /* WWCity.h */,
+				CCD2FFB0189C0B0D000A543C /* WWCity.m */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -878,6 +889,8 @@
 				08FE404518500A2500FCB860 /* WWSpacerCell.m */,
 				88236F6518A1818700FC125E /* WWHashtagButton.h */,
 				88236F6618A1818700FC125E /* WWHashtagButton.m */,
+				8874977418BEAC7700C82911 /* WWScoreView.h */,
+				8874977518BEAC7700C82911 /* WWScoreView.m */,
 			);
 			name = Details;
 			sourceTree = "<group>";
@@ -1023,7 +1036,6 @@
 				084A6028181870F9007F164D /* Bariol_Light.otf in Resources */,
 				089A9503180DCD3D00267CBC /* README.md in Resources */,
 				081533ED1840170B00791A5D /* WWPhotoHashTagViewController.xib in Resources */,
-				88D1922618AAEF5B00B74A94 /* WWUnsupportedCityController.xib in Resources */,
 				08DF11FC17B06DB1004FF6BA /* WWFilterViewController.xib in Resources */,
 				08DF120617B0A200004FF6BA /* WWMenuViewController.xib in Resources */,
 				0892774E17B13D1F0098D30A /* WWMenuSectionCell.xib in Resources */,
@@ -1128,20 +1140,20 @@
 				0895836D182CD00B00E7E4BF /* WWRandom.m in Sources */,
 				089E6870181CFFC200ECCD9E /* WWPlaceDetailsHeaderInfoCell.m in Sources */,
 				084A602318186E93007F164D /* UILabel+WWResizing.m in Sources */,
-				88D1922518AAEF5B00B74A94 /* WWUnsupportedCityController.m in Sources */,
 				94D19DE817906281008A21E5 /* WWUserProfileViewController.m in Sources */,
 				88236F6718A1818700FC125E /* WWHashtagButton.m in Sources */,
 				08E1C14417A0394A00101E11 /* WWLoginViewController.m in Sources */,
 				08E1C14917A0396000101E11 /* WWSettingsViewController.m in Sources */,
 				08E1C16A17A064BF00101E11 /* WWWebViewController.m in Sources */,
 				0831D90B18121A90001CA88F /* WWPhotoDetailsViewController.m in Sources */,
-				CCD2FFB1189C0B0D000A543C /* WWFeaturedHashtag.m in Sources */,
+				CCD2FFB1189C0B0D000A543C /* WWCity.m in Sources */,
 				CC7371E51847801C001F798A /* WWAutoCompleteResult.m in Sources */,
 				08E1C17B17A097F400101E11 /* WWUser.m in Sources */,
 				08B725AC186102E700F6CD23 /* WWIntroViewController.m in Sources */,
 				08128B5B18259BF5001F2F3A /* WWNavView.m in Sources */,
 				08E1C18017A0A7A500101E11 /* WWString.m in Sources */,
 				08E9A7E1184D035D008BDFAC /* UISearchBar+WWFramework.m in Sources */,
+				8874977618BEAC7700C82911 /* WWScoreView.m in Sources */,
 				089A9501180DCD3D00267CBC /* MMDrawerVisualState.m in Sources */,
 				08E8FB1A17A1009000F1C015 /* WWTextField.m in Sources */,
 				081B0CA217AB0568003C7387 /* WWPagedSearchResults.m in Sources */,
@@ -1268,7 +1280,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)\"",
+					"$(SRCROOT)",
+					/Users/omblabs/Dev/wayway/FrontEnd/Appsee,
+					"/Users/Raphael/Desktop/WayWay\\ LOCAL/FrontEnd/Appsee",
+					/Users/omblabs/Dev/wayway/FrontEnd,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WayWay/WayWay-Prefix.pch";
@@ -1296,7 +1311,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)\"",
+					"$(SRCROOT)",
+					/Users/omblabs/Dev/wayway/FrontEnd/Appsee,
+					"/Users/Raphael/Desktop/WayWay\\ LOCAL/FrontEnd/Appsee",
+					/Users/omblabs/Dev/wayway/FrontEnd,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WayWay/WayWay-Prefix.pch";
@@ -1352,7 +1370,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)\"",
+					"$(SRCROOT)",
+					/Users/omblabs/Dev/wayway/FrontEnd/Appsee,
+					"/Users/Raphael/Desktop/WayWay\\ LOCAL/FrontEnd/Appsee",
+					/Users/omblabs/Dev/wayway/FrontEnd,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WayWay/WayWay-Prefix.pch";

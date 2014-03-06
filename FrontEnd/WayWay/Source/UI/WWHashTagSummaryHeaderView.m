@@ -20,12 +20,12 @@
 
 - (void) awakeFromNib
 {
-    [self.hashTagLabel wwStyleWithFontOfSize:22];
-    [self.countLabel wwStyleWithFontOfSize:15];
-    [self.countLabel setTextColor:WW_LIGHT_GRAY_FONT_COLOR];
+    self.hashTagLabel.font = WW_FONT_H1;
+    self.countLabel.font = WW_FONT_H5;
+    [self.countLabel setTextColor:WW_GRAY_COLOR_7];
     
     CALayer* layer = [CALayer layer];
-    layer.borderColor = [[UIColor uuColorFromHex:@"D9D9D9"] CGColor];
+    layer.borderColor = [WW_GRAY_COLOR_4 CGColor];
     layer.borderWidth = 0.5f;
     self.bottomGreyIndentedBorder = layer;
     [self.layer addSublayer:layer];
@@ -49,7 +49,7 @@
 - (void) update:(WWHashtag*)hashTag prev:(id)prev next:(id)next
 {
     self.hashTagLabel.text = [NSString stringWithFormat:@"#%@", hashTag.name];
-    self.countLabel.text = [NSString stringWithFormat:@"%@", hashTag.count];
+    self.countLabel.text = [NSString stringWithFormat:@"%@", [[hashTag.count stringValue] wwFormatAsMentionsSummary]];
     
     self.topBorder.hidden = YES;
     self.bottomBlackBorder.hidden = YES;

@@ -21,7 +21,7 @@
 - (void) wwStyleLightGrayButtonBorder
 {
     self.layer.cornerRadius = 5;
-    self.layer.borderColor = [WW_LIGHT_GRAY_BUTTON_COLOR CGColor];
+    self.layer.borderColor = [WW_GRAY_COLOR_6 CGColor];
     self.layer.borderWidth = 1;
     self.layer.masksToBounds = YES;
 }
@@ -29,7 +29,7 @@
 - (void) wwStyleLightOrangeBorder
 {
     self.layer.cornerRadius = 5;
-    self.layer.borderColor = [WW_ORANGE_FONT_COLOR CGColor];
+    self.layer.borderColor = [WW_LEAD_COLOR CGColor];
     self.layer.borderWidth = 1;
     self.layer.masksToBounds = YES;
 }
@@ -51,7 +51,7 @@
 - (void) wwStyleLightGreyTopAndBottomBorders
 {
     CGFloat borderWidth = 0.5f;
-    CGColorRef borderColor = [WW_GRAY_BORDER CGColor];
+    CGColorRef borderColor = [WW_GRAY_COLOR_5 CGColor];
     
     CALayer* topBorder = [CALayer layer];
     topBorder.borderColor = borderColor;
@@ -86,7 +86,7 @@
 - (void) wwStyleNavBottomSeparatorBorder
 {
     CGFloat borderWidth = 0.5f;
-    CGColorRef borderColor = [WW_NAV_GRAY_SEPARATOR_COLOR CGColor];
+    CGColorRef borderColor = [WW_GRAY_COLOR_6 CGColor];
     
     CALayer* bottomBorder = [CALayer layer];
     bottomBorder.borderColor = borderColor;

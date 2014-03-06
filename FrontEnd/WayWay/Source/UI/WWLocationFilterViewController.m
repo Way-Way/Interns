@@ -15,6 +15,7 @@
 @property (nonatomic, strong) NSArray* tableData;
 @property (nonatomic, strong) NSTimer* searchTimer;
 @property (nonatomic, strong) UUHttpClient* searchClient;
+@property (assign) BOOL hasResults;
 @end
 
 @implementation WWLocationFilterViewController
@@ -47,6 +48,7 @@
     //[self.tableView reloadData];
     
     [self.searchBar becomeFirstResponder];
+    self.hasResults = YES;
 }
 
 
@@ -74,7 +76,7 @@
         if (cell == nil)
         {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
-            [cell.textLabel wwStyleWithFontOfSize:18];
+            cell.textLabel.font = WW_FONT_H4;
             cell.selectionStyle = UITableViewCellSelectionStyleBlue;
             cell.selectedBackgroundView = [[UIView alloc] initWithFrame:CGRectZero];
             cell.selectedBackgroundView.backgroundColor = WW_LIGHT_BLUE_COLOR;
@@ -100,7 +102,7 @@
         if (cell == nil)
         {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
-            [cell.textLabel wwStyleWithFontOfSize:18];
+            cell.textLabel.font = WW_FONT_H4;
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             cell.textLabel.textColor = [UIColor blackColor];
             cell.textLabel.textAlignment = NSTextAlignmentCenter;
@@ -110,12 +112,9 @@
             cell.backgroundView = v;
         }
         
-        if (indexPath.row == 1)
+        if (indexPath.row == 1 && self.searchBar.text.length > 0 && !self.hasResults)
         {
-            if (self.searchBar.text.length > 0)
-            {
-                cell.textLabel.text = @"No results for your search";
-            }
+            cell.textLabel.text = @"No results for your search";
         }
         else
         {
@@ -151,6 +150,9 @@
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
     [self.searchTimer invalidate];
+    self.hasResults = YES;
+    [self.tableView reloadData];
+    
     self.searchTimer = [NSTimer scheduledTimerWithTimeInterval:WW_SEARCH_DELAY target:self selector:@selector(performSearch) userInfo:nil repeats:NO];
 }
 
@@ -184,6 +186,9 @@
                                                              mapRegion:self.mapRegion
                                                             completion:^(NSError *error, NSArray *results)
          {
+             if(results!=nil && [results count] == 0)
+                 self.hasResults = NO;
+             
              [self refreshTableData:results];
              self.searchClient = nil;
          }];

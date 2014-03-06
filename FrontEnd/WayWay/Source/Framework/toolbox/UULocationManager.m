@@ -45,7 +45,7 @@ static UULocationManager* theLocationManager = nil;
 
 - (CLLocation*) currentLocation
 {
-	return self.clLocation;
+	return [self.clLocationManager location];
 }
 
 - (NSString*) currentLocationName

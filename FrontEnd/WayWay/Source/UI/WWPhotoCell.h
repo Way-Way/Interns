@@ -17,12 +17,11 @@
 @property (weak, nonatomic) IBOutlet UIView *scrollContent;
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
 @property (strong, nonatomic) IBOutlet UIImageView *lockImage;
+@property (strong, nonatomic) IBOutlet UIImageView *instagramLogo;
 
 @property (strong, nonatomic) IBOutlet UIView *hashtagContainer;
 
-@property (strong, nonatomic) UIView *instagramUserView;
-
 - (void) update:(WWPhoto*)photo highlightedHashTag:(NSString*)hashTag;
--(void) launchHashtagSearch:(id)sender;
+- (void) launchHashtagSearch:(id)sender;
 
 @end

@@ -25,7 +25,8 @@
 @property (nonatomic, copy) NSString* city;
 
 @property (nonatomic, copy) NSString* combinedCategories;
-@property (nonatomic, copy) NSString* categoryIcon;
+@property (assign) WWPlaceCategory category;
+//@property (nonatomic, copy) NSString* categoryIcon;
 //@property (nonatomic, copy) NSString* relevantHashtags;
 
 @property (nonatomic, copy) NSString* price;
@@ -41,6 +42,10 @@
 @property (nonatomic, strong) NSNumber* classicRank;
 @property (nonatomic, strong) NSNumber* isTrending;
 
+@property (assign) BOOL hasFoodPhoto;
+@property (assign) BOOL hasAtmospherePhoto;
+@property (assign) BOOL hasPeoplePhoto;
+
 - (CLLocation*) location;
 
 - (id) initFromDictionary:(NSDictionary*)dictionary;
@@ -52,6 +57,7 @@
 - (NSString*) formattedPhoneNumber;
 
 - (BOOL) isFetchingPhotos;
+- (void) cancelRequests;
 
 - (void) beginPhotoFetchByFilter:(WWPhotoFilter)filter
               completion:(void (^)(NSArray* photos, WWPagedSearchResults* pagedResults))completion;

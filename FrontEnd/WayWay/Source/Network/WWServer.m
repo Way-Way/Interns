@@ -582,7 +582,7 @@ static WWServer* theWWServer = nil;
      }];
 }
 
-#pragma mark - Intro slides - suggested hashtags
+#pragma mark - Intro slides - suggested hashtags - cities
 - (UUHttpClient*) featuredHashtagsWithLocation:(CLLocation*)location completion:(void(^)(NSError* error, NSArray* results))completion
 {
     NSArray* parts = @[@"hashtags"];
@@ -608,7 +608,7 @@ static WWServer* theWWServer = nil;
                     
                     for (id node in response.parsedResponse)
                     {
-                        WWFeaturedHashtag* obj = [WWFeaturedHashtag fromDictionary:node];
+                        WWCity* obj = [WWCity fromDictionary:node];
                         if (obj)
                         {
                             [parsedResults addObject:obj];

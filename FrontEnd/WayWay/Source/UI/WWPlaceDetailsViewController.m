@@ -34,22 +34,22 @@
     [self.collectionView registerNib:[UINib nibWithNibName:@"WWHashTagSummaryHeaderView" bundle:nil] forCellWithReuseIdentifier:@"WWHashTagSummaryHeaderViewId"];
     [self.collectionView registerClass:[WWSpacerCell class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"WWSpacerCellId"];
     
-    [self.categoriesLabel wwStyleWithFontOfSize:WW_SUB_LABEL_FONT_SIZE];
-    self.categoriesLabel.textColor = WW_LIGHT_GRAY_FONT_COLOR;
+    self.categoriesLabel.font = WW_FONT_H5;
+    self.categoriesLabel.textColor = WW_GRAY_COLOR_7;
     
-    [self.headerLabel wwStyleWithFontOfSize:WW_HEADING_FONT_SIZE];
-    [self.centeredHeaderLabel wwStyleWithFontOfSize:WW_HEADING_FONT_SIZE];
+    self.headerLabel.font = WW_FONT_H3;
+    self.centeredHeaderLabel.font = WW_FONT_H3;
     
-    self.behindStatusBarView.backgroundColor = WW_HEADER_BACKGROUND_COLOR;
-    self.headerView.backgroundColor = WW_HEADER_BACKGROUND_COLOR;
-    self.behindInfoView.backgroundColor = WW_HEADER_BACKGROUND_COLOR;
+    self.behindStatusBarView.backgroundColor = WW_GRAY_COLOR_1;
+    self.headerView.backgroundColor = WW_GRAY_COLOR_1;
+    self.behindInfoView.backgroundColor = WW_GRAY_COLOR_1;
     self.infoView.backgroundColor = [UIColor clearColor];
     self.headerContainerView.backgroundColor = [UIColor clearColor];
     
     
     //Layer under place title
     CALayer* layer = [CALayer layer];
-    layer.borderColor = [[UIColor uuColorFromHex:@"ADADAD"] CGColor];
+    layer.borderColor = [WW_GRAY_COLOR_6 CGColor];
     layer.borderWidth = 0.5f;
     [self.headerView.layer addSublayer:layer];
     self.fakeNavBottomBorder = layer;
@@ -86,7 +86,35 @@
         [self onTagsButtonClicked:nil];
     }
     
+    
+    
+    self.tagsButton.hidden = NO;
+    self.foodButton.hidden = NO;
+    self.atmosphereButton.hidden = NO;
+    self.peopleButton.hidden = NO;
+
+    
+    self.foodButton.enabled = self.place.hasFoodPhoto;
+    self.peopleButton.enabled = self.place.hasPeoplePhoto;
+    self.atmosphereButton.enabled = self.place.hasAtmospherePhoto;
+    
+    if(!self.place.hasFoodPhoto
+       && !self.place.hasPeoplePhoto
+       && !self.place.hasAtmospherePhoto)
+    {
+        self.tagsButton.hidden = YES;
+        self.foodButton.hidden = YES;
+        self.atmosphereButton.hidden = YES;
+        self.peopleButton.hidden = YES;
+    }
+       
+    self.scoreView.score = self.place.classicRank;
+    self.scoreView.isTrending = self.place.isTrending.boolValue;
+    self.scoreView.backgroundColor = WW_GRAY_COLOR_2;
     [self refreshUi];
+    
+    
+    
 }
 
 - (void) refreshUi
@@ -96,55 +124,54 @@
     
     [self refreshHeaderView];
     [self refreshInfoView];
+    [self.scoreView setNeedsDisplay];
 }
 
 - (void) refreshNoPhotosLabel
 {
-    self.noPhotosLabel.hidden = YES;//(self.place.photos.count > 0);
     self.collectionView.hidden = NO;//(self.place.photos.count <= 0);
 }
 
 - (void) refreshHeaderView
 {
-    [self wwFormatScoreLabel:self.scoreLabel place:self.place];
     self.headerLabel.text = self.place.name;
     self.centeredHeaderLabel.text = self.place.name;
 }
 
 - (void) refreshInfoView
 {
-#warning : This is just for test
+    //This is just for test
     self.categoriesLabel.text = [self.place combinedCategories];
     //self.categoriesLabel.text = [self.place relevantHashtags];
-    self.trendingIcon.hidden = !self.place.isTrending.boolValue;
     
     [self refreshInfoLabel];
     
     [self.infoLabel wwResizeWidth];
-    
-    CGRect f = self.trendingIcon.frame;
-    f.origin.x = self.infoLabel.frame.origin.x + self.infoLabel.frame.size.width;
-    f.origin.y = self.infoLabel.frame.origin.y + (self.infoLabel.frame.size.height / 2) - (f.size.height / 2);
-    self.trendingIcon.frame = f;
 }
 
 - (void) refreshInfoLabel
 {
-    UIFont* thinFont = [UIFont fontWithName:WW_DEFAULT_FONT_NAME size:WW_SUB_LABEL_FONT_SIZE];
-    UIFont* lightFont = [UIFont fontWithName:WW_DEFAULT_FONT_NAME size:WW_SUB_LABEL_FONT_SIZE];
+    UIColor* baseColor = WW_GRAY_COLOR_7;
+    UIColor* blackColor = WW_GRAY_COLOR_11;
+    UIColor* trendingColor = WW_LEAD_COLOR;
     
-    UIColor* baseColor = WW_LIGHT_GRAY_FONT_COLOR;
-    UIColor* blackColor = [UIColor blackColor];
-    UIColor* trendingColor = WW_ORANGE_FONT_COLOR;
+    NSDictionary* baseAttrs = @{NSFontAttributeName : WW_FONT_H6, NSForegroundColorAttributeName : baseColor };
+    NSDictionary* blackAttrs = @{NSFontAttributeName : WW_FONT_H6, NSForegroundColorAttributeName : blackColor };
+    NSDictionary* trendingAttrs = @{NSFontAttributeName : WW_FONT_H6, NSForegroundColorAttributeName : trendingColor };
+    NSDictionary* pointAttrs = @{NSFontAttributeName : WW_FONT_H6, NSForegroundColorAttributeName : WW_GRAY_COLOR_6};
     
-    NSDictionary* baseAttrs = @{NSFontAttributeName : thinFont, NSForegroundColorAttributeName : baseColor };
-    NSDictionary* blackAttrs = @{NSFontAttributeName : lightFont, NSForegroundColorAttributeName : blackColor };
-    NSDictionary* trendingAttrs = @{NSFontAttributeName : lightFont, NSForegroundColorAttributeName : trendingColor };
     
     NSString* distanceString = [self.place formattedDistance];
     
     NSMutableString* sb = [NSMutableString string];
-    [sb appendFormat:@"$$$$ • %@", distanceString];
+    if(self.place.price)
+    {
+        [sb appendFormat:@"$$$$ • %@", distanceString];
+    }
+    else
+    {
+        [sb appendFormat:@"%@", distanceString];
+    }
     
     NSString* trendingString = @"Trending";
     if (self.place.isTrending.boolValue)
@@ -154,9 +181,13 @@
     
     NSMutableAttributedString* as = [[NSMutableAttributedString alloc] initWithString:sb attributes:nil];
     [as setAttributes:baseAttrs range:NSMakeRange(0, as.string.length)];
-    [as setAttributes:blackAttrs range:NSMakeRange(0, self.place.price.length)];
+    
+    if(self.place.price)
+        [as setAttributes:blackAttrs range:NSMakeRange(0, self.place.price.length)];
+    
     [as setAttributes:blackAttrs range:[sb rangeOfString:distanceString]];
     [as setAttributes:trendingAttrs range:[sb rangeOfString:trendingString]];
+    [as setAttributes:pointAttrs range:[sb rangeOfString:@"•"]];
     
     self.infoLabel.attributedText = as;
 }
@@ -781,7 +812,7 @@
          self.centeredHeaderLabel.alpha = fullScreen.boolValue ? 1 : 0;
          
          self.navBackButton.alpha = fullScreen.boolValue ? 1 : 0;
-         self.scoreLabel.alpha = fullScreen.boolValue ? 0 : 1;
+         self.scoreView.alpha = fullScreen.boolValue ? 0 : 1;
         
      }];
     

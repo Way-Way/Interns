@@ -20,9 +20,6 @@
 + (WWSearchArgs*) cachedSearchArgs;
 + (void) saveCachedSearchArgs:(WWSearchArgs*)args;
 
-+ (CLLocation*) currentMapLocation;
-+ (void) setCurrentMapLocation:(CLLocation*)location;
-
 + (BOOL) isGeolocalizationOn;
 + (void) toggleGeolocalization:(BOOL)enabled;
 

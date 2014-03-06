@@ -11,16 +11,6 @@
 
 @implementation UILabel (WWStyling)
 
-- (void) wwStyleWithFontOfSize:(CGFloat)size
-{
-    self.font = [UIFont fontWithName:WW_DEFAULT_FONT_NAME size:size];
-}
-
-- (void) wwStyleWithBoldFontOfSize:(CGFloat)size
-{
-    self.font = [UIFont fontWithName:WW_DEFAULT_BOLD_FONT_NAME size:size];
-}
-
 - (void) wwRepositionSizeHeight
 {
     CGFloat oldheight = self.frame.size.height;

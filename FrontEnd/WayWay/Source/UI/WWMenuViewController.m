@@ -23,7 +23,7 @@
     [super viewDidLoad];
     
     //self.rankView = [WWRankView wwLoadAndReplaceView:self.rankView];
-    self.tableView.backgroundColor = WW_GRAY_BACKGROUND;
+    self.tableView.backgroundColor = WW_GRAY_COLOR_2;
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.backNavView];
     

@@ -66,34 +66,6 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
-+ (CLLocation*) currentMapLocation
-{
-    NSData* data = [[NSUserDefaults standardUserDefaults] objectForKey:WW_CURRENT_MAP_LOCATION_KEY];
-    if (data)
-    {
-        return [NSKeyedUnarchiver unarchiveObjectWithData:data];
-    }
-    else
-    {
-        return nil;
-    }
-}
-
-+ (void) setCurrentMapLocation:(CLLocation*)location
-{
-    if (location)
-    {
-        NSData* data = [NSKeyedArchiver archivedDataWithRootObject:location];
-        [[NSUserDefaults standardUserDefaults] setObject:data forKey:WW_CURRENT_MAP_LOCATION_KEY];
-    }
-    else
-    {
-        [[NSUserDefaults standardUserDefaults] removeObjectForKey:WW_CURRENT_MAP_LOCATION_KEY];
-        
-    }
-    
-    [[NSUserDefaults standardUserDefaults] synchronize];
-}
 
 /*
 + (BOOL) isNotificationOn

@@ -16,7 +16,7 @@
 
 
 @interface WWIntroViewController () <UIScrollViewDelegate>
-@property (nonatomic, strong) WWFeaturedHashtag* featuredHashtags;
+@property (nonatomic, strong) WWCity* featuredHashtags;
 @property (nonatomic,strong) NSString* hashtag1;
 @property (nonatomic,strong) NSString* hashtag2;
 @property (nonatomic,strong) NSString* hashtag3;
@@ -35,61 +35,58 @@
     self.scrollView.contentSize = self.scrollContent.bounds.size;
     
     //Format buttons
-    UIFont* lightfont = [UIFont fontWithName:WW_DEFAULT_FONT_NAME size:25.0f];
-    UIFont* font = [UIFont fontWithName:WW_DEFAULT_FONT_NAME size:25.0f];
-    UIFont* smallfont = [UIFont fontWithName:WW_DEFAULT_FONT_NAME size:20.0f];
     UIColor* color = [UIColor blackColor];
     UIEdgeInsets edgeInsets = UIEdgeInsetsMake(4, 15, 3, 15);
     
     //Labels
     self.analyzesLabel.text = @"WayWay analyzes social media to rank places around you.";
     self.analyzesLabel.backgroundColor = [UIColor clearColor];
-    self.analyzesLabel.font = lightfont;
+    self.analyzesLabel.font = WW_FONT_H1;
     self.analyzesLabel.textColor = color;
     
     self.popularLabel.text = @"Very Popular";
     self.popularLabel.backgroundColor = [UIColor clearColor];
-    self.popularLabel.font = smallfont;
+    self.popularLabel.font = WW_FONT_H3;
     self.popularLabel.textColor = color;
     
     self.trendingLabel.text = @"Trending Up";
     self.trendingLabel.backgroundColor = [UIColor clearColor];
-    self.trendingLabel.font = smallfont;
+    self.trendingLabel.font = WW_FONT_H3;
     self.trendingLabel.textColor = color;
     
     self.underradarLabel.text = @"Under the Radar";
     self.underradarLabel.backgroundColor = [UIColor clearColor];
-    self.underradarLabel.font = smallfont;
+    self.underradarLabel.font = WW_FONT_H3;
     self.underradarLabel.textColor = color;
     
     self.swipeLabel.text = @"Swipe to continue";
     self.swipeLabel.backgroundColor = [UIColor clearColor];
-    self.swipeLabel.font = font;
+    self.swipeLabel.font = WW_FONT_H1;
     self.swipeLabel.textColor = color;
     
     self.feelLabel.text = @"Get a feel for places with user-generated hashtags and pictures.";
     self.feelLabel.backgroundColor = [UIColor clearColor];
-    self.feelLabel.font = lightfont;
+    self.feelLabel.font = WW_FONT_H1;
     self.feelLabel.textColor = color;
     
     self.picturesLabel.text = @"Pictures are sorted so you can focus on what matters to you.";
     self.picturesLabel.backgroundColor = [UIColor clearColor];
-    self.picturesLabel.font = lightfont;
+    self.picturesLabel.font = WW_FONT_H1;
     self.picturesLabel.textColor = color;
     
     self.discoverLabel.text = @"Discover unique places by searching hashtags.";
     self.discoverLabel.backgroundColor = [UIColor clearColor];
-    self.discoverLabel.font = lightfont;
+    self.discoverLabel.font = WW_FONT_H1;
     self.discoverLabel.textColor = color;
     
     self.tapHashtagLabel.text = @"Tap a hashtag to get started.";
     self.tapHashtagLabel.backgroundColor = [UIColor clearColor];
-    self.tapHashtagLabel.font = font;
+    self.tapHashtagLabel.font = WW_FONT_H1;
     self.tapHashtagLabel.textColor = color;
     
     [self.skipIntroButton setTitle:@"Skip Tutorial" forState:UIControlStateNormal];
-    [self.skipIntroButton setTitleColor:WW_ORANGE_FONT_COLOR forState:UIControlStateNormal];
-    self.skipIntroButton.titleLabel.font = [UIFont fontWithName:WW_DEFAULT_FONT_NAME size:16];
+    [self.skipIntroButton setTitleColor:WW_LEAD_COLOR forState:UIControlStateNormal];
+    self.skipIntroButton.titleLabel.font = WW_FONT_H4;
     self.skipIntroButton.alpha = 0;
     self.skipIntroButton.hidden = YES;
     
@@ -105,17 +102,17 @@
     self.exitSearchButtonFour.layer.borderWidth = 1;
     self.exitSearchButtonFive.layer.borderWidth = 1;
     
-    self.exitSearchButtonOne.layer.borderColor = WW_ORANGE_FONT_COLOR.CGColor;
-    self.exitSearchButtonTwo.layer.borderColor = WW_ORANGE_FONT_COLOR.CGColor;
-    self.exitSearchButtonThree.layer.borderColor = WW_ORANGE_FONT_COLOR.CGColor;
-    self.exitSearchButtonFour.layer.borderColor = WW_ORANGE_FONT_COLOR.CGColor;
-    self.exitSearchButtonFive.layer.borderColor = WW_ORANGE_FONT_COLOR.CGColor;
+    self.exitSearchButtonOne.layer.borderColor = WW_LEAD_COLOR.CGColor;
+    self.exitSearchButtonTwo.layer.borderColor = WW_LEAD_COLOR.CGColor;
+    self.exitSearchButtonThree.layer.borderColor = WW_LEAD_COLOR.CGColor;
+    self.exitSearchButtonFour.layer.borderColor = WW_LEAD_COLOR.CGColor;
+    self.exitSearchButtonFive.layer.borderColor = WW_LEAD_COLOR.CGColor;
     
-    self.exitSearchButtonOne.titleLabel.font = font;
-    self.exitSearchButtonTwo.titleLabel.font = font;
-    self.exitSearchButtonThree.titleLabel.font = font;
-    self.exitSearchButtonFour.titleLabel.font = font;
-    self.exitSearchButtonFive.titleLabel.font = font;
+    self.exitSearchButtonOne.titleLabel.font = WW_FONT_H1;
+    self.exitSearchButtonTwo.titleLabel.font = WW_FONT_H1;
+    self.exitSearchButtonThree.titleLabel.font = WW_FONT_H1;
+    self.exitSearchButtonFour.titleLabel.font = WW_FONT_H1;
+    self.exitSearchButtonFive.titleLabel.font = WW_FONT_H1;
     
     [self.exitSearchButtonOne setTitleColor:color forState:UIControlStateNormal];
     [self.exitSearchButtonTwo setTitleColor:color forState:UIControlStateNormal];
@@ -143,6 +140,16 @@
     self.hashtag5 = WW_DEFAULT_SEARCH_5;
     
     self.featuredHashtags = nil;
+    [self loadHashtags];
+    [self refreshHashtags];
+    [self refreshDotsView];
+}
+
+- (void) loadHashtags
+{
+    if(self.featuredHashtags)
+        return;
+    
     CLLocation* location = [[UULocationManager sharedInstance] currentLocation];
     
     // For test
@@ -151,24 +158,22 @@
     {
         [[WWServer sharedInstance] featuredHashtagsWithLocation:location
                                                      completion:^(NSError* error, NSArray* results)
-        {
-            self.featuredHashtags = results[0];
-        
-            if((self.featuredHashtags!=nil) && (self.featuredHashtags.featured.count == 5))
-            {
-                self.hashtag1 = self.featuredHashtags.featured[0];
-                self.hashtag2 = self.featuredHashtags.featured[1];
-                self.hashtag3 = self.featuredHashtags.featured[2];
-                self.hashtag4 = self.featuredHashtags.featured[3];
-                self.hashtag5 = self.featuredHashtags.featured[4];
-            }
-            
-            [self refreshHashtags];
-        }];
+         {
+             self.featuredHashtags = results[0];
+             
+             if((self.featuredHashtags!=nil) && (self.featuredHashtags.featured.count == 5))
+             {
+                 self.hashtag1 = self.featuredHashtags.featured[0];
+                 self.hashtag2 = self.featuredHashtags.featured[1];
+                 self.hashtag3 = self.featuredHashtags.featured[2];
+                 self.hashtag4 = self.featuredHashtags.featured[3];
+                 self.hashtag5 = self.featuredHashtags.featured[4];
+             }
+             
+             [self refreshHashtags];
+         }];
     }
-    
-    [self refreshHashtags];
-    [self refreshDotsView];
+
 }
 
 -(void) refreshHashtags
@@ -192,6 +197,7 @@
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
+    [self loadHashtags];
     [self refreshDotsView];
 }
 

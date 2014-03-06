@@ -21,6 +21,7 @@
 #import <Twitter/Twitter.h>
 #import <Accounts/Accounts.h>
 #import <CoreText/CoreText.h>
+#import <Appsee/Appsee.h>
 
 
 // Third Party Includes
@@ -84,12 +85,13 @@
 #import "WWAutoCompleteResult.h"
 #import "WWMenu.h"
 #import "WWArea.h"
-#import "WWFeaturedHashtag.h"
+#import "WWCity.h"
 
 // App Services
 #import "WWServer.h"
 
 // UI
+#import "WWScoreView.h"
 #import "WWNavView.h"
 #import "WWResultsCell.h"
 #import "WWPinView.h"
@@ -123,7 +125,7 @@
 #import "WWSpacerCell.h"
 #import "WWIntroViewController.h"
 #import "WWPhotoDetailsAnimator.h"
-#import "WWUnsupportedCityController.h"
+
 
 // App
 #import "WWAppDelegate.h"

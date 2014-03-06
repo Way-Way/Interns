@@ -15,15 +15,8 @@
     UITableViewDelegate
 >
 
-@property (strong, nonatomic) IBOutlet UITableView *tableView;
-
-@property (strong, nonatomic) IBOutlet WWFlatButton *feedbackButton;
-@property (strong, nonatomic) IBOutlet WWFlatButton *signUpButton;
-@property (strong, nonatomic) IBOutlet UILabel *notLoggedInMessage;
-@property (strong, nonatomic) IBOutlet WWFlatButton *inviteFriendsButton;
-
-- (IBAction)onSignUpClicked:(id)sender;
-- (IBAction)onInviteFriendsClicked:(id)sender;
+@property (strong, nonatomic) IBOutlet UITableView *tableViewFirst;
+@property (strong, nonatomic) IBOutlet UITableView *tableViewSecond;
 
 @end
 

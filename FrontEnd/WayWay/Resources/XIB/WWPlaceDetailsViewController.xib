@@ -24,11 +24,9 @@
                 <outlet property="infoLabel" destination="TPI-fx-Rr5" id="N5u-jd-BY4"/>
                 <outlet property="infoView" destination="FJ1-qN-NgD" id="HP2-QC-Zew"/>
                 <outlet property="navBackButton" destination="vi4-oJ-AoA" id="9wX-jj-3l2"/>
-                <outlet property="noPhotosLabel" destination="bhu-t2-3sZ" id="brE-CI-OMi"/>
                 <outlet property="peopleButton" destination="ob0-y7-jw3" id="S1D-yB-bXn"/>
-                <outlet property="scoreLabel" destination="l8g-0b-6PB" id="7Ox-HJ-JaD"/>
+                <outlet property="scoreView" destination="XxW-l9-Nuf" id="QLS-nL-tYT"/>
                 <outlet property="tagsButton" destination="F9P-XP-sp2" id="YNA-BW-b6D"/>
-                <outlet property="trendingIcon" destination="vke-eS-1KG" id="3cK-eT-eIg"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>
@@ -55,13 +53,6 @@
                             <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="l8g-0b-6PB">
-                                    <rect key="frame" x="20" y="9" width="39" height="24"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dCt-6T-Umh" userLabel="Left Aligned Header">
                                     <rect key="frame" x="57" y="10" width="215" height="24"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -86,7 +77,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="vi4-oJ-AoA" userLabel="Back Button">
-                                    <rect key="frame" x="6" y="-1" width="40" height="40"/>
+                                    <rect key="frame" x="7" y="-1" width="40" height="40"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <state key="normal" image="cross">
@@ -115,12 +106,13 @@
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trending" id="vke-eS-1KG">
-                                    <rect key="frame" x="227" y="18" width="24" height="24"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                </imageView>
                             </subviews>
                             <color key="backgroundColor" red="0.8361367985" green="0.0" blue="0.0090729256989999993" alpha="1" colorSpace="calibratedRGB"/>
+                        </view>
+                        <view contentMode="scaleToFill" id="XxW-l9-Nuf" userLabel="scoreView" customClass="WWScoreView">
+                            <rect key="frame" x="15" y="45" width="30" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -158,19 +150,12 @@
                         <outletCollection property="gestureRecognizers" destination="JRN-b9-uyV" appends="YES" id="n5f-4m-ByI"/>
                     </connections>
                 </view>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="No Photos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bhu-t2-3sZ">
-                    <rect key="frame" x="103" y="274" width="114" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <view contentMode="scaleToFill" id="HZp-eO-fUL">
-                    <rect key="frame" x="0.0" y="524" width="320" height="34"/>
+                    <rect key="frame" x="0.0" y="514" width="320" height="45"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="F9P-XP-sp2" userLabel="Tags Button">
-                            <rect key="frame" x="13" y="0.0" width="63" height="34"/>
+                            <rect key="frame" x="10" y="0.0" width="65" height="45"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                             <state key="normal" image="photobar_tags">
@@ -182,7 +167,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="IZa-75-Mjk" userLabel="Food Button">
-                            <rect key="frame" x="76" y="0.0" width="56" height="34"/>
+                            <rect key="frame" x="75" y="0.0" width="55" height="45"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                             <state key="normal" image="photobar_food">
@@ -194,7 +179,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="tju-Iy-PAy" userLabel="Atmosphere Button">
-                            <rect key="frame" x="132" y="0.0" width="99" height="34"/>
+                            <rect key="frame" x="130" y="0.0" width="102" height="45"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                             <state key="normal" image="photobar_atmosphere">
@@ -206,7 +191,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ob0-y7-jw3" userLabel="People Button">
-                            <rect key="frame" x="230" y="0.0" width="76" height="34"/>
+                            <rect key="frame" x="232" y="0.0" width="78" height="45"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                             <state key="normal" image="photobar_people">
@@ -254,14 +239,13 @@
     <resources>
         <image name="cross" width="24" height="24"/>
         <image name="info" width="24" height="24"/>
-        <image name="photobar_atmosphere" width="98" height="38"/>
-        <image name="photobar_atmosphere_pressed" width="98" height="38"/>
-        <image name="photobar_food" width="56" height="38"/>
-        <image name="photobar_food_pressed" width="56" height="38"/>
-        <image name="photobar_people" width="75" height="38"/>
-        <image name="photobar_people_pressed" width="75" height="38"/>
-        <image name="photobar_tags" width="64" height="38"/>
-        <image name="photobar_tags_pressed" width="64" height="38"/>
-        <image name="trending" width="24" height="24"/>
+        <image name="photobar_atmosphere" width="102" height="45"/>
+        <image name="photobar_atmosphere_pressed" width="102" height="45"/>
+        <image name="photobar_food" width="55" height="45"/>
+        <image name="photobar_food_pressed" width="55" height="45"/>
+        <image name="photobar_people" width="78" height="45"/>
+        <image name="photobar_people_pressed" width="78" height="45"/>
+        <image name="photobar_tags" width="65" height="45"/>
+        <image name="photobar_tags_pressed" width="65" height="45"/>
     </resources>
 </document>

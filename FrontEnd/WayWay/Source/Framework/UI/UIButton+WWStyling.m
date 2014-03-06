@@ -14,7 +14,7 @@
 {
     UIImage* selectedImage = [UIImage wwSolidColorImage:WW_LIGHT_BLUE_COLOR];
     UIImage* unselectedImage = [UIImage wwSolidColorImage:[UIColor whiteColor]];
-    UIImage* pressedImage = [UIImage wwSolidColorImage:WW_GRAY_BACKGROUND];
+    UIImage* pressedImage = [UIImage wwSolidColorImage:WW_GRAY_COLOR_2];
     
     [self setBackgroundImage:selectedImage forState:UIControlStateSelected];
     [self setBackgroundImage:unselectedImage forState:UIControlStateNormal];
@@ -24,7 +24,7 @@
     [self setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
     [self setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
     
-    [self.titleLabel wwStyleWithFontOfSize:16];
+    self.titleLabel.font = WW_FONT_H4;
 }
 
 - (void) wwStyleLightGrayAndOrangeButton
@@ -32,26 +32,26 @@
     self.backgroundColor = [UIColor clearColor];
     
     UIImage* unselectedImage = [UIImage wwSolidColorImage:[UIColor clearColor]];
-    UIImage* selectedImage = [UIImage wwSolidColorImage:WW_ORANGE_FONT_COLOR];
-    UIImage* pressedImage = [UIImage wwSolidColorImage:WW_GRAY_BACKGROUND];
+    UIImage* selectedImage = [UIImage wwSolidColorImage:WW_LEAD_COLOR];
+    UIImage* pressedImage = [UIImage wwSolidColorImage:WW_GRAY_COLOR_2];
     
     [self setBackgroundImage:selectedImage forState:UIControlStateSelected];
     [self setBackgroundImage:unselectedImage forState:UIControlStateNormal];
     [self setBackgroundImage:pressedImage forState:UIControlStateHighlighted];
     
-    [self setTitleColor:WW_LIGHT_GRAY_BUTTON_COLOR forState:UIControlStateNormal];
+    [self setTitleColor:WW_GRAY_COLOR_6 forState:UIControlStateNormal];
     [self setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
     [self setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
     
-    [self.titleLabel wwStyleWithFontOfSize:16];
+    self.titleLabel.font = WW_FONT_H4;
     
     if ([self isKindOfClass:[WWFlatButton class]])
     {
         WWFlatButton* b = (WWFlatButton*)self;
         b.normalBackgroundColor = [UIColor clearColor];
-        b.normalBorderColor = WW_LIGHT_GRAY_BUTTON_COLOR;
-        b.selectedBackgroundColor = WW_ORANGE_FONT_COLOR;
-        b.selectedBorderColor = WW_ORANGE_FONT_COLOR;
+        b.normalBorderColor = WW_GRAY_COLOR_6;
+        b.selectedBackgroundColor = WW_LEAD_COLOR;
+        b.selectedBorderColor = WW_LEAD_COLOR;
     }
 }
 
@@ -70,7 +70,7 @@
     [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
     
-    [self.titleLabel wwStyleWithFontOfSize:16];
+    self.titleLabel.font = WW_FONT_H4;
     
     if ([self isKindOfClass:[WWFlatButton class]])
     {
@@ -93,7 +93,7 @@
     [self setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
     
-    [self.titleLabel wwStyleWithFontOfSize:16];
+    self.titleLabel.font = WW_FONT_H4;
     
     [self wwStyleLightGreyTopAndBottomBorders];
 }
@@ -101,15 +101,15 @@
 - (void) wwStyleFlatWhiteButtonWithGreenText
 {
     UIImage* selectedImage = [UIImage wwSolidColorImage:[UIColor whiteColor]];
-    UIImage* pressedImage = [UIImage wwSolidColorImage:WW_GREEN_BUTTON_COLOR];
+    UIImage* pressedImage = [UIImage wwSolidColorImage:WW_GREEN_COLOR];
     
     [self setBackgroundImage:selectedImage forState:UIControlStateSelected];
     [self setBackgroundImage:pressedImage forState:UIControlStateHighlighted];
     
-    [self setTitleColor:WW_GREEN_BUTTON_COLOR forState:UIControlStateNormal];
+    [self setTitleColor:WW_GREEN_COLOR forState:UIControlStateNormal];
     [self setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
     
-    [self.titleLabel wwStyleWithFontOfSize:16];
+    self.titleLabel.font = WW_FONT_H4;
     [self wwStyleLightGreyTopAndBottomBorders];
 }
 
@@ -118,18 +118,18 @@
     self.backgroundColor = [UIColor clearColor];
     
     UIImage* unselectedImage = [UIImage wwSolidColorImage:[UIColor clearColor]];
-    UIImage* selectedImage = [UIImage wwSolidColorImage:WW_ORANGE_FONT_COLOR];
-    UIImage* pressedImage = [UIImage wwSolidColorImage:WW_GRAY_BACKGROUND];
+    UIImage* selectedImage = [UIImage wwSolidColorImage:WW_LEAD_COLOR];
+    UIImage* pressedImage = [UIImage wwSolidColorImage:WW_GRAY_COLOR_2];
     
     [self setBackgroundImage:selectedImage forState:UIControlStateSelected];
     [self setBackgroundImage:unselectedImage forState:UIControlStateNormal];
     [self setBackgroundImage:pressedImage forState:UIControlStateHighlighted];
     
-    [self setTitleColor:WW_LIGHT_GRAY_BUTTON_COLOR forState:UIControlStateNormal];
+    [self setTitleColor:WW_GRAY_COLOR_6 forState:UIControlStateNormal];
     [self setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
     [self setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
     
-    [self.titleLabel wwStyleWithFontOfSize:16];
+    self.titleLabel.font = WW_FONT_H4;
 
     [self wwStyleLightGreyTopAndBottomBorders];
 }

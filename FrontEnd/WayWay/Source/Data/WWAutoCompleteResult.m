@@ -45,13 +45,13 @@
             
             area= [dictionary wwNonNullValueForKey:@"area"];
             city = [dictionary wwNonNullValueForKey:@"city"];
-            if(area)
+            if(area != nil && [area length] !=0)
             {
                 self.extraSpecs = area;
-                if(city)
+                if(city!= nil && [city length] != 0)
                      self.extraSpecs =[[self.extraSpecs stringByAppendingString:@", "] stringByAppendingString:city];
             }
-            else if(city)
+            else if(city != nil && [city length] != 0)
             {
                self.extraSpecs = city;
             }
